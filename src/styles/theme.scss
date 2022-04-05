@@ -26,6 +26,11 @@
   --color-secondary-2: #f1b693;
   --color-secondary-3: #eba47a;
 
+  --color-tertiary-0: #9a92dd;
+  --color-tertiary-1: #7068b1;
+  --color-tertiary-2: #423d6d;
+  --color-tertiary-3: #2b2846;
+
   --color-neutral-0: #ffffff;
   --color-neutral-1: #f7f7f7;
   --color-neutral-2: #e3e3e3;
@@ -55,7 +60,18 @@
   // Typography /////////////////////
 
   // Family
-  --sans-serif: "Lato", -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+  --body-font:
+    "DM Sans",
+    -apple-system,
+    system-ui,
+    BlinkMacSystemFont,
+    sans-serif;
+  --heading-font:
+    "Quiche Sans",
+    -apple-system,
+    system-ui,
+    BlinkMacSystemFont,
+    sans-serif;
 
   // Base
   --base-font-size: 16px;
