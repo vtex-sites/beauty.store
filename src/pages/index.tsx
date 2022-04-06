@@ -76,7 +76,7 @@ function Page(props: Props) {
   )
 }
 
-export const query = graphql`
+export const querySSG = graphql`
   query HomePageQuery {
     site {
       siteMetadata {
@@ -86,12 +86,12 @@ export const query = graphql`
       }
     }
 
-    cmsHome {
-      sections {
-        data
-        name
-      }
-    }
+    # cmsHome {
+    #   sections {
+    #     data
+    #     name
+    #   }
+    # }
   }
 `
 

@@ -12,6 +12,7 @@ import { validateCart } from './src/sdk/cart/validate'
 import ErrorBoundary from './src/sdk/error/ErrorBoundary'
 import TestProvider from './src/sdk/tests'
 import { uiActions, uiEffects, uiInitialState } from './src/sdk/ui'
+import { ModalProvider } from './src/sdk/ui/modal'
 import storeConfig from './store.config'
 
 export const wrapRootElement = ({ element }) => (
@@ -25,7 +26,7 @@ export const wrapRootElement = ({ element }) => (
       >
         <SessionProvider initialState={{ channel: storeConfig.channel }}>
           <CartProvider mode="optimistic" onValidateCart={validateCart}>
-            {element}
+            <ModalProvider>{element}</ModalProvider>
           </CartProvider>
         </SessionProvider>
       </UIProvider>
