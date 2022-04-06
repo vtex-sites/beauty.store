@@ -33,7 +33,7 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
-      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
+      pdp: '/gel-rejuvenescedor-facial-mantecorp-ivy-c-aox-4/p',
       collection: '/beleza',
       collection_filtered:
         '/beleza/?category-1=beleza&marca=mantecorp-skincare&facets=category-1%2Cmarca',
