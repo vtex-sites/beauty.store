@@ -15,10 +15,13 @@ $base: 16px !default;
 }
 
 @mixin input-focus-ring {
-  @media not all and (min-resolution: .001dpcm) { // Target only Safari browsers
-    @supports (-webkit-appearance:none) {         // Use `focus` instead of `focus-visible`
+  @media not all and (min-resolution: 0.001dpcm) {
+    // Target only Safari browsers
+    @supports (-webkit-appearance: none) {
+      // Use `focus` instead of `focus-visible`
       &:hover:focus,
-      &:focus {                                   // due to Safari's lack of support
+      &:focus {
+        // due to Safari's lack of support
         border-color: var(--color-border-input-selected);
         outline: none;
         box-shadow:
@@ -42,16 +45,25 @@ $base: 16px !default;
 
 @mixin focus-ring {
   outline: none;
-  box-shadow: 0 0 0 1px var(--bg-body), 0 0 0 var(--border-width-2) var(--bg-focus-ring);
+  box-shadow:
+    0 0 0 1px var(--bg-body),
+    0 0 0 var(--border-width-2) var(--bg-focus-ring);
 }
 
 @mixin focus-ring-visible {
-  @media not all and (min-resolution: .001dpcm) { // Target only Safari browsers
-    @supports (-webkit-appearance:none) {        // Use `focus` instead of `focus-visible`
-      &:focus { @include focus-ring; }           // due to Safari's lack of support
+  @media not all and (min-resolution: 0.001dpcm) {
+    // Target only Safari browsers
+    @supports (-webkit-appearance: none) {
+      // Use `focus` instead of `focus-visible`
+      &:focus {
+        @include focus-ring;
+      } // due to Safari's lack of support
     }
   }
-  &:focus-visible { @include focus-ring; }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
 }
 
 @mixin truncate-title {

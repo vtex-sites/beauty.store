@@ -16,11 +16,7 @@ function ProductGrid({ products, page, pageSize }: Props) {
       <ul className="product-grid">
         {products.map(({ node: product }, idx) => (
           <li key={`${product.id}`}>
-            <ProductCard
-              product={product}
-              index={pageSize * page + idx + 1}
-              bordered
-            />
+            <ProductCard product={product} index={pageSize * page + idx + 1} />
           </li>
         ))}
       </ul>

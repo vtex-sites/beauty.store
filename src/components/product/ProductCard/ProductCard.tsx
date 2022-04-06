@@ -6,7 +6,6 @@ import {
 } from '@faststore/ui'
 import { graphql, Link } from 'gatsby'
 import React, { memo } from 'react'
-import { Badge, DiscountBadge } from 'src/components/ui/Badge'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
@@ -45,6 +44,7 @@ function ProductCard({
 
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
   const outOfStock = availability !== 'https://schema.org/InStock'
+  const hasDiscount = listPrice !== spotPrice
 
   return (
     <UICard
@@ -72,15 +72,18 @@ function ProductCard({
             </Link>
           </h3>
           <div className="product-card__prices">
-            <Price
-              value={listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={listPrice}
-              variant="listing"
-              classes="text-body-small"
-              SRText="Original price:"
-            />
+            {hasDiscount && (
+              <Price
+                value={listPrice}
+                formatter={useFormattedPrice}
+                testId="list-price"
+                data-value={listPrice}
+                variant="listing"
+                classes="text-body-small"
+                SRText="Original price:"
+              />
+            )}
+
             <Price
               value={spotPrice}
               formatter={useFormattedPrice}
@@ -92,14 +95,6 @@ function ProductCard({
             />
           </div>
         </div>
-
-        {outOfStock ? (
-          <Badge small variant="neutral">
-            Out of stock
-          </Badge>
-        ) : (
-          <DiscountBadge small listPrice={listPrice} spotPrice={spotPrice} />
-        )}
       </UICardContent>
       {!!buyButton && <UICardActions>{buyButton}</UICardActions>}
     </UICard>
