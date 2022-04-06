@@ -3,6 +3,10 @@
 [data-store-breadcrumb] {
   width: 100%;
 
+  @include media("<tablet") {
+    display: none;
+  }
+
   [data-breadcrumb-list] {
     display: flex;
     align-items: center;
@@ -20,10 +24,12 @@
         display: inline;
         min-width: var(--space-7);
         overflow: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
+        white-space: nowrap;
 
-        @include media("<=tablet") { max-width: 30%; }
+        @include media("<=tablet") {
+          max-width: 30%;
+        }
       }
     }
 
@@ -31,8 +37,8 @@
       display: block;
       width: 100%;
       overflow: hidden;
-      white-space: nowrap;
       text-overflow: ellipsis;
+      white-space: nowrap;
 
       svg {
         color: var(--color-text);
@@ -48,14 +54,18 @@
     [data-store-link] {
       display: inline;
       padding: 0;
+    }
 
-      &:visited {
-        color: var(--color-link);
-      }
+    [data-testid="store-breadcrumb-item"] {
+      font-size: var(--text-size-2);
+      font-weight: var(--text-weight-regular);
+      line-height: var(--text-size-3);
+      color: var(--color-breadcrumb-text);
+      letter-spacing: -0.05em;
     }
 
     [data-breadcrumb-item="current"] {
-      color: var(--color-text-disabled);
+      color: var(--color-breadcrumb-text-current);
     }
   }
 }

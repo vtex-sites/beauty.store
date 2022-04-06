@@ -24,7 +24,7 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:9000',
     pages: {
       home: '/',
-      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
+      pdp: '/gel-rejuvenescedor-facial-mantecorp-ivy-c-aox-4/p',
       collection: '/beleza',
     },
   },
