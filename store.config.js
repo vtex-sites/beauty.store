@@ -24,7 +24,7 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:9000',
     pages: {
       home: '/',
-      pdp: '',
+      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
       collection: '/beleza',
     },
   },
@@ -33,7 +33,7 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
-      pdp: '',
+      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
       collection: '/beleza',
       collection_filtered:
         '/beleza/?category-1=beleza&marca=mantecorp-skincare&facets=category-1%2Cmarca',
