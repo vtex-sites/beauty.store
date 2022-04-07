@@ -20,6 +20,11 @@ interface UISelectProps extends SelectProps {
    * If omitted, the label will not be rendered.
    */
   labelText?: string
+
+  defaultValue?: string
+
+  Arrowicon?: React.ReactNode
+  icon?: React.ReactNode
 }
 
 export default function Select({
@@ -31,10 +36,14 @@ export default function Select({
   value,
   'aria-label': ariaLabel,
   testId,
+  defaultValue,
+  Arrowicon = null,
+  icon = null,
 }: UISelectProps) {
   return (
     <div data-select className={className}>
       {labelText && <label htmlFor={id}>{labelText}</label>}
+      {icon}
       <UISelect
         data-testid={testId}
         onChange={onChange}
@@ -42,13 +51,17 @@ export default function Select({
         aria-label={ariaLabel}
         id={id}
       >
+        {defaultValue && <option value="">{defaultValue}</option>}
+
         {Object.keys(options).map((key) => (
           <option key={key} value={key}>
             {options[key]}
           </option>
         ))}
       </UISelect>
-      <Icon name="CaretDown" width={18} height={18} weight="bold" />
+      {Arrowicon ?? (
+        <Icon name="CaretDown" width={18} height={18} weight="bold" />
+      )}
     </div>
   )
 }

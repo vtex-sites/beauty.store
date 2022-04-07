@@ -2,15 +2,15 @@ import { usePagination, useSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
 import React, { lazy, Suspense, useState } from 'react'
 import Filter from 'src/components/search/Filter'
-import Sort from 'src/components/search/Sort'
 import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import Button, { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
+import Section from 'src/components/common/Section'
+import Container from 'src/components/common/Container'
 
-import Section from '../../common/Section'
 import EmptyGallery from './EmptyGallery'
 import { useDelayedFacets } from './useDelayedFacets'
 import { useGalleryQuery } from './useGalleryQuery'
@@ -46,14 +46,7 @@ function ProductGallery({ title, searchTerm }: Props) {
 
   return (
     <Section className="product-listing / grid-content-full">
-      {searchTerm && (
-        <header className="product-listing__search-term / grid-content">
-          <h1>
-            Showing results for: <span>{searchTerm}</span>
-          </h1>
-        </header>
-      )}
-      <div className="product-listing__content-grid / grid-content">
+      <Container>
         <div className="product-listing__filters">
           <FilterSkeleton loading={facets?.length === 0}>
             <Filter
@@ -63,7 +56,15 @@ function ProductGallery({ title, searchTerm }: Props) {
             />
           </FilterSkeleton>
         </div>
-
+      </Container>
+      {searchTerm && (
+        <header className="product-listing__search-term / grid-content">
+          <h1>
+            Showing results for: <span>{searchTerm}</span>
+          </h1>
+        </header>
+      )}
+      <div className="product-listing__content-grid / grid-content">
         <div className="product-listing__results-count" data-count={totalCount}>
           <SkeletonElement shimmer type="text" loading={!data}>
             <h2 data-testid="total-product-count">{totalCount} Results</h2>
@@ -71,10 +72,6 @@ function ProductGallery({ title, searchTerm }: Props) {
         </div>
 
         <div className="product-listing__sort">
-          <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
-            <Sort />
-          </SkeletonElement>
-
           <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
             <Button
               variant="tertiary"

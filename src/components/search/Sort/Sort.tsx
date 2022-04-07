@@ -1,6 +1,7 @@
 import { useSearch } from '@faststore/sdk'
 import React from 'react'
 import Select from 'src/components/ui/Select'
+import Icon from 'src/components/ui/Icon'
 
 const OptionsMap = {
   price_desc: 'Price, descending',
@@ -24,12 +25,13 @@ function Sort() {
   return (
     <Select
       id="sort-select"
-      className="sort / title-small"
-      labelText="Sort by"
+      className="sort"
       options={OptionsMap}
       onChange={(e) => setSort(keys[e.target.selectedIndex])}
       value={sort}
       testId="search-sort"
+      icon={<Icon name="OrderBy" width={16} height={16} />}
+      Arrowicon={<Icon name="ArrowDown" width={12} height={12} />}
     />
   )
 }

@@ -1,5 +1,12 @@
 @import "src/styles/scaffold";
 
+.filter-button-container {
+  display: flex;
+  gap: var(--space-1);
+  justify-content: center;
+  width: 100%;
+}
+
 .filter[data-store-filter] {
   > .title-small {
     display: flex;
@@ -28,8 +35,8 @@
   }
 
   [data-accordion-item] [data-store-button] {
-    font-weight: var(--text-weight-regular);
     font-size: var(--text-size-3);
+    font-weight: var(--text-weight-regular);
     line-height: 1.5;
 
     @include media(">=notebook") {
@@ -88,7 +95,9 @@
   --filter-footer-height: 80px;
 
   height: calc(100vh - var(--filter-footer-height));
-  padding: var(--page-padding-phone) var(--page-padding-phone) calc(var(--filter-footer-height) + var(--space-3));
+  padding:
+    var(--page-padding-phone) var(--page-padding-phone)
+    calc(var(--filter-footer-height) + var(--space-3));
   overflow-y: auto;
 }
 
