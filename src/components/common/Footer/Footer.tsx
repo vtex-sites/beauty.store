@@ -39,9 +39,7 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Facebook" />
-                  }
+                  component={<Icon width={24} height={24} name="Facebook" />}
                 />
               </Link>
             </li>
@@ -54,9 +52,7 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Instagram" />
-                  }
+                  component={<Icon width={24} height={24} name="Instagram" />}
                 />
               </Link>
             </li>
@@ -69,9 +65,7 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 <UIIcon
-                  component={
-                    <Icon width="24px" height="24px" name="Pinterest" />
-                  }
+                  component={<Icon width={24} height={24} name="Pinterest" />}
                 />
               </Link>
             </li>
@@ -84,7 +78,7 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 <UIIcon
-                  component={<Icon width="24px" height="24px" name="Twitter" />}
+                  component={<Icon width={24} height={24} name="Twitter" />}
                 />
               </Link>
             </li>
@@ -97,35 +91,35 @@ function Footer() {
           <p className="title-sub-subsection">Payment Methods</p>
           <UIList>
             <li>
-              <Icon width="34px" height="24px" name="Visa" />
+              <Icon width={34} height={24} name="Visa" />
               <SROnly text="Visa" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="Diners" />
+              <Icon width={34} height={24} name="Diners" />
               <SROnly text="Diners Club" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="Mastercard" />
+              <Icon width={34} height={24} name="Mastercard" />
               <SROnly text="Mastercard" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="EloCard" />
+              <Icon width={34} height={24} name="EloCard" />
               <SROnly text="Elo Card" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="PayPal" />
+              <Icon width={34} height={24} name="PayPal" />
               <SROnly text="PayPal" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="Stripe" />
+              <Icon width={34} height={24} name="Stripe" />
               <SROnly text="Stripe" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="GooglePay" />
+              <Icon width={34} height={24} name="GooglePay" />
               <SROnly text="Google Pay" />
             </li>
             <li>
-              <Icon width="34px" height="24px" name="ApplePay" />
+              <Icon width={34} height={24} name="ApplePay" />
               <SROnly text="Apple Pay" />
             </li>
           </UIList>

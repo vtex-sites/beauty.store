@@ -3,11 +3,10 @@ import { graphql } from 'gatsby'
 import { BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo'
 import React, { useMemo } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import Hero from 'src/components/sections/Hero'
+import BannerImg from 'src/components/sections/BannerImg'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
-import Icon from 'src/components/ui/Icon'
 import { ITEMS_PER_PAGE, ITEMS_PER_SECTION } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
@@ -99,18 +98,18 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
+
+      <BannerImg
+        className="category-banner"
+        width={1440}
+        height={403}
+        src="https://beauty.vtexassets.com/arquivos/category-banner.jpg"
+        alt="Mulher aplicando produto de beleza"
+      />
+
       <Breadcrumb
         breadcrumbList={collection?.breadcrumbList.itemListElement}
         name={title}
-      />
-
-      <Hero
-        variant="small"
-        title={title}
-        subtitle={`All the amazing ${title} from the brands we partner with.`}
-        imageSrc="https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg"
-        imageAlt="Quest 2 Controller on a table"
-        icon={<Icon name="Headphones" width={48} height={48} weight="thin" />}
       />
 
       <ProductGallery title={title} />
