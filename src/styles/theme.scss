@@ -21,7 +21,7 @@
   --color-primary-2: #7a9186;
   --color-primary-3: #576b62;
 
-  --color-secondary-0: #ffe8db;
+  --color-secondary-0: #f1e4d1;
   --color-secondary-1: #f1cdb7;
   --color-secondary-2: #f1b693;
   --color-secondary-3: #eba47a;
@@ -38,7 +38,8 @@
   --color-neutral-4: #9099a2;
   --color-neutral-5: #7f7f7f;
   --color-neutral-6: #616161;
-  --color-neutral-7: #000000;
+  --color-neutral-7: #242424;
+  --color-neutral-8: #000000;
 
   // State
   --color-success: var(--color-primary-1);
@@ -47,7 +48,7 @@
   --color-error: var(--color-secondary-0);
 
   // Customizable
-  --color-text: var(--color-neutral-7);
+  --color-text: var(--color-neutral-8);
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
@@ -149,6 +150,9 @@
   --z-index-layer-7: 9999999;
   --z-index-layer-8: 99999999;
   --z-index-layer-9: 999999999;
+
+  // Container
+  --container-width: 1380px;
 }
 
 // Avoids double scroll issue on the page when overlay is open
