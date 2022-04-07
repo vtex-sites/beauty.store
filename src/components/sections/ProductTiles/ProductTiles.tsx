@@ -5,7 +5,7 @@ import ProductTilesSkeleton from 'src/components/skeletons/ProductTilesSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 
-import Section from '../Section'
+import Section from '../../common/Section'
 
 interface TilesProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element
