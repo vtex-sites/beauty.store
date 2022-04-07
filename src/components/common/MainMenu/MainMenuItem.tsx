@@ -62,14 +62,14 @@ function MainMenuItem({ data, level }: Props) {
   }
 
   return (
-    <div className={classnames.container}>
-      <div
-        className={classnames.linkContainer}
-        onMouseEnter={() => setIsActive(true)}
-        onMouseLeave={() => setIsActive(false)}
-        role="menubar"
-        tabIndex={-1}
-      >
+    <div
+      className={classnames.container}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+      role="menubar"
+      tabIndex={-1}
+    >
+      <div className={classnames.linkContainer}>
         <Link
           className={classnames.link}
           as="a"

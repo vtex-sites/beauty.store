@@ -48,11 +48,11 @@ function Navbar() {
               </LinkGatsby>
             </>
           )}
-          <SearchInput />
           <div
             className="navbar__buttons"
             data-store-search-expanded={searchExpanded}
           >
+            <SearchInput />
             {searchExpanded && (
               <IconButton
                 classes="navbar__collapse"
