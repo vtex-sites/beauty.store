@@ -66,5 +66,23 @@
       "type": "object",
       "properties": {}
     }
+  },
+
+  {
+    "name": "RichText",
+    "schema": {
+      "title": "Rich Text",
+      "description": "Add text to your page",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "title": "text",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        }
+      }
+    }
   }
 ]

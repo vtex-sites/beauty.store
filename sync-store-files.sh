@@ -22,10 +22,21 @@ import RenderCMS from 'src/components/RenderCMS'";
 fastmod -d src/pages/index.tsx 'data: \{ (.*)(allStore.*)\}' 'data: { ${1} cmsHome }';
 fastmod -d src/pages/index.tsx "const\s(product|haveProduct).*" "";
 fastmod -m -d src/pages/index.tsx 'Sections:.*</>$' 'CMS Sections */}<RenderCMS sections={cmsHome?.sections} /></>';
+fastmod -d src/pages/institucional/about.tsx 'data: \{ (.*)(allStore.*)\}' 'data: { ${1} cmsInstitutional }';
+fastmod -m -d src/pages/institucional/about.tsx 'Sections:.*</>$' 'CMS Sections */}<RenderCMS sections={cmsInstitutional?.sections} /></>';
 
 ## Query
 fastmod -m -d src/pages/index.tsx "query\s(\w*)\s\{(.*)\}" "query \${1} {\${2}
   cmsHome {
+    sections {
+      data
+      name
+    }
+  }
+}";
+
+fastmod -m -d src/pages/institucional/about.tsx "query\s(\w*)\s\{(.*)\}" "query \${1} {\${2}
+  cmsInstitutional {
     sections {
       data
       name
