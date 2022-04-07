@@ -35,8 +35,17 @@
     }
   }
 }
+.footer__description {
+  max-width: 50%;
+  font-size: var(--text-size-2);
+  color: var(--color-neutral-8);
+}
 
 .footer__section {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-5);
+
   @include media(">=notebook") {
     row-gap: var(--space-7);
     padding-bottom: var(--space-7);
