@@ -3,56 +3,44 @@ import Icon from 'src/components/ui/Icon'
 import Section from 'src/components/common/Section'
 import Container from 'src/components/common/Container'
 
-const Incentives = () => {
-  return (
+interface IncentivesProps {
+  incentives: IncentiveProps[]
+}
+
+interface IncentiveProps {
+  icon: string
+  title: string
+  text: string
+}
+
+const Incentives = (props: IncentivesProps) => {
+  const { incentives } = props
+
+  return incentives ? (
     <Section className="incentives">
       <Container>
         <ul className="incentives__list">
-          <li className="incentives__item">
-            <div className="incentives__icon">
-              <Icon name="Truck" width={42} height={42} />
-            </div>
+          {incentives.length > 0 &&
+            incentives.map((incentive, index) => {
+              const { icon, title, text } = incentive
 
-            <div>
-              <h5 className="incentives__title">Frete Grátis</h5>
+              return (
+                <li key={index} className="incentive">
+                  <div className="incentive__icon">
+                    <Icon name={icon} width={42} height={42} />
+                  </div>
 
-              <p className="incentives__text">
-                Lorem ipsum dolor sit amet consectetur
-              </p>
-            </div>
-          </li>
-
-          <li className="incentives__item">
-            <div className="incentives__icon">
-              <Icon name="Truck" width={42} height={42} />
-            </div>
-
-            <div>
-              <h5 className="incentives__title">Frete Grátis</h5>
-
-              <p className="incentives__text">
-                Lorem ipsum dolor sit amet consectetur
-              </p>
-            </div>
-          </li>
-
-          <li className="incentives__item">
-            <div className="incentives__icon">
-              <Icon name="Truck" width={42} height={42} />
-            </div>
-
-            <div>
-              <h5 className="incentives__title">Frete Grátis</h5>
-
-              <p className="incentives__text">
-                Lorem ipsum dolor sit amet consectetur
-              </p>
-            </div>
-          </li>
+                  <div>
+                    <h5 className="incentive__title">{title}</h5>
+                    <p className="incentive__text">{text}</p>
+                  </div>
+                </li>
+              )
+            })}
         </ul>
       </Container>
     </Section>
-  )
+  ) : null
 }
 
 export default Incentives

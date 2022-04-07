@@ -22,15 +22,15 @@
       }
     }
   }
+}
 
-  &__item {
-    display: flex;
-    align-items: center;
+.incentive {
+  display: flex;
+  align-items: center;
 
-    &:not(:last-child) {
-      @include media("<notebook") {
-        margin-right: var(--space-6);
-      }
+  &:not(:last-child) {
+    @include media("<notebook") {
+      margin-right: var(--space-6);
     }
   }
 

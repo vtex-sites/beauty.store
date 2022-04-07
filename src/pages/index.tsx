@@ -6,7 +6,6 @@ import RenderCMS from 'src/components/RenderCMS'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
-import Incentives from 'src/components/sections/Incentives'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -73,7 +72,6 @@ function Page(props: Props) {
       />
       {/* CMS Sections */}
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
-      <Incentives />
     </>
   )
 }
