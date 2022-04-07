@@ -2,8 +2,7 @@ import { Banner, BannerImage } from '@faststore/ui'
 import React from 'react'
 import { Image } from 'src/components/ui/Image'
 import type { InputHTMLAttributes } from 'react'
-
-import Section from '../Section'
+import Section from 'src/components/common/Section'
 
 export interface BannerImgProps extends InputHTMLAttributes<HTMLDivElement> {
   width: number
