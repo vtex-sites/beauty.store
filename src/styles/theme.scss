@@ -51,6 +51,7 @@
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
+  --bg-header: var(--color-primary-1);
   --bg-primary-light: var(--color-primary-0);
   --bg-secondary-light: var(--color-secondary-0);
   --bg-neutral-light: var(--color-neutral-1);
@@ -136,6 +137,18 @@
   --breakpoint-tablet: 768px;
   --breakpoint-notebook: 1280px;
   --breakpoint-desktop: 1440px;
+
+  // z-index
+  --z-index-layer-0: 0;
+  --z-index-layer-1: 9;
+  --z-index-layer-2: 99;
+  --z-index-layer-3: 999;
+  --z-index-layer-4: 9999;
+  --z-index-layer-5: 99999;
+  --z-index-layer-6: 999999;
+  --z-index-layer-7: 9999999;
+  --z-index-layer-8: 99999999;
+  --z-index-layer-9: 999999999;
 }
 
 // Avoids double scroll issue on the page when overlay is open

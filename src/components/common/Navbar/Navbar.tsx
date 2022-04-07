@@ -1,57 +1,17 @@
-import { List as UIList } from '@faststore/ui'
-import { graphql, Link as LinkGatsby, useStaticQuery } from 'gatsby'
+import { Link as LinkGatsby } from 'gatsby'
 import React, { useRef, useState } from 'react'
 import CartToggle from 'src/components/cart/CartToggle'
 import SearchInput from 'src/components/common/SearchInput'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
-import Link from 'src/components/ui/Link'
 import Logo from 'src/components/ui/Logo'
 import SignInLink from 'src/components/ui/SignInLink'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
-import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
-import type { StoreCollectionQuery } from '@generated/graphql'
+import MainMenu from 'src/components/common/MainMenu'
 
 type Callback = () => unknown
-
-interface NavLinksProps {
-  onClickLink?: AnchorHTMLAttributes<HTMLAnchorElement>['onClick']
-}
-
-function NavLinks({ onClickLink }: NavLinksProps) {
-  const {
-    allStoreCollection: { edges: links },
-  } = useStaticQuery<StoreCollectionQuery>(graphql`
-    query StoreCollection {
-      allStoreCollection(filter: { type: { eq: Department } }) {
-        edges {
-          node {
-            slug
-            seo {
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return (
-    <nav className="navlinks__list">
-      <UIList>
-        {links.map(({ node: link }) => (
-          <li key={link.seo.title}>
-            <Link variant="display" to={`/${link.slug}`} onClick={onClickLink}>
-              {link.seo.title}
-            </Link>
-          </li>
-        ))}
-      </UIList>
-    </nav>
-  )
-}
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false)
@@ -69,6 +29,7 @@ function Navbar() {
     <header className="navbar / grid-content-full">
       <div className="navbar__header / grid-content">
         <section className="navbar__row">
+          <MainMenu />
           {!searchExpanded && (
             <>
               <IconButton
@@ -111,7 +72,6 @@ function Navbar() {
             <CartToggle />
           </div>
         </section>
-        <NavLinks />
       </div>
 
       <SlideOver
@@ -144,7 +104,6 @@ function Navbar() {
             />
           </header>
           <div className="navlinks">
-            <NavLinks onClickLink={handleCloseSlideOver} />
             <div className="navlinks__signin">
               <SignInLink />
             </div>
