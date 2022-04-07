@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import UIBreadcrumb from 'src/components/ui/Breadcrumb'
 import type { BreadcrumbProps } from 'src/components/ui/Breadcrumb'
 
-import Section from '../Section'
+import Section from '../../common/Section'
 
 interface BreadcrumbWrapperProps
   extends Partial<Pick<BreadcrumbProps, 'breadcrumbList'>> {

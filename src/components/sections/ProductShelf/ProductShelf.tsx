@@ -4,7 +4,7 @@ import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 
 import ProductCard from '../../product/ProductCard'
-import Section from '../Section'
+import Section from '../../common/Section'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element

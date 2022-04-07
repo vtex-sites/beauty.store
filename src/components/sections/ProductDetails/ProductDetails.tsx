@@ -15,7 +15,7 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 
-import Section from '../Section'
+import Section from '../../common/Section'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
