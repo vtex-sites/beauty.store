@@ -1,40 +1,46 @@
-import { Incentive as UIIncentive, List as UIList } from '@faststore/ui'
 import React from 'react'
-import type { ReactNode } from 'react'
+import Icon from 'src/components/ui/Icon'
+import Section from 'src/components/common/Section'
+import Container from 'src/components/common/Container'
 
-interface Incentive {
-  icon: ReactNode
-  title?: string
-  firstLineText: string
-  secondLineText?: string
+interface IncentivesProps {
+  incentives: IncentiveProps[]
 }
 
-interface Props {
-  incentives: Incentive[]
-  classes?: string
+interface IncentiveProps {
+  icon: string
+  title: string
+  text: string
 }
 
-function Incentives({ incentives, classes = '' }: Props) {
-  return (
-    <div className={`incentives ${classes} / grid-content-full`}>
-      <UIList variant="unordered" className="grid-content">
-        {incentives.map((incentive, index) => (
-          <li key={String(index)}>
-            <UIIncentive>
-              {incentive.icon}
-              <div data-incentive-content>
-                {incentive.title && <p>{incentive.title}</p>}
-                <span>{incentive.firstLineText}</span>
-                {incentive.secondLineText && (
-                  <span>{incentive.secondLineText}</span>
-                )}
-              </div>
-            </UIIncentive>
-          </li>
-        ))}
-      </UIList>
-    </div>
-  )
+const Incentives = (props: IncentivesProps) => {
+  const { incentives } = props
+
+  return incentives ? (
+    <Section className="incentives">
+      <Container>
+        <ul className="incentives__list">
+          {incentives.length > 0 &&
+            incentives.map((incentive, index) => {
+              const { icon, title, text } = incentive
+
+              return (
+                <li key={index} className="incentive">
+                  <div className="incentive__icon">
+                    <Icon name={icon} width={42} height={42} />
+                  </div>
+
+                  <div>
+                    <h5 className="incentive__title">{title}</h5>
+                    <p className="incentive__text">{text}</p>
+                  </div>
+                </li>
+              )
+            })}
+        </ul>
+      </Container>
+    </Section>
+  ) : null
 }
 
 export default Incentives
