@@ -4,7 +4,6 @@ import {
   PaymentMethods as UIPaymentMethods,
 } from '@faststore/ui'
 import React from 'react'
-import IncentivesFooter from 'src/components/sections/Incentives2/IncentivesFooter'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import SROnly from 'src/components/ui/SROnly'
@@ -14,12 +13,20 @@ import FooterLinks from './FooterLinks'
 
 function Footer() {
   return (
-    <footer className="footer / grid-content-full">
-      <IncentivesFooter />
-
-      <div className="footer__section / grid-content">
+    <footer className="footer">
+      <div className="footer__section">
+        <section className="footer__logo">
+          <UIIcon
+            component={
+              <img src="/Beauty.svg" alt="Beauty logo" loading="lazy" />
+            }
+          />
+          <p className="footer__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor.
+          </p>
+        </section>
         <FooterLinks />
-
         <section className="footer__social">
           <p className="title-sub-subsection">Follow us</p>
           <UIList variant="unordered">
@@ -85,19 +92,7 @@ function Footer() {
         </section>
       </div>
 
-      <div className="footer__note / grid-content">
-        <UIIcon
-          component={
-            <img
-              src="/BaseStore.svg"
-              alt="BaseStore logo"
-              width="124px"
-              height="32px"
-              loading="lazy"
-            />
-          }
-        />
-
+      <div className="footer__note">
         <UIPaymentMethods>
           <p className="title-sub-subsection">Payment Methods</p>
           <UIList>

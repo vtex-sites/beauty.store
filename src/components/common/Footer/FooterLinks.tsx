@@ -63,23 +63,6 @@ const links = [
       },
     ],
   },
-  {
-    title: 'Partnerships',
-    items: [
-      {
-        href: '/',
-        name: 'Affiliate Program',
-      },
-      {
-        href: '/',
-        name: 'Advertise with US',
-      },
-      {
-        href: '/',
-        name: 'Market Place',
-      },
-    ],
-  },
 ]
 
 type LinkItem = {

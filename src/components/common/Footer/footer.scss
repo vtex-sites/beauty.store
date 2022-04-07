@@ -15,33 +15,17 @@
   }
 }
 
-.footer__note,
-.footer__section {
-  position: relative;
-  display: flex;
-
-  @include media("<notebook") {
-    flex-direction: column;
-  }
-
-  @include media(">=notebook") {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: var(--grid-gap-1);
-  }
-
-  &::before {
-    width: 100%;
-    border-top: 1px solid var(--color-border-display);
-    content: "";
-
-    @include media(">=notebook") {
-      grid-column: span 12;
-    }
-  }
+.footer__description {
+  max-width: 50%;
+  font-size: var(--text-size-2);
+  color: var(--color-neutral-8);
 }
 
 .footer__section {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-5);
+
   @include media(">=notebook") {
     row-gap: var(--space-7);
     padding-bottom: var(--space-7);
@@ -63,8 +47,8 @@
   }
 
   @include media(">=notebook") {
-    padding-top: 0;
     row-gap: var(--grid-gap-2);
+    padding-top: 0;
   }
 
   [data-store-payment-methods] {
@@ -101,8 +85,8 @@
     [data-store-list] {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, max-content));
-      justify-content: space-between;
       row-gap: var(--space-1);
+      justify-content: space-between;
 
       @include media("<notebook") {
         column-gap: var(--grid-gap-0);
@@ -200,8 +184,8 @@
 
 .footer__links-columns {
   display: grid;
-  grid-gap: var(--grid-gap-1);
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: var(--grid-gap-1);
 
   .title-sub-subsection {
     margin-bottom: var(--space-1);
