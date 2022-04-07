@@ -33,7 +33,7 @@ const fallbackContent = [
 
 function Page(props: Props) {
   const {
-    data: { site },
+    data: { site, cmsHome },
     location: { pathname, host },
   } = props
 
@@ -71,7 +71,7 @@ function Page(props: Props) {
         }}
       />
       {/* CMS Sections */}
-      <RenderCMS sections={fallbackContent} />
+      <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
     </>
   )
 }
@@ -83,6 +83,13 @@ export const query = graphql`
         title
         description
         titleTemplate
+      }
+    }
+
+    cmsHome {
+      sections {
+        data
+        name
       }
     }
   }

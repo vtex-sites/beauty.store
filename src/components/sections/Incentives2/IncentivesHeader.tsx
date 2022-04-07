@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from 'src/components/ui/Icon'
 
 import Incentives from './Incentives'
-import Section from '../Section'
+import Section from '../../common/Section'
 
 const incentives = [
   {
