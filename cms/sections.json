@@ -58,6 +58,54 @@
       }
     }
   },
+
+  {
+    "name": "Incentives",
+
+    "schema": {
+      "title": "Barra de Vantagens",
+      "description": "Adicione os itens da barra de vantagens",
+      "type": "object",
+
+      "properties": {
+        "incentives": {
+          "title": "Vantagens",
+          "type": "array",
+          "maxItems": 3,
+
+          "items": {
+            "$ref": "#/definitions/Incentive"
+          }
+        }
+      },
+
+      "definitions": {
+        "Incentive": {
+          "title": "Vantagem",
+          "type": "object",
+
+          "properties": {
+            "icon": {
+              "title": "Ícone",
+              "type": "string",
+              "enum": ["Truck"]
+            },
+
+            "title": {
+              "title": "Título",
+              "type": "string"
+            },
+
+            "text": {
+              "title": "Texto",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+
   {
     "name": "IncentivesHeader",
     "schema": {
