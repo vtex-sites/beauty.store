@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import cssBuilder from 'src/sdk/helpers/cssBuilder'
 import Link from 'src/components/ui/Link'
+import IconButton from 'src/components/ui/IconButton'
+import Icon from 'src/components/ui/Icon'
 
 import type { MainMenuList } from '.'
 
@@ -26,6 +28,10 @@ function MainMenuItem({ data, level }: Props) {
     link: cssBuilder([
       [cssWithLevel('main-menu-item-link'), true],
       [cssWithLevel('main-menu-item-link-active'), isActive],
+    ]),
+    linkIcon: cssBuilder([
+      [cssWithLevel('main-menu-item-link-icon'), true],
+      [cssWithLevel('main-menu-item-link-icon-active'), isActive],
     ]),
     linkContainer: cssBuilder([
       [cssWithLevel('main-menu-item-linkContainer'), true],
@@ -74,8 +80,8 @@ function MainMenuItem({ data, level }: Props) {
   return (
     <div
       className={classnames.container}
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseEnter={() => false && setIsActive(true)}
+      onMouseLeave={() => false && setIsActive(false)}
       role="menubar"
       tabIndex={-1}
     >
@@ -88,6 +94,14 @@ function MainMenuItem({ data, level }: Props) {
         >
           {data.label}
         </Link>
+        {hasChildren && (
+          <IconButton
+            classes={classnames.linkIcon}
+            aria-label="Open Menu"
+            icon={<Icon name="ArrowRight" width={32} height={32} />}
+            onClick={() => setIsActive(true)}
+          />
+        )}
       </div>
       {hasChildren ? buildChildren() : ''}
     </div>

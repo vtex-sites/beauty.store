@@ -70,9 +70,14 @@ const listData: MainMenuList[] = [
   },
 ]
 
-function MainMenu() {
+interface Props {
+  className?: string
+  type?: 'row' | 'column'
+}
+
+function MainMenu({ className, type = 'row' }: Props) {
   return (
-    <div className="main-menu">
+    <div className={`main-menu type-${type} ${className}`}>
       {listData?.map((item) => (
         <MainMenuItem data={item} level={0} key={item.href} />
       ))}

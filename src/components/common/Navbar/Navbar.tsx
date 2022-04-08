@@ -11,8 +11,8 @@ import { mark } from 'src/sdk/tests/mark'
 import type { SearchInputRef } from '@faststore/ui'
 import MainMenu from 'src/components/common/MainMenu'
 
-import Section from '../Section'
 import Container from '../Container'
+import Section from '../Section'
 
 type Callback = () => unknown
 
@@ -34,9 +34,9 @@ function Navbar() {
         <Container>
           <div className="navbar__header / grid-content">
             <section className="navbar__row">
-              <MainMenu />
               {!searchExpanded && (
                 <>
+                  <MainMenu className="main-menu-large" />
                   <IconButton
                     classes="navbar__menu"
                     aria-label="Open Menu"
@@ -78,45 +78,46 @@ function Navbar() {
               </div>
             </section>
           </div>
-
-          <SlideOver
-            isOpen={showMenu}
-            onDismiss={handleCloseSlideOver}
-            onDismissTransition={(callback) => {
-              dismissTransition.current = callback
-            }}
-            size="full"
-            direction="leftSide"
-            className="navbar__modal-content"
-          >
-            <div className="navbar__modal-body">
-              <header className="navbar__modal-header">
-                <LinkGatsby
-                  to="/"
-                  aria-label="Go to Faststore home"
-                  title="Go to Faststore home"
-                  className="navbar__logo"
-                  onClick={() => dismissTransition.current?.()}
-                >
-                  <Logo />
-                </LinkGatsby>
-
-                <IconButton
-                  classes="navbar__button"
-                  aria-label="Close Menu"
-                  icon={<Icon name="X" width={32} height={32} />}
-                  onClick={() => dismissTransition.current?.()}
-                />
-              </header>
-              <div className="navlinks">
-                <div className="navlinks__signin">
-                  <SignInLink />
-                </div>
-              </div>
-            </div>
-          </SlideOver>
         </Container>
       </Section>
+
+      <SlideOver
+        isOpen={showMenu}
+        onDismiss={handleCloseSlideOver}
+        onDismissTransition={(callback) => {
+          dismissTransition.current = callback
+        }}
+        size="full"
+        direction="leftSide"
+        className="navbar__modal-content"
+      >
+        <div className="navbar__modal-body">
+          <header className="navbar__modal-header">
+            <LinkGatsby
+              to="/"
+              aria-label="Go to Faststore home"
+              title="Go to Faststore home"
+              className="navbar__logo"
+              onClick={() => dismissTransition.current?.()}
+            >
+              <Logo />
+            </LinkGatsby>
+
+            <IconButton
+              classes="navbar__button"
+              aria-label="Close Menu"
+              icon={<Icon name="X" width={32} height={32} />}
+              onClick={() => dismissTransition.current?.()}
+            />
+          </header>
+          <div className="navlinks">
+            <MainMenu className="main-menu-mobile" type="column" />
+            <div className="navlinks__signin">
+              <SignInLink />
+            </div>
+          </div>
+        </div>
+      </SlideOver>
     </header>
   )
 }

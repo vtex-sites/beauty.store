@@ -27,6 +27,13 @@
     color: var(--base-link-color);
   }
 
+  &.main-menu-large {
+    @include media("<notebook") {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
   .main-menu-item-link {
     display: block;
   }
@@ -113,5 +120,25 @@
       color: var(--lvl-2-title-color);
       letter-spacing: 0.05em;
     }
+  }
+}
+
+// -- Type-Row --
+
+.main-menu.type-row {
+  .main-menu-item-link-icon {
+    display: none;
+  }
+}
+
+// -- Type-Column --
+
+.main-menu.type-column {
+  display: flex;
+  flex-direction: column;
+
+  .main-menu-item-linkContainer {
+    display: flex;
+    justify-content: space-between;
   }
 }
