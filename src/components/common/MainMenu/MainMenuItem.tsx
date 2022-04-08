@@ -32,9 +32,13 @@ function MainMenuItem({ data, level }: Props) {
       [cssWithLevel('main-menu-item-linkContainer-active'), isActive],
       [cssWithLevel('main-menu-item-linkContainer-with-children'), hasChildren],
     ]),
+    childrenSection: cssBuilder([
+      [cssWithLevel('main-menu-item-children-section'), true],
+      [cssWithLevel('main-menu-item-children-section-active'), isActive],
+    ]),
     childrenContainer: cssBuilder([
-      [cssWithLevel('main-menu-item-childrenContainer'), true],
-      [cssWithLevel('main-menu-item-childrenContainer-active'), isActive],
+      [cssWithLevel('main-menu-item-children-container'), true],
+      [cssWithLevel('main-menu-item-children-container-active'), isActive],
     ]),
     childrenItemsWrapper: cssBuilder([
       [cssWithLevel('main-menu-item-children-items-wrapper'), true],
@@ -47,17 +51,23 @@ function MainMenuItem({ data, level }: Props) {
   }
 
   const buildChildren = () => {
+    const title = () => (
+      <h2 className={classnames.childrenTitle}>{data.childrenTitle}</h2>
+    )
+
+    const childrenItem = (item: MainMenuList) => (
+      <MainMenuItem data={item} level={level + 1} key={item.href} />
+    )
+
     return (
-      <div className={classnames.childrenContainer}>
-        {data.childrenTitle && (
-          <h2 className={classnames.childrenTitle}>{data.childrenTitle}</h2>
-        )}
-        <div className={classnames.childrenItemsWrapper}>
-          {data.children?.map((item) => (
-            <MainMenuItem data={item} level={level + 1} key={item.href} />
-          ))}
+      <section className={classnames.childrenSection}>
+        <div className={classnames.childrenContainer}>
+          {data.childrenTitle && title()}
+          <div className={classnames.childrenItemsWrapper}>
+            {data.children?.map(childrenItem)}
+          </div>
         </div>
-      </div>
+      </section>
     )
   }
 
@@ -65,7 +75,7 @@ function MainMenuItem({ data, level }: Props) {
     <div
       className={classnames.container}
       onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseLeave={() => setIsActive(true)}
       role="menubar"
       tabIndex={-1}
     >

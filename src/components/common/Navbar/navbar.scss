@@ -1,6 +1,8 @@
 @import "src/styles/scaffold";
 
 .navbar {
+  --header-height: 86px;
+
   position: relative;
   padding: 0;
   background: var(--bg-header);
@@ -23,6 +25,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: var(--header-height);
 
   @include media(">=notebook") {
     display: grid;
@@ -124,6 +127,8 @@
 }
 
 .navbar__header {
+  min-width: 100%;
+  padding: 0;
   overflow: hidden;
 }
 

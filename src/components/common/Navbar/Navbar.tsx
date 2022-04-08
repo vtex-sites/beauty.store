@@ -11,6 +11,9 @@ import { mark } from 'src/sdk/tests/mark'
 import type { SearchInputRef } from '@faststore/ui'
 import MainMenu from 'src/components/common/MainMenu'
 
+import Section from '../Section'
+import Container from '../Container'
+
 type Callback = () => unknown
 
 function Navbar() {
@@ -27,89 +30,93 @@ function Navbar() {
 
   return (
     <header className="navbar / grid-content-full">
-      <div className="navbar__header / grid-content">
-        <section className="navbar__row">
-          <MainMenu />
-          {!searchExpanded && (
-            <>
-              <IconButton
-                classes="navbar__menu"
-                aria-label="Open Menu"
-                icon={<Icon name="List" width={32} height={32} />}
-                onClick={() => setShowMenu(true)}
-              />
-              <LinkGatsby
-                to="/"
-                aria-label="Go to Faststore home"
-                title="Go to Faststore home"
-                className="navbar__logo"
+      <Section>
+        <Container>
+          <div className="navbar__header / grid-content">
+            <section className="navbar__row">
+              <MainMenu />
+              {!searchExpanded && (
+                <>
+                  <IconButton
+                    classes="navbar__menu"
+                    aria-label="Open Menu"
+                    icon={<Icon name="List" width={32} height={32} />}
+                    onClick={() => setShowMenu(true)}
+                  />
+                  <LinkGatsby
+                    to="/"
+                    aria-label="Go to Faststore home"
+                    title="Go to Faststore home"
+                    className="navbar__logo"
+                  >
+                    <Logo />
+                  </LinkGatsby>
+                </>
+              )}
+              <div
+                className="navbar__buttons"
+                data-store-search-expanded={searchExpanded}
               >
-                <Logo />
-              </LinkGatsby>
-            </>
-          )}
-          <div
-            className="navbar__buttons"
-            data-store-search-expanded={searchExpanded}
+                <SearchInput />
+                {searchExpanded && (
+                  <IconButton
+                    classes="navbar__collapse"
+                    aria-label="Collapse search bar"
+                    icon={<Icon name="CaretLeft" width={32} height={32} />}
+                    onClick={() => setSearchExpanded(false)}
+                  />
+                )}
+                <SearchInput
+                  placeholder=""
+                  ref={searchMobileRef}
+                  testId="store-input-mobile"
+                  buttonTestId="store-input-mobile-button"
+                  onSearchClick={handlerExpandSearch}
+                />
+                <SignInLink />
+                <CartToggle />
+              </div>
+            </section>
+          </div>
+
+          <SlideOver
+            isOpen={showMenu}
+            onDismiss={handleCloseSlideOver}
+            onDismissTransition={(callback) => {
+              dismissTransition.current = callback
+            }}
+            size="full"
+            direction="leftSide"
+            className="navbar__modal-content"
           >
-            <SearchInput />
-            {searchExpanded && (
-              <IconButton
-                classes="navbar__collapse"
-                aria-label="Collapse search bar"
-                icon={<Icon name="CaretLeft" width={32} height={32} />}
-                onClick={() => setSearchExpanded(false)}
-              />
-            )}
-            <SearchInput
-              placeholder=""
-              ref={searchMobileRef}
-              testId="store-input-mobile"
-              buttonTestId="store-input-mobile-button"
-              onSearchClick={handlerExpandSearch}
-            />
-            <SignInLink />
-            <CartToggle />
-          </div>
-        </section>
-      </div>
+            <div className="navbar__modal-body">
+              <header className="navbar__modal-header">
+                <LinkGatsby
+                  to="/"
+                  aria-label="Go to Faststore home"
+                  title="Go to Faststore home"
+                  className="navbar__logo"
+                  onClick={() => dismissTransition.current?.()}
+                >
+                  <Logo />
+                </LinkGatsby>
 
-      <SlideOver
-        isOpen={showMenu}
-        onDismiss={handleCloseSlideOver}
-        onDismissTransition={(callback) => {
-          dismissTransition.current = callback
-        }}
-        size="full"
-        direction="leftSide"
-        className="navbar__modal-content"
-      >
-        <div className="navbar__modal-body">
-          <header className="navbar__modal-header">
-            <LinkGatsby
-              to="/"
-              aria-label="Go to Faststore home"
-              title="Go to Faststore home"
-              className="navbar__logo"
-              onClick={() => dismissTransition.current?.()}
-            >
-              <Logo />
-            </LinkGatsby>
-
-            <IconButton
-              classes="navbar__button"
-              aria-label="Close Menu"
-              icon={<Icon name="X" width={32} height={32} />}
-              onClick={() => dismissTransition.current?.()}
-            />
-          </header>
-          <div className="navlinks">
-            <div className="navlinks__signin">
-              <SignInLink />
+                <IconButton
+                  classes="navbar__button"
+                  aria-label="Close Menu"
+                  icon={<Icon name="X" width={32} height={32} />}
+                  onClick={() => dismissTransition.current?.()}
+                />
+              </header>
+              <div className="navlinks">
+                <div className="navlinks__signin">
+                  <SignInLink />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </SlideOver>
+          </SlideOver>
+        </Container>
+      </Section>
     </header>
   )
 }
