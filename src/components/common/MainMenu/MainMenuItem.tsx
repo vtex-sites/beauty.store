@@ -10,7 +10,7 @@ interface Props {
 }
 
 function MainMenuItem({ data, level }: Props) {
-  const [isActive, setIsActive] = useState(true)
+  const [isActive, setIsActive] = useState(false)
   const hasChildren = !!data.children?.length
   const isHighlight = !!data.isHighlight
   const cssWithLevel = (className: string) =>
@@ -75,7 +75,7 @@ function MainMenuItem({ data, level }: Props) {
     <div
       className={classnames.container}
       onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
       role="menubar"
       tabIndex={-1}
     >
