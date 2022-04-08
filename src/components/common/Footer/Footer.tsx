@@ -4,7 +4,6 @@ import {
   PaymentMethods as UIPaymentMethods,
 } from '@faststore/ui'
 import React from 'react'
-import IncentivesFooter from 'src/components/sections/Incentives2/IncentivesFooter'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import SROnly from 'src/components/ui/SROnly'
@@ -15,8 +14,6 @@ import FooterLinks from './FooterLinks'
 function Footer() {
   return (
     <footer className="footer / grid-content-full">
-      <IncentivesFooter />
-
       <div className="footer__section / grid-content">
         <FooterLinks />
 
