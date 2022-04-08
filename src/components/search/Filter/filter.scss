@@ -97,16 +97,9 @@
       border-radius: var(--border-radius-pill);
       transition: all 0.3s ease-in-out;
 
-      &:hover,
-      &--selected {
-        background: var(--color-primary-3);
-
-        .value__text {
-          color: var(--color-neutral-0);
-        }
-      }
-
-      &__text {
+      .value__text {
+        display: block;
+        width: 100%;
         font-size: var(--text-size-1);
         font-weight: var(--text-weight-regular);
         line-height: var(--text-size-3);
@@ -114,6 +107,15 @@
         text-align: center;
         letter-spacing: -0.05em;
         cursor: pointer;
+      }
+
+      &:hover,
+      &--selected {
+        background: var(--color-primary-3);
+
+        .value__text {
+          color: var(--color-neutral-0);
+        }
       }
     }
   }
