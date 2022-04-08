@@ -1,6 +1,6 @@
 import { useSearch } from '@faststore/sdk'
 import { graphql } from 'gatsby'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
@@ -15,15 +15,6 @@ import FilterButton from './FilterButton'
 
 interface Props {
   facets: Filter_FacetsFragment[]
-  /*
-   * Control whether the filter modal is open. (mobile only)
-   */
-  isOpen?: boolean
-  /**
-   * This function is called whenever the user hits "Escape", clicks outside
-   * the filter modal or clicks in close button. (mobile only)
-   */
-  onDismiss?: () => void
   /**
    * ID to find this component in testing tools (e.g.: cypress,
    * testing-library, and jest).
@@ -33,12 +24,7 @@ interface Props {
 
 type Callback = () => unknown
 
-function Filter({
-  facets: allFacets,
-  onDismiss,
-  isOpen = false,
-  testId = 'store-filter',
-}: Props) {
+function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
   const dismissTransition = useRef<Callback | undefined>()
   const {
     setFacets,
@@ -47,12 +33,14 @@ function Filter({
   } = useSearch()
 
   const { facets, selected, expanded, dispatch } = useFilter(allFacets)
+  const [openFilter, setOpenFilter] = useState(false)
 
   return (
     <>
       <div className="filter-button-container">
         <FilterButton
           text="filtros"
+          onClick={() => setOpenFilter(!openFilter)}
           icon={<Icon name="Filter" width={18} height={18} />}
         />
         <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
@@ -60,7 +48,7 @@ function Filter({
         </SkeletonElement>
       </div>
 
-      <div className="hidden-mobile">
+      <div className={`${!openFilter && 'hidden-filter'} hidden-mobile`}>
         <Facets
           facets={facets}
           testId={`desktop-${testId}`}
@@ -73,8 +61,8 @@ function Filter({
       </div>
 
       <SlideOver
-        isOpen={isOpen}
-        onDismiss={onDismiss}
+        isOpen={openFilter}
+        onDismiss={() => setOpenFilter(false)}
         onDismissTransition={(callback) =>
           (dismissTransition.current = callback)
         }
@@ -124,7 +112,7 @@ function Filter({
             data-testid="filter-modal-button-apply"
             onClick={() => {
               setFacets(selected)
-              onDismiss?.()
+              setOpenFilter?.(false)
             }}
           >
             Apply

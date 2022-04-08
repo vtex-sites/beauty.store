@@ -1,11 +1,11 @@
 import { usePagination, useSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import React, { lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import Filter from 'src/components/search/Filter'
 import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
-import Button, { LinkButton } from 'src/components/ui/Button'
+import { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/common/Section'
@@ -25,7 +25,6 @@ interface Props {
 }
 
 function ProductGallery({ title, searchTerm }: Props) {
-  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
   const { data } = useGalleryQuery()
@@ -49,11 +48,7 @@ function ProductGallery({ title, searchTerm }: Props) {
       <Container>
         <div className="product-listing__filters">
           <FilterSkeleton loading={facets?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
-            />
+            <Filter facets={facets} />
           </FilterSkeleton>
         </div>
       </Container>
@@ -68,21 +63,6 @@ function ProductGallery({ title, searchTerm }: Props) {
         <div className="product-listing__results-count" data-count={totalCount}>
           <SkeletonElement shimmer type="text" loading={!data}>
             <h2 data-testid="total-product-count">{totalCount} Results</h2>
-          </SkeletonElement>
-        </div>
-
-        <div className="product-listing__sort">
-          <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
-            <Button
-              variant="tertiary"
-              data-testid="open-filter-button"
-              icon={<Icon name="FadersHorizontal" width={16} height={16} />}
-              iconPosition="left"
-              aria-label="Open Filters"
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-            >
-              Filters
-            </Button>
           </SkeletonElement>
         </div>
 

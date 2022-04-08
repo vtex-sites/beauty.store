@@ -1,16 +1,19 @@
 import React from 'react'
+import type { ButtonProps } from '@faststore/ui'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 
-interface IProps {
+interface IButtonProps {
   testId?: string
   text: string
   icon: React.ReactNode
 }
 
-function FilterButton({ testId = '', text, icon }: IProps) {
+type IProps = IButtonProps & ButtonProps
+
+function FilterButton({ testId = '', text, icon, ...otherProps }: IProps) {
   return (
-    <Button className="filter-button" testId={testId}>
+    <Button className="filter-button" testId={testId} {...otherProps}>
       <div className="filter-button__main">
         <div>{icon}</div>
         <span className="filter-button__text">{text}</span>

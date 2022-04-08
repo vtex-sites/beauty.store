@@ -11,6 +11,10 @@
   }
 }
 
+.hidden-filter {
+  display: none;
+}
+
 .sort {
   .orderby-icon {
     left: var(--space-4);
