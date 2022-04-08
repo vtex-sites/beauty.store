@@ -1,8 +1,8 @@
 import React from 'react'
-import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import Incentives from 'src/components/sections/Incentives'
 import IncentivesHeader from 'src/components/sections/Incentives2/IncentivesHeader'
+import RichText from 'src/components/sections/RichText'
 import type { ComponentType } from 'react'
 
 /**
@@ -11,9 +11,9 @@ import type { ComponentType } from 'react'
  */
 const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
-  BannerText,
   Incentives,
   IncentivesHeader,
+  RichText,
 }
 
 interface Props {

@@ -7,15 +7,24 @@ export interface HeroProps extends HTMLAttributes<HTMLDivElement> {
    * testing-library, and jest).
    */
   testId?: string
+  inverted: boolean
   children: React.ReactNode
 }
 
 const Hero = forwardRef<HTMLDivElement, HeroProps>(function Hero(
-  { testId = 'store-hero', children, ...otherProps },
+  { testId = 'store-hero', inverted, children, ...otherProps },
   ref
 ) {
   return (
-    <article ref={ref} data-store-hero data-testid={testId} {...otherProps}>
+    <article
+      className={
+        inverted ? 'hero-article hero-article-inverted' : 'hero-article'
+      }
+      ref={ref}
+      data-store-hero
+      data-testid={testId}
+      {...otherProps}
+    >
       {children}
     </article>
   )

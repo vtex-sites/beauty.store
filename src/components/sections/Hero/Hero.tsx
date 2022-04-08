@@ -3,19 +3,22 @@ import UIHero, {
   HeroContent,
   HeroImage,
   HeroLink,
-} from 'src/components/ui/Hero'
+} from 'src/components/sections/Hero/components'
 import Image from 'src/components/ui/Image/Image'
 import { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 
 import Section from '../../common/Section'
+import Container from '../../common/Container'
 
 type Variant = 'default' | 'small'
 
 interface HeroProps {
   title: string
-  subtitle: string
+  subtitle?: string
+  paragraph: string
   variant?: Variant
+  inverted: boolean
   linkText?: string
   link?: string
   icon?: JSX.Element
@@ -26,7 +29,9 @@ interface HeroProps {
 const Hero = ({
   title,
   subtitle,
+  paragraph,
   variant = 'default',
+  inverted = false,
   linkText,
   link,
   icon,
@@ -35,43 +40,55 @@ const Hero = ({
 }: HeroProps) => {
   return (
     <Section>
-      <UIHero data-hero-variant={variant}>
-        <HeroContent aria-labelledby="hero-heading">
-          <div className="hero-content-wrapper / grid-content">
-            <div className="hero-content-info">
-              <h1
-                id="hero-heading"
-                className={
-                  variant === 'default' ? 'title-hero' : 'title-hero-small'
-                }
-              >
-                {title}
-              </h1>
+      <Container>
+        <UIHero data-hero-variant={variant} inverted={inverted}>
+          <HeroContent aria-labelledby="hero-heading">
+            <div className="hero-content-wrapper / grid-content">
+              <div className="hero-content-info">
+                <h2
+                  id="hero-heading"
+                  className={
+                    variant === 'default' ? 'title-hero' : 'title-hero-small'
+                  }
+                >
+                  {title}
+                </h2>
 
-              <p className="text-body-big">{subtitle}</p>
-              {!!link && (
-                <HeroLink>
-                  <LinkButton to={link} inverse>
-                    {linkText} <Icon name="ArrowRight" width={24} height={24} />
-                  </LinkButton>
-                </HeroLink>
-              )}
+                <h4
+                  className={
+                    variant === 'default'
+                      ? 'subtitle-hero'
+                      : 'subtitle-hero-small'
+                  }
+                >
+                  {subtitle}
+                </h4>
+                <p className="text-body-big">{paragraph}</p>
+                {!!link && (
+                  <HeroLink>
+                    <LinkButton to={link} inverse>
+                      {linkText}{' '}
+                      <Icon name="ArrowRight" width={24} height={24} />
+                    </LinkButton>
+                  </HeroLink>
+                )}
+              </div>
+              {!!icon && <div className="hero-content-icon">{icon}</div>}
             </div>
-            {!!icon && <div className="hero-content-icon">{icon}</div>}
-          </div>
-        </HeroContent>
-        <HeroImage>
-          <Image
-            preload
-            loading="eager"
-            src={imageSrc}
-            alt={imageAlt}
-            width={360}
-            height={240}
-            sizes="(max-width: 768px) 70vw, 50vw"
-          />
-        </HeroImage>
-      </UIHero>
+          </HeroContent>
+          <HeroImage>
+            <Image
+              preload
+              loading="eager"
+              src={imageSrc}
+              alt={imageAlt}
+              width={743}
+              height={860}
+              sizes="(max-width: 768px) 70vw, 50vw"
+            />
+          </HeroImage>
+        </UIHero>
+      </Container>
     </Section>
   )
 }

@@ -1,29 +1,5 @@
 [
   {
-    "name": "BannerText",
-    "schema": {
-      "title": "Banner Text",
-      "description": "Add a quick promotion with a text/action pair",
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "caption": {
-          "type": "string"
-        },
-        "actionPath": {
-          "type": "string",
-          "title": "Action link"
-        },
-        "actionLabel": {
-          "type": "string",
-          "title": "Action label"
-        }
-      }
-    }
-  },
-  {
     "name": "Hero",
     "schema": {
       "title": "Hero",
@@ -34,6 +10,9 @@
           "type": "string"
         },
         "subtitle": {
+          "type": "string"
+        },
+        "paragraph": {
           "type": "string"
         },
         "linkText": {
