@@ -21,8 +21,6 @@ interface UISelectProps extends SelectProps {
    */
   labelText?: string
 
-  defaultValue?: string
-
   Arrowicon?: React.ReactNode
   icon?: React.ReactNode
 }
@@ -36,7 +34,6 @@ export default function Select({
   value,
   'aria-label': ariaLabel,
   testId,
-  defaultValue,
   Arrowicon = null,
   icon = null,
 }: UISelectProps) {
@@ -51,8 +48,6 @@ export default function Select({
         aria-label={ariaLabel}
         id={id}
       >
-        {defaultValue && <option value="">{defaultValue}</option>}
-
         {Object.keys(options).map((key) => (
           <option key={key} value={key}>
             {options[key]}
