@@ -1,32 +1,120 @@
 .mosaic {
   &__grid {
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    row-gap: var(--space-5);
-    column-gap: var(--space-8);
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    @include media(">=notebook") {
+      display: grid;
+      grid-template-columns: 300px 1fr 300px;
+      row-gap: var(--space-5);
+      column-gap: var(--space-8);
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  &__images {
+    @include media("<notebook") {
+      position: relative;
+      max-width: calc(var(--breakpoint-phonemid) * 1.5);
+      height: 276px;
+      margin: -46px auto 0;
+    }
+
+    @include media("<tablet") {
+      max-width: var(--breakpoint-phonemid);
+      height: 213px;
+    }
+  }
+
+  &__image-wrapper {
+    @include media("<notebook") {
+      position: absolute;
+      top: 0;
+      width: 184px;
+      height: 184px;
+      border-radius: var(--border-radius-circle);
+    }
+
+    @include media("<tablet") {
+      width: 142px;
+      height: 142px;
+    }
+
+    &--1 {
+      @include media("<notebook") {
+        left: 0;
+        transform: translateX(-0%);
+      }
+
+      @include media("<tablet") {
+        transform: translateX(-30%);
+      }
+    }
+
+    &--2 {
+      @include media("<notebook") {
+        left: 0;
+        transform: translate(60%, 50%);
+      }
+
+      @include media("<tablet") {
+        transform: translate(40%, 50%);
+      }
+    }
+
+    &--3 {
+      @include media("<notebook") {
+        right: 0;
+        transform: translate(-60%, 50%);
+      }
+
+      @include media("<tablet") {
+        transform: translate(-40%, 50%);
+      }
+    }
+
+    &--4 {
+      @include media("<notebook") {
+        right: 0;
+        transform: translateX(0%);
+      }
+
+      @include media("<tablet") {
+        transform: translateX(30%);
+      }
+    }
   }
 
   &__image {
     display: block;
+
+    @include media("<notebook") {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: var(--border-radius-circle);
+    }
   }
 }
 
 .mosaic-call {
   display: flex;
   flex-direction: column;
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
   align-items: center;
   justify-content: center;
 
+  @include media(">=notebook") {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
   &__topic {
     margin-bottom: var(--space-1);
-    font-size: var(--text-size-3);
     font-weight: var(--text-weight-bold);
     color: var(--color-secondary-3);
+
+    @include media(">=tablet") {
+      font-size: var(--text-size-3);
+    }
   }
 
   &__title {
@@ -37,6 +125,11 @@
     font-weight: var(--text-weight-bold);
     color: var(--color-neutral-7);
     text-align: center;
+
+    @include media("<tablet") {
+      max-width: 274px;
+      font-size: var(--text-size-4);
+    }
   }
 
   [data-store-link] {
@@ -52,6 +145,15 @@
     letter-spacing: 0.01em;
     background-color: var(--color-secondary-3);
     border-radius: var(--border-radius-pill);
+
+    @include media("<tablet") {
+      max-width: 153px;
+    }
+
+    @include media("<notebook") {
+      height: var(--space-7);
+      font-size: var(--text-size-1);
+    }
 
     &:hover {
       @include media(">=notebook") {
