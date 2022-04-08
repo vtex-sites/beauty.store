@@ -35,16 +35,22 @@
     }
   }
 }
-.footer__description {
-  max-width: 50%;
-  font-size: var(--text-size-2);
-  color: var(--color-neutral-8);
+
+.footer__logo {
+  flex: 1;
+
+  .footer__description {
+    max-width: 90%;
+    margin-top: var(--space-2);
+    font-size: var(--text-size-2);
+    color: var(--color-neutral-8);
+  }
 }
 
 .footer__section {
   display: flex;
   justify-content: center;
-  padding: var(--space-5);
+  padding: var(--space-5) 0;
 
   @include media(">=notebook") {
     row-gap: var(--space-7);
@@ -117,6 +123,7 @@
 
 .footer__social {
   display: flex;
+  flex: 1;
   flex-direction: column;
 
   @include media("<notebook") {
@@ -176,6 +183,8 @@
 }
 
 .footer__links {
+  flex: 2;
+
   [data-store-list] {
     margin-bottom: var(--space-2);
   }
