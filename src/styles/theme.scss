@@ -42,6 +42,8 @@
   --color-neutral-8: #000000;
   --color-neutral-9: #7c7e80;
 
+  --color-light-neutral-0: #828282;
+
   // State
   --color-success: var(--color-primary-1);
   --color-success-dark: var(--color-primary-2);
@@ -50,6 +52,7 @@
 
   // Customizable
   --color-text: var(--color-neutral-8);
+  --color-light-text: var(--color-light-neutral-0);
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
@@ -113,8 +116,9 @@
 
   --border-radius-flat: 0;
   --border-radius-small: 0.125rem;
+  --border-radius-box: 20px;
   --border-radius-regular: 30px;
-  --border-radius-pill: 100px;
+  --border-radius-pill: 80px;
   --border-radius-circle: 100%;
 
   --border-radius-default: var(--border-radius-regular);

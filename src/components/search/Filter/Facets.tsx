@@ -1,8 +1,7 @@
-import { Label as UILabel, List as UIList } from '@faststore/ui'
+import { Label as UILabel } from '@faststore/ui'
 import React from 'react'
-import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
-import { Badge } from 'src/components/ui/Badge'
 import Checkbox from 'src/components/ui/Checkbox'
+import Container from 'src/components/common/Container'
 import type {
   IStoreSelectedFacet,
   Filter_FacetsFragment,
@@ -11,57 +10,49 @@ import type {
 interface FacetsProps {
   testId: string
   facets: Filter_FacetsFragment[]
-  indicesExpanded: Set<number>
   onFacetChange: (item: IStoreSelectedFacet) => void
-  onAccordionChange: (index: number) => void
 }
 
-function Facets({
-  testId,
-  facets,
-  indicesExpanded,
-  onFacetChange,
-  onAccordionChange,
-}: FacetsProps) {
+function Facets({ testId, facets, onFacetChange }: FacetsProps) {
   return (
     <div className="filter" data-store-filter data-testid={testId}>
-      <h2 className="title-small">Filters</h2>
-      <Accordion expandedIndices={indicesExpanded} onChange={onAccordionChange}>
-        {facets.map(({ label, values, key }, index) => (
-          <AccordionItem
-            key={`${label}-${index}`}
-            prefixId={testId}
-            testId={`${testId}-accordion`}
-            isExpanded={indicesExpanded.has(index)}
-            buttonLabel={label}
-          >
-            <UIList>
-              {values.map((item) => {
-                const id = `${testId}-${label}-${item.label}`
+      <Container>
+        <div className="filter-grid">
+          {facets.map(({ label, values, key }, index) => (
+            <div className="filter-item" key={index}>
+              <h4 className="filter-item__title">{label}</h4>
+              <div className="filter-item__values">
+                {values.map((item) => {
+                  const id = `${testId}-${label}-${item.label}`
 
-                return (
-                  <li key={id} className="filter__item">
-                    <Checkbox
-                      id={id}
-                      checked={item.selected}
-                      onChange={() => onFacetChange({ key, value: item.value })}
-                      data-testid={`${testId}-accordion-panel-checkbox`}
-                      data-value={item.value}
-                      data-quantity={item.quantity}
-                    />
-                    <UILabel htmlFor={id} className="title-small">
-                      {item.label}{' '}
-                      <Badge variant="neutral" small>
-                        {item.quantity}
-                      </Badge>
-                    </UILabel>
-                  </li>
-                )
-              })}
-            </UIList>
-          </AccordionItem>
-        ))}
-      </Accordion>
+                  return (
+                    <div
+                      key={id}
+                      className={`filter-item__value
+                        ${item.selected && 'filter-item__value--selected'}`}
+                    >
+                      <Checkbox
+                        id={id}
+                        className="filter-item__checkbox"
+                        checked={item.selected}
+                        onChange={() =>
+                          onFacetChange({ key, value: item.value })
+                        }
+                        data-testid={`${testId}-accordion-panel-checkbox`}
+                        data-value={item.value}
+                        data-quantity={item.quantity}
+                      />
+                      <UILabel htmlFor={id} className="value__text">
+                        {item.label.replace('&apos;', "'")}
+                      </UILabel>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
     </div>
   )
 }

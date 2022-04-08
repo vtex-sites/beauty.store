@@ -9,7 +9,6 @@ import { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/common/Section'
-import Container from 'src/components/common/Container'
 
 import EmptyGallery from './EmptyGallery'
 import { useDelayedFacets } from './useDelayedFacets'
@@ -45,13 +44,11 @@ function ProductGallery({ title, searchTerm }: Props) {
 
   return (
     <Section className="product-listing / grid-content-full">
-      <Container>
-        <div className="product-listing__filters">
-          <FilterSkeleton loading={facets?.length === 0}>
-            <Filter facets={facets} />
-          </FilterSkeleton>
-        </div>
-      </Container>
+      <div className="product-listing__filters">
+        <FilterSkeleton loading={facets?.length === 0}>
+          <Filter facets={facets} />
+        </FilterSkeleton>
+      </div>
       {searchTerm && (
         <header className="product-listing__search-term / grid-content">
           <h1>
