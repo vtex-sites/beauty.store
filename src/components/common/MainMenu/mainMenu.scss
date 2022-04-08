@@ -40,6 +40,7 @@
       flex-direction: column;
       max-height: 0;
       overflow: hidden;
+      visibility: hidden;
 
       &.main-menu-item-children-section-active {
         top: 100%;
@@ -47,6 +48,7 @@
         left: 0;
         max-height: 100vh;
         overflow: unset;
+        visibility: visible;
         background: var(--lvl-0-background);
         box-shadow: var(--lvl-0-box-shadow);
       }
