@@ -1,65 +1,57 @@
 import React, { useState } from 'react'
-import { List as UIList } from '@faststore/ui'
+import { Icon as UIIcon, List as UIList } from '@faststore/ui'
+import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 
 const links = [
   {
-    title: 'Our company',
+    title: 'A Beauty',
     items: [
       {
         href: '/',
-        name: 'About Us',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
       {
         href: '/',
-        name: 'Our Blog',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
       {
         href: '/',
-        name: 'Stores',
-      },
-      {
-        href: '/',
-        name: 'Work With Us',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
     ],
   },
   {
-    title: 'Orders & Purchases',
+    title: 'Produtos',
     items: [
       {
         href: '/',
-        name: 'Check Order Status',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
       {
         href: '/',
-        name: 'Returns and Exchanges',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
       {
         href: '/',
-        name: 'Product Recall',
-      },
-      {
-        href: '/',
-        name: 'Gift Cards',
+        name: 'Lorem ipsum',
+        highlight: false,
       },
     ],
   },
   {
-    title: 'Support & Services',
+    title: 'Scanner Facial',
     items: [
       {
         href: '/',
-        name: 'Support Center',
-      },
-      {
-        href: '/',
-        name: 'Schedule a Service',
-      },
-      {
-        href: '/',
-        name: 'Contact Us',
+        name: 'Faça agora',
+        highlight: true,
       },
     ],
   },
@@ -68,6 +60,7 @@ const links = [
 type LinkItem = {
   href: string
   name: string
+  highlight: boolean
 }
 
 interface LinksListProps {
@@ -78,10 +71,19 @@ function LinksList({ items }: LinksListProps) {
   return (
     <UIList>
       {items.map((item) => (
-        <li key={item.name}>
-          <Link variant="footer" to={item.href}>
+        <li key={item.name} className="list__item">
+          <Link
+            variant="footer"
+            to={item.href}
+            className={item.highlight ? 'highlight-link' : ''}
+          >
             {item.name}
           </Link>
+          {item.highlight && (
+            <UIIcon
+              component={<Icon width={17} height={17} name="FooterLinkArrow" />}
+            />
+          )}
         </li>
       ))}
     </UIList>
