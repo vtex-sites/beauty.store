@@ -4,6 +4,7 @@ import {
   PaymentMethods as UIPaymentMethods,
 } from '@faststore/ui'
 import React from 'react'
+import Newsletter from 'src/components/sections/Newsletter'
 import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import SROnly from 'src/components/ui/SROnly'
@@ -32,7 +33,8 @@ function Footer() {
             </section>
             <FooterLinks />
             <section className="footer__social">
-              <p className="title-sub-subsection">Follow us</p>
+              <Newsletter title="Newsletter" onSubmit={() => alert('submit')} />
+
               <UIList variant="unordered">
                 <li>
                   <Link
@@ -44,7 +46,7 @@ function Footer() {
                   >
                     <UIIcon
                       component={
-                        <Icon width={24} height={24} name="Facebook" />
+                        <Icon width={12} height={12} name="Facebook" />
                       }
                     />
                   </Link>
@@ -52,43 +54,28 @@ function Footer() {
                 <li>
                   <Link
                     as="a"
-                    href="https://www.instagram.com/"
-                    title="Instagram"
+                    href="https://www.youtube.com/"
+                    title="Youtube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <UIIcon
+                      component={<Icon width={14} height={14} name="Youtube" />}
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    as="a"
+                    href="https://www.linkedin.com/"
+                    title="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <UIIcon
                       component={
-                        <Icon width={24} height={24} name="Instagram" />
+                        <Icon width={21} height={21} name="LinkedIn" />
                       }
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    as="a"
-                    href="https://www.pinterest.com/"
-                    title="Pinterest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <UIIcon
-                      component={
-                        <Icon width={24} height={24} name="Pinterest" />
-                      }
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    as="a"
-                    href="https://twitter.com/"
-                    title="Twitter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <UIIcon
-                      component={<Icon width={24} height={24} name="Twitter" />}
                     />
                   </Link>
                 </li>

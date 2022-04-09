@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef, FormEvent, ReactNode } from 'react'
 import React, { forwardRef, useRef } from 'react'
-import { Form, Label, Input, Button } from '@faststore/ui'
+import { Form, Input, Button } from '@faststore/ui'
 
 export interface NewsletterProps
   extends Omit<ComponentPropsWithRef<'form'>, 'title' | 'onSubmit'> {
@@ -38,20 +38,27 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
           onSubmit={handleSubmit}
           {...otherProps}
         >
-          <div data-newsletter-header>
+          <div data-newsletter-header className="newsletter-title">
             {title}
             {Boolean(subtitle) && subtitle}
           </div>
 
-          <div data-newsletter-controls>
-            <Label htmlFor="newsletter-email">Your email</Label>
+          <div
+            data-newsletter-controls
+            className="newsletter-email-input-container"
+          >
             <Input
               id="newsletter-email"
               type="email"
               name="newsletter-email"
+              className="newsletter-email-input"
+              placeholder="Digite seu e-mail"
               ref={emailInputRef}
             />
-            <Button type="submit">Subscribe</Button>
+            <Button type="submit" className="newsletter-submit-btn">
+              {' '}
+              {'->'}{' '}
+            </Button>
           </div>
         </Form>
       </section>
