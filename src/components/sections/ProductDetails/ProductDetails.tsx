@@ -14,6 +14,7 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
+import GalleryImage from 'src/components/common/GalleryImage'
 
 import Section from '../../common/Section'
 
@@ -107,6 +108,10 @@ function ProductDetails({ product: staleProduct }: Props) {
   return (
     <Section className="product-details / grid-content grid-section">
       <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
+
+      <div className="swiper_test">
+        <GalleryImage images={productImages} />
+      </div>
 
       <section className="product-details__body">
         <header className="product-details__title">
