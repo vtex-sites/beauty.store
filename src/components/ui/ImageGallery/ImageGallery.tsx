@@ -1,59 +1,68 @@
-import { Button } from '@faststore/ui'
 import React, { useState } from 'react'
 import { Image } from 'src/components/ui/Image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Navigation, FreeMode, Thumbs } from 'swiper'
+import type { Swiper as ISwiper } from 'swiper'
 
-import { ImageGallerySelector, ImageZoom } from '.'
-
-export interface ImageElementData {
-  url: string
-  alternateName: string
+interface Props {
+  images: Array<{
+    url: string
+    alternateName: string
+  }>
 }
 
-interface ImageGalleryProps {
-  images: ImageElementData[]
-}
-
-function ImageGallery({ images }: ImageGalleryProps) {
-  const [selectedImageIdx, setSelectedImageIdx] = useState(0)
-  const currentImage = images[selectedImageIdx]
+const ImageGallery = ({ images }: Props) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<ISwiper | null>(null)
 
   return (
-    <div>
-      <ImageZoom>
-        <Image
-          src={currentImage.url}
-          alt={currentImage.alternateName}
-          width={250}
-          height={250}
-        />
-      </ImageZoom>
-      <ImageGallerySelector itemsPerPage={4}>
-        {images.map((image, idx) => {
-          return (
-            <Button
-              key={idx}
-              data-thumbnail-button={
-                idx === selectedImageIdx ? 'selected' : 'true'
-              }
-              aria-label={`Load ${image.alternateName} - Image ${idx + 1} of ${
-                images.length
-              }`}
-              onClick={() => {
-                setSelectedImageIdx(idx)
-              }}
-            >
-              <Image
-                src={image.url}
-                alt={image.alternateName}
-                loading={idx === 0 ? 'eager' : 'lazy'}
-                width={250}
-                height={250}
-              />
-            </Button>
-          )
-        })}
-      </ImageGallerySelector>
-    </div>
+    <>
+      <Swiper
+        direction="vertical"
+        pagination={{
+          type: 'progressbar',
+        }}
+        navigation
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[Pagination, Navigation, Thumbs]}
+        className="swiper-image-gallery"
+      >
+        {images.map((image, id) => (
+          <SwiperSlide key={`${image.url}_${id}`}>
+            <Image
+              preload
+              loading="eager"
+              src={image.url}
+              alt={image.alternateName}
+              width={680}
+              height={680}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode
+        watchSlidesProgress
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="swiper-image-gallery-thumbs"
+      >
+        {images.map((image, id) => (
+          <SwiperSlide key={`${image.url}_${id}`}>
+            <Image
+              data={false}
+              preload
+              loading="eager"
+              src={image.url}
+              alt={image.alternateName}
+              width={71}
+              height={71}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   )
 }
 

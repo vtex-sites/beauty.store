@@ -1,0 +1,35 @@
+@import "swiper/scss";
+@import "swiper/scss/pagination";
+@import "swiper/scss/navigation";
+@import "swiper/scss/free-mode";
+@import "swiper/scss/thumbs";
+
+.swiper-image-gallery {
+  max-height: 680px;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    left: 50%;
+    transform: rotate(90deg);
+    transform-origin: left center;
+  }
+
+  .swiper-button-prev {
+    top: 10px;
+  }
+
+  .swiper-button-next {
+    top: auto;
+    bottom: 10px;
+  }
+}
+
+.product-details {
+  &__image {
+    [data-store-image] {
+      width: auto;
+      height: inherit;
+      object-fit: unset;
+    }
+  }
+}

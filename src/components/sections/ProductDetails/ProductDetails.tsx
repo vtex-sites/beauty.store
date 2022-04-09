@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
 import BuyButton from 'src/components/ui/BuyButton'
-import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
 import ProductTitle from 'src/components/ui/ProductTitle'
 import QuantitySelector from 'src/components/ui/QuantitySelector'
@@ -14,7 +13,7 @@ import { useProduct } from 'src/sdk/product/useProduct'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
-import GalleryImage from 'src/components/common/GalleryImage'
+import ImageGallery from 'src/components/ui/ImageGallery'
 
 import Section from '../../common/Section'
 
@@ -109,10 +108,6 @@ function ProductDetails({ product: staleProduct }: Props) {
     <Section className="product-details / grid-content grid-section">
       <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
 
-      <div className="swiper_test">
-        <GalleryImage images={productImages} />
-      </div>
-
       <section className="product-details__body">
         <header className="product-details__title">
           <ProductTitle
@@ -123,15 +118,7 @@ function ProductDetails({ product: staleProduct }: Props) {
         </header>
 
         <section className="product-details__image">
-          <Image
-            preload
-            loading="eager"
-            src={productImages[0].url}
-            alt={productImages[0].alternateName}
-            width={360}
-            height={270}
-            sizes="(max-width: 768px) 25vw, 50vw"
-          />
+          <ImageGallery images={productImages} />
         </section>
 
         <section className="product-details__settings">
