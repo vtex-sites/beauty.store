@@ -41,8 +41,8 @@ const ImageGallery = ({ images }: Props) => {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
+        direction="vertical"
+        slidesPerView={2}
         freeMode
         watchSlidesProgress
         modules={[FreeMode, Navigation, Thumbs]}

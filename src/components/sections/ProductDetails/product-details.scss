@@ -1,6 +1,9 @@
 @import "src/styles/scaffold";
 
-.product-details { margin-top: var(--space-3); }
+.product-details {
+  background-color: #E5E5E5;
+  margin-top: var(--space-3);
+}
 
 .product-details__body {
   display: flex;
