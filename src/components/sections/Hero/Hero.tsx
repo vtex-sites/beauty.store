@@ -18,7 +18,7 @@ interface HeroProps {
   subtitle?: string
   paragraph: string
   variant?: Variant
-  inverted: boolean
+  isInverted: boolean
   linkText?: string
   link?: string
   icon?: JSX.Element
@@ -31,7 +31,7 @@ const Hero = ({
   subtitle,
   paragraph,
   variant = 'default',
-  inverted = false,
+  isInverted,
   linkText,
   link,
   icon,
@@ -41,7 +41,18 @@ const Hero = ({
   return (
     <Section>
       <Container>
-        <UIHero data-hero-variant={variant} inverted={inverted}>
+        <UIHero data-hero-variant={variant} isInverted={isInverted}>
+          <HeroImage>
+            <Image
+              preload
+              loading="eager"
+              src={imageSrc}
+              alt={imageAlt}
+              width={743}
+              height={860}
+              sizes="(max-width: 768px) 70vw, 50vw"
+            />
+          </HeroImage>
           <HeroContent aria-labelledby="hero-heading">
             <div className="hero-content-wrapper / grid-content">
               <div className="hero-content-info">
@@ -76,17 +87,6 @@ const Hero = ({
               {!!icon && <div className="hero-content-icon">{icon}</div>}
             </div>
           </HeroContent>
-          <HeroImage>
-            <Image
-              preload
-              loading="eager"
-              src={imageSrc}
-              alt={imageAlt}
-              width={743}
-              height={860}
-              sizes="(max-width: 768px) 70vw, 50vw"
-            />
-          </HeroImage>
         </UIHero>
       </Container>
     </Section>

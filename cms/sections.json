@@ -7,32 +7,40 @@
       "type": "object",
       "properties": {
         "title": {
+          "title": "Title Hero",
           "type": "string"
         },
         "subtitle": {
+          "title": "Subtitle Hero",
           "type": "string"
         },
         "paragraph": {
+          "title": "Paragraph Hero",
           "type": "string"
         },
+        "isInverted": {
+          "title": "Inverted layout",
+          "type": "boolean",
+          "default": false
+        },
         "linkText": {
-          "type": "string",
-          "title": "Link text"
+          "title": "Link text",
+          "type": "string"
         },
         "link": {
-          "type": "string",
-          "title": "Link path"
+          "title": "Link path",
+          "type": "string"
         },
         "imageSrc": {
-          "type": "string",
           "title": "Image",
+          "type": "string",
           "widget": {
             "ui:widget": "image-uploader"
           }
         },
         "imageAlt": {
-          "type": "string",
-          "title": "Alt text"
+          "title": "Alt text",
+          "type": "string"
         }
       }
     }
@@ -40,7 +48,6 @@
 
   {
     "name": "Incentives",
-
     "schema": {
       "title": "Barra de Vantagens",
       "description": "Adicione os itens da barra de vantagens",
