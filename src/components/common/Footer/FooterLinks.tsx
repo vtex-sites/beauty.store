@@ -71,11 +71,11 @@ function LinksList({ items }: LinksListProps) {
   return (
     <UIList>
       {items.map((item) => (
-        <li key={item.name} className="list__item">
+        <li key={item.name} className="links-list-item">
           <Link
             variant="footer"
             to={item.href}
-            className={item.highlight ? 'highlight-link' : ''}
+            className={item.highlight ? 'highlight' : ''}
           >
             {item.name}
           </Link>

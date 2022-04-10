@@ -2,6 +2,7 @@
 
 a,
 [data-store-link] {
+  border-radius: var(--border-radius-default);
   transition: box-shadow 0.5s ease;
 
   @include focus-ring-visible;
@@ -46,7 +47,17 @@ a,
 
 [data-link-variant="footer"] {
   font-size: var(--text-size-1);
-  color: var(--color-text);
+  color: var(--color-neutral-8);
+
+  &:active,
+  &:visited,
+  &:link {
+    color: var(--color-neutral-8);
+  }
+
+  &.highlight {
+    color: var(--color-secondary-3);
+  }
 
   @include media(">=notebook") {
     padding: var(--space-1) var(--space-0);

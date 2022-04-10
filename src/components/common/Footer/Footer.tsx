@@ -17,23 +17,23 @@ import FooterLinks from './FooterLinks'
 function Footer() {
   return (
     <footer className="footer">
-      <Section className="footer">
+      <Section>
         <Container>
-          <div className="footer__section">
+          <div className="footer__top-section">
             <section className="footer__logo">
               <UIIcon
                 component={
                   <img src="/Beauty.svg" alt="Beauty logo" loading="lazy" />
                 }
               />
-              <p className="footer__description">
+              <p className="store-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor.
               </p>
             </section>
             <FooterLinks />
             <section className="footer__social">
-              <Newsletter title="Newsletter" onSubmit={() => alert('submit')} />
+              <Newsletter title="Newsletter" onSubmit={() => {}} />
 
               <UIList variant="unordered">
                 <li>
@@ -85,51 +85,47 @@ function Footer() {
 
           <div className="footer__note">
             <UIPaymentMethods>
-              <p className="title-sub-subsection">Payment Methods</p>
               <UIList>
                 <li>
-                  <Icon width={34} height={24} name="Visa" />
-                  <SROnly text="Visa" />
-                </li>
-                <li>
-                  <Icon width={34} height={24} name="Diners" />
-                  <SROnly text="Diners Club" />
-                </li>
-                <li>
-                  <Icon width={34} height={24} name="Mastercard" />
+                  <Icon width={20} height={12} name="Mastercard" />
                   <SROnly text="Mastercard" />
                 </li>
                 <li>
-                  <Icon width={34} height={24} name="EloCard" />
+                  <Icon width={26} height={8} name="Visa" />
+                  <SROnly text="Visa" />
+                </li>
+                <li>
+                  <Icon width={12} height={12} name="Diners" />
+                  <SROnly text="Diners Club" />
+                </li>
+
+                <li>
+                  <Icon width={12} height={12} name="EloCard" />
                   <SROnly text="Elo Card" />
                 </li>
                 <li>
-                  <Icon width={34} height={24} name="PayPal" />
+                  <Icon width={12} height={14} name="PayPal" />
                   <SROnly text="PayPal" />
                 </li>
                 <li>
-                  <Icon width={34} height={24} name="Stripe" />
-                  <SROnly text="Stripe" />
+                  <Icon width={26} height={10} name="Hiper" />
+                  <SROnly text="Hiper" />
                 </li>
                 <li>
-                  <Icon width={34} height={24} name="GooglePay" />
-                  <SROnly text="Google Pay" />
-                </li>
-                <li>
-                  <Icon width={34} height={24} name="ApplePay" />
-                  <SROnly text="Apple Pay" />
+                  <Icon width={21} height={9} name="Boleto" />
+                  <SROnly text="Boleto" />
                 </li>
               </UIList>
             </UIPaymentMethods>
 
-            <div className="footer__copyright / text-body-small">
-              <p>This website uses VTEX technology</p>
-              <p>
-                In-store price may vary. Prices and offers are subject to
-                change. 2021 Store name. All rights reserved. Store is a
-                trademark of Store and its affiliated companies.
-              </p>
-              <address>Mount St, 000, New York / NY - 00000.</address>
+            <div className="footer__copyright">
+              <p>Copyright © 2021 beauty. Todos os direitos reservados.</p>
+            </div>
+            <div className="footer__water-mark">
+              <p className="water-mark-text">Powered by</p>
+              <Icon width={46} height={16} name="VtexLogo" />
+              <p className="water-mark-text">Developed by</p>
+              <Icon width={29} height={16} name="M3Logo" />
             </div>
           </div>
         </Container>
