@@ -7,51 +7,47 @@ import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 const links = [
   {
     title: 'A Beauty',
+    highlight: false,
     items: [
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
     ],
   },
   {
     title: 'Produtos',
+    highlight: false,
     items: [
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
       {
         href: '/',
         name: 'Lorem ipsum',
-        highlight: false,
       },
     ],
   },
   {
     title: 'Scanner Facial',
+    highlight: true,
     items: [
       {
         href: '/',
         name: 'Faça agora',
-        highlight: true,
       },
     ],
   },
@@ -60,14 +56,14 @@ const links = [
 type LinkItem = {
   href: string
   name: string
-  highlight: boolean
 }
 
 interface LinksListProps {
+  highlight: boolean
   items: LinkItem[]
 }
 
-function LinksList({ items }: LinksListProps) {
+function LinksList({ items, highlight }: LinksListProps) {
   return (
     <UIList>
       {items.map((item) => (
@@ -75,11 +71,11 @@ function LinksList({ items }: LinksListProps) {
           <Link
             variant="footer"
             to={item.href}
-            className={item.highlight ? 'highlight' : ''}
+            className={highlight ? 'highlight' : ''}
           >
             {item.name}
           </Link>
-          {item.highlight && (
+          {highlight && (
             <UIIcon
               component={<Icon width={17} height={17} name="FooterLinkArrow" />}
             />
@@ -108,15 +104,34 @@ function FooterLinks() {
     <section className="footer__links">
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
-          {links.map((section, index) => (
-            <AccordionItem
-              key={section.title}
-              isExpanded={indicesExpanded.has(index)}
-              buttonLabel={section.title}
-            >
-              <LinksList items={section.items} />
-            </AccordionItem>
-          ))}
+          {links.map((section, index) => {
+            if (section.highlight) {
+              return (
+                <nav key={section.title}>
+                  <p className="title-sub-subsection highlight">
+                    {section.title}
+                  </p>
+                  <LinksList
+                    items={section.items}
+                    highlight={section.highlight}
+                  />
+                </nav>
+              )
+            }
+
+            return (
+              <AccordionItem
+                key={section.title}
+                isExpanded={indicesExpanded.has(index)}
+                buttonLabel={section.title}
+              >
+                <LinksList
+                  items={section.items}
+                  highlight={section.highlight}
+                />
+              </AccordionItem>
+            )
+          })}
         </Accordion>
       </div>
 
@@ -125,7 +140,7 @@ function FooterLinks() {
           {links.map((section) => (
             <nav key={section.title}>
               <p className="title-sub-subsection">{section.title}</p>
-              <LinksList items={section.items} />
+              <LinksList items={section.items} highlight={section.highlight} />
             </nav>
           ))}
         </div>

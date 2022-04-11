@@ -86,32 +86,32 @@ function Footer() {
           <div className="footer__note">
             <UIPaymentMethods>
               <UIList>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={20} height={12} name="Mastercard" />
                   <SROnly text="Mastercard" />
                 </li>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={26} height={8} name="Visa" />
                   <SROnly text="Visa" />
                 </li>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={12} height={12} name="Diners" />
                   <SROnly text="Diners Club" />
                 </li>
 
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={12} height={12} name="EloCard" />
                   <SROnly text="Elo Card" />
                 </li>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={12} height={14} name="PayPal" />
                   <SROnly text="PayPal" />
                 </li>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={26} height={10} name="Hiper" />
                   <SROnly text="Hiper" />
                 </li>
-                <li>
+                <li className="footer__payment-list-item">
                   <Icon width={21} height={9} name="Boleto" />
                   <SROnly text="Boleto" />
                 </li>

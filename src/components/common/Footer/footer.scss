@@ -26,7 +26,6 @@
   justify-content: center;
   padding: var(--space-5) 0;
 
-
   @include media("<notebook") {
     flex-direction: column;
     padding: 0;
@@ -36,6 +35,12 @@
 
 .footer__links {
   flex: 2;
+
+  .title-sub-subsection.highlight {
+    padding: var(--space-3) 0;
+    font-size: var(--text-size-3);
+    font-weight: var(--text-weight-bold);
+  }
 
   [data-store-list] {
     display: flex;
@@ -159,7 +164,7 @@
     [data-store-list] {
       display: flex;
 
-      li {
+      .footer__payment-list-item {
         display: flex;
         align-items: center;
         justify-content: center;
