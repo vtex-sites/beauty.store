@@ -2,6 +2,7 @@
 
 .product-details {
   margin-top: var(--space-3);
+  background-color: #e5e5e5;
 }
 
 .product-details__body {
@@ -40,7 +41,7 @@
   }
 
   @include media(">=notebook") {
-    grid-column: span 8;
+    grid-column: span 7;
   }
 }
 

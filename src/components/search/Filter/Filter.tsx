@@ -1,26 +1,20 @@
 import { useSearch } from '@faststore/sdk'
 import { graphql } from 'gatsby'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
+import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
 import SlideOver from 'src/components/ui/SlideOver'
+import Sort from 'src/components/search/Sort'
 import type { Filter_FacetsFragment } from '@generated/graphql'
 
 import Facets from './Facets'
 import { useFilter } from './useFilter'
+import FilterButton from './FilterButton'
 
 interface Props {
   facets: Filter_FacetsFragment[]
-  /*
-   * Control whether the filter modal is open. (mobile only)
-   */
-  isOpen?: boolean
-  /**
-   * This function is called whenever the user hits "Escape", clicks outside
-   * the filter modal or clicks in close button. (mobile only)
-   */
-  onDismiss?: () => void
   /**
    * ID to find this component in testing tools (e.g.: cypress,
    * testing-library, and jest).
@@ -30,12 +24,7 @@ interface Props {
 
 type Callback = () => unknown
 
-function Filter({
-  facets: allFacets,
-  onDismiss,
-  isOpen = false,
-  testId = 'store-filter',
-}: Props) {
+function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
   const dismissTransition = useRef<Callback | undefined>()
   const {
     setFacets,
@@ -43,81 +32,87 @@ function Filter({
     state: { selectedFacets },
   } = useSearch()
 
-  const { facets, selected, expanded, dispatch } = useFilter(allFacets)
+  const { facets, selected, dispatch } = useFilter(allFacets)
+  const [openFilter, setOpenFilter] = useState(false)
+  const { isWidescreen: isMobile } = useWidescreen('(max-width: 768px)')
 
   return (
     <>
-      <div className="hidden-mobile">
-        <Facets
-          facets={facets}
-          testId={`desktop-${testId}`}
-          indicesExpanded={expanded}
-          onFacetChange={toggleFacet}
-          onAccordionChange={(index) =>
-            dispatch({ type: 'toggleExpanded', payload: index })
-          }
+      <div className="filter-button-container">
+        <FilterButton
+          text="filtros"
+          onClick={() => setOpenFilter(!openFilter)}
+          icon={<Icon name="Filter" width={18} height={18} />}
         />
+        <Sort />
       </div>
 
-      <SlideOver
-        isOpen={isOpen}
-        onDismiss={onDismiss}
-        onDismissTransition={(callback) =>
-          (dismissTransition.current = callback)
-        }
-        size="partial"
-        direction="rightSide"
-        className="filter-modal__content"
-      >
-        <div className="filter-modal__body">
-          <header className="filter-modal__header">
-            <h2 className="title-display">Filters</h2>
-            <IconButton
-              data-testid="filter-modal-button-close"
-              classes="filter-modal__button"
-              aria-label="Close Filters"
-              icon={<Icon name="X" width={32} height={32} />}
-              onClick={() => {
-                dispatch({
-                  type: 'selectFacets',
-                  payload: selectedFacets,
-                })
-
-                dismissTransition.current?.()
-              }}
-            />
-          </header>
+      {!isMobile ? (
+        <div className={`${!openFilter && 'hidden-filter'} hidden-mobile`}>
           <Facets
             facets={facets}
-            testId={`mobile-${testId}`}
-            indicesExpanded={expanded}
-            onFacetChange={(facet) =>
-              dispatch({ type: 'toggleFacet', payload: facet })
-            }
-            onAccordionChange={(index) =>
-              dispatch({ type: 'toggleExpanded', payload: index })
-            }
+            testId={`desktop-${testId}`}
+            onFacetChange={toggleFacet}
+            setOpenFilter={setOpenFilter}
           />
         </div>
-        <footer className="filter-modal__footer">
-          <Button
-            variant="secondary"
-            onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
-          >
-            Clear All
-          </Button>
-          <Button
-            variant="primary"
-            data-testid="filter-modal-button-apply"
-            onClick={() => {
-              setFacets(selected)
-              onDismiss?.()
-            }}
-          >
-            Apply
-          </Button>
-        </footer>
-      </SlideOver>
+      ) : (
+        <SlideOver
+          isOpen={openFilter}
+          onDismiss={() => setOpenFilter(false)}
+          onDismissTransition={(callback) =>
+            (dismissTransition.current = callback)
+          }
+          size="partial"
+          direction="leftSide"
+          className="filter-modal__content"
+        >
+          <div className="filter-modal__body">
+            <header className="filter-modal__header">
+              <h2 className="title-display">Filtros</h2>
+              <IconButton
+                data-testid="filter-modal-button-close"
+                classes="filter-modal__button"
+                aria-label="Close Filters"
+                icon={<Icon name="X" width={32} height={32} />}
+                onClick={() => {
+                  dispatch({
+                    type: 'selectFacets',
+                    payload: selectedFacets,
+                  })
+
+                  dismissTransition.current?.()
+                }}
+              />
+            </header>
+            <Facets
+              facets={facets}
+              testId={`mobile-${testId}`}
+              onFacetChange={(facet) =>
+                dispatch({ type: 'toggleFacet', payload: facet })
+              }
+            />
+          </div>
+          <footer className="filter-modal__footer">
+            <Button
+              variant="secondary"
+              onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
+            >
+              Limpar
+            </Button>
+            <Button
+              variant="primary"
+              data-testid="filter-modal-button-apply"
+              onClick={() => {
+                setFacets(selected)
+                setOpenFilter?.(false)
+              }}
+            >
+              Aplicar filtro
+            </Button>
+          </footer>
+        </SlideOver>
+      )}
     </>
   )
 }
@@ -131,7 +126,6 @@ export const fragment = graphql`
       label
       value
       selected
-      quantity
     }
   }
 `
