@@ -1,26 +1,30 @@
 import React from 'react'
 import ProductItems from 'src/components/product/ProductItems'
 import Section from 'src/components/common/Section'
+import Container from 'src/components/common/Container'
 
 interface BannerAndShelfProps {
-  imageSrc: string
+  bannerSrc: string
+  bannerAlt: string
 }
 
-function BannerAndShelf({ imageSrc }: BannerAndShelfProps) {
+function BannerAndShelf({ bannerSrc, bannerAlt }: BannerAndShelfProps) {
   return (
     <Section>
-      <div className="banner-and-shelf">
-        <div className="banner-and-shelf__banner-wrapper">
-          <img
-            className="banner-and-shelf__banner"
-            src={imageSrc}
-            alt="Banner ao lado da prateleira"
-          />
+      <Container>
+        <div className="banner-and-shelf">
+          <div className="banner-and-shelf__banner-wrapper">
+            <img
+              className="banner-and-shelf__banner"
+              src={bannerSrc}
+              alt={bannerAlt}
+            />
+          </div>
+          <ul className="banner-and-shelf__items">
+            <ProductItems first={4} />
+          </ul>
         </div>
-        <ul className="banner-and-shelf__items">
-          <ProductItems first={4} />
-        </ul>
-      </div>
+      </Container>
     </Section>
   )
 }

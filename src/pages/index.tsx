@@ -31,8 +31,9 @@ const fallbackContent = [
   },
   {
     data: {
-      imageSrc:
+      bannerSrc:
         'https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg',
+      bannerAlt: 'Banner ao lado da prateleira',
     },
     name: 'BannerAndShelf',
   },
