@@ -39,29 +39,30 @@ const ImageGallery = ({ images }: Props) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        direction="vertical"
-        slidesPerView={2}
-        freeMode
-        watchSlidesProgress
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="swiper-image-gallery-thumbs"
-      >
-        {images.map((image, id) => (
-          <SwiperSlide key={`${image.url}_${id}`}>
-            <Image
-              data={false}
-              preload
-              loading="eager"
-              src={image.url}
-              alt={image.alternateName}
-              width={71}
-              height={71}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {typeof window !== 'undefined' && window.innerWidth > 1020 && (
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          direction="vertical"
+          slidesPerView={2}
+          freeMode
+          watchSlidesProgress
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="swiper-image-gallery-thumbs"
+        >
+          {images.map((image, id) => (
+            <SwiperSlide key={`${image.url}_${id}`}>
+              <Image
+                preload
+                loading="eager"
+                src={image.url}
+                alt={image.alternateName}
+                width={71}
+                height={71}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </>
   )
 }

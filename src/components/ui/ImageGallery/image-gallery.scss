@@ -10,14 +10,14 @@
   .swiper-button-next,
   .swiper-button-prev {
     left: 50%;
-    transform-origin: left center;
+    width: 16px;
+    height: 17px;
     color: #828282;
     background-image: url("/arrow-top.svg");
     background-repeat: no-repeat;
-    width: 16px;
-    height: 17px;
+    transform-origin: left center;
 
-    &:after {
+    &::after {
       font-size: 0;
     }
   }
@@ -35,26 +35,26 @@
   }
 
   .swiper-pagination-progressbar {
-    background-color: #BDBDBD;
-    border-radius: 20px;
-    max-height: 220px;
     top: 50%;
-    transform: translateY(-50%);
-    width: 5.69px;
     left: 10px;
+    width: 5.69px;
+    max-height: 220px;
+    background-color: #bdbdbd;
+    border-radius: 20px;
+    transform: translateY(-50%);
 
     &-fill {
-      background-color: #EBA47A;
+      background-color: #eba47a;
       border-radius: 20px;
     }
   }
 
   &-thumbs {
-    left: 42px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 42px;
     width: max-content;
+    transform: translateY(-50%);
 
     .swiper-wrapper,
     .swiper-slide {
@@ -62,20 +62,21 @@
     }
 
     .swiper-slide {
-      border-radius: 100px;
-      background-color: #FFF;
       cursor: pointer;
+      background-color: #fff;
+      border-radius: 100px;
+
+      &-thumb-active {
+        border: 2px solid #eba47a;
+      }
     }
   }
-}
 
-
-.product-details {
-  &__image {
-    [data-store-image] {
-      width: auto;
-      height: inherit;
-      object-fit: unset;
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination-progressbar {
+    @media (max-width: 1020px) {
+      display: none;
     }
   }
 }
