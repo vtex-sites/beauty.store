@@ -18,6 +18,7 @@
 
 // Search
 @import "src/components/search/Filter/filter.scss";
+@import "src/components/search/Filter/FilterButton/filter-button.scss";
 @import "src/components/search/History/search-history.scss";
 @import "src/components/search/SuggestionProductCard/suggestion-product-card.scss";
 @import "src/components/search/Suggestions/suggestions.scss";
@@ -31,6 +32,7 @@
 @import "src/components/sections/ProductGallery/product-gallery.scss";
 @import "src/components/sections/ProductShelf/product-shelf.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
+@import "src/components/sections/Mosaic/mosaic.scss";
 
 // Skeletons
 @import "src/components/skeletons/FilterSkeleton/filter-skeleton.scss";
