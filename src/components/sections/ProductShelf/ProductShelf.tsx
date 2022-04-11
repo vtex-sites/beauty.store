@@ -2,8 +2,8 @@ import React from 'react'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
+import ProductItems from 'src/components/product/ProductItems'
 
-import ProductCard from '../../product/ProductCard'
 import Section from '../Section'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
@@ -32,11 +32,7 @@ function ProductShelf({
       <div className="page__section-content">
         <ProductShelfSkeleton loading={products === undefined}>
           <ul data-product-shelf className="grid-content">
-            {products?.edges.map((product, idx) => (
-              <li key={`${product.node.id}`}>
-                <ProductCard product={product.node} index={idx + 1} />
-              </li>
-            ))}
+            <ProductItems {...variables} />
           </ul>
         </ProductShelfSkeleton>
       </div>

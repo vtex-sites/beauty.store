@@ -29,6 +29,13 @@ const fallbackContent = [
     },
     name: 'Hero',
   },
+  {
+    data: {
+      imageSrc:
+        'https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg',
+    },
+    name: 'BannerAndShelf',
+  },
 ]
 
 function Page(props: Props) {
