@@ -6,6 +6,7 @@ import RenderCMS from 'src/components/RenderCMS'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
+import ProductShelf from 'src/components/sections/ProductShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -78,6 +79,7 @@ function Page(props: Props) {
           },
         }}
       />
+      <ProductShelf title="Navegue pelas categorias" first={4} />
       {/* CMS Sections */}
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
     </>

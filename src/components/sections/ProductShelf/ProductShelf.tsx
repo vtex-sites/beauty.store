@@ -4,6 +4,7 @@ import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductItems from 'src/components/product/ProductItems'
 import Section from 'src/components/common/Section'
+import Container from 'src/components/common/Container'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element
@@ -22,19 +23,14 @@ function ProductShelf({
   }
 
   return (
-    <Section
-      className={`page__section-shelf / grid-section ${
-        withDivisor ? 'page__section-divisor' : ''
-      }`}
-    >
-      <h2 className="title-section / grid-content">{title}</h2>
-      <div className="page__section-content">
+    <Section className="page__section-shelf">
+      <Container>
         <ProductShelfSkeleton loading={products === undefined}>
-          <ul data-product-shelf className="grid-content">
+          <ul className="product-shelf">
             <ProductItems {...variables} />
           </ul>
         </ProductShelfSkeleton>
-      </div>
+      </Container>
     </Section>
   )
 }
