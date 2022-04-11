@@ -24,8 +24,8 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:9000',
     pages: {
       home: '/',
-      pdp: '/apple-magic-mouse-99988212/p',
-      collection: '/office',
+      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
+      collection: '/beleza',
     },
   },
 
@@ -33,11 +33,11 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
-      pdp: '/apple-magic-mouse-99988212/p',
-      collection: '/office',
+      pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10/p',
+      collection: '/beleza',
       collection_filtered:
-        '/office/?category-1=office&marca=acer&facets=category-1%2Cmarca',
-      search: '/s?q=orange',
+        '/beleza/?category-1=beleza&marca=mantecorp-skincare&facets=category-1%2Cmarca',
+      search: '/s?q=shampoo',
     },
   },
 

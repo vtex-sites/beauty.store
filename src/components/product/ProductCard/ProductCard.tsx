@@ -6,12 +6,12 @@ import {
 } from '@faststore/ui'
 import { graphql, Link } from 'gatsby'
 import React, { memo } from 'react'
-import { Badge, DiscountBadge } from 'src/components/ui/Badge'
 import { Image } from 'src/components/ui/Image'
 import Price from 'src/components/ui/Price'
+import BuyButton from 'src/components/ui/BuyButton'
+import { useBuyButton } from 'src/sdk/cart/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/product/useFormattedPrice'
 import { useProductLink } from 'src/sdk/product/useProductLink'
-import type { ReactNode } from 'react'
 import type { ProductSummary_ProductFragment } from '@generated/graphql'
 
 type Variant = 'horizontal' | 'vertical'
@@ -22,7 +22,6 @@ interface Props {
   bordered?: boolean
   variant?: Variant
   aspectRatio?: number
-  buyButton?: ReactNode
 }
 
 function ProductCard({
@@ -31,20 +30,42 @@ function ProductCard({
   variant = 'vertical',
   bordered = false,
   aspectRatio = 1,
-  buyButton,
   ...otherProps
 }: Props) {
   const {
+    id,
+    sku,
+    name: variantName,
+    gtin,
+    brand,
+    isVariantOf,
     isVariantOf: { name },
-    image: [img],
+    image: productImages,
     offers: {
       lowPrice: spotPrice,
-      offers: [{ listPrice, availability }],
+      offers: [{ price, listPrice, availability, seller }],
     },
   } = product
 
+  const buyProps = useBuyButton({
+    id,
+    price,
+    listPrice,
+    seller,
+    quantity: 1,
+    itemOffered: {
+      sku,
+      name: variantName,
+      gtin,
+      image: productImages,
+      brand,
+      isVariantOf,
+    },
+  })
+
   const linkProps = useProductLink({ product, selectedOffer: 0, index })
   const outOfStock = availability !== 'https://schema.org/InStock'
+  const hasDiscount = listPrice !== spotPrice
 
   return (
     <UICard
@@ -56,8 +77,8 @@ function ProductCard({
     >
       <UICardImage>
         <Image
-          src={img.url}
-          alt={img.alternateName}
+          src={productImages[0].url}
+          alt={productImages[0].alternateName}
           width={360}
           height={360 / aspectRatio}
           sizes="(max-width: 768px) 25vw, 30vw"
@@ -71,37 +92,36 @@ function ProductCard({
               {name}
             </Link>
           </h3>
-          <div className="product-card__prices">
-            <Price
-              value={listPrice}
-              formatter={useFormattedPrice}
-              testId="list-price"
-              data-value={listPrice}
-              variant="listing"
-              classes="text-body-small"
-              SRText="Original price:"
-            />
-            <Price
-              value={spotPrice}
-              formatter={useFormattedPrice}
-              testId="price"
-              data-value={spotPrice}
-              variant="spot"
-              classes="text-body"
-              SRText="Sale Price:"
-            />
+          <div className="product-card__bottom">
+            <div className="product-card__prices">
+              {hasDiscount && (
+                <Price
+                  value={listPrice}
+                  formatter={useFormattedPrice}
+                  testId="list-price"
+                  data-value={listPrice}
+                  variant="listing"
+                  classes="text-body-small"
+                  SRText="Original price:"
+                />
+              )}
+
+              <Price
+                value={spotPrice}
+                formatter={useFormattedPrice}
+                testId="price"
+                data-value={spotPrice}
+                variant="spot"
+                classes="text-body"
+                SRText="Sale Price:"
+              />
+            </div>
+            <UICardActions>
+              <BuyButton {...buyProps} />
+            </UICardActions>
           </div>
         </div>
-
-        {outOfStock ? (
-          <Badge small variant="neutral">
-            Out of stock
-          </Badge>
-        ) : (
-          <DiscountBadge small listPrice={listPrice} spotPrice={spotPrice} />
-        )}
       </UICardContent>
-      {!!buyButton && <UICardActions>{buyButton}</UICardActions>}
     </UICard>
   )
 }
