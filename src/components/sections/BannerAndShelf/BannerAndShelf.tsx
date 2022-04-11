@@ -1,7 +1,6 @@
 import React from 'react'
 import ProductItems from 'src/components/product/ProductItems'
-
-import Section from '../Section'
+import Section from 'src/components/common/Section'
 
 interface BannerAndShelfProps {
   imageSrc: string

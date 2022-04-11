@@ -9,6 +9,8 @@
 @import "src/components/common/PostalCode/postal-code-input.scss";
 @import "src/components/common/SearchInput/search-input.scss";
 @import "src/components/common/Navbar/navbar.scss";
+@import "src/components/common/Section/section.scss";
+@import "src/components/common/Container/container.scss";
 
 // Product
 @import "src/components/product/ProductCard/product-card.scss";
@@ -22,6 +24,7 @@
 
 // Sections
 @import "src/components/sections/BannerAndShelf/banner-and-shelf.scss";
+@import "src/components/sections/BannerImg/banner-img.scss";
 @import "src/components/sections/BannerText/banner-text.scss";
 @import "src/components/sections/Breadcrumb/breadcrumb.scss";
 @import "src/components/sections/Incentives/incentives.scss";
@@ -29,7 +32,6 @@
 @import "src/components/sections/ProductGallery/product-gallery.scss";
 @import "src/components/sections/ProductShelf/product-shelf.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
-@import "src/components/sections/Section/section.scss";
 
 // Skeletons
 @import "src/components/skeletons/FilterSkeleton/filter-skeleton.scss";

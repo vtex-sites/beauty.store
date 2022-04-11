@@ -58,13 +58,45 @@
       }
     }
   },
+
   {
-    "name": "IncentivesHeader",
+    "name": "Incentives",
+
     "schema": {
-      "title": "Incentives Header",
-      "description": "Add Incentives to your shopper",
+      "title": "Barra de Vantagens",
+      "description": "Adicione os itens da barra de vantagens",
       "type": "object",
-      "properties": {}
+
+      "properties": {
+        "incentives": {
+          "title": "Vantagens",
+          "type": "array",
+          "maxItems": 3,
+
+          "items": {
+            "title": "Vantagem",
+            "type": "object",
+
+            "properties": {
+              "icon": {
+                "title": "Ícone",
+                "type": "string",
+                "enum": ["Truck"]
+              },
+
+              "title": {
+                "title": "Título",
+                "type": "string"
+              },
+
+              "text": {
+                "title": "Texto",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
     }
   }
 ]

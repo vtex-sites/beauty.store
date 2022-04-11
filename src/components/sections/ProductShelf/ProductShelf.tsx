@@ -3,8 +3,7 @@ import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductItems from 'src/components/product/ProductItems'
-
-import Section from '../Section'
+import Section from 'src/components/common/Section'
 
 interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
   title: string | JSX.Element

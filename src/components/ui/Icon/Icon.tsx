@@ -23,11 +23,24 @@ interface Props extends SVGProps<SVGSVGElement> {
    * @default 'regular'
    */
   weight?: IconWeight
+  width?: number
+  height?: number
 }
 
-function Icon({ name, weight = 'regular', ...otherProps }: Props) {
+function Icon({
+  name,
+  weight = 'regular',
+  width,
+  height,
+  ...otherProps
+}: Props) {
   return (
-    <svg {...otherProps} strokeWidth={mapWeightToValue[weight]}>
+    <svg
+      {...(width ? { width } : {})}
+      {...(height ? { height } : {})}
+      {...otherProps}
+      strokeWidth={mapWeightToValue[weight]}
+    >
       <use href={`/icons.svg#${name}`} />
     </svg>
   )

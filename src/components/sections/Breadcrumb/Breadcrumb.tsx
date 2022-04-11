@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import UIBreadcrumb from 'src/components/ui/Breadcrumb'
 import type { BreadcrumbProps } from 'src/components/ui/Breadcrumb'
-
-import Section from '../Section'
+import Section from 'src/components/common/Section'
+import Container from 'src/components/common/Container'
 
 interface BreadcrumbWrapperProps
   extends Partial<Pick<BreadcrumbProps, 'breadcrumbList'>> {
@@ -14,8 +14,10 @@ function Breadcrumb({ breadcrumbList, name }: BreadcrumbWrapperProps) {
   const list = breadcrumbList ?? fallback
 
   return (
-    <Section className="breadcrumb / grid-content">
-      <UIBreadcrumb breadcrumbList={list} />
+    <Section className="breadcrumb">
+      <Container>
+        <UIBreadcrumb breadcrumbList={list} />
+      </Container>
     </Section>
   )
 }
