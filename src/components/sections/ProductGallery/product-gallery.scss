@@ -7,7 +7,18 @@
   padding-top: 0;
 
   @include media(">=notebook") {
-    padding-top: var(--space-5);
+    padding-top: 0;
+  }
+
+  &__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-size-6);
+    font-weight: var(--text-weight-bold);
+    font-feature-settings: "tnum" on, "lnum" on;
+    line-height: var(--text-size-7);
+    color: var(--color-neutral-7);
+    text-align: center;
+    letter-spacing: 0.01em;
   }
 }
 

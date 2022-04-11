@@ -23,6 +23,14 @@
   svg:last-child {
     right: var(--space-4);
   }
+
+  @include media("<=425px") {
+    width: 50%;
+  }
+
+  @include media("<=320px") {
+    width: 100%;
+  }
 }
 
 #sort-select {

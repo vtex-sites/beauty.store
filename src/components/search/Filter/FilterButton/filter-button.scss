@@ -13,7 +13,11 @@
   background: transparent;
   border: 1px solid var(--color-border-search);
 
-  @include media("<=phone") {
+  @include media("<=425px") {
+    width: 50%;
+  }
+
+  @include media("<=320px") {
     width: 100%;
   }
 

@@ -53,6 +53,7 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
             facets={facets}
             testId={`desktop-${testId}`}
             onFacetChange={toggleFacet}
+            setOpenFilter={setOpenFilter}
           />
         </div>
       ) : (

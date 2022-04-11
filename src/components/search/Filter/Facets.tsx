@@ -11,9 +11,10 @@ interface FacetsProps {
   testId: string
   facets: Filter_FacetsFragment[]
   onFacetChange: (item: IStoreSelectedFacet) => void
+  setOpenFilter?: (state: boolean) => void
 }
 
-function Facets({ testId, facets, onFacetChange }: FacetsProps) {
+function Facets({ testId, facets, onFacetChange, setOpenFilter }: FacetsProps) {
   return (
     <div className="filter" data-store-filter data-testid={testId}>
       <Container>
@@ -35,9 +36,10 @@ function Facets({ testId, facets, onFacetChange }: FacetsProps) {
                         id={id}
                         className="filter-item__checkbox"
                         checked={item.selected}
-                        onChange={() =>
+                        onChange={() => {
                           onFacetChange({ key, value: item.value })
-                        }
+                          if (setOpenFilter) setOpenFilter(false)
+                        }}
                         data-testid={`${testId}-accordion-panel-checkbox`}
                         data-value={item.value}
                         data-quantity={item.quantity}
