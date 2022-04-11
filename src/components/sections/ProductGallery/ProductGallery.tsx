@@ -1,16 +1,14 @@
 import { usePagination, useSearch } from '@faststore/sdk'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import React, { lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import Filter from 'src/components/search/Filter'
-import Sort from 'src/components/search/Sort'
-import FilterSkeleton from 'src/components/skeletons/FilterSkeleton'
+import Container from 'src/components/common/Container'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
-import SkeletonElement from 'src/components/skeletons/SkeletonElement'
-import Button, { LinkButton } from 'src/components/ui/Button'
+import { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
+import Section from 'src/components/common/Section'
 
-import Section from '../../common/Section'
 import EmptyGallery from './EmptyGallery'
 import { useDelayedFacets } from './useDelayedFacets'
 import { useGalleryQuery } from './useGalleryQuery'
@@ -25,7 +23,6 @@ interface Props {
 }
 
 function ProductGallery({ title, searchTerm }: Props) {
-  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const { pages, addNextPage, addPrevPage, state: searchState } = useSearch()
 
   const { data } = useGalleryQuery()
@@ -46,111 +43,95 @@ function ProductGallery({ title, searchTerm }: Props) {
 
   return (
     <Section className="product-listing / grid-content-full">
+      <Container>
+        <h1 className="product-listing__title">{title}</h1>
+        <div className="product-listing__filters">
+          <Filter facets={facets} />
+        </div>
+      </Container>
       {searchTerm && (
         <header className="product-listing__search-term / grid-content">
           <h1>
-            Showing results for: <span>{searchTerm}</span>
+            Exibindo resultados de: <span>{searchTerm}</span>
           </h1>
         </header>
       )}
-      <div className="product-listing__content-grid / grid-content">
-        <div className="product-listing__filters">
-          <FilterSkeleton loading={facets?.length === 0}>
-            <Filter
-              isOpen={isFilterOpen}
-              facets={facets}
-              onDismiss={() => setIsFilterOpen(false)}
-            />
-          </FilterSkeleton>
-        </div>
-
-        <div className="product-listing__results-count" data-count={totalCount}>
-          <SkeletonElement shimmer type="text" loading={!data}>
-            <h2 data-testid="total-product-count">{totalCount} Results</h2>
-          </SkeletonElement>
-        </div>
-
-        <div className="product-listing__sort">
-          <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
-            <Sort />
-          </SkeletonElement>
-
-          <SkeletonElement shimmer type="button" loading={facets?.length === 0}>
-            <Button
-              variant="tertiary"
-              data-testid="open-filter-button"
-              icon={<Icon name="FadersHorizontal" width={16} height={16} />}
-              iconPosition="left"
-              aria-label="Open Filters"
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-            >
-              Filters
-            </Button>
-          </SkeletonElement>
-        </div>
-
-        <div className="product-listing__results">
-          {/* Add link to previous page. This helps on SEO */}
-          {prev !== false && (
-            <div className="product-listing__pagination product-listing__pagination--top">
-              <GatsbySeo defer linkTags={[{ rel: 'prev', href: prev.link }]} />
-              <LinkButton
-                onClick={(e) => {
-                  e.currentTarget.blur()
-                  e.preventDefault()
-                  addPrevPage()
-                }}
-                to={prev.link}
-                rel="prev"
-                variant="secondary"
-                iconPosition="left"
-                icon={
-                  <Icon name="ArrowLeft" width={16} height={16} weight="bold" />
-                }
-              >
-                Previous Page
-              </LinkButton>
-            </div>
-          )}
-
-          {/* Render ALL products */}
-          {data ? (
-            <Suspense fallback={GalleryPageSkeleton}>
-              {pages.map((page) => (
-                <GalleryPage
-                  key={`gallery-page-${page}`}
-                  showSponsoredProducts={false}
-                  fallbackData={page === searchState.page ? data : undefined}
-                  page={page}
-                  title={title}
+      <Container>
+        <div className="product-listing__content-grid">
+          <div className="product-listing__results">
+            {/* Add link to previous page. This helps on SEO */}
+            {prev !== false && (
+              <div className="product-listing__pagination product-listing__pagination--top">
+                <GatsbySeo
+                  defer
+                  linkTags={[{ rel: 'prev', href: prev.link }]}
                 />
-              ))}
-            </Suspense>
-          ) : (
-            GalleryPageSkeleton
-          )}
+                <LinkButton
+                  onClick={(e) => {
+                    e.currentTarget.blur()
+                    e.preventDefault()
+                    addPrevPage()
+                  }}
+                  to={prev.link}
+                  rel="prev"
+                  variant="secondary"
+                  iconPosition="left"
+                  icon={
+                    <Icon
+                      name="ArrowLeft"
+                      width={16}
+                      height={16}
+                      weight="bold"
+                    />
+                  }
+                >
+                  Previous Page
+                </LinkButton>
+              </div>
+            )}
 
-          {/* Add link to next page. This helps on SEO */}
-          {next !== false && (
-            <div className="product-listing__pagination product-listing__pagination--bottom">
-              <GatsbySeo defer linkTags={[{ rel: 'next', href: next.link }]} />
-              <LinkButton
-                data-testid="show-more"
-                onClick={(e) => {
-                  e.currentTarget.blur()
-                  e.preventDefault()
-                  addNextPage()
-                }}
-                to={next.link}
-                rel="next"
-                variant="secondary"
-              >
-                Load more products
-              </LinkButton>
-            </div>
-          )}
+            {/* Render ALL products */}
+            {data ? (
+              <Suspense fallback={GalleryPageSkeleton}>
+                {pages.map((page) => (
+                  <GalleryPage
+                    key={`gallery-page-${page}`}
+                    showSponsoredProducts={false}
+                    fallbackData={page === searchState.page ? data : undefined}
+                    page={page}
+                    title={title}
+                  />
+                ))}
+              </Suspense>
+            ) : (
+              GalleryPageSkeleton
+            )}
+
+            {/* Add link to next page. This helps on SEO */}
+            {next !== false && (
+              <div className="product-listing__pagination product-listing__pagination--bottom">
+                <GatsbySeo
+                  defer
+                  linkTags={[{ rel: 'next', href: next.link }]}
+                />
+                <LinkButton
+                  data-testid="show-more"
+                  onClick={(e) => {
+                    e.currentTarget.blur()
+                    e.preventDefault()
+                    addNextPage()
+                  }}
+                  to={next.link}
+                  rel="next"
+                  variant="secondary"
+                >
+                  Load more products
+                </LinkButton>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </Container>
     </Section>
   )
 }

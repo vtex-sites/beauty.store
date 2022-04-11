@@ -19,5 +19,5 @@
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
-  src: url('../fonts/quiche-sans-bold.ttf') format('truetype');
+  src: url('../fonts/quiche-sans-bold.otf') format('opentype');
 }
