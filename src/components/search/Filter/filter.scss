@@ -55,6 +55,11 @@
   margin: 0 auto;
   border-radius: var(--border-radius-box);
   box-shadow: 0 10px 10px rgb(0 0 0 / 10%);
+
+  @include media("<=tablet") {
+    padding: var(--space-4) 0;
+    box-shadow: none;
+  }
 }
 
 .filter-grid {
@@ -63,6 +68,14 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 50px;
   column-gap: 120px;
+
+  @include media("<notebook") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media("<=tablet") {
+    grid-template-columns: 1fr;
+  }
 
   .filter-item {
     &__title {
@@ -227,12 +240,20 @@
 
   .button {
     &[data-button-variant="secondary"] {
-      width: 40%;
+      width: 50%;
       margin-right: var(--space-3);
     }
 
     &[data-button-variant="primary"] {
-      width: 60%;
+      width: 50%;
+      font-size: var(--text-size-1);
+      font-style: normal;
+      font-weight: var(--text-weight-bold);
+      line-height: var(--text-size-2);
+      color: var(--color-neutral-0);
+      text-align: center;
+      letter-spacing: 0.1em;
+      border-radius: var(--border-radius-pill);
     }
   }
 }

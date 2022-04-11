@@ -7,7 +7,6 @@ import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
 import SlideOver from 'src/components/ui/SlideOver'
 import Sort from 'src/components/search/Sort'
-import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import type { Filter_FacetsFragment } from '@generated/graphql'
 
 import Facets from './Facets'
@@ -45,9 +44,7 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
           onClick={() => setOpenFilter(!openFilter)}
           icon={<Icon name="Filter" width={18} height={18} />}
         />
-        <SkeletonElement shimmer type="text" loading={facets?.length === 0}>
-          <Sort />
-        </SkeletonElement>
+        <Sort />
       </div>
 
       {!isMobile ? (
@@ -100,7 +97,7 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
               variant="secondary"
               onClick={() => dispatch({ type: 'selectFacets', payload: [] })}
             >
-              Clear All
+              Limpar
             </Button>
             <Button
               variant="primary"
@@ -110,7 +107,7 @@ function Filter({ facets: allFacets, testId = 'store-filter' }: Props) {
                 setOpenFilter?.(false)
               }}
             >
-              Apply
+              Aplicar filtro
             </Button>
           </footer>
         </SlideOver>
