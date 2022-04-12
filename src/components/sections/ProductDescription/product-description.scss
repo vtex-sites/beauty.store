@@ -43,14 +43,14 @@
     font-family: var(--body-font);
     font-size: var(--text-size-2);
     line-height: 26px;
-    color: var(--color-neutral-5);
+    color: var(--color-neutral-4);
     text-decoration: none;
     letter-spacing: 0.256px;
     white-space: nowrap;
 
     &--active {
       color: var(--color-neutral-0);
-      background-color: var(--color-secondary-3);
+      background-color: var(--color-secondary-4);
       border-radius: var(--border-radius-regular);
     }
   }
