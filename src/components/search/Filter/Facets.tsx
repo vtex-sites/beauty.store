@@ -42,7 +42,8 @@ function Facets({ testId, facets, onFacetChange, setOpenFilter }: FacetsProps) {
                         }}
                         data-testid={`${testId}-accordion-panel-checkbox`}
                         data-value={item.value}
-                        data-quantity={item.quantity}
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        data-quantity={(item as any).quantity}
                       />
                       <UILabel htmlFor={id} className="value__text">
                         {item.label.replace('&apos;', "'")}
