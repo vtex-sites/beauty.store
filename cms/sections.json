@@ -45,6 +45,54 @@
       }
     }
   },
+  {
+    "name": "BannerInstitutional",
+    "schema": {
+      "title": "Banner Institutional",
+      "description": "Adicione um Banner a sua página instuticional",
+      "type": "object",
+      "properties": {
+        "widthDesktop": {
+          "title": "Largura da imagem do Desktop",
+          "type": "number"
+        },
+        "heightDesktop": {
+          "title": "Altura da imagem do Desktop",
+          "type": "number"
+        },
+        "imageSrcDesktop": {
+          "title": "Imagem do Desktop",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "imageAltDesktop": {
+          "title": "Texto alternativo para a imagem do Desktop",
+          "type": "string"
+        },
+        "widthMobile": {
+          "title": "Largura da imagem do Mobile",
+          "type": "number"
+        },
+        "heightMobile": {
+          "title": "Altura da imagem do Mobile",
+          "type": "number"
+        },
+        "imageSrcMobile": {
+          "title": "Imagem do Mobile",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "imageAltMobile": {
+          "title": "Texto alternativo para a imagem do Mobile",
+          "type": "string"
+        }
+      }
+    }
+  },
 
   {
     "name": "Incentives",
@@ -115,6 +163,20 @@
           "widget": {
             "ui:widget": "draftjs-rich-text"
           }
+        }
+      }
+    }
+  },
+  {
+    "name": "Text",
+    "schema": {
+      "title": "Text",
+      "description": "Insira o texto a ser exibido",
+      "type": "object",
+      "properties": {
+        "text": {
+          "title": "Insira o texto",
+          "type": "string"
         }
       }
     }

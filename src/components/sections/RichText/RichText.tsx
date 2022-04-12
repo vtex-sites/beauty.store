@@ -9,12 +9,7 @@ interface HeroProps {
 }
 
 const RichText = ({ text }: HeroProps) => {
-  return (
-    <div>
-      OIIIIII
-      {text}
-    </div>
-  )
+  return <div>{text}</div>
 }
 
 export default RichText

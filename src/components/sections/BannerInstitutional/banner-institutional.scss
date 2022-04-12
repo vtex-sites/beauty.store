@@ -1,0 +1,9 @@
+@import "src/styles/scaffold";
+
+.banner-institutional {
+  margin-bottom: var(--space-7);
+
+  @include media("<tablet") {
+    margin-bottom: var(--space-5);
+  }
+}

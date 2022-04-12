@@ -1,8 +1,9 @@
+import React from 'react'
 import { useSession } from '@faststore/sdk'
 import { graphql } from 'gatsby'
 import { GatsbySeo, JsonLd } from 'gatsby-plugin-next-seo'
-import React from 'react'
 import RenderCMS from 'src/components/RenderCMS'
+import Text from 'src/components/sections/Text'
 // import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { InstitutionalPageQueryQuery } from '@generated/graphql'
@@ -48,7 +49,7 @@ function Page(props: Props) {
           },
         }}
       />
-      {/* CMS Sections */}
+
       {cmsInstitutional && <RenderCMS sections={cmsInstitutional?.sections} />}
     </>
   )
