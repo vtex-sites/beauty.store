@@ -7,6 +7,7 @@ import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
 import Mosaic from 'src/components/sections/Mosaic'
+import HomeBanner from 'src/components/sections/HomeBanner'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -72,7 +73,36 @@ function Page(props: Props) {
         }}
       />
       <Mosaic />
+      <HomeBanner
+        banners={[
+          {
+            imageBanner: '/home-banner-01.png',
+            imageBannerMobile: '/home-banner-mobile-01.png',
+            title: 'Cuide da sua pele com produtos feitos para você!',
+            subtitle:
+              'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
+            link: '/scanner',
+            quote:
+              'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
+            seeMoreTitle: 'Serum treatment',
+            seeMoreLink: '/serum-treatment',
+          },
+          {
+            imageBanner: '/home-banner-01.png',
+            imageBannerMobile: '/home-banner-mobile-01.png',
+            title: 'Cuide da sua pele com produtos feitos para você!',
+            subtitle:
+              'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
+            link: '/scanner',
+            quote:
+              'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
+            seeMoreTitle: 'Serum treatment',
+            seeMoreLink: '/serum-treatment',
+          },
+        ]}
+      />
       {/* CMS Sections */}
+
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
     </>
   )

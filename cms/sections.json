@@ -59,10 +59,11 @@
     }
   },
   {
-    "name": "Home Banner",
+    "name": "HomeBanner",
 
     "schema": {
       "title": "Banners Home",
+      "description": "Adicione os banners da página home",
       "type": "object",
 
       "properties": {
@@ -70,10 +71,9 @@
           "title": "Banners",
           "type": "array",
           "minItems": 0,
-
           "items": {
             "title": "Banner",
-            "description": "Adicione os banners da página home",
+
             "type": "object",
             "properties": {
               "imageBanner": {
@@ -94,20 +94,31 @@
                 "title": "Título",
                 "type": "string"
               },
-
               "subtitle": {
                 "title": "Subtítulo",
                 "type": "string"
               },
-
               "link": {
                 "title": "Link",
+                "type": "string"
+              },
+              "quote": {
+                "title": "Citação",
+                "type": "string"
+              },
+              "seeMoreTitle": {
+                "title": "Título confira",
+                "type": "string"
+              },
+              "seeMoreLink": {
+                "title": "Link confira",
                 "type": "string"
               }
             }
           }
         }
-      }
+      },
+      "required": ["imageBanner", "imageBannerMobile", "title", "link"]
     }
   },
 

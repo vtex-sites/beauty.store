@@ -35,7 +35,7 @@ module.exports = {
   plugins: [
     {
       resolve: '@vtex/gatsby-source-cms',
-      options: { tenant: config.api.storeId, workspace: 'gbuquer' },
+      options: { tenant: config.api.storeId, workspace: 'master' },
     },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-sass`,
