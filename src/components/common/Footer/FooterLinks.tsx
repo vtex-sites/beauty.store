@@ -1,82 +1,53 @@
 import React, { useState } from 'react'
-import { List as UIList } from '@faststore/ui'
+import { Icon as UIIcon, List as UIList } from '@faststore/ui'
+import Icon from 'src/components/ui/Icon'
 import Link from 'src/components/ui/Link'
 import Accordion, { AccordionItem } from 'src/components/ui/Accordion'
 
 const links = [
   {
-    title: 'Our company',
+    title: 'A Beauty',
+    highlight: false,
     items: [
       {
         href: '/',
-        name: 'About Us',
+        name: 'Quem somos',
       },
       {
         href: '/',
-        name: 'Our Blog',
+        name: 'Trabalhe Conosco',
       },
       {
         href: '/',
-        name: 'Stores',
-      },
-      {
-        href: '/',
-        name: 'Work With Us',
+        name: 'Fale Conosco',
       },
     ],
   },
   {
-    title: 'Orders & Purchases',
+    title: 'Produtos',
+    highlight: false,
     items: [
       {
         href: '/',
-        name: 'Check Order Status',
+        name: 'Para a pele',
       },
       {
         href: '/',
-        name: 'Returns and Exchanges',
+        name: 'Para o cabelo',
       },
       {
         href: '/',
-        name: 'Product Recall',
-      },
-      {
-        href: '/',
-        name: 'Gift Cards',
+        name: 'Acessórios',
       },
     ],
   },
   {
-    title: 'Support & Services',
+    title: 'Scanner Facial',
+    highlight: true,
     items: [
       {
         href: '/',
-        name: 'Support Center',
-      },
-      {
-        href: '/',
-        name: 'Schedule a Service',
-      },
-      {
-        href: '/',
-        name: 'Contact Us',
-      },
-    ],
-  },
-  {
-    title: 'Partnerships',
-    items: [
-      {
-        href: '/',
-        name: 'Affiliate Program',
-      },
-      {
-        href: '/',
-        name: 'Advertise with US',
-      },
-      {
-        href: '/',
-        name: 'Market Place',
+        name: 'Faça agora',
       },
     ],
   },
@@ -88,20 +59,34 @@ type LinkItem = {
 }
 
 interface LinksListProps {
+  highlight: boolean
   items: LinkItem[]
 }
 
-function LinksList({ items }: LinksListProps) {
+function LinksList({ items, highlight }: LinksListProps) {
   return (
-    <UIList>
-      {items.map((item) => (
-        <li key={item.name}>
-          <Link variant="footer" to={item.href}>
-            {item.name}
-          </Link>
-        </li>
-      ))}
-    </UIList>
+    <nav>
+      <UIList>
+        {items.map((item) => (
+          <li key={item.name} className="links-list-item">
+            <Link
+              variant="footer"
+              to={item.href}
+              className={highlight ? 'highlight' : ''}
+            >
+              {item.name}
+              {highlight && (
+                <UIIcon
+                  component={
+                    <Icon width={17} height={17} name="FooterLinkArrow" />
+                  }
+                />
+              )}
+            </Link>
+          </li>
+        ))}
+      </UIList>
+    </nav>
   )
 }
 
@@ -120,32 +105,47 @@ function FooterLinks() {
   }
 
   return (
-    <section className="footer__links">
+    <>
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
-          {links.map((section, index) => (
-            <AccordionItem
-              key={section.title}
-              isExpanded={indicesExpanded.has(index)}
-              buttonLabel={section.title}
-            >
-              <LinksList items={section.items} />
-            </AccordionItem>
-          ))}
+          {links.map((section, index) => {
+            if (section.highlight) {
+              return (
+                <div key={section.title}>
+                  <h4 className="title-sub-subsection highlight">
+                    {section.title}
+                  </h4>
+                  <LinksList
+                    items={section.items}
+                    highlight={section.highlight}
+                  />
+                </div>
+              )
+            }
+
+            return (
+              <AccordionItem
+                key={section.title}
+                isExpanded={indicesExpanded.has(index)}
+                buttonLabel={section.title}
+              >
+                <LinksList
+                  items={section.items}
+                  highlight={section.highlight}
+                />
+              </AccordionItem>
+            )
+          })}
         </Accordion>
       </div>
 
-      <div className="hidden-mobile">
-        <div className="footer__links-columns">
-          {links.map((section) => (
-            <nav key={section.title}>
-              <p className="title-sub-subsection">{section.title}</p>
-              <LinksList items={section.items} />
-            </nav>
-          ))}
+      {links.map((section) => (
+        <div key={section.title} className="hidden-mobile">
+          <h4 className="title-sub-subsection">{section.title}</h4>
+          <LinksList items={section.items} highlight={section.highlight} />
         </div>
-      </div>
-    </section>
+      ))}
+    </>
   )
 }
 
