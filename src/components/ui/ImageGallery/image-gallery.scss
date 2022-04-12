@@ -7,6 +7,12 @@
 .swiper-image-gallery {
   max-height: 680px;
 
+  &.swiper-vertical {
+    img {
+      max-width: 680px;
+    }
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     left: 50%;

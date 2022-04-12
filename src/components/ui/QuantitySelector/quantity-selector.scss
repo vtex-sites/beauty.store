@@ -34,8 +34,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 8.125rem;
-  height: var(--space-7);
+  width: 7.18rem;
+  height: var(--space-6);
   background-color: var(--bg-neutral-lightest);
   border-radius: var(--border-radius-default);
   box-shadow: 0 0 0 var(--border-width-0) var(--color-border-input);
@@ -43,8 +43,8 @@
 
   [data-store-icon] {
     margin: 0;
-    color: var(--color-border-input-selected);
     line-height: 0;
+    color: var(--color-border-input-selected);
   }
 
   [data-quantity-selector-input] {

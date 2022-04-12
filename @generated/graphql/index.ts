@@ -4092,6 +4092,7 @@ export type ProductDetailsFragment_ProductFragment = {
     productGroupID: string
     name: string
     complementName: string | null
+    additionalProperty: Array<{ name: string; value: string }>
     installment: { count: number | null; value: number | null } | null
     variants: Array<{
       id: string | null
@@ -4259,6 +4260,7 @@ export type ProductPageQueryQuery = {
       productGroupID: string
       name: string
       complementName: string | null
+      additionalProperty: Array<{ name: string; value: string }>
       installment: { count: number | null; value: number | null } | null
       variants: Array<{
         id: string | null
@@ -4349,6 +4351,7 @@ export type BrowserProductQueryQuery = {
       productGroupID: string
       name: string
       complementName: string | null
+      additionalProperty: Array<{ name: string; value: string }>
       installment: { count: number | null; value: number | null } | null
       variants: Array<{
         id: string | null

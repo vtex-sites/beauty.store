@@ -14,6 +14,7 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import ImageGallery from 'src/components/ui/ImageGallery'
+import Container from 'src/components/common/Container'
 
 import Section from '../../common/Section'
 
@@ -43,7 +44,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId },
+      isVariantOf: { name, productGroupID: productId, complementName },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -105,70 +106,65 @@ function ProductDetails({ product: staleProduct }: Props) {
   ])
 
   return (
-    <Section className="product-details / grid-content grid-section">
-      <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
+    <Section className="product-details">
+      <Container>
+        <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
 
-      <section className="product-details__body">
-        <header className="product-details__title">
-          <ProductTitle
-            title={<h1 className="title-product">{name}</h1>}
-            label={<DiscountBadge listPrice={listPrice} spotPrice={lowPrice} />}
-            refNumber={productId}
-          />
-        </header>
-
-        <section className="product-details__image">
-          <ImageGallery images={productImages} />
-        </section>
-
-        <section className="product-details__settings">
-          <section className="product-details__values">
-            <div className="product-details__prices">
-              <Price
-                value={listPrice}
-                formatter={useFormattedPrice}
-                testId="list-price"
-                data-value={listPrice}
-                variant="listing"
-                classes="text-body-small"
-                SRText="Original price:"
-              />
-              <Price
-                value={lowPrice}
-                formatter={useFormattedPrice}
-                testId="price"
-                data-value={lowPrice}
-                variant="spot"
-                classes="title-display"
-                SRText="Sale Price:"
-              />
-            </div>
-            {/* <div className="prices">
-              <p className="price__old text-body-small">{formattedListPrice}</p>
-              <p className="price__new">{isValidating ? '' : formattedPrice}</p>
-            </div> */}
-            <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+        <section className="product-details__contents">
+          <section className="product-details__image">
+            <ImageGallery images={productImages} />
           </section>
-          {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
+          <section className="product-details__body">
+            <header className="product-details__title">
+              <ProductTitle
+                title={<h1 className="title-product">{name}</h1>}
+                label={
+                  <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} />
+                }
+                complementName={complementName}
+              />
+            </header>
+
+            <section className="product-details__settings">
+              <section className="product-details__values">
+                <div className="product-details__prices">
+                  <Price
+                    value={listPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={listPrice}
+                    variant="listing"
+                    classes="text-body-small"
+                    SRText="Original price:"
+                  />
+                  <Price
+                    value={lowPrice}
+                    formatter={useFormattedPrice}
+                    testId="price"
+                    data-value={lowPrice}
+                    variant="spot"
+                    classes="title-display"
+                    SRText="Sale Price:"
+                  />
+                </div>
+              </section>
+              <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+
+              {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
               non-composited animation violation due to the button transitioning its
               background color when changing from its initial disabled to active state.
               See full explanation on commit https://git.io/JyXV5. */}
-          {isValidating ? (
-            <AddToCartLoadingSkeleton />
-          ) : (
-            <BuyButton disabled={buyDisabled} {...buyProps}>
-              Add to Cart
-            </BuyButton>
-          )}
+              {isValidating ? (
+                <AddToCartLoadingSkeleton />
+              ) : (
+                <BuyButton disabled={buyDisabled} {...buyProps}>
+                  Add to Cart
+                </BuyButton>
+              )}
+            </section>
+          </section>
         </section>
-
-        <section className="product-details__content">
-          <article className="product-details__description">
-            <h2 className="title-subsection">Description</h2>
-            <p className="text-body">{description}</p>
-          </article>
-        </section>
-      </section>
+      </Container>
     </Section>
   )
 }
@@ -243,6 +239,11 @@ export const fragment = graphql`
       productGroupID
       name
       complementName
+
+      additionalProperty {
+        name
+        value
+      }
 
       installment {
         count
