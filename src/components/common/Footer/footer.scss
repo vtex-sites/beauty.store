@@ -10,32 +10,6 @@
   }
 }
 
-.footer__note,
-.footer__section {
-  position: relative;
-  display: flex;
-
-  @include media("<notebook") {
-    flex-direction: column;
-  }
-
-  @include media(">=notebook") {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: var(--grid-gap-1);
-  }
-
-  &::before {
-    width: 100%;
-    content: "";
-    border-top: 1px solid var(--color-border-display);
-
-    @include media(">=notebook") {
-      grid-column: span 12;
-    }
-  }
-}
-
 .footer__logo {
   .store-description {
     max-width: 267px;
