@@ -99,7 +99,6 @@
       }
     }
   },
-
   {
     "name": "BannerAndShelf",
     "schema": {
@@ -119,6 +118,70 @@
           "type": "string"
         }
       }
+    }
+  },
+
+  {
+    "name": "Mosaic",
+
+    "schema": {
+      "title": "Mosaico",
+      "description": "Adicione o conteúdo do mosaico",
+      "type": "object",
+
+      "properties": {
+        "topic": {
+          "title": "Tópico",
+          "type": "string"
+        },
+
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+
+        "buttonLink": {
+          "title": "Caminho do Link",
+          "type": "string"
+        },
+
+        "buttonLabel": {
+          "title": "Texto do Link",
+          "type": "string"
+        },
+
+        "desktopImages": {
+          "title": "Imagens Desktop",
+          "type": "array",
+          "maxItems": 5,
+
+          "items": {
+            "title": "Imagem",
+            "type": "string",
+
+            "widget": {
+              "ui:widget": "image-uploader"
+            }
+          }
+        },
+
+        "mobileImages": {
+          "title": "Imagens Mobile",
+          "type": "array",
+          "maxItems": 4,
+
+          "items": {
+            "title": "Imagem",
+            "type": "string",
+
+            "widget": {
+              "ui:widget": "image-uploader"
+            }
+          }
+        }
+      },
+
+      "required": ["topic", "title", "buttonLink", "buttonLabel"]
     }
   }
 ]

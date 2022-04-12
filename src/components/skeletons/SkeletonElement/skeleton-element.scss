@@ -1,4 +1,6 @@
 [data-store-skeleton-element] {
+  width: 100%;
+
   &[data-shimmer="true"] {
     position: relative;
     overflow: hidden;
@@ -32,6 +34,23 @@
       min-height: 0;
       margin-left: auto;
       border-radius: var(--border-radius-circle);
+    }
+
+    &[data-element-variant="full"] {
+      width: 100%;
+      border-radius: 0;
+
+      @include media(">=notebook") {
+        padding-top: 55%;
+      }
+
+      @include media("<notebook") {
+        height: 459.77px;
+      }
+
+      @include media("<tablet") {
+        height: 343.64px;
+      }
     }
   }
 }

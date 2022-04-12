@@ -1,0 +1,29 @@
+@import "src/styles/scaffold";
+
+.infocard-icon {
+  padding: 0 var(--space-4);
+
+  @include media("<=phone") {
+    padding: 0 var(--space-2);
+  }
+
+  &__icon {
+    margin-bottom: var(--space-2);
+
+    svg {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: var(--text-size-0);
+    font-weight: var(--text-weight-regular);
+    line-height: var(--space-3);
+    color: var(--color-neutral-4);
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+}

@@ -3,6 +3,7 @@ import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import BannerAndShelf from 'src/components/sections/BannerAndShelf'
 import Incentives from 'src/components/sections/Incentives'
+import Mosaic from 'src/components/sections/Mosaic'
 import type { ComponentType } from 'react'
 
 /**
@@ -14,6 +15,7 @@ const COMPONENTS: Record<string, ComponentType<any>> = {
   BannerText,
   BannerAndShelf,
   Incentives,
+  Mosaic,
 }
 
 interface Props {
