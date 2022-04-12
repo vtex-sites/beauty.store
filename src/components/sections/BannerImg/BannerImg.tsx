@@ -16,7 +16,7 @@ function BannerImg({ className, width, height, src, alt }: BannerImgProps) {
     <Section className={`grid-section ${className}`}>
       <Banner>
         <BannerImage>
-          <Image width={width} height={height} src={src} alt={alt} />
+          <Image preload width={width} height={height} src={src} alt={alt} />
         </BannerImage>
       </Banner>
     </Section>
