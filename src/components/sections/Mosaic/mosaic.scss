@@ -17,6 +17,7 @@
   &__images {
     @include media("<notebook") {
       position: relative;
+      z-index: -1;
       max-width: calc(var(--breakpoint-phonemid) * 1.5);
       height: 276px;
       margin: -46px auto 0;
@@ -159,8 +160,9 @@
     }
 
     &:hover {
+      text-decoration: none;
+
       @include media(">=notebook") {
-        text-decoration: none;
         background-color: var(--color-secondary-2);
       }
     }
