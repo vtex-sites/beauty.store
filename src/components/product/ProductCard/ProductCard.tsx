@@ -81,8 +81,8 @@ function ProductCard({
           alt={productImages[0].alternateName}
           width={360}
           height={360 / aspectRatio}
+          data-product-image
           sizes="(max-width: 768px) 25vw, 30vw"
-          loading="lazy"
         />
       </UICardImage>
       <UICardContent>

@@ -10,6 +10,7 @@
   max-width: 324px;
   height: 100%;
   padding: var(--space-3) var(--space-3) var(--space-3);
+  margin: 0 auto;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: box-shadow 0.5s ease, border 0.5s ease;
@@ -27,6 +28,11 @@
     &:hover {
       box-shadow: var(--box-shadow-dark);
     }
+  }
+
+  [data-product-image] {
+    max-height: 224px;
+    object-fit: contain;
   }
 
   &[data-card-variant="vertical"] {

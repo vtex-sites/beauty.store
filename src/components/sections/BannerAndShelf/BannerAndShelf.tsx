@@ -2,6 +2,7 @@ import React from 'react'
 import ProductItems from 'src/components/product/ProductItems'
 import Section from 'src/components/common/Section'
 import Container from 'src/components/common/Container'
+import { Image } from 'src/components/ui/Image'
 
 interface BannerAndShelfProps {
   bannerSrc: string
@@ -14,7 +15,9 @@ function BannerAndShelf({ bannerSrc, bannerAlt }: BannerAndShelfProps) {
       <Container>
         <div className="banner-and-shelf">
           <div className="banner-and-shelf__banner-wrapper">
-            <img
+            <Image
+              width={571}
+              height={771}
               className="banner-and-shelf__banner"
               src={bannerSrc}
               alt={bannerAlt}

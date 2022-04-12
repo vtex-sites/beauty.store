@@ -29,7 +29,7 @@ const fallbackContent = [
         'https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg',
       imageAlt: 'Quest 2 Controller on a table',
     },
-    name: 'Hero',
+    name: 'Test',
   },
   {
     data: {
@@ -37,7 +37,7 @@ const fallbackContent = [
         'https://storeframework.vtexassets.com/arquivos/ids/190897/Photo.jpg',
       bannerAlt: 'Banner ao lado da prateleira',
     },
-    name: 'BannerAndShelf',
+    name: 'Test',
   },
 ]
 
@@ -80,7 +80,7 @@ function Page(props: Props) {
           },
         }}
       />
-      <ProductShelf title="Navegue pelas categorias" first={4} />
+      <ProductShelf first={8} />
       <Mosaic />
       {/* CMS Sections */}
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
