@@ -65,26 +65,28 @@ interface LinksListProps {
 
 function LinksList({ items, highlight }: LinksListProps) {
   return (
-    <UIList>
-      {items.map((item) => (
-        <li key={item.name} className="links-list-item">
-          <Link
-            variant="footer"
-            to={item.href}
-            className={highlight ? 'highlight' : ''}
-          >
-            {item.name}
-            {highlight && (
-              <UIIcon
-                component={
-                  <Icon width={17} height={17} name="FooterLinkArrow" />
-                }
-              />
-            )}
-          </Link>
-        </li>
-      ))}
-    </UIList>
+    <nav>
+      <UIList>
+        {items.map((item) => (
+          <li key={item.name} className="links-list-item">
+            <Link
+              variant="footer"
+              to={item.href}
+              className={highlight ? 'highlight' : ''}
+            >
+              {item.name}
+              {highlight && (
+                <UIIcon
+                  component={
+                    <Icon width={17} height={17} name="FooterLinkArrow" />
+                  }
+                />
+              )}
+            </Link>
+          </li>
+        ))}
+      </UIList>
+    </nav>
   )
 }
 
@@ -109,15 +111,15 @@ function FooterLinks() {
           {links.map((section, index) => {
             if (section.highlight) {
               return (
-                <nav key={section.title}>
-                  <p className="title-sub-subsection highlight">
+                <div key={section.title}>
+                  <h4 className="title-sub-subsection highlight">
                     {section.title}
-                  </p>
+                  </h4>
                   <LinksList
                     items={section.items}
                     highlight={section.highlight}
                   />
-                </nav>
+                </div>
               )
             }
 
@@ -138,10 +140,10 @@ function FooterLinks() {
       </div>
 
       {links.map((section) => (
-        <nav key={section.title} className="hidden-mobile">
-          <p className="title-sub-subsection">{section.title}</p>
+        <div key={section.title} className="hidden-mobile">
+          <h4 className="title-sub-subsection">{section.title}</h4>
           <LinksList items={section.items} highlight={section.highlight} />
-        </nav>
+        </div>
       ))}
     </>
   )
