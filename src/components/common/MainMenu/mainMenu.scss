@@ -3,7 +3,6 @@
 .main-menu {
   // -- Variables --
   --base-link-color: var(--color-neutral-8);
-  --menu-height: var(--header-height);
   --main-menu-cloumn-item-link-weight: 400;
   --main-menu-cloumn-item-font-size: 20px;
   --main-menu-cloumn-item-line-height: 26px;
@@ -25,7 +24,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: var(--menu-height);
+  height: var(--header-height);
 
   [data-store-link],
   [data-store-link]:visited {

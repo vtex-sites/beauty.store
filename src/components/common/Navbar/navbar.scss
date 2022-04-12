@@ -1,13 +1,13 @@
 @import "src/styles/scaffold";
 
 .navbar {
-  --header-height: 86px;
-
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--header-height);
   padding: 0;
   background: var(--bg-header);
-  border-bottom: var(--border-width-0) solid var(--color-neutral-2);
-  box-shadow: 0 var(--space-0) var(--space-3) var(--color-black-transparent-5);
 
   [data-store-search-input] {
     flex: 1 0 100%;
@@ -15,6 +15,14 @@
 
     @include media("<notebook") {
       display: none;
+    }
+  }
+
+  .section {
+    height: 100%;
+
+    .container {
+      height: 100%;
     }
   }
 }
@@ -25,7 +33,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: var(--header-height);
+  height: 100%;
 
   @include media(">=notebook") {
     display: grid;
@@ -128,6 +136,7 @@
 
 .navbar__header {
   min-width: 100%;
+  height: 100%;
   padding: 0;
   overflow: hidden;
 }

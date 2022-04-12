@@ -15,6 +15,7 @@ import type {
 } from '@generated/graphql'
 import type { PageProps } from 'gatsby'
 import type { SearchState } from '@faststore/sdk'
+import NavbarSpacer from 'src/components/common/NavbarSpacer'
 
 type Props = PageProps<
   CollectionPageQueryQuery,
@@ -97,6 +98,8 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
+
+      <NavbarSpacer />
 
       <BannerImg
         className="category-banner"
