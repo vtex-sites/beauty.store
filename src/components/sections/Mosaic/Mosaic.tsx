@@ -28,7 +28,10 @@ const Mosaic = (props: MosaicProps) => {
             <div className="mosaic-call">
               <h3 className="mosaic-call__topic">{topic}</h3>
               <h2 className="mosaic-call__title">{title}</h2>
-              <Link to={buttonLink}>{buttonLabel}</Link>
+
+              <Link to={buttonLink} title={buttonLabel}>
+                {buttonLabel}
+              </Link>
             </div>
 
             {isWidescreen ? (
@@ -43,6 +46,7 @@ const Mosaic = (props: MosaicProps) => {
                           alt={`${index}ª imagem do mosaico`}
                           width={index === 3 ? 483 : 300}
                           height={314}
+                          preload
                         />
                       </div>
                     )
@@ -63,6 +67,7 @@ const Mosaic = (props: MosaicProps) => {
                           alt={`${index}ª imagem do mosaico`}
                           width={184}
                           height={184}
+                          preload
                         />
                       </div>
                     )
