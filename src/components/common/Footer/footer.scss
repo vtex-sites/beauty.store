@@ -41,7 +41,7 @@
 
   .store-description {
     max-width: 90%;
-    margin-top: var(--space-2);
+    margin: var(--space-2) 0;
     font-size: var(--text-size-2);
     color: var(--color-neutral-8);
   }
@@ -88,10 +88,6 @@
     display: inline-block;
     padding-left: 0;
     text-decoration: none;
-  }
-
-  @include media(">=notebook") {
-    grid-column: span 8;
   }
 
   [data-store-icon] [data-icon] {
@@ -173,6 +169,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: var(--space-3) var(--space-5);
     text-align: center;
 
     &::before {
@@ -189,6 +186,8 @@
   [data-payment-methods-flags] {
     [data-store-list] {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
       .footer__payment-list-item {
         display: flex;
@@ -198,19 +197,23 @@
         height: var(--space-4);
         margin-right: var(--space-3);
         background-color: var(--color-neutral-0);
+
+        @include media("<=notebook") {
+          margin-bottom: var(--space-1);
+        }
       }
     }
   }
 }
 
 .footer__copyright {
+  display: flex;
+  align-items: center;
   font-size: var(--text-size-0);
   color: var(--color-neutral-11);
   opacity: var(--text-opacity-0);
 
   @include media(">=notebook") {
-    grid-column: span 6;
-
     .text-body-small {
       font-size: var(--text-size-0);
     }
