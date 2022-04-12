@@ -35,6 +35,12 @@ const HomeBanner = ({ banners }: HomeBannerItems) => {
         modules={[Pagination, Navigation]}
         className="swiper-home-banner"
       >
+        <div className="home-banner-counter home-banner-counter-first-slide">
+          <span>01</span>
+        </div>
+        <div className="home-banner-counter home-banner-counter-last-slide">
+          <span>{`0${banners.length}`.slice(-2)}</span>
+        </div>
         {banners?.map((banner, idx) => (
           <SwiperSlide key={idx}>
             <div className="home-banner-container">
@@ -83,8 +89,7 @@ const HomeBanner = ({ banners }: HomeBannerItems) => {
                         confira
                       </span>
                       <p className="home-banner-see-more-text">
-                        {' '}
-                        {banner.seeMoreTitle}{' '}
+                        {banner.seeMoreTitle}
                       </p>
                     </a>
                   )}

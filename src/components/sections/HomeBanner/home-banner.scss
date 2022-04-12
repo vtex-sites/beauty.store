@@ -243,21 +243,21 @@
 
     .swiper-button-prev {
       top: 30%;
-      left: 15px;
+      left: 14px;
     }
 
     .swiper-button-next {
       top: unset;
       bottom: 27%;
-      left: 15px;
+      left: 14px;
       transform: rotateX(180deg);
     }
 
     .swiper-pagination-progressbar {
       top: 50%;
       left: 20px;
-      width: 5px;
-      max-height: 220px;
+      width: 3px;
+      max-height: 270px;
       background-color: #fff;
       transform: translateY(-50%);
 
@@ -295,6 +295,31 @@
       @media (max-width: 1020px) {
         display: none;
       }
+    }
+  }
+
+  &-counter {
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 26px;
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 28px;
+      color: var(--color-neutral-7);
+      letter-spacing: 0.01em;
+    }
+
+    &-first-slide {
+      top: 30%;
+    }
+
+    &-last-slide {
+      bottom: 30%;
     }
   }
 }

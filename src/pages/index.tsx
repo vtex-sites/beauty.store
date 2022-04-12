@@ -99,6 +99,18 @@ function Page(props: Props) {
             seeMoreTitle: 'Serum treatment',
             seeMoreLink: '/serum-treatment',
           },
+          {
+            imageBanner: '/home-banner-01.png',
+            imageBannerMobile: '/home-banner-mobile-01.png',
+            title: 'Cuide da sua pele com produtos feitos para você!',
+            subtitle:
+              'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
+            link: '/scanner',
+            quote:
+              'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
+            seeMoreTitle: 'Serum treatment',
+            seeMoreLink: '/serum-treatment',
+          },
         ]}
       />
       {/* CMS Sections */}
