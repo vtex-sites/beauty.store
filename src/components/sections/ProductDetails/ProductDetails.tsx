@@ -242,6 +242,31 @@ export const fragment = graphql`
     isVariantOf {
       productGroupID
       name
+      complementName
+
+      installment {
+        count
+        value
+      }
+
+      variants {
+        id
+        name
+        link
+        stock
+        attributes {
+          value
+          key
+        }
+        images {
+          value
+        }
+      }
+
+      specifications {
+        key
+        value
+      }
     }
 
     image {
