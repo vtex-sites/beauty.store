@@ -26,6 +26,7 @@ module.exports = {
       home: '/',
       pdp: '/gel-rejuvenescedor-facial-mantecorp-ivy-c-aox-4/p',
       collection: '/beleza',
+      institutional: '/institucional/a-beauty/',
     },
   },
 

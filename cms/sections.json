@@ -152,21 +152,6 @@
       "properties": {}
     }
   },
-
-  {
-    "name": "RichText",
-    "schema": {
-      "title": "Rich Text",
-      "description": "Adiciona texto na sua página",
-      "type": "object",
-      "properties": {
-        "text": {
-          "title": "Insira o texto",
-          "type": "string"
-        }
-      }
-    }
-  },
   {
     "name": "Text",
     "schema": {

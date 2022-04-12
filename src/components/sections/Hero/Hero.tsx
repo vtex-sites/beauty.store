@@ -7,10 +7,10 @@ import UIHero, {
 import Image from 'src/components/ui/Image/Image'
 import { LinkButton } from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
+import RichText from 'src/components/common/RichText'
 
 import Section from '../../common/Section'
 import Container from '../../common/Container'
-import RichText from 'src/components/common/RichText'
 
 interface HeroProps {
   title: string
@@ -41,8 +41,8 @@ const Hero = ({
         <UIHero isInverted={isInverted}>
           <HeroImage>
             <Image
-              preload
-              loading="eager"
+              loading="lazy"
+              data={false}
               src={imageSrc}
               alt={imageAlt}
               width={743}

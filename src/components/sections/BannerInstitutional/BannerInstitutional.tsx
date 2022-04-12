@@ -38,6 +38,8 @@ function BannerInstitutional({
         <BannerImage>
           <div className="hidden-tablet">
             <Image
+              loading="lazy"
+              data={false}
               width={widthDesktop}
               height={heightDesktop}
               src={imageSrcDesktop}
@@ -46,6 +48,8 @@ function BannerInstitutional({
           </div>
           <div className="display-tablet">
             <Image
+              loading="lazy"
+              data={false}
               width={widthMobile}
               height={heightMobile}
               src={imageSrcMobile}
