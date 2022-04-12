@@ -142,6 +142,10 @@
         border: 0;
         transition: all .3s  ease-in-out;
 
+        @include media("<=phonelg") {
+          max-width: 100%;
+        }
+
         &:hover {
           background: var(--color-primary-2);
         }
