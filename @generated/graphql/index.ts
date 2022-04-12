@@ -4194,6 +4194,18 @@ export type SearchPageQueryQuery = {
   } | null
 }
 
+export type ScannerPageQueryVariables = Exact<{ [key: string]: never }>
+
+export type ScannerPageQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+}
+
 export type CollectionPageQueryQueryVariables = Exact<{
   id: Scalars['String']
 }>

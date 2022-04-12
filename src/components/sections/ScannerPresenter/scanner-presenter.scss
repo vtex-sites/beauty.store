@@ -1,0 +1,8 @@
+@import "src/styles/scaffold";
+
+.scanner-cta {
+  max-width: 424px;
+  padding: var(--space-7);
+  background: linear-gradient(180deg, #f9f3f3 0%, #f9d4c1 100%);
+  border-radius: var(--border-radius-regular);
+}
