@@ -43,18 +43,6 @@
   @include media(">=notebook") { grid-column: span 7; }
 }
 
-.product-details__content {
-  margin-top: var(--space-3);
-  .product-details__description .title-subsection { margin-bottom: var(--space-3); }
-
-  @include media(">=tablet") {
-    grid-column: span 7;
-    margin-top: 0;
-  }
-
-  @include media(">=notebook") { grid-column: span 8; }
-}
-
 .product-details__title {
   @include media(">=tablet") {
     grid-row: 1;

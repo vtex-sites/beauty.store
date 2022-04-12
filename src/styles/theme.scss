@@ -20,11 +20,13 @@
   --color-primary-1: #9eb4aa;
   --color-primary-2: #7a9186;
   --color-primary-3: #576b62;
+  --color-primary-4: #e5e5e3;
 
   --color-secondary-0: #f1e4d1;
   --color-secondary-1: #f1cdb7;
   --color-secondary-2: #f1b693;
   --color-secondary-3: #eba47a;
+  --color-secondary-4: #9f7157;
 
   --color-tertiary-0: #9a92dd;
   --color-tertiary-1: #7068b1;
@@ -59,6 +61,8 @@
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
+  --bg-header: transparent;
+  --header-height: 86px;
   --bg-primary-light: var(--color-primary-0);
   --bg-secondary-light: var(--color-secondary-0);
   --bg-neutral-light: var(--color-neutral-1);
@@ -145,6 +149,18 @@
   --breakpoint-tablet: 768px;
   --breakpoint-notebook: 1280px;
   --breakpoint-desktop: 1440px;
+
+  // z-index
+  --z-index-layer-0: 0;
+  --z-index-layer-1: 9;
+  --z-index-layer-2: 99;
+  --z-index-layer-3: 999;
+  --z-index-layer-4: 9999;
+  --z-index-layer-5: 99999;
+  --z-index-layer-6: 999999;
+  --z-index-layer-7: 9999999;
+  --z-index-layer-8: 99999999;
+  --z-index-layer-9: 999999999;
 
   // Container
   --container-width: 1380px;

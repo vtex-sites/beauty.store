@@ -13,7 +13,9 @@
     align-items: center;
 
     @include media("<notebook") {
+      max-width: max-content;
       padding: 0 var(--space-3);
+      margin: 0 auto;
       overflow: scroll;
 
       &::-webkit-scrollbar {

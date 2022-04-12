@@ -52,6 +52,7 @@ const ImageGallery = ({ images }: Props) => {
           {images.map((image, id) => (
             <SwiperSlide key={`${image.url}_${id}`}>
               <Image
+                data={false}
                 preload
                 loading="eager"
                 src={image.url}
