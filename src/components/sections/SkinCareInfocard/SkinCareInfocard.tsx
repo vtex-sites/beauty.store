@@ -19,19 +19,21 @@ function SkinCareInfocard() {
           <div className="infocard-skin__images">
             <Image
               data={false}
+              alt="mãos segurando um frasco com conta gotas"
               src="https://beauty.vtexassets.com/arquivos/skin-care-01.png"
               width={261}
               height={261}
             />
             <Image
               data={false}
+              alt="mulher aplicando um produto de beleza no rosto"
               src="https://beauty.vtexassets.com/arquivos/skin-care-02.png"
               width={261}
               height={261}
             />
           </div>
           <div className="infocard-skin__block">
-            <h4 className="block__title">Descubra sua rotina skincare</h4>
+            <h2 className="block__title">Descubra sua rotina skincare</h2>
             <span className="block__subtitle">
               através do nosso scanner facial, direcionamos produtos ideais para
               a sua pele.
