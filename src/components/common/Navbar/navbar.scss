@@ -146,7 +146,9 @@
 }
 
 .navbar__modal-body {
-  padding: var(--page-padding-phone);
+  height: 90%;
+  max-height: 100%;
+  padding: 0;
 }
 
 .navbar__modal-header {
@@ -162,6 +164,8 @@
 }
 
 .navlinks {
+  height: 100%;
+
   .navlinks__signin {
     padding-top: var(--space-2);
     margin-top: var(--space-2);

@@ -4,14 +4,16 @@ import Link from 'src/components/ui/Link'
 import IconButton from 'src/components/ui/IconButton'
 import Icon from 'src/components/ui/Icon'
 
-import type { MainMenuList } from '.'
+import type { MainMenuList, MainMenuType } from '.'
 
 interface Props {
   data: MainMenuList
   level: number
+  type: MainMenuType
+  onGoBack?: () => void
 }
 
-function MainMenuItem({ data, level }: Props) {
+function MainMenuItem({ data, level, type, onGoBack }: Props) {
   const [isActive, setIsActive] = useState(false)
   const hasChildren = !!data.children?.length
   const isHighlight = !!data.isHighlight
@@ -52,8 +54,8 @@ function MainMenuItem({ data, level }: Props) {
     ]),
     childrenTitle: cssBuilder([
       [cssWithLevel('main-menu-item-children-title'), true],
-      [cssWithLevel('main-menu-item-children-title-active'), isActive],
     ]),
+    goBackBtn: cssBuilder([[cssWithLevel('main-menu-item-go-back-btn'), true]]),
   }
 
   const buildChildren = () => {
@@ -61,13 +63,36 @@ function MainMenuItem({ data, level }: Props) {
       <h2 className={classnames.childrenTitle}>{data.childrenTitle}</h2>
     )
 
+    const gobackBtn = () => {
+      return (
+        <IconButton
+          classes={classnames.goBackBtn}
+          aria-label="close Menu"
+          icon={<Icon name="ArrowLeft" width={24} height={24} />}
+          onClick={() => setIsActive(false)}
+        />
+      )
+    }
+
     const childrenItem = (item: MainMenuList) => (
-      <MainMenuItem data={item} level={level + 1} key={item.href} />
+      <MainMenuItem
+        data={item}
+        level={level + 1}
+        key={item.href}
+        type={type}
+        onGoBack={onGoBack}
+      />
     )
 
+    const componentData = {
+      'data-main-menu-item': true,
+      [`data-main-menu-item-lvl-${level}`]: true,
+    }
+
     return (
-      <section className={classnames.childrenSection}>
+      <section className={classnames.childrenSection} {...componentData}>
         <div className={classnames.childrenContainer}>
+          {type === 'column' && gobackBtn()}
           {data.childrenTitle && title()}
           <div className={classnames.childrenItemsWrapper}>
             {data.children?.map(childrenItem)}
@@ -80,8 +105,8 @@ function MainMenuItem({ data, level }: Props) {
   return (
     <div
       className={classnames.container}
-      onMouseEnter={() => false && setIsActive(true)}
-      onMouseLeave={() => false && setIsActive(false)}
+      onMouseEnter={() => type === 'row' && setIsActive(true)}
+      onMouseLeave={() => type === 'row' && setIsActive(false)}
       role="menubar"
       tabIndex={-1}
     >
@@ -98,7 +123,7 @@ function MainMenuItem({ data, level }: Props) {
           <IconButton
             classes={classnames.linkIcon}
             aria-label="Open Menu"
-            icon={<Icon name="ArrowRight" width={32} height={32} />}
+            icon={<Icon name="ArrowRight" width={20} height={20} />}
             onClick={() => setIsActive(true)}
           />
         )}

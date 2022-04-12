@@ -9,12 +9,176 @@ import SignInLink from 'src/components/ui/SignInLink'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
 import type { SearchInputRef } from '@faststore/ui'
+import type { MainMenuList } from 'src/components/common/MainMenu'
 import MainMenu from 'src/components/common/MainMenu'
 
 import Container from '../Container'
 import Section from '../Section'
 
 type Callback = () => unknown
+
+const listRow: MainMenuList[] = [
+  {
+    label: 'A Beauty',
+    href: '/beleza',
+  },
+  {
+    label: 'Produtos',
+    href: '/Produtos',
+    childrenTitle: 'Beleza',
+    children: [
+      {
+        label: 'Categorias',
+        href: '#',
+        children: [
+          {
+            label: 'Firmeza da Pele',
+            href: '#',
+          },
+          {
+            label: 'Hidratação da Pele',
+            href: '#',
+          },
+          {
+            label: 'Rugas e Linhas de expressão',
+            href: '#',
+          },
+          {
+            label: 'Flacidez e Celulite',
+            href: '#',
+          },
+          {
+            label: 'Cabelos e Unhas',
+            href: '#',
+          },
+        ],
+      },
+      {
+        label: 'Ativos',
+        href: '#',
+        children: [
+          {
+            label: 'Ácido Hialurônico',
+            href: '#',
+          },
+          {
+            label: 'Colágeno',
+            href: '#',
+          },
+          {
+            label: 'Biotina',
+            href: '#',
+          },
+          {
+            label: 'Peptan',
+            href: '#',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Scanner Facial',
+    href: '#',
+  },
+]
+
+const listColumn: MainMenuList[] = [
+  {
+    label: 'Todas as Categorias',
+    href: '#',
+    childrenTitle: 'Categorias',
+    children: [
+      {
+        label: 'beleza',
+        href: '#',
+      },
+      {
+        label: 'Cabelos',
+        href: '#',
+      },
+      {
+        label: 'Pele',
+        href: '#',
+      },
+    ],
+  },
+  {
+    label: 'Scanner Facial',
+    href: '#',
+  },
+  {
+    label: 'A Beauty',
+    href: '',
+    childrenTitle: 'Categorias',
+    children: [
+      {
+        label: 'Por Necessidade',
+        href: '#',
+        children: [
+          {
+            label: 'Firmeza da Pele',
+            href: '#',
+          },
+          {
+            label: 'Hidratação da Pele',
+            href: '#',
+          },
+          {
+            label: 'Rugas e Linhas de expressão',
+            href: '#',
+          },
+          {
+            label: 'Flacidez e Celulite',
+            href: '#',
+          },
+          {
+            label: 'Cabelos e Unhas',
+            href: '#',
+          },
+        ],
+      },
+      {
+        label: 'Ativos',
+        href: '',
+        children: [
+          {
+            label: 'Ácido Hialurônico',
+            href: '',
+          },
+          {
+            label: 'Colágeno',
+            href: '',
+          },
+          {
+            label: 'Biotina',
+            href: '',
+          },
+          {
+            label: 'Peptan',
+            href: '',
+          },
+          {
+            label: 'Verisol',
+            href: '',
+          },
+          {
+            label: 'Vitamina C',
+            href: '',
+          },
+          {
+            label: 'MSM - metilsulfonilmetano',
+            href: '',
+          },
+          {
+            label: 'Antioxidantes',
+            href: '',
+          },
+        ],
+      },
+    ],
+  },
+]
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false)
@@ -36,7 +200,7 @@ function Navbar() {
             <section className="navbar__row">
               {!searchExpanded && (
                 <>
-                  <MainMenu className="main-menu-large" />
+                  <MainMenu list={listRow} className="main-menu-large" />
                   <IconButton
                     classes="navbar__menu"
                     aria-label="Open Menu"
@@ -111,7 +275,11 @@ function Navbar() {
             />
           </header>
           <div className="navlinks">
-            <MainMenu className="main-menu-mobile" type="column" />
+            <MainMenu
+              list={listColumn}
+              className="main-menu-mobile"
+              type="column"
+            />
             <div className="navlinks__signin">
               <SignInLink />
             </div>
