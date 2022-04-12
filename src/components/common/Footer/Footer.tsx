@@ -33,7 +33,7 @@ function Footer() {
             </section>
             <FooterLinks />
             <section className="footer__social">
-              <Newsletter title="Newsletter" onSubmit={() => {}} />
+              <Newsletter title="Newsletter" />
 
               <UIList variant="unordered">
                 <li>
