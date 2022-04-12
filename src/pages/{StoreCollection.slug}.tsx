@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo'
 import React, { useMemo } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import BannerImg from 'src/components/sections/BannerImg'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
@@ -96,14 +95,6 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-
-      <BannerImg
-        className="category-banner"
-        width={1440}
-        height={403}
-        src="https://beauty.vtexassets.com/arquivos/category-banner.jpg"
-        alt="Mulher aplicando produto de beleza"
-      />
 
       <Breadcrumb
         breadcrumbList={collection?.breadcrumbList.itemListElement}

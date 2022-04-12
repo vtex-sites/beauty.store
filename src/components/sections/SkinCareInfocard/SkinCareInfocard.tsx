@@ -21,7 +21,7 @@ function SkinCareInfocard() {
               preload
               data={false}
               alt="mãos segurando um frasco com conta gotas"
-              src="https://beauty.vtexassets.com/arquivos/skin-care.jpg"
+              src="https://beauty.vtexassets.com/arquivos/s-care.jpg"
               width={261}
               height={261}
             />
@@ -29,7 +29,7 @@ function SkinCareInfocard() {
               preload
               data={false}
               alt="mulher aplicando um produto de beleza no rosto"
-              src="https://beauty.vtexassets.com/arquivos/skin-care-02.jpg"
+              src="https://beauty.vtexassets.com/arquivos/s-care-02.jpg"
               width={261}
               height={261}
             />
