@@ -1,0 +1,12 @@
+.shelf-with-tabs {
+  margin-bottom: 72px;
+
+  &__title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: var(--heading-font);
+    font-size: var(--text-size-6);
+    font-weight: 700;
+    text-align: center;
+  }
+}

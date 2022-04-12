@@ -5,7 +5,6 @@ import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductCard from 'src/components/product/ProductCard'
-import Section from 'src/components/common/Section'
 
 function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
   const products = useProductsQuery(variables)
@@ -15,7 +14,7 @@ function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
   }
 
   return (
-    <Section className="page__section-shelf">
+    <section className="page__section-shelf">
       <div className="product-shelf__wrapper">
         <ProductShelfSkeleton loading={products === undefined}>
           <Swiper
@@ -52,7 +51,7 @@ function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
           </Swiper>
         </ProductShelfSkeleton>
       </div>
-    </Section>
+    </section>
   )
 }
 

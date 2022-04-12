@@ -11,6 +11,7 @@
 @import "src/components/common/Navbar/navbar.scss";
 @import "src/components/common/Section/section.scss";
 @import "src/components/common/Container/container.scss";
+@import "src/components/common/TabLayout/tab-layout.scss";
 
 // Product
 @import "src/components/product/ProductCard/product-card.scss";
@@ -34,6 +35,7 @@
 @import "src/components/sections/ProductShelf/product-shelf.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
 @import "src/components/sections/Mosaic/mosaic.scss";
+@import "src/components/sections/ShelfsWithTabs/shelfs-with-tabs.scss";
 
 // Skeletons
 @import "src/components/skeletons/FilterSkeleton/filter-skeleton.scss";
