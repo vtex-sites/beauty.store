@@ -21,6 +21,7 @@
 // Search
 @import "src/components/search/Filter/filter.scss";
 @import "src/components/search/Filter/FilterButton/filter-button.scss";
+@import "src/components/sections/SkinCareInfocard/skincare-infocard.scss";
 @import "src/components/search/History/search-history.scss";
 @import "src/components/search/SuggestionProductCard/suggestion-product-card.scss";
 @import "src/components/search/Suggestions/suggestions.scss";
@@ -30,9 +31,11 @@
 @import "src/components/sections/BannerText/banner-text.scss";
 @import "src/components/sections/Breadcrumb/breadcrumb.scss";
 @import "src/components/sections/Incentives/incentives.scss";
+@import "src/components/sections/Newsletter/newsletter.scss";
 @import "src/components/sections/ProductDetails/product-details.scss";
 @import "src/components/sections/ProductGallery/product-gallery.scss";
 @import "src/components/sections/ProductShelf/product-shelf.scss";
+@import "src/components/sections/ProductDescription/product-description.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
 @import "src/components/sections/Mosaic/mosaic.scss";
 
@@ -54,6 +57,7 @@
 @import "src/components/ui/EmptyState/empty-state.scss";
 @import "src/components/ui/Hero/hero.scss";
 @import "src/components/ui/IconButton/icon-button.scss";
+@import "src/components/ui/InfocardIcon/infocard-icon.scss";
 @import "src/components/ui/Image/image.scss";
 @import "src/components/ui/Link/link.scss";
 @import "src/components/ui/Price/price.scss";

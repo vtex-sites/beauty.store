@@ -5,7 +5,6 @@ import React, { useMemo } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
 import BannerImg from 'src/components/sections/BannerImg'
 import ProductGallery from 'src/components/sections/ProductGallery'
-import ScrollToTopButton from 'src/components/sections/ScrollToTopButton'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
 import { mark } from 'src/sdk/tests/mark'
@@ -115,8 +114,6 @@ function Page(props: Props) {
       />
 
       <ProductGallery title={title} />
-
-      <ScrollToTopButton />
     </SearchProvider>
   )
 }
