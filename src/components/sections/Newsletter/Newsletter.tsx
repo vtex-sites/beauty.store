@@ -52,7 +52,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
               placeholder="Digite seu e-mail"
               ref={emailInputRef}
             />
-            <Button type="submit">
+            <Button type="submit" aria-label="newsletter-submit-button">
               <UIIcon
                 component={
                   <Icon width={12} height={12} name="NewsletterArrow" />

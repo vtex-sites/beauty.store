@@ -48,7 +48,7 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(function AccordionItem(
             <>
               <Icon
                 data-icon={isExpanded ? 'expanded' : 'collapsed'}
-                name="FooterLinkArrowDown"
+                name="ArrowDown"
                 width={13}
                 height={13}
               />

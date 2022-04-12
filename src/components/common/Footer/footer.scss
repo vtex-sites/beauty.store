@@ -61,7 +61,18 @@
   [data-store-link] {
     display: inline-block;
     padding-left: 0;
+    color: var(--color-neutral-8);
     text-decoration: none;
+
+    &:active,
+    &:visited,
+    &:link {
+      color: var(--color-neutral-8);
+    }
+
+    &.highlight {
+      color: var(--color-secondary-3);
+    }
   }
 
   @include media(">=notebook") {

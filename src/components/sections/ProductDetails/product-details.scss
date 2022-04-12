@@ -1,6 +1,9 @@
 @import "src/styles/scaffold";
 
-.product-details { margin-top: var(--space-3); }
+.product-details {
+  margin-top: var(--space-3);
+  background-color: #e5e5e5;
+}
 
 .product-details__body {
   display: flex;
@@ -12,8 +15,8 @@
     display: grid;
     grid-template-rows: repeat(4, minmax(0, max-content));
     grid-template-columns: repeat(12, 1fr);
-    column-gap: var(--space-4);
     row-gap: 0;
+    column-gap: var(--space-4);
   }
 }
 
@@ -37,7 +40,7 @@
     margin-bottom: var(--space-7);
   }
 
-  @include media(">=notebook") { grid-column: span 8; }
+  @include media(">=notebook") { grid-column: span 7; }
 }
 
 .product-details__content {
