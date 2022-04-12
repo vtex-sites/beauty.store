@@ -1,4 +1,9 @@
 .mosaic {
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   &__grid {
     @include media(">=notebook") {
       display: grid;
@@ -6,8 +11,6 @@
       row-gap: var(--space-5);
       column-gap: var(--space-8);
       justify-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
   }
 
