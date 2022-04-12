@@ -1,9 +1,38 @@
-@import "src/styles/scaffold";
+@import 'src/styles/scaffold';
 
 .banner-institutional {
   margin-bottom: var(--space-7);
+  position: relative;
 
-  @include media("<tablet") {
+  @include media('<tablet') {
     margin-bottom: var(--space-5);
   }
+}
+.BannerTextWrapper {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+
+  max-width: 540px;
+
+  @include media('<tablet') {
+    display: none;
+  }
+}
+
+.BannerTitle {
+  font-family: var(--heading-font);
+  font-weight: var(--text-weight-bold);
+  font-size: var(--text-size-6);
+  line-height: var(--text-size-7);
+  color: var(--color-neutral-7);
+}
+
+.BannerDescription {
+  font-family: var(--body-font);
+  font-weight: var(--text-weight-regular);
+  font-size: var(--text-size-2);
+  line-height: var(--text-size-4);
+  color: var(--color-neutral-8);
 }

@@ -71,6 +71,16 @@
           "title": "Texto alternativo para a imagem do Desktop",
           "type": "string"
         },
+
+        "bannerTitle": {
+          "title": "bannerTitle",
+          "type": "string"
+        },
+        "bannerDescription": {
+          "title": "bannerDescription",
+          "type": "string"
+        },
+
         "widthMobile": {
           "title": "Largura da imagem do Mobile",
           "type": "number"
@@ -108,38 +118,31 @@
           "maxItems": 3,
 
           "items": {
-            "$ref": "#/definitions/Incentive"
-          }
-        }
-      },
+            "title": "Vantagem",
+            "type": "object",
 
-      "definitions": {
-        "Incentive": {
-          "title": "Vantagem",
-          "type": "object",
+            "properties": {
+              "icon": {
+                "title": "Ícone",
+                "type": "string",
+                "enum": ["Truck"]
+              },
 
-          "properties": {
-            "icon": {
-              "title": "Ícone",
-              "type": "string",
-              "enum": ["Truck"]
-            },
+              "title": {
+                "title": "Título",
+                "type": "string"
+              },
 
-            "title": {
-              "title": "Título",
-              "type": "string"
-            },
-
-            "text": {
-              "title": "Texto",
-              "type": "string"
+              "text": {
+                "title": "Texto",
+                "type": "string"
+              }
             }
           }
         }
       }
     }
   },
-
   {
     "name": "IncentivesHeader",
     "schema": {
@@ -154,15 +157,12 @@
     "name": "RichText",
     "schema": {
       "title": "Rich Text",
-      "description": "Add text to your page",
+      "description": "Adiciona texto na sua página",
       "type": "object",
       "properties": {
         "text": {
-          "type": "string",
-          "title": "text",
-          "widget": {
-            "ui:widget": "draftjs-rich-text"
-          }
+          "title": "Insira o texto",
+          "type": "string"
         }
       }
     }

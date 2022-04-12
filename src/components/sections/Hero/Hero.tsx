@@ -10,14 +10,12 @@ import Icon from 'src/components/ui/Icon'
 
 import Section from '../../common/Section'
 import Container from '../../common/Container'
-
-type Variant = 'default' | 'small'
+import RichText from 'src/components/common/RichText'
 
 interface HeroProps {
   title: string
   subtitle?: string
   paragraph: string
-  variant?: Variant
   isInverted: boolean
   linkText?: string
   link?: string
@@ -30,7 +28,6 @@ const Hero = ({
   title,
   subtitle,
   paragraph,
-  variant = 'default',
   isInverted,
   linkText,
   link,
@@ -41,7 +38,7 @@ const Hero = ({
   return (
     <Section>
       <Container>
-        <UIHero data-hero-variant={variant} isInverted={isInverted}>
+        <UIHero isInverted={isInverted}>
           <HeroImage>
             <Image
               preload
@@ -50,31 +47,17 @@ const Hero = ({
               alt={imageAlt}
               width={743}
               height={860}
-              sizes="(max-width: 768px) 70vw, 50vw"
             />
           </HeroImage>
           <HeroContent aria-labelledby="hero-heading">
             <div className="hero-content-wrapper / grid-content">
               <div className="hero-content-info">
-                <h2
-                  id="hero-heading"
-                  className={
-                    variant === 'default' ? 'title-hero' : 'title-hero-small'
-                  }
-                >
+                <h2 id="hero-heading" className="title-hero">
                   {title}
                 </h2>
 
-                <h4
-                  className={
-                    variant === 'default'
-                      ? 'subtitle-hero'
-                      : 'subtitle-hero-small'
-                  }
-                >
-                  {subtitle}
-                </h4>
-                <p className="text-body-big">{paragraph}</p>
+                <h4 className="subtitle-hero">{subtitle}</h4>
+                <RichText className="text-body-big" text={paragraph} />
                 {!!link && (
                   <HeroLink>
                     <LinkButton to={link} inverse>

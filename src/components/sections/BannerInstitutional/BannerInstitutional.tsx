@@ -3,6 +3,7 @@ import React from 'react'
 import { Image } from 'src/components/ui/Image'
 import type { HTMLAttributes } from 'react'
 import Section from 'src/components/common/Section'
+import RichText from 'src/components/common/RichText'
 
 export interface BannerInstitutionalProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -10,6 +11,8 @@ export interface BannerInstitutionalProps
   heightDesktop: number
   imageSrcDesktop: string
   imageAltDesktop: string
+  bannerTitle: string
+  bannerDescription: string
   widthMobile: number
   heightMobile: number
   imageSrcMobile: string
@@ -21,6 +24,8 @@ function BannerInstitutional({
   heightDesktop,
   imageSrcDesktop,
   imageAltDesktop,
+  bannerTitle,
+  bannerDescription,
 
   widthMobile,
   heightMobile,
@@ -49,6 +54,11 @@ function BannerInstitutional({
           </div>
         </BannerImage>
       </Banner>
+
+      <div className="BannerTextWrapper">
+        <RichText className="BannerTitle" text={bannerTitle} />
+        <RichText className="BannerDescription" text={bannerDescription} />
+      </div>
     </Section>
   )
 }

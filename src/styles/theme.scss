@@ -1,14 +1,14 @@
 // Output functions & mixins
-@import "scaffold";
+@import 'scaffold';
 
 // Resets //////////////////////////
-@import "resets/modern-normalize";
-@import "resets/reset";
+@import 'resets/modern-normalize';
+@import 'resets/reset';
 
 // Styles ///////////////////////////
-@import "colors";
-@import "typography";
-@import "grid";
+@import 'colors';
+@import 'typography';
+@import 'grid';
 
 // Tokens ///////////////////////////
 
@@ -33,14 +33,16 @@
 
   --color-neutral-0: #ffffff;
   --color-neutral-1: #f7f7f7;
-  --color-neutral-2: #e3e3e3;
+  --color-neutral-2: #e0e0e0;
   --color-neutral-3: #bdbdbd;
-  --color-neutral-4: #9099a2;
+  --color-neutral-4: #4f4f4f;
   --color-neutral-5: #7f7f7f;
   --color-neutral-6: #616161;
   --color-neutral-7: #242424;
   --color-neutral-8: #000000;
   --color-neutral-9: #7c7e80;
+
+  --color-light-neutral-0: #828282;
 
   // State
   --color-success: var(--color-primary-1);
@@ -50,6 +52,7 @@
 
   // Customizable
   --color-text: var(--color-neutral-8);
+  --color-light-text: var(--color-light-neutral-0);
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
@@ -62,17 +65,9 @@
   // Typography /////////////////////
 
   // Family
-  --body-font:
-    "DM Sans",
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
+  --body-font: 'DM Sans', -apple-system, system-ui, BlinkMacSystemFont,
     sans-serif;
-  --heading-font:
-    "Quiche Sans",
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
+  --heading-font: 'Quiche Sans', -apple-system, system-ui, BlinkMacSystemFont,
     sans-serif;
 
   // Base
@@ -113,8 +108,9 @@
 
   --border-radius-flat: 0;
   --border-radius-small: 0.125rem;
-  --border-radius-regular: 0.25rem;
-  --border-radius-pill: 100px;
+  --border-radius-box: 20px;
+  --border-radius-regular: 30px;
+  --border-radius-pill: 80px;
   --border-radius-circle: 100%;
 
   --border-radius-default: var(--border-radius-regular);
@@ -153,28 +149,28 @@
 }
 
 .display-mobile {
-  @include media(">=notebook") {
+  @include media('>=notebook') {
     display: none;
     visibility: hidden;
   }
 }
 
 .hidden-mobile {
-  @include media("<notebook") {
+  @include media('<notebook') {
     display: none;
     visibility: hidden;
   }
 }
 
 .display-tablet {
-  @include media(">=tablet") {
+  @include media('>=tablet') {
     display: none;
     visibility: hidden;
   }
 }
 
 .hidden-tablet {
-  @include media("<tablet") {
+  @include media('<tablet') {
     display: none;
     visibility: hidden;
   }

@@ -1,8 +1,6 @@
 import React from 'react'
 import Hero from 'src/components/sections/Hero'
 import Incentives from 'src/components/sections/Incentives'
-import IncentivesHeader from 'src/components/sections/Incentives2/IncentivesHeader'
-import RichText from 'src/components/sections/RichText'
 import BannerInstitutional from 'src/components/sections/BannerInstitutional'
 import Text from 'src/components/sections/Text'
 import type { ComponentType } from 'react'
@@ -14,8 +12,6 @@ import type { ComponentType } from 'react'
 const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
   Incentives,
-  IncentivesHeader,
-  RichText,
   BannerInstitutional,
   Text,
 }
