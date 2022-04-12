@@ -72,7 +72,7 @@ function Page(props: Props) {
           },
         }}
       />
-      <Mosaic />
+
       <HomeBanner
         banners={[
           {
@@ -113,6 +113,7 @@ function Page(props: Props) {
           },
         ]}
       />
+      <Mosaic />
       {/* CMS Sections */}
 
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
