@@ -12,6 +12,7 @@
 
   &__title {
     margin-bottom: var(--space-2);
+    font-family: var(--heading-font);
     font-size: var(--text-size-6);
     font-weight: var(--text-weight-bold);
     font-feature-settings: "tnum" on, "lnum" on;
