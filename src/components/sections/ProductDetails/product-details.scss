@@ -1,8 +1,8 @@
 @import "src/styles/scaffold";
 
 .product-details {
-  background-color: #E5E5E5;
   margin-top: var(--space-3);
+  background-color: #e5e5e5;
 }
 
 .product-details__body {
@@ -41,18 +41,6 @@
   }
 
   @include media(">=notebook") { grid-column: span 7; }
-}
-
-.product-details__content {
-  margin-top: var(--space-3);
-  .product-details__description .title-subsection { margin-bottom: var(--space-3); }
-
-  @include media(">=tablet") {
-    grid-column: span 7;
-    margin-top: 0;
-  }
-
-  @include media(">=notebook") { grid-column: span 8; }
 }
 
 .product-details__title {
