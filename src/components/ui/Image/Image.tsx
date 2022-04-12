@@ -5,10 +5,11 @@ import { useImage } from './useImage'
 import type { ImageOptions } from './useImage'
 
 interface Props extends ImageOptions {
+  data?: boolean
   preload?: boolean
 }
 
-function Image({ preload = false, ...otherProps }: Props) {
+function Image({ preload = false, data = true, ...otherProps }: Props) {
   const imgProps = useImage(otherProps)
   const { src, sizes = '100vw', srcSet } = imgProps
 
@@ -27,7 +28,11 @@ function Image({ preload = false, ...otherProps }: Props) {
           ]}
         />
       )}
-      <img data-store-image {...imgProps} alt={imgProps.alt} />
+      <img
+        {...(data && { 'data-store-image': true })}
+        {...imgProps}
+        alt={imgProps.alt}
+      />
     </>
   )
 }

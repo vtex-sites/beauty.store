@@ -1,7 +1,7 @@
 import React from 'react'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
-import IncentivesHeader from 'src/components/sections/Incentives/IncentivesHeader'
+import Incentives from 'src/components/sections/Incentives'
 import type { ComponentType } from 'react'
 
 /**
@@ -11,7 +11,7 @@ import type { ComponentType } from 'react'
 const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
   BannerText,
-  IncentivesHeader,
+  Incentives,
 }
 
 interface Props {
@@ -25,9 +25,11 @@ function RenderCMS({ sections }: Props) {
         const Component = COMPONENTS[name]
 
         if (!Component) {
-          throw new Error(
+          console.error(
             `Could not find component for block ${name}. Add a new component for this block or remove it from the CMS`
           )
+
+          return null
         }
 
         return <Component key={`cms-section-${index}`} {...data} />

@@ -3,7 +3,7 @@ import React from 'react'
 import { LinkButton } from 'src/components/ui/Button'
 import type { InputHTMLAttributes } from 'react'
 
-import Section from '../Section'
+import Section from '../../common/Section'
 
 export interface BannerTextProps extends InputHTMLAttributes<HTMLDivElement> {
   /**
