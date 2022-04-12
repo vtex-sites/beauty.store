@@ -207,14 +207,16 @@ function Navbar() {
                     icon={<Icon name="List" width={32} height={32} />}
                     onClick={() => setShowMenu(true)}
                   />
-                  <LinkGatsby
-                    to="/"
-                    aria-label="Go to Faststore home"
-                    title="Go to Faststore home"
-                    className="navbar__logo"
-                  >
-                    <Logo />
-                  </LinkGatsby>
+                  <h1 className="navbar__logo-content">
+                    <LinkGatsby
+                      to="/"
+                      aria-label="Go to Faststore home"
+                      title="Go to Faststore home"
+                      className="navbar__logo"
+                    >
+                      <Logo />
+                    </LinkGatsby>
+                  </h1>
                 </>
               )}
               <div

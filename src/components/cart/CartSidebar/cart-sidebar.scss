@@ -8,11 +8,15 @@
   > header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--space-2) var(--page-padding-phone) var(--space-2);
+    justify-content: center;
+    padding: 30px var(--page-padding-phone) 30px;
     background-color: var(--bg-neutral-lightest);
 
     > [data-store-icon-button] {
+      position: absolute;
+      right: 30px;
+      color: var(--color-neutral-3);
+
       &:last-of-type {
         margin-right: calc(-1 * var(--space-1));
       }
@@ -25,16 +29,18 @@
 
     p {
       margin-right: var(--space-2);
-      line-height: 1.35;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 31px;
     }
   }
 
   > [data-store-list] {
     display: flex;
     flex-direction: column;
-    padding: var(--page-padding-phone);
-    overflow: auto;
     row-gap: var(--space-2);
+    padding: 7px var(--page-padding-phone);
+    overflow: auto;
   }
 
   > footer {

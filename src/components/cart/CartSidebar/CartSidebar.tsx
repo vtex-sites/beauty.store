@@ -1,7 +1,5 @@
 import { List } from '@faststore/ui'
 import React, { useRef } from 'react'
-import Alert from 'src/components/ui/Alert'
-import { Badge } from 'src/components/ui/Badge'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
@@ -37,21 +35,15 @@ function CartSidebar() {
     >
       <header data-testid="cart-sidebar">
         <div className="cart-sidebar__title">
-          <p className="title-display">Your Cart</p>
-          <Badge variant="info" small>
-            {totalItems}
-          </Badge>
+          <p className="cart-sidebar__title__text">Minha Sacola</p>
         </div>
         <IconButton
           data-testid="cart-sidebar-button-close"
           aria-label="Close Cart"
-          icon={<Icon name="X" width={32} height={32} />}
+          icon={<Icon name="X" width={22} height={22} />}
           onClick={() => dismissTransition.current?.()}
         />
       </header>
-      <Alert icon={<Icon name="Truck" width={24} height={24} />}>
-        Free shipping starts at $300
-      </Alert>
 
       {isEmpty ? (
         <EmptyCart onDismiss={() => dismissTransition.current?.()} />
