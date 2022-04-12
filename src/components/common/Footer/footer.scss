@@ -87,6 +87,10 @@
       color: var(--color-neutral-8);
       text-decoration: none;
 
+      &:hover {
+        text-decoration: underline;
+      }
+
       &:active,
       &:visited,
       &:link {
