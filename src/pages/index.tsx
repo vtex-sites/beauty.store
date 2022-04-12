@@ -88,12 +88,12 @@ export const query = graphql`
       }
     }
 
-    # cmsHome {
-    #   sections {
-    #     data
-    #     name
-    #   }
-    # }
+    cmsHome {
+      sections {
+        data
+        name
+      }
+    }
   }
 `
 
