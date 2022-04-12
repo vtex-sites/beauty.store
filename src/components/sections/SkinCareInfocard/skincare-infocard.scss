@@ -1,0 +1,164 @@
+@import "src/styles/scaffold";
+
+.infocard-skin-wrapper {
+  padding: 0 var(--space-2);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
+
+  @include media("<=phonelg") {
+    padding: 0;
+  }
+}
+
+.infocard-skin {
+  display: flex;
+  justify-content: space-between;
+  min-height: 423px;
+  padding: var(--space-3) var(--space-10) var(--space-6) var(--space-10);
+  background: var(--color-neutral-10);
+  border-radius: var(--border-radius-regular);
+
+  @include media("<=1024px") {
+    display: block;
+  }
+
+  @include media("<=phonelg") {
+    padding: var(--space-3) var(--space-3) var(--space-6) var(--space-3);
+  }
+
+  &__images {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+
+    @include media("<=1024px") {
+      max-width: 320px;
+      height: 220px;
+      margin: 0 auto;
+    }
+
+    @include media("<=phonelg") {
+      height: 200px;
+    }
+
+    img {
+      position: absolute;
+
+      @include media("<=1024px") {
+        max-width: 188px;
+        max-height: 196px;
+      }
+
+      &:first-child {
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        @include media("<=phone") {
+          display: none;
+        }
+      }
+
+      &:last-child {
+        top: 120px;
+        right: 30px;
+        z-index: 3;
+
+        @include media("<=1024px") {
+          top: 0;
+          right: 0;
+        }
+
+        @include media("<=phone") {
+          position: relative;
+          display: block;
+          margin: 0 auto;
+        }
+
+        @include media("<=phonelg") {
+          max-width: 188px;
+        }
+      }
+    }
+  }
+
+  &__block {
+    width: 100%;
+    padding-top: var(--space-3);
+
+    .block__title {
+      margin-bottom: 5px;
+      font-family: var(--heading-font);
+      font-size: var(--text-size-6);
+      font-weight: var(--text-weight-bold);
+      font-feature-settings: "tnum" on, "lnum" on;
+      line-height: var(--text-size-7);
+      color: var(--color-neutral-7);
+      letter-spacing: 0.01em;
+    }
+
+    .block__subtitle {
+      display: block;
+      max-width: 467px;
+      font-size: var(--text-size-3);
+      font-weight: var(--text-weight-regular);
+      line-height: var(--text-size-4);
+      color: var(--color-neutral-4);
+    }
+
+    .infocard-grid {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: var(--space-6);
+      margin-top: var(--space-7);
+
+      @include media("<=phonelg") {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: var(--space-2);
+        column-gap: var(--space-2);
+      }
+
+      @include media("<=280px") {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-4);
+      }
+    }
+
+    .infocard-button-container {
+      margin-top: var(--space-6);
+
+      a {
+        padding: 0;
+      }
+
+      .infocard-button {
+        width: 100%;
+        max-width: 321px;
+        height: 61px;
+        padding: var(--space-3) var(--space-4);
+        cursor: pointer;
+        background: var(--color-primary-3);
+        border: 0;
+        transition: all .3s  ease-in-out;
+
+        @include media("<=phonelg") {
+          max-width: 100%;
+        }
+
+        &:hover {
+          background: var(--color-primary-2);
+        }
+
+        .infocard-button-label {
+          font-size: var(--text-size-2);
+          font-weight: var(--text-weight-regular);
+          line-height: var(--space-4);
+          color: var(--color-neutral-0);
+          text-align: center;
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+  }
+}
