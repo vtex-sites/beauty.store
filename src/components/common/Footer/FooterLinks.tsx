@@ -11,15 +11,15 @@ const links = [
     items: [
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Quem somos',
       },
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Trabalhe Conosco',
       },
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Fale Conosco',
       },
     ],
   },
@@ -29,15 +29,15 @@ const links = [
     items: [
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Para a pele',
       },
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Para o cabelo',
       },
       {
         href: '/',
-        name: 'Lorem ipsum',
+        name: 'Acessórios',
       },
     ],
   },
@@ -74,12 +74,14 @@ function LinksList({ items, highlight }: LinksListProps) {
             className={highlight ? 'highlight' : ''}
           >
             {item.name}
+            {highlight && (
+              <UIIcon
+                component={
+                  <Icon width={17} height={17} name="FooterLinkArrow" />
+                }
+              />
+            )}
           </Link>
-          {highlight && (
-            <UIIcon
-              component={<Icon width={17} height={17} name="FooterLinkArrow" />}
-            />
-          )}
         </li>
       ))}
     </UIList>
@@ -101,7 +103,7 @@ function FooterLinks() {
   }
 
   return (
-    <section className="footer__links">
+    <>
       <div className="display-mobile">
         <Accordion expandedIndices={indicesExpanded} onChange={onChange}>
           {links.map((section, index) => {
@@ -135,17 +137,13 @@ function FooterLinks() {
         </Accordion>
       </div>
 
-      <div className="hidden-mobile">
-        <div className="footer__links-columns">
-          {links.map((section) => (
-            <nav key={section.title}>
-              <p className="title-sub-subsection">{section.title}</p>
-              <LinksList items={section.items} highlight={section.highlight} />
-            </nav>
-          ))}
-        </div>
-      </div>
-    </section>
+      {links.map((section) => (
+        <nav key={section.title} className="hidden-mobile">
+          <p className="title-sub-subsection">{section.title}</p>
+          <LinksList items={section.items} highlight={section.highlight} />
+        </nav>
+      ))}
+    </>
   )
 }
 

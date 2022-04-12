@@ -27,8 +27,8 @@ function Footer() {
                 }
               />
               <p className="store-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor.
+                Cuidando de você através de uma rotina de cuidados
+                personalizados
               </p>
             </section>
             <FooterLinks />
