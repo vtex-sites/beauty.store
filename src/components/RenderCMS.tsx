@@ -25,9 +25,11 @@ function RenderCMS({ sections }: Props) {
         const Component = COMPONENTS[name]
 
         if (!Component) {
-          throw new Error(
+          console.error(
             `Could not find component for block ${name}. Add a new component for this block or remove it from the CMS`
           )
+
+          return null
         }
 
         return <Component key={`cms-section-${index}`} {...data} />
