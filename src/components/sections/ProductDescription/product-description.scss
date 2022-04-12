@@ -15,6 +15,10 @@
     font-feature-settings: "tnum" on, "lnum" on;
     line-height: 1.1;
     text-align: center;
+
+    @include media(">=tablet") {
+      font-size: var(--text-size-5);
+    }
   }
 
   &__content {
@@ -31,6 +35,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-6);
+  overflow-x: scroll;
 
   &__link {
     padding: var(--space-0) var(--space-3);
@@ -41,11 +46,33 @@
     color: var(--color-neutral-5);
     text-decoration: none;
     letter-spacing: 0.256px;
+    white-space: nowrap;
 
     &--active {
       color: var(--color-neutral-0);
       background-color: var(--color-secondary-3);
       border-radius: var(--border-radius-regular);
     }
+  }
+}
+
+.spec-table {
+  display: flex;
+  margin-bottom: var(--sapce-3);
+}
+
+.spec-key {
+  margin-right: 20%;
+
+  &__value {
+    font-size: var(--text-size-1);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.spec-value {
+  &__value {
+    font-size: var(--text-size-1);
   }
 }

@@ -1,5 +1,7 @@
-import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import React, { useState } from 'react'
+import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
+
+import SpecificationTable from './SpecificationTable'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -24,7 +26,9 @@ function ProductDescription({ product }: Props) {
     {
       id: 'specification',
       title: 'Especificações Técnicas',
-      content: 'unkown',
+      content: SpecificationTable({
+        specs: product.isVariantOf.specifications,
+      }),
     },
   ]
 

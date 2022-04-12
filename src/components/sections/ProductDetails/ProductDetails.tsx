@@ -39,7 +39,6 @@ function ProductDetails({ product: staleProduct }: Props) {
       id,
       sku,
       gtin,
-      // description,
       name: variantName,
       brand,
       isVariantOf,
