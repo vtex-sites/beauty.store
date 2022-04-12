@@ -16,7 +16,7 @@ export interface NewsletterProps
   /**
    * Callback function when submitted.
    */
-  onSubmit: (value: string) => void
+  onSubmit?: (value: string) => void
 }
 
 const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
@@ -27,7 +27,7 @@ const Newsletter = forwardRef<HTMLFormElement, NewsletterProps>(
       event.preventDefault()
 
       if (emailInputRef.current?.value !== '') {
-        onSubmit(emailInputRef.current!.value)
+        // onSubmit(emailInputRef.current!.value
       }
     }
 
