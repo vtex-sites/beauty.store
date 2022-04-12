@@ -15,6 +15,7 @@ import type {
   ProductPageQueryQueryVariables,
 } from '@generated/graphql'
 import { ITEMS_PER_SECTION } from 'src/constants'
+import ProductDescription from 'src/components/sections/ProductDescription'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -99,6 +100,7 @@ function Page(props: Props) {
       */}
 
       <ProductDetails product={product} />
+      <ProductDescription product={product} />
 
       <ProductShelf
         first={ITEMS_PER_SECTION}

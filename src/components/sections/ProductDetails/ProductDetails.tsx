@@ -39,7 +39,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       id,
       sku,
       gtin,
-      description,
+      // description,
       name: variantName,
       brand,
       isVariantOf,
@@ -160,13 +160,6 @@ function ProductDetails({ product: staleProduct }: Props) {
               Add to Cart
             </BuyButton>
           )}
-        </section>
-
-        <section className="product-details__content">
-          <article className="product-details__description">
-            <h2 className="title-subsection">Description</h2>
-            <p className="text-body">{description}</p>
-          </article>
         </section>
       </section>
     </Section>
