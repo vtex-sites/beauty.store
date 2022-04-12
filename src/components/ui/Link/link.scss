@@ -60,7 +60,8 @@ a,
   }
 
   @include media(">=notebook") {
-    padding: var(--space-1) var(--space-0);
+    padding: 0;
+    padding-top: var(--space-3);
   }
 }
 
