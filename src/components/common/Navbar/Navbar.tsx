@@ -217,8 +217,8 @@ function Navbar() {
                   isExpanded={searchExpanded}
                   onExpand={setSearchExpanded}
                 />
-                <SignInLink />
                 <CartToggle />
+                <SignInLink />
               </div>
             </section>
           </div>

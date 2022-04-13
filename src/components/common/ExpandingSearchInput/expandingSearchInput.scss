@@ -18,5 +18,9 @@
   [data-store-icon-button] {
     width: 20px;
     height: 20px;
+
+    @include media(">=notebook") {
+      margin-right: 12px;
+    }
   }
 }
