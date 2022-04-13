@@ -5,6 +5,7 @@
   top: 0;
   right: 0;
   left: 0;
+  z-index: 10;
   height: var(--header-height);
   padding: 0;
   background: var(--bg-header);
@@ -18,6 +19,12 @@
 
     .container {
       height: 100%;
+    }
+  }
+
+  .signin-link {
+    @include media("<notebook") {
+      display: none;
     }
   }
 
@@ -144,6 +151,7 @@
   height: 100%;
 
   .navlinks__signin {
+    padding: 0;
     padding-top: var(--space-2);
     margin-top: var(--space-2);
 

@@ -1,22 +1,21 @@
 import React from 'react'
-import Icon from 'src/components/ui/Icon'
 import usePersonQuery from 'src/sdk/person/usePersonQuery'
-
-import { LinkButton } from '../Button'
+import Link from 'src/components/ui/Link'
 
 const SignInLink: React.FC = () => {
   const person = usePersonQuery()
 
   return (
-    <LinkButton
-      data-button-signin-link
-      to={person?.id ? '/account' : '/login'}
-      className="title-sub-subsection signin-link"
-      variant="tertiary"
+    <Link
+      as="a"
+      href="https://www.facebook.com/"
+      title="Facebook"
+      target={person?.id ? '/account' : '/login'}
+      rel="noopener noreferrer"
+      className="signin-link"
     >
-      <Icon name="User" width={18} height={18} weight="bold" />
-      <span>{person?.id ? 'My Account' : 'Sign In'}</span>
-    </LinkButton>
+      {person?.id ? 'Minha Conta' : 'Entrar'}
+    </Link>
   )
 }
 
