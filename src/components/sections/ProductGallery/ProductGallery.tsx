@@ -7,7 +7,6 @@ import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import { LinkButton } from 'src/components/ui/Button'
 import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/common/Section'
-import SkinCareInfocard from 'src/components/sections/SkinCareInfocard'
 
 import EmptyGallery from './EmptyGallery'
 import { useDelayedFacets } from './useDelayedFacets'
@@ -49,7 +48,6 @@ function ProductGallery({ title, searchTerm }: Props) {
           <Filter facets={facets} />
         </div>
       </Container>
-      <SkinCareInfocard />
       {searchTerm && (
         <header className="product-listing__search-term / grid-content">
           <h1>

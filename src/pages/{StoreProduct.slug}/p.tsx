@@ -16,6 +16,7 @@ import type {
 } from '@generated/graphql'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import ProductDescription from 'src/components/sections/ProductDescription'
+import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -70,6 +71,10 @@ function Page(props: Props) {
           },
         ]}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/components.css" />
+        <link rel="stylesheet" href="/css/product.css" />
+      </Helmet>
       <BreadcrumbJsonLd
         itemListElements={product.breadcrumbList.itemListElement ?? []}
       />

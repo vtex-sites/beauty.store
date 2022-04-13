@@ -5,6 +5,7 @@
   top: 0;
   right: 0;
   left: 0;
+  z-index: var(--z-index-layer-1);
   height: var(--header-height);
   padding: 0;
   background: var(--bg-header);
