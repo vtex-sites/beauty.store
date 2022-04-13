@@ -3,6 +3,10 @@ import { Image } from 'src/components/ui/Image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, FreeMode, Thumbs } from 'swiper'
 import type { Swiper as ISwiper } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/free-mode'
+import 'swiper/css/thumbs'
 
 interface Props {
   images: Array<{
