@@ -1,8 +1,8 @@
-@import "swiper/scss";
-@import "swiper/scss/pagination";
-@import "swiper/scss/navigation";
-@import "swiper/scss/free-mode";
-@import "swiper/scss/thumbs";
+// @import "swiper/scss";
+// @import "swiper/scss/pagination";
+// @import "swiper/scss/navigation";
+// @import "swiper/scss/free-mode";
+// @import "swiper/scss/thumbs";
 
 .swiper-image-gallery {
   max-height: 680px;
@@ -68,6 +68,11 @@
 
       &-thumb-active {
         border: 2px solid #eba47a;
+      }
+
+      img {
+        width: 72px;
+        height: 72px;
       }
     }
   }

@@ -3,6 +3,11 @@ import { Image } from 'src/components/ui/Image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, FreeMode, Thumbs } from 'swiper'
 import type { Swiper as ISwiper } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/free-mode'
+import 'swiper/css/thumbs'
 
 interface Props {
   images: Array<{
@@ -52,6 +57,7 @@ const ImageGallery = ({ images }: Props) => {
           {images.map((image, id) => (
             <SwiperSlide key={`${image.url}_${id}`}>
               <Image
+                data={false}
                 preload
                 loading="eager"
                 src={image.url}

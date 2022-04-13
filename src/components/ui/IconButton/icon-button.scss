@@ -20,7 +20,7 @@
 
   @include focus-ring-visible;
 
-  &:hover, &:focus { background-color: var(--bg-secondary-light); }
+  &:hover, &:focus { background-color: var(--color-primary-2); }
 
   &:active {
     color: var(--color-text-display);

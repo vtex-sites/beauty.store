@@ -9,6 +9,11 @@
 @import "colors";
 @import "typography";
 @import "grid";
+@import "swiper/scss";
+@import "swiper/scss/pagination";
+@import "swiper/scss/navigation";
+@import "swiper/scss/free-mode";
+@import "swiper/scss/thumbs";
 
 // Tokens ///////////////////////////
 
@@ -20,11 +25,13 @@
   --color-primary-1: #9eb4aa;
   --color-primary-2: #7a9186;
   --color-primary-3: #576b62;
+  --color-primary-4: #e5e5e3;
 
   --color-secondary-0: #f1e4d1;
   --color-secondary-1: #f1cdb7;
-  --color-secondary-2: #f1b693;
-  --color-secondary-3: #eba47a;
+  --color-secondary-2: #a03217;
+  --color-secondary-3: #983015;
+  --color-secondary-4: #8f644b;
 
   --color-tertiary-0: #9a92dd;
   --color-tertiary-1: #7068b1;
@@ -41,6 +48,9 @@
   --color-neutral-7: #242424;
   --color-neutral-8: #000000;
   --color-neutral-9: #7c7e80;
+  --color-neutral-10: #e5e5e5;
+  --color-neutral-11: #4f4f4f;
+  --color-neutral-12: #f2f2f2;
 
   --color-light-neutral-0: #828282;
 
@@ -56,11 +66,13 @@
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
+  --bg-header: transparent;
+  --header-height: 86px;
   --bg-primary-light: var(--color-primary-0);
   --bg-secondary-light: var(--color-secondary-0);
   --bg-neutral-light: var(--color-neutral-1);
   --bg-neutral-lightest: var(--color-neutral-0);
-  --bg-secondary-dark: var(--color-secondary-4);
+  --bg-secondary-dark: var(--color-secondary-3);
 
   // Typography /////////////////////
 
@@ -109,7 +121,7 @@
   --tap-min-size: 48px;
 
   // Box-Shadows ////////////////////
-  --box-shadow: 0 1px 4px rgb(0 0 0 / 10%), 0 6px 8px rgb(0 0 0 / 10%);
+  --box-shadow: 0 4px 30px 0 #0000001a;
   --box-shadow-dark: 0 0 10px rgb(0 0 0 / 20%);
 
   // Border /////////////////////////
@@ -123,6 +135,7 @@
 
   --border-radius-default: var(--border-radius-regular);
   --border-radius-button: var(--border-radius-regular);
+  --border-radius-buy-button: var(--border-radius-circle);
 
   // Width
   --border-width-0: 1px;
@@ -142,6 +155,18 @@
   --breakpoint-tablet: 768px;
   --breakpoint-notebook: 1280px;
   --breakpoint-desktop: 1440px;
+
+  // z-index
+  --z-index-layer-0: 0;
+  --z-index-layer-1: 9;
+  --z-index-layer-2: 99;
+  --z-index-layer-3: 999;
+  --z-index-layer-4: 9999;
+  --z-index-layer-5: 99999;
+  --z-index-layer-6: 999999;
+  --z-index-layer-7: 9999999;
+  --z-index-layer-8: 99999999;
+  --z-index-layer-9: 999999999;
 
   // Container
   --container-width: 1380px;

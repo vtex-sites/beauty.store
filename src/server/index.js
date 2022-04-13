@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+
+const { mergeSchemas } = require('@graphql-tools/schema')
 const {
   envelop,
   useExtendContext,
   useMaskedErrors,
-  useAsyncSchema,
+  useSchema,
 } = require('@envelop/core')
 const { useGraphQlJit } = require('@envelop/graphql-jit')
 const { useParserCache } = require('@envelop/parser-cache')
@@ -11,8 +13,12 @@ const { useValidationCache } = require('@envelop/validation-cache')
 const { getContextFactory, getSchema } = require('@faststore/api')
 const { GraphQLError } = require('graphql')
 
+const StoreProductResolvers = require('./resolvers/extend/StoreProduct')
+const StoreProductGroupResolvers = require('./resolvers/extend/StoreProductGroup')
+const VariantResolvers = require('./resolvers/extend/Variant')
 const persisted = require('../../@generated/graphql/persisted.json')
 const storeConfig = require('../../store.config')
+const extendTypeDefs = require('./graphql/extend/schema.js')
 
 const persistedQueries = new Map(Object.entries(persisted))
 
@@ -25,8 +31,21 @@ const apiOptions = {
 }
 
 const apiSchema = getSchema(apiOptions)
-
 const apiContextFactory = getContextFactory(apiOptions)
+
+const getMergedSchema = async () => {
+  return mergeSchemas({
+    schemas: [await apiSchema],
+    typeDefs: extendTypeDefs,
+    resolvers: {
+      StoreProduct: StoreProductResolvers,
+      StoreProductGroup: StoreProductGroupResolvers,
+      Variant: VariantResolvers,
+    },
+  })
+}
+
+const newApiSchema = getMergedSchema()
 
 const isBadRequestError = (err) => {
   return err.originalError && err.originalError.name === 'BadRequestError'
@@ -45,7 +64,7 @@ const formatError = (err) => {
 const getEnvelop = async () =>
   envelop({
     plugins: [
-      useAsyncSchema(apiSchema),
+      useSchema(await getMergedSchema()),
       useExtendContext(apiContextFactory),
       useMaskedErrors({ formatError }),
       useGraphQlJit(),
@@ -86,6 +105,6 @@ const execute = async (options, envelopContext = {}) => {
 
 module.exports = {
   execute,
-  getSchema: () => apiSchema,
+  getSchema: () => newApiSchema,
   getContextFactory: () => apiContextFactory,
 }

@@ -1,8 +1,11 @@
 import React from 'react'
 import Hero from 'src/components/sections/Hero'
+import BannerAndShelf from 'src/components/sections/BannerAndShelf'
 import Incentives from 'src/components/sections/Incentives'
 import BannerInstitutional from 'src/components/sections/BannerInstitutional'
 import Text from 'src/components/sections/Text'
+import HomeBanner from 'src/components/sections/HomeBanner'
+import Mosaic from 'src/components/sections/Mosaic'
 import type { ComponentType } from 'react'
 
 /**
@@ -14,6 +17,9 @@ const COMPONENTS: Record<string, ComponentType<any>> = {
   Incentives,
   BannerInstitutional,
   Text,
+  HomeBanner,
+  BannerAndShelf,
+  Mosaic,
 }
 
 interface Props {
@@ -27,10 +33,6 @@ function RenderCMS({ sections }: Props) {
         const Component = COMPONENTS[name]
 
         if (!Component) {
-          console.error(
-            `Could not find component for block ${name}. Add a new component for this block or remove it from the CMS`
-          )
-
           return null
         }
 

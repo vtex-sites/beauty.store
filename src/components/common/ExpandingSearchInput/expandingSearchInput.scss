@@ -1,0 +1,26 @@
+.expanding-search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &[data-store-search-expanded="false"] {
+    [data-store-input] {
+      display: none;
+    }
+  }
+
+  &[data-store-search-expanded="true"] {
+    @include media("<notebook") {
+      width: 100%;
+    }
+  }
+
+  [data-store-icon-button] {
+    width: 20px;
+    height: 20px;
+
+    @include media(">=notebook") {
+      margin-right: 12px;
+    }
+  }
+}
