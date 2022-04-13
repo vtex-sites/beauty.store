@@ -112,9 +112,9 @@ function FooterLinks() {
             if (section.highlight) {
               return (
                 <div key={section.title}>
-                  <h4 className="title-sub-subsection highlight">
+                  <p className="title-sub-subsection highlight">
                     {section.title}
-                  </h4>
+                  </p>
                   <LinksList
                     items={section.items}
                     highlight={section.highlight}
