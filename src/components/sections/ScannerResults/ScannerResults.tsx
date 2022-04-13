@@ -2,6 +2,8 @@ import React from 'react'
 import Container from 'src/components/common/Container'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
 
+import ScannerProduct from './ScannerProduct'
+
 const ScannerResults = () => {
   return (
     <>
@@ -16,65 +18,10 @@ const ScannerResults = () => {
               <h2 className="scanner-results__title">Seus produtos</h2>
 
               <div className="scanner-results__grid">
-                <div className="scanner-product">
-                  <div className="scanner-product__image-wrapper">
-                    <img src="/produto-teste.jpg" alt="" />
-                    <button className="scanner-product__check" />
-                  </div>
-
-                  <h3 className="scanner-product__title">
-                    Gel de Limpeza Facial
-                  </h3>
-
-                  <p className="scanner-product__complement">
-                    Vitamina C, Ácido Salicílico
-                  </p>
-                </div>
-
-                <div className="scanner-product">
-                  <div className="scanner-product__image-wrapper">
-                    <img src="/produto-teste.jpg" alt="" />
-                    <button className="scanner-product__check" />
-                  </div>
-
-                  <h3 className="scanner-product__title">
-                    Gel de Limpeza Facial
-                  </h3>
-
-                  <p className="scanner-product__complement">
-                    Vitamina C, Ácido Salicílico
-                  </p>
-                </div>
-
-                <div className="scanner-product">
-                  <div className="scanner-product__image-wrapper">
-                    <img src="/produto-teste.jpg" alt="" />
-                    <button className="scanner-product__check" />
-                  </div>
-
-                  <h3 className="scanner-product__title">
-                    Gel de Limpeza Facial
-                  </h3>
-
-                  <p className="scanner-product__complement">
-                    Vitamina C, Ácido Salicílico
-                  </p>
-                </div>
-
-                <div className="scanner-product">
-                  <div className="scanner-product__image-wrapper">
-                    <img src="/produto-teste.jpg" alt="" />
-                    <button className="scanner-product__check" />
-                  </div>
-
-                  <h3 className="scanner-product__title">
-                    Gel de Limpeza Facial
-                  </h3>
-
-                  <p className="scanner-product__complement">
-                    Vitamina C, Ácido Salicílico
-                  </p>
-                </div>
+                <ScannerProduct id={0} />
+                <ScannerProduct id={1} />
+                <ScannerProduct id={2} />
+                <ScannerProduct id={3} />
               </div>
 
               <button className="scanner-results__button" type="button">

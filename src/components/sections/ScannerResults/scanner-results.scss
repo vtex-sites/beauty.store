@@ -1,3 +1,5 @@
+@import "./ScannerProduct/scanner-product.scss";
+
 .scanner-results {
   padding: var(--space-6) 0;
 
@@ -50,42 +52,5 @@
         background-color: var(--color-neutral-7);
       }
     }
-  }
-}
-
-.scanner-product {
-  &__image-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: var(--space-6);
-    margin-bottom: var(--space-3);
-    background-color: var(--color-neutral-0);
-    border-radius: var(--border-radius-box);
-    box-shadow: 0 3.2398px 24.2982px rgb(0 0 0 / 10%);
-  }
-
-  &__check {
-    position: absolute;
-    top: var(--space-3);
-    right: var(--space-3);
-    width: var(--space-6);
-    height: var(--space-6);
-    cursor: pointer;
-    background-color: var(--color-neutral-2);
-    border: 0;
-    border-radius: var(--border-radius-circle);
-  }
-
-  &__title {
-    font-size: var(--text-size-3);
-    font-weight: var(--text-weight-bold);
-    line-height: 29px;
-  }
-
-  &__complement {
-    font-size: var(--text-size-2);
-    color: var(--color-neutral-6);
-    letter-spacing: 0.01em;
   }
 }
