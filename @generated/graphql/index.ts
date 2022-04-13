@@ -21,6 +21,22 @@ export type Scalars = {
   JSONPropsCmsObject: any
 }
 
+export type AttributesSpec = {
+  key: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  value: Maybe<Scalars['String']>
+}
+
+export type AttributesSpecFilterInput = {
+  key: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  value: InputMaybe<StringQueryOperatorInput>
+}
+
+export type AttributesSpecFilterListInput = {
+  elemMatch: InputMaybe<AttributesSpecFilterInput>
+}
+
 export type BooleanQueryOperatorInput = {
   eq: InputMaybe<Scalars['Boolean']>
   in: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>
@@ -587,6 +603,22 @@ export type DirectorySortInput = {
   order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>
 }
 
+export type ExtraDatum = {
+  key: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  value: Maybe<Scalars['String']>
+}
+
+export type ExtraDatumFilterInput = {
+  key: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  value: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ExtraDatumFilterListInput = {
+  elemMatch: InputMaybe<ExtraDatumFilterInput>
+}
+
 export type File = Node & {
   absolutePath: Scalars['String']
   accessTime: Scalars['Date']
@@ -968,6 +1000,40 @@ export type IStoreSession = {
   postalCode: InputMaybe<Scalars['String']>
 }
 
+export type Image = {
+  name: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  value: Maybe<Scalars['String']>
+}
+
+export type ImageFilterInput = {
+  name: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  value: InputMaybe<StringQueryOperatorInput>
+}
+
+export type ImageFilterListInput = {
+  elemMatch: InputMaybe<ImageFilterInput>
+}
+
+export type Installment = {
+  count: Maybe<Scalars['Int']>
+  interest: Maybe<Scalars['Boolean']>
+  paymentGroupName: Maybe<Scalars['String']>
+  paymentName: Maybe<Scalars['String']>
+  value: Maybe<Scalars['Float']>
+  valueText: Maybe<Scalars['String']>
+}
+
+export type InstallmentFilterInput = {
+  count: InputMaybe<IntQueryOperatorInput>
+  interest: InputMaybe<BooleanQueryOperatorInput>
+  paymentGroupName: InputMaybe<StringQueryOperatorInput>
+  paymentName: InputMaybe<StringQueryOperatorInput>
+  value: InputMaybe<FloatQueryOperatorInput>
+  valueText: InputMaybe<StringQueryOperatorInput>
+}
+
 export type IntQueryOperatorInput = {
   eq: InputMaybe<Scalars['Int']>
   gt: InputMaybe<Scalars['Int']>
@@ -1048,6 +1114,22 @@ export type PageInfo = {
   pageCount: Scalars['Int']
   perPage: Maybe<Scalars['Int']>
   totalCount: Scalars['Int']
+}
+
+export type Policy = {
+  id: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  sellers: Maybe<Array<Maybe<Seller>>>
+}
+
+export type PolicyFilterInput = {
+  id: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  sellers: InputMaybe<SellerFilterListInput>
+}
+
+export type PolicyFilterListInput = {
+  elemMatch: InputMaybe<PolicyFilterInput>
 }
 
 export type Query = {
@@ -1337,7 +1419,7 @@ export type QueryStoreCollectionArgs = {
   internal: InputMaybe<InternalFilterInput>
   meta: InputMaybe<StoreCollectionMetaFilterInput>
   parent: InputMaybe<NodeFilterInput>
-  remoteId: InputMaybe<DateQueryOperatorInput>
+  remoteId: InputMaybe<StringQueryOperatorInput>
   remoteTypeName: InputMaybe<StringQueryOperatorInput>
   seo: InputMaybe<StoreSeoFilterInput>
   slug: InputMaybe<StringQueryOperatorInput>
@@ -1347,6 +1429,7 @@ export type QueryStoreCollectionArgs = {
 export type QueryStoreProductArgs = {
   additionalProperty: InputMaybe<StorePropertyValueFilterListInput>
   aggregateRating: InputMaybe<StoreAggregateRatingFilterInput>
+  attributes: InputMaybe<AttributesSpecFilterListInput>
   brand: InputMaybe<StoreBrandFilterInput>
   breadcrumbList: InputMaybe<StoreBreadcrumbListFilterInput>
   children: InputMaybe<NodeFilterListInput>
@@ -1356,6 +1439,7 @@ export type QueryStoreProductArgs = {
   image: InputMaybe<StoreImageFilterListInput>
   internal: InputMaybe<InternalFilterInput>
   isVariantOf: InputMaybe<StoreProductGroupFilterInput>
+  link: InputMaybe<StringQueryOperatorInput>
   name: InputMaybe<StringQueryOperatorInput>
   offers: InputMaybe<StoreAggregateOfferFilterInput>
   parent: InputMaybe<NodeFilterInput>
@@ -1365,6 +1449,34 @@ export type QueryStoreProductArgs = {
   seo: InputMaybe<StoreSeoFilterInput>
   sku: InputMaybe<StringQueryOperatorInput>
   slug: InputMaybe<StringQueryOperatorInput>
+}
+
+export type Seller = {
+  default: Maybe<Scalars['Boolean']>
+  id: Maybe<Scalars['String']>
+  installment: Maybe<Installment>
+  name: Maybe<Scalars['String']>
+  oldPrice: Maybe<Scalars['Float']>
+  price: Maybe<Scalars['Float']>
+  remoteTypeName: Maybe<Scalars['String']>
+  tax: Maybe<Scalars['Float']>
+  teasers: Maybe<Array<Maybe<Scalars['String']>>>
+}
+
+export type SellerFilterInput = {
+  default: InputMaybe<BooleanQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  installment: InputMaybe<InstallmentFilterInput>
+  name: InputMaybe<StringQueryOperatorInput>
+  oldPrice: InputMaybe<FloatQueryOperatorInput>
+  price: InputMaybe<FloatQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  tax: InputMaybe<FloatQueryOperatorInput>
+  teasers: InputMaybe<StringQueryOperatorInput>
+}
+
+export type SellerFilterListInput = {
+  elemMatch: InputMaybe<SellerFilterInput>
 }
 
 export type Site = Node & {
@@ -2889,6 +3001,22 @@ export type SiteSortInput = {
 
 export type SortOrderEnum = 'ASC' | 'DESC'
 
+export type Specification = {
+  key: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  value: Maybe<Scalars['String']>
+}
+
+export type SpecificationFilterInput = {
+  key: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  value: InputMaybe<StringQueryOperatorInput>
+}
+
+export type SpecificationFilterListInput = {
+  elemMatch: InputMaybe<SpecificationFilterInput>
+}
+
 export type StoreAggregateOffer = {
   highPrice: Scalars['Float']
   lowPrice: Scalars['Float']
@@ -2967,7 +3095,7 @@ export type StoreCollection = Node & {
   internal: Internal
   meta: StoreCollectionMeta
   parent: Maybe<Node>
-  remoteId: Maybe<Scalars['Date']>
+  remoteId: Maybe<Scalars['String']>
   remoteTypeName: Maybe<Scalars['String']>
   seo: StoreSeo
   slug: Scalars['String']
@@ -2976,13 +3104,6 @@ export type StoreCollection = Node & {
 
 export type StoreCollectionGatsbyPathArgs = {
   filePath: InputMaybe<Scalars['String']>
-}
-
-export type StoreCollectionRemoteIdArgs = {
-  difference: InputMaybe<Scalars['String']>
-  formatString: InputMaybe<Scalars['String']>
-  fromNow: InputMaybe<Scalars['Boolean']>
-  locale: InputMaybe<Scalars['String']>
 }
 
 export type StoreCollectionConnection = {
@@ -3158,7 +3279,7 @@ export type StoreCollectionFilterInput = {
   internal: InputMaybe<InternalFilterInput>
   meta: InputMaybe<StoreCollectionMetaFilterInput>
   parent: InputMaybe<NodeFilterInput>
-  remoteId: InputMaybe<DateQueryOperatorInput>
+  remoteId: InputMaybe<StringQueryOperatorInput>
   remoteTypeName: InputMaybe<StringQueryOperatorInput>
   seo: InputMaybe<StoreSeoFilterInput>
   slug: InputMaybe<StringQueryOperatorInput>
@@ -3344,6 +3465,7 @@ export type StorePerson = {
 export type StoreProduct = Node & {
   additionalProperty: Array<StorePropertyValue>
   aggregateRating: StoreAggregateRating
+  attributes: Maybe<Array<Maybe<AttributesSpec>>>
   brand: StoreBrand
   breadcrumbList: StoreBreadcrumbList
   children: Array<Node>
@@ -3353,6 +3475,7 @@ export type StoreProduct = Node & {
   image: Array<StoreImage>
   internal: Internal
   isVariantOf: StoreProductGroup
+  link: Maybe<Scalars['String']>
   name: Scalars['String']
   offers: StoreAggregateOffer
   parent: Maybe<Node>
@@ -3411,6 +3534,10 @@ export type StoreProductFieldsEnum =
   | 'aggregateRating___ratingValue'
   | 'aggregateRating___remoteTypeName'
   | 'aggregateRating___reviewCount'
+  | 'attributes'
+  | 'attributes___key'
+  | 'attributes___remoteTypeName'
+  | 'attributes___value'
   | 'brand___name'
   | 'brand___remoteTypeName'
   | 'breadcrumbList___itemListElement'
@@ -3478,6 +3605,7 @@ export type StoreProductFieldsEnum =
   | 'isVariantOf___additionalProperty___name'
   | 'isVariantOf___additionalProperty___remoteTypeName'
   | 'isVariantOf___additionalProperty___value'
+  | 'isVariantOf___complementName'
   | 'isVariantOf___hasVariant'
   | 'isVariantOf___hasVariant___additionalProperty'
   | 'isVariantOf___hasVariant___additionalProperty___name'
@@ -3486,6 +3614,10 @@ export type StoreProductFieldsEnum =
   | 'isVariantOf___hasVariant___aggregateRating___ratingValue'
   | 'isVariantOf___hasVariant___aggregateRating___remoteTypeName'
   | 'isVariantOf___hasVariant___aggregateRating___reviewCount'
+  | 'isVariantOf___hasVariant___attributes'
+  | 'isVariantOf___hasVariant___attributes___key'
+  | 'isVariantOf___hasVariant___attributes___remoteTypeName'
+  | 'isVariantOf___hasVariant___attributes___value'
   | 'isVariantOf___hasVariant___brand___name'
   | 'isVariantOf___hasVariant___brand___remoteTypeName'
   | 'isVariantOf___hasVariant___breadcrumbList___itemListElement'
@@ -3510,10 +3642,14 @@ export type StoreProductFieldsEnum =
   | 'isVariantOf___hasVariant___internal___owner'
   | 'isVariantOf___hasVariant___internal___type'
   | 'isVariantOf___hasVariant___isVariantOf___additionalProperty'
+  | 'isVariantOf___hasVariant___isVariantOf___complementName'
   | 'isVariantOf___hasVariant___isVariantOf___hasVariant'
   | 'isVariantOf___hasVariant___isVariantOf___name'
   | 'isVariantOf___hasVariant___isVariantOf___productGroupID'
   | 'isVariantOf___hasVariant___isVariantOf___remoteTypeName'
+  | 'isVariantOf___hasVariant___isVariantOf___specifications'
+  | 'isVariantOf___hasVariant___isVariantOf___variants'
+  | 'isVariantOf___hasVariant___link'
   | 'isVariantOf___hasVariant___name'
   | 'isVariantOf___hasVariant___offers___highPrice'
   | 'isVariantOf___hasVariant___offers___lowPrice'
@@ -3533,9 +3669,53 @@ export type StoreProductFieldsEnum =
   | 'isVariantOf___hasVariant___seo___titleTemplate'
   | 'isVariantOf___hasVariant___sku'
   | 'isVariantOf___hasVariant___slug'
+  | 'isVariantOf___installment___count'
+  | 'isVariantOf___installment___interest'
+  | 'isVariantOf___installment___paymentGroupName'
+  | 'isVariantOf___installment___paymentName'
+  | 'isVariantOf___installment___value'
+  | 'isVariantOf___installment___valueText'
   | 'isVariantOf___name'
   | 'isVariantOf___productGroupID'
   | 'isVariantOf___remoteTypeName'
+  | 'isVariantOf___specifications'
+  | 'isVariantOf___specifications___key'
+  | 'isVariantOf___specifications___remoteTypeName'
+  | 'isVariantOf___specifications___value'
+  | 'isVariantOf___variants'
+  | 'isVariantOf___variants___attributes'
+  | 'isVariantOf___variants___attributes___key'
+  | 'isVariantOf___variants___attributes___remoteTypeName'
+  | 'isVariantOf___variants___attributes___value'
+  | 'isVariantOf___variants___complementName'
+  | 'isVariantOf___variants___ean'
+  | 'isVariantOf___variants___id'
+  | 'isVariantOf___variants___idWithSplit'
+  | 'isVariantOf___variants___images'
+  | 'isVariantOf___variants___images___name'
+  | 'isVariantOf___variants___images___remoteTypeName'
+  | 'isVariantOf___variants___images___value'
+  | 'isVariantOf___variants___link'
+  | 'isVariantOf___variants___name'
+  | 'isVariantOf___variants___nameComplete'
+  | 'isVariantOf___variants___policies'
+  | 'isVariantOf___variants___policies___id'
+  | 'isVariantOf___variants___policies___remoteTypeName'
+  | 'isVariantOf___variants___policies___sellers'
+  | 'isVariantOf___variants___reference'
+  | 'isVariantOf___variants___remoteTypeName'
+  | 'isVariantOf___variants___sellers'
+  | 'isVariantOf___variants___sellers___default'
+  | 'isVariantOf___variants___sellers___id'
+  | 'isVariantOf___variants___sellers___name'
+  | 'isVariantOf___variants___sellers___oldPrice'
+  | 'isVariantOf___variants___sellers___price'
+  | 'isVariantOf___variants___sellers___remoteTypeName'
+  | 'isVariantOf___variants___sellers___tax'
+  | 'isVariantOf___variants___sellers___teasers'
+  | 'isVariantOf___variants___stock'
+  | 'isVariantOf___variants___videos'
+  | 'link'
   | 'name'
   | 'offers___highPrice'
   | 'offers___lowPrice'
@@ -3544,11 +3724,13 @@ export type StoreProductFieldsEnum =
   | 'offers___offers___availability'
   | 'offers___offers___itemCondition'
   | 'offers___offers___itemOffered___additionalProperty'
+  | 'offers___offers___itemOffered___attributes'
   | 'offers___offers___itemOffered___children'
   | 'offers___offers___itemOffered___description'
   | 'offers___offers___itemOffered___gtin'
   | 'offers___offers___itemOffered___id'
   | 'offers___offers___itemOffered___image'
+  | 'offers___offers___itemOffered___link'
   | 'offers___offers___itemOffered___name'
   | 'offers___offers___itemOffered___productID'
   | 'offers___offers___itemOffered___remoteTypeName'
@@ -3621,6 +3803,7 @@ export type StoreProductFieldsEnum =
 export type StoreProductFilterInput = {
   additionalProperty: InputMaybe<StorePropertyValueFilterListInput>
   aggregateRating: InputMaybe<StoreAggregateRatingFilterInput>
+  attributes: InputMaybe<AttributesSpecFilterListInput>
   brand: InputMaybe<StoreBrandFilterInput>
   breadcrumbList: InputMaybe<StoreBreadcrumbListFilterInput>
   children: InputMaybe<NodeFilterListInput>
@@ -3630,6 +3813,7 @@ export type StoreProductFilterInput = {
   image: InputMaybe<StoreImageFilterListInput>
   internal: InputMaybe<InternalFilterInput>
   isVariantOf: InputMaybe<StoreProductGroupFilterInput>
+  link: InputMaybe<StringQueryOperatorInput>
   name: InputMaybe<StringQueryOperatorInput>
   offers: InputMaybe<StoreAggregateOfferFilterInput>
   parent: InputMaybe<NodeFilterInput>
@@ -3647,10 +3831,14 @@ export type StoreProductFilterListInput = {
 
 export type StoreProductGroup = {
   additionalProperty: Array<StorePropertyValue>
+  complementName: Maybe<Scalars['String']>
   hasVariant: Array<StoreProduct>
+  installment: Maybe<Installment>
   name: Scalars['String']
   productGroupID: Scalars['String']
   remoteTypeName: Maybe<Scalars['String']>
+  specifications: Maybe<Array<Maybe<Specification>>>
+  variants: Maybe<Array<Maybe<Variant>>>
 }
 
 export type StoreProductGroupConnection = {
@@ -3691,10 +3879,14 @@ export type StoreProductGroupConnectionSumArgs = {
 
 export type StoreProductGroupFilterInput = {
   additionalProperty: InputMaybe<StorePropertyValueFilterListInput>
+  complementName: InputMaybe<StringQueryOperatorInput>
   hasVariant: InputMaybe<StoreProductFilterListInput>
+  installment: InputMaybe<InstallmentFilterInput>
   name: InputMaybe<StringQueryOperatorInput>
   productGroupID: InputMaybe<StringQueryOperatorInput>
   remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  specifications: InputMaybe<SpecificationFilterListInput>
+  variants: InputMaybe<VariantFilterListInput>
 }
 
 export type StoreProductSortInput = {
@@ -3790,6 +3982,50 @@ export type StringQueryOperatorInput = {
   regex: InputMaybe<Scalars['String']>
 }
 
+export type Variant = {
+  attributes: Maybe<Array<Maybe<ExtraDatum>>>
+  complementName: Maybe<Scalars['String']>
+  ean: Maybe<Scalars['String']>
+  id: Maybe<Scalars['String']>
+  idWithSplit: Maybe<Scalars['String']>
+  images: Maybe<Array<Maybe<Image>>>
+  link: Maybe<Scalars['String']>
+  name: Maybe<Scalars['String']>
+  nameComplete: Maybe<Scalars['String']>
+  policies: Maybe<Array<Maybe<Policy>>>
+  reference: Maybe<Scalars['String']>
+  remoteTypeName: Maybe<Scalars['String']>
+  sellers: Maybe<Array<Maybe<Seller>>>
+  stock: Maybe<Scalars['Int']>
+  videos: Maybe<Array<Maybe<Scalars['String']>>>
+}
+
+export type VariantPoliciesArgs = {
+  salesChannel?: InputMaybe<Scalars['String']>
+}
+
+export type VariantFilterInput = {
+  attributes: InputMaybe<ExtraDatumFilterListInput>
+  complementName: InputMaybe<StringQueryOperatorInput>
+  ean: InputMaybe<StringQueryOperatorInput>
+  id: InputMaybe<StringQueryOperatorInput>
+  idWithSplit: InputMaybe<StringQueryOperatorInput>
+  images: InputMaybe<ImageFilterListInput>
+  link: InputMaybe<StringQueryOperatorInput>
+  name: InputMaybe<StringQueryOperatorInput>
+  nameComplete: InputMaybe<StringQueryOperatorInput>
+  policies: InputMaybe<PolicyFilterListInput>
+  reference: InputMaybe<StringQueryOperatorInput>
+  remoteTypeName: InputMaybe<StringQueryOperatorInput>
+  sellers: InputMaybe<SellerFilterListInput>
+  stock: InputMaybe<IntQueryOperatorInput>
+  videos: InputMaybe<StringQueryOperatorInput>
+}
+
+export type VariantFilterListInput = {
+  elemMatch: InputMaybe<VariantFilterInput>
+}
+
 export type StoreCollectionQueryVariables = Exact<{ [key: string]: never }>
 
 export type StoreCollectionQuery = {
@@ -3843,12 +4079,7 @@ export type Filter_FacetsFragment = {
   key: string
   label: string
   type: StoreFacetType
-  values: Array<{
-    label: string
-    value: string
-    selected: boolean
-    quantity: number
-  }>
+  values: Array<{ label: string; value: string; selected: boolean }>
 }
 
 export type ProductDetailsFragment_ProductFragment = {
@@ -3857,7 +4088,27 @@ export type ProductDetailsFragment_ProductFragment = {
   gtin: string
   description: string
   id: string
-  isVariantOf: { productGroupID: string; name: string }
+  isVariantOf: {
+    productGroupID: string
+    name: string
+    complementName: string | null
+    installment: { count: number | null; value: number | null } | null
+    variants: Array<{
+      id: string | null
+      name: string | null
+      link: string | null
+      stock: number | null
+      attributes: Array<{
+        value: string | null
+        key: string | null
+      } | null> | null
+      images: Array<{ value: string | null } | null> | null
+    } | null> | null
+    specifications: Array<{
+      key: string | null
+      value: string | null
+    } | null> | null
+  }
   image: Array<{ url: string; alternateName: string }>
   brand: { name: string }
   offers: {
@@ -3913,12 +4164,7 @@ export type ProductGalleryQueryQuery = {
       key: string
       label: string
       type: StoreFacetType
-      values: Array<{
-        label: string
-        value: string
-        selected: boolean
-        quantity: number
-      }>
+      values: Array<{ label: string; value: string; selected: boolean }>
     }>
   }
 }
@@ -3944,6 +4190,18 @@ export type SearchPageQueryQuery = {
       titleTemplate: string | null
       title: string | null
       description: string | null
+    } | null
+  } | null
+}
+
+export type ScannerPageQueryVariables = Exact<{ [key: string]: never }>
+
+export type ScannerPageQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
     } | null
   } | null
 }
@@ -4009,7 +4267,27 @@ export type ProductPageQueryQuery = {
         seller: { identifier: string }
       }>
     }
-    isVariantOf: { productGroupID: string; name: string }
+    isVariantOf: {
+      productGroupID: string
+      name: string
+      complementName: string | null
+      installment: { count: number | null; value: number | null } | null
+      variants: Array<{
+        id: string | null
+        name: string | null
+        link: string | null
+        stock: number | null
+        attributes: Array<{
+          value: string | null
+          key: string | null
+        } | null> | null
+        images: Array<{ value: string | null } | null> | null
+      } | null> | null
+      specifications: Array<{
+        key: string | null
+        value: string | null
+      } | null> | null
+    }
   } | null
 }
 
@@ -4079,7 +4357,27 @@ export type BrowserProductQueryQuery = {
     gtin: string
     description: string
     id: string
-    isVariantOf: { productGroupID: string; name: string }
+    isVariantOf: {
+      productGroupID: string
+      name: string
+      complementName: string | null
+      installment: { count: number | null; value: number | null } | null
+      variants: Array<{
+        id: string | null
+        name: string | null
+        link: string | null
+        stock: number | null
+        attributes: Array<{
+          value: string | null
+          key: string | null
+        } | null> | null
+        images: Array<{ value: string | null } | null> | null
+      } | null> | null
+      specifications: Array<{
+        key: string | null
+        value: string | null
+      } | null> | null
+    }
     image: Array<{ url: string; alternateName: string }>
     brand: { name: string }
     offers: {

@@ -1,20 +1,40 @@
 @import "src/styles/scaffold";
 
 .navbar {
-  --header-height: 86px;
-
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--z-index-layer-1);
+  height: var(--header-height);
   padding: 0;
   background: var(--bg-header);
-  border-bottom: var(--border-width-0) solid var(--color-neutral-2);
-  box-shadow: 0 var(--space-0) var(--space-3) var(--color-black-transparent-5);
 
   [data-store-search-input] {
     flex: 1 0 100%;
-    order: 2;
+  }
 
+  .section {
+    height: 100%;
+
+    .container {
+      height: 100%;
+    }
+  }
+
+  .signin-link {
     @include media("<notebook") {
       display: none;
+    }
+  }
+
+  &[data-store-section-expanded="true"] {
+    @include media("<notebook") {
+      .navbar__menu,
+      .navbar__logo,
+      .cart-toggle {
+        display: none;
+      }
     }
   }
 }
@@ -25,7 +45,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: var(--header-height);
+  height: 100%;
 
   @include media(">=notebook") {
     display: grid;
@@ -68,41 +88,6 @@
     }
   }
 
-  [data-store-search-input] {
-    display: none;
-    transition: flex 0.3s ease-in;
-
-    @include media("<notebook") {
-      display: inline-flex;
-      flex: 0;
-      order: 0;
-      width: min-content;
-
-      [data-store-input] {
-        width: 0;
-        padding: 0;
-        border-width: 0;
-
-        &:hover,
-        &:focus,
-        &:focus-visible &:hover:focus-visible {
-          border-width: 0;
-          box-shadow: 0 0;
-        }
-      }
-
-      [data-store-icon] {
-        margin-right: 0;
-        line-height: 0;
-
-        svg {
-          width: var(--space-5);
-          height: var(--space-5);
-        }
-      }
-    }
-  }
-
   &[data-store-search-expanded="true"] {
     width: 100%;
 
@@ -110,24 +95,23 @@
       flex: 1 1;
       margin-right: 0.625rem;
 
-      [data-store-input] {
-        width: calc(100% - var(--space-7));
-      }
-
       [data-store-icon] {
         margin-right: 0;
       }
     }
 
-    .cart-toggle {
-      margin-right: -4.063rem;
-      transition: margin 0.3s ease-in;
+    @include media("<notebook") {
+      .cart-toggle {
+        margin-right: -4.063rem;
+        transition: margin 0.3s ease-in;
+      }
     }
   }
 }
 
 .navbar__header {
   min-width: 100%;
+  height: 100%;
   padding: 0;
   overflow: hidden;
 }
@@ -173,6 +157,7 @@
   height: 100%;
 
   .navlinks__signin {
+    padding: 0;
     padding-top: var(--space-2);
     margin-top: var(--space-2);
 

@@ -3,7 +3,6 @@
 .main-menu {
   // -- Variables --
   --base-link-color: var(--color-neutral-8);
-  --menu-height: var(--header-height);
   --main-menu-cloumn-item-link-weight: 400;
   --main-menu-cloumn-item-font-size: 20px;
   --main-menu-cloumn-item-line-height: 26px;
@@ -20,12 +19,12 @@
   --lvl-0-children-title-line-height: 36px;
   --lvl-0-children-title-letter-spacing: -0.05em;
   --lvl-1-title-color: var(--color-primary-3);
-  --lvl-2-title-color: var(--color-neutral-10);
+  --lvl-2-title-color: var(--color-neutral-11);
 
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: var(--menu-height);
+  height: var(--header-height);
 
   [data-store-link],
   [data-store-link]:visited {
@@ -95,13 +94,13 @@
       max-height: 0;
       overflow: hidden;
       visibility: hidden;
+      transition: max-height 0.17s ease-in-out;
 
       &.main-menu-item-children-section-active {
         top: 100%;
         right: 0;
         left: 0;
         max-height: 100vh;
-        overflow: unset;
         visibility: visible;
         background: var(--lvl-0-background);
         box-shadow: var(--lvl-0-box-shadow);

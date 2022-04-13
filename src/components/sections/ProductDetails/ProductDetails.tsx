@@ -39,7 +39,6 @@ function ProductDetails({ product: staleProduct }: Props) {
       id,
       sku,
       gtin,
-      description,
       name: variantName,
       brand,
       isVariantOf,
@@ -161,13 +160,6 @@ function ProductDetails({ product: staleProduct }: Props) {
             </BuyButton>
           )}
         </section>
-
-        <section className="product-details__content">
-          <article className="product-details__description">
-            <h2 className="title-subsection">Description</h2>
-            <p className="text-body">{description}</p>
-          </article>
-        </section>
       </section>
     </Section>
   )
@@ -242,6 +234,31 @@ export const fragment = graphql`
     isVariantOf {
       productGroupID
       name
+      complementName
+
+      installment {
+        count
+        value
+      }
+
+      variants {
+        id
+        name
+        link
+        stock
+        attributes {
+          value
+          key
+        }
+        images {
+          value
+        }
+      }
+
+      specifications {
+        key
+        value
+      }
     }
 
     image {

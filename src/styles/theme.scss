@@ -26,6 +26,7 @@
   --color-secondary-1: #f1cdb7;
   --color-secondary-2: #f1b693;
   --color-secondary-3: #eba47a;
+  --color-secondary-4: #8f644b;
 
   --color-tertiary-0: #9a92dd;
   --color-tertiary-1: #7068b1;
@@ -42,8 +43,9 @@
   --color-neutral-7: #242424;
   --color-neutral-8: #000000;
   --color-neutral-9: #7c7e80;
-  --color-neutral-10: #4f4f4f;
-  --color-neutral-11: #e5e5e5;
+  --color-neutral-10: #e5e5e5;
+  --color-neutral-11: #4f4f4f;
+  --color-neutral-12: #f2f2f2;
 
   --color-light-neutral-0: #828282;
 
@@ -59,7 +61,8 @@
   --color-text-inverse: var(--color-neutral-0);
 
   --bg-body: var(--color-neutral-0);
-  --bg-header: var(--color-primary-4);
+  --bg-header: transparent;
+  --header-height: 86px;
   --bg-primary-light: var(--color-primary-0);
   --bg-secondary-light: var(--color-secondary-0);
   --bg-neutral-light: var(--color-neutral-1);

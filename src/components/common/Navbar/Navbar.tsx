@@ -1,19 +1,18 @@
 import { Link as LinkGatsby } from 'gatsby'
 import React, { useRef, useState } from 'react'
 import CartToggle from 'src/components/cart/CartToggle'
-import SearchInput from 'src/components/common/SearchInput'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
 import Logo from 'src/components/ui/Logo'
 import SignInLink from 'src/components/ui/SignInLink'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
-import type { SearchInputRef } from '@faststore/ui'
 import type { MainMenuList } from 'src/components/common/MainMenu'
 import MainMenu from 'src/components/common/MainMenu'
 
 import Container from '../Container'
 import Section from '../Section'
+import ExpandingSearchInput from '../ExpandingSearchInput'
 
 type Callback = () => unknown
 
@@ -79,7 +78,7 @@ const listRow: MainMenuList[] = [
   },
   {
     label: 'Scanner Facial',
-    href: '#',
+    href: '/scanner',
   },
 ]
 
@@ -183,64 +182,43 @@ const listColumn: MainMenuList[] = [
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false)
   const [searchExpanded, setSearchExpanded] = useState(false)
-  const searchMobileRef = useRef<SearchInputRef>(null)
   const dismissTransition = useRef<Callback | undefined>()
   const handleCloseSlideOver = () => setShowMenu(false)
 
-  const handlerExpandSearch = () => {
-    setSearchExpanded(true)
-    searchMobileRef.current?.inputRef?.focus()
-  }
-
   return (
-    <header className="navbar / grid-content-full">
+    <header
+      className="navbar / grid-content-full"
+      data-store-section-expanded={searchExpanded}
+    >
       <Section>
         <Container>
           <div className="navbar__header / grid-content">
             <section className="navbar__row">
-              {!searchExpanded && (
-                <>
-                  <MainMenu list={listRow} className="main-menu-large" />
-                  <IconButton
-                    classes="navbar__menu"
-                    aria-label="Open Menu"
-                    icon={<Icon name="List" width={32} height={32} />}
-                    onClick={() => setShowMenu(true)}
-                  />
-                  <h1 className="navbar__logo-content">
-                    <LinkGatsby
-                      to="/"
-                      aria-label="Go to Faststore home"
-                      title="Go to Faststore home"
-                      className="navbar__logo"
-                    >
-                      <Logo />
-                    </LinkGatsby>
-                  </h1>
-                </>
-              )}
+              <MainMenu list={listRow} className="main-menu-large" />
+              <IconButton
+                classes="navbar__menu"
+                aria-label="Open Menu"
+                icon={<Icon name="List" width={32} height={32} />}
+                onClick={() => setShowMenu(true)}
+              />
+              <LinkGatsby
+                to="/"
+                aria-label="Go to Faststore home"
+                title="Go to Faststore home"
+                className="navbar__logo"
+              >
+                <Logo />
+              </LinkGatsby>
               <div
                 className="navbar__buttons"
                 data-store-search-expanded={searchExpanded}
               >
-                <SearchInput />
-                {searchExpanded && (
-                  <IconButton
-                    classes="navbar__collapse"
-                    aria-label="Collapse search bar"
-                    icon={<Icon name="CaretLeft" width={32} height={32} />}
-                    onClick={() => setSearchExpanded(false)}
-                  />
-                )}
-                <SearchInput
-                  placeholder=""
-                  ref={searchMobileRef}
-                  testId="store-input-mobile"
-                  buttonTestId="store-input-mobile-button"
-                  onSearchClick={handlerExpandSearch}
+                <ExpandingSearchInput
+                  isExpanded={searchExpanded}
+                  onExpand={setSearchExpanded}
                 />
-                <SignInLink />
                 <CartToggle />
+                <SignInLink />
               </div>
             </section>
           </div>
