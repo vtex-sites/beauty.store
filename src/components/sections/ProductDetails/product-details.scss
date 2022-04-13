@@ -93,7 +93,10 @@
 
   [data-store-sku-selector] {
     margin-bottom: var(--space-4);
-    &:last-of-type { margin-bottom: var(--space-7); }
+
+    &:last-of-type {
+      margin-bottom: var(--space-7);
+    }
   }
 
   [data-store-buy-button] {

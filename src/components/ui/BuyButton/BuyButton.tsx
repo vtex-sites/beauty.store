@@ -7,7 +7,12 @@ type Props = ButtonProps
 
 function BuyButton({ children, ...props }: Props) {
   return (
-    <UIButton className="button" data-store-buy-button {...props}>
+    <UIButton
+      className="button"
+      aria-label="Botão de compra"
+      data-store-buy-button
+      {...props}
+    >
       {children}
       <Icon name="ShoppingCart" width={22} height={22} weight="bold" />
     </UIButton>

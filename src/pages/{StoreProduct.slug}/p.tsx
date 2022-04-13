@@ -109,10 +109,9 @@ function Page(props: Props) {
       <ProductDescription product={product} />
 
       <ProductShelf
+        title="Mais Vendidos"
         first={ITEMS_PER_SECTION}
-        term={product.brand.name}
-        title="You might also like"
-        withDivisor
+        sort="score_desc"
       />
     </>
   )

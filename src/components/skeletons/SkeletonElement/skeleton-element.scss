@@ -28,9 +28,12 @@
     }
 
     &[data-element-variant="badge"] {
-      width: 40%;
-      height: var(--space-5);
-      border-radius: var(--border-radius-pill);
+      width: var(--space-7);
+      min-width: 0;
+      height: var(--space-7);
+      min-height: 0;
+      margin-left: auto;
+      border-radius: var(--border-radius-circle);
     }
 
     &[data-element-variant="full"] {
