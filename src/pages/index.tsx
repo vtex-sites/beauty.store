@@ -66,7 +66,6 @@ function Page(props: Props) {
         }}
       />
       <Helmet>
-        <link rel="stylesheet" href="/css/components.css" />
         <link rel="stylesheet" href="/css/home.css" />
       </Helmet>
       <JsonLd
