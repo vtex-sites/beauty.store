@@ -31,7 +31,7 @@ const Incentives = (props: IncentivesProps) => {
                   </div>
 
                   <div>
-                    <h5 className="incentive__title">{title}</h5>
+                    <h3 className="incentive__title">{title}</h3>
                     <p className="incentive__text">{text}</p>
                   </div>
                 </li>

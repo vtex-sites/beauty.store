@@ -72,7 +72,6 @@ function Page(props: Props) {
         ]}
       />
       <Helmet>
-        <link rel="stylesheet" href="/css/components.css" />
         <link rel="stylesheet" href="/css/product.css" />
       </Helmet>
       <BreadcrumbJsonLd

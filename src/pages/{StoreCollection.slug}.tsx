@@ -85,7 +85,6 @@ function Page(props: Props) {
       />
       <Helmet>
         <link rel="stylesheet" href="/css/category.css" />
-        <link rel="stylesheet" href="/css/components.css" />
       </Helmet>
       <BreadcrumbJsonLd
         itemListElements={collection?.breadcrumbList.itemListElement ?? []}

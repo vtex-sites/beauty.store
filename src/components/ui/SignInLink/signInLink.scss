@@ -1,0 +1,14 @@
+.signin-link {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-neutral-7);
+  letter-spacing: 0.01em;
+
+  &:hover,
+  &:focus-visible,
+  &:focus,
+  &:visited {
+    color: var(--color-neutral-7);
+  }
+}
