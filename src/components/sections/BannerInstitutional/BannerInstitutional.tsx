@@ -54,7 +54,7 @@ function BannerInstitutional({
       <SkeletonElement type="image" loading={isWidescreen === null} shimmer>
         <Banner>
           <BannerImage>
-            <Image preload={true} loading="eager" {...bannerProps} />
+            <img className="banner-institutional__image" loading="eager" {...bannerProps} />
           </BannerImage>
         </Banner>
 
