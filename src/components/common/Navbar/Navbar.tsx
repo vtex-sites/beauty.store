@@ -264,6 +264,25 @@ function Navbar() {
               <SignInLink />
             </div>
           </div>
+          <div className="navbar__modal-footer">
+            <div className="navbar__bottom-options">
+              <LinkGatsby
+                to="/login"
+                aria-label="Faça login"
+                title="Faça login"
+                className="navbar__bottom-options__login"
+                onClick={() => dismissTransition.current?.()}
+              >
+                <div className="navbar__bottom-options__login__icon">
+                  <Icon name="LoginIcon" width={22} height={25} />
+                </div>
+                <div className="navbar__bottom-options__login__text">
+                  <span> Entre </span>
+                  <span className="underline"> Registre-se </span>
+                </div>
+              </LinkGatsby>
+            </div>
+          </div>
         </div>
       </SlideOver>
     </header>
