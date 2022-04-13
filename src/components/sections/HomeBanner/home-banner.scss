@@ -99,15 +99,12 @@
       text-decoration: none;
       cursor: pointer;
       background: var(--color-secondary-3);
+      border-radius: var(--border-radius-pill);
       transition: all .2s ease-in-out;
 
       @media only screen and (max-width: 960px) {
         max-width: 165px;
         padding: 12px;
-      }
-
-      &:hover {
-        background-color: #e79b6e;
       }
 
       span {
