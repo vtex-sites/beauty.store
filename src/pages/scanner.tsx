@@ -37,14 +37,14 @@ function Page(props: Props) {
       description:
         'Normalmente tem poros pouco visíveis, aspecto opaco com pouca luminosidade, costuma ser mais áspera ao toque e tem maior propensão a descamação e vermelhidão',
       imageSrc: '/pele/pele-seca.jpg',
-      value: 'pele-seca',
+      value: 'pela-seca',
     },
     {
       title: 'Pele Mista',
       description:
         'Apresenta caracterísitcas oleosas e poros dilatados na "Zona T" do rosto (testa, nariz e queixo) e, em contrapartida, textura aveludada, sem brilho excessivo ou até com toque seco, nas outras regiões',
       imageSrc: '/pele/pele-mista.jpg',
-      value: 'pele-mista',
+      value: 'pela-mista',
     },
     {
       title: 'Pele Oleosa',
@@ -58,7 +58,7 @@ function Page(props: Props) {
       description:
         'Tem textura aveludada, não apresenta excesso de brilho nem costuma sofrer ressecamento ou descamação. Geralmente tem poros pequenos e pouco visíveis, e é lisa ao toque',
       imageSrc: '/pele/pele-normal.jpg',
-      value: 'pele-normal',
+      value: 'pela-normal',
     },
   ]
 
@@ -158,7 +158,7 @@ function Page(props: Props) {
       description:
         'São visíveis mesmo sem movimentos faciais e muito comuns em rostos maduros.',
       imageSrc: '/linhas/rugas-estaticas.jpg',
-      value: 'rugas-estaticas',
+      value: 'ruges-estaticas',
     },
     {
       title: 'Bigode de chinês',
