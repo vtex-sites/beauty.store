@@ -1,14 +1,14 @@
 // Output functions & mixins
-@import "scaffold";
+@import 'scaffold';
 
 // Resets //////////////////////////
-@import "resets/modern-normalize";
-@import "resets/reset";
+@import 'resets/modern-normalize';
+@import 'resets/reset';
 
 // Styles ///////////////////////////
-@import "colors";
-@import "typography";
-@import "grid";
+@import 'colors';
+@import 'typography';
+@import 'grid';
 
 // Tokens ///////////////////////////
 
@@ -72,17 +72,9 @@
   // Typography /////////////////////
 
   // Family
-  --body-font:
-    "DM Sans",
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
+  --body-font: 'DM Sans', -apple-system, system-ui, BlinkMacSystemFont,
     sans-serif;
-  --heading-font:
-    "Quiche Sans",
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
+  --heading-font: 'Quiche Sans', -apple-system, system-ui, BlinkMacSystemFont,
     sans-serif;
 
   // Base
@@ -118,6 +110,7 @@
   // Box-Shadows ////////////////////
   --box-shadow: 0 1px 4px rgb(0 0 0 / 10%), 0 6px 8px rgb(0 0 0 / 10%);
   --box-shadow-dark: 0 0 10px rgb(0 0 0 / 20%);
+  --box-shadow-large: 0px 4px 30px rgb(0 0 0 / 10%);
 
   // Border /////////////////////////
 
@@ -176,14 +169,14 @@
 }
 
 .display-mobile {
-  @include media(">=notebook") {
+  @include media('>=notebook') {
     display: none;
     visibility: hidden;
   }
 }
 
 .hidden-mobile {
-  @include media("<notebook") {
+  @include media('<notebook') {
     display: none;
     visibility: hidden;
   }

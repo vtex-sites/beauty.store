@@ -6,6 +6,7 @@ import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { ScannerPageQuery } from '@generated/graphql'
 import ScannerPresenter from 'src/components/sections/ScannerPresenter'
+import ScannerStep from 'src/components/sections/ScannerStep'
 import { StepperProvider } from 'src/contexts/StepperContext'
 import { ScannerProvider } from 'src/contexts/ScannerContext'
 import Stepper from 'src/components/common/Stepper'
@@ -74,6 +75,13 @@ function Page(props: Props) {
               message="Através do nosso teste conseguimos definir a melhor rotina para o seu perfil de beleza. Aproveite os descontos e dicas."
               img={imgSrc}
               buttonText="Acessar"
+            />
+
+            <ScannerStep
+              title="Como você definiria sua pele?"
+              message="Escola uma das opções abaixo:"
+              img="/scanner-step1.jpg"
+              buttonText="Continuar"
             />
           </Stepper>
         </ScannerProvider>
