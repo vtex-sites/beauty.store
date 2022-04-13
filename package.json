@@ -1,7 +1,7 @@
 {
   "name": "beauty.store",
   "private": true,
-  "version": "0.236.0",
+  "version": "0.237.0",
   "license": "MIT",
   "browserslist": "supports es6-module and not dead",
   "scripts": {
@@ -32,7 +32,7 @@
     "@faststore/sdk": "^1.6.26",
     "@faststore/ui": "^1.6.26",
     "@vtex/gatsby-plugin-nginx": "^1.6.26",
-    "@vtex/gatsby-source-cms": "^0.2.4",
+    "@vtex/gatsby-source-cms": "^0.2.5",
     "@vtex/gatsby-source-store": "^1.6.26",
     "@vtex/graphql-utils": "^1.6.26",
     "gatsby": "^3.14.3",
@@ -55,6 +55,7 @@
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.2.2",
     "react-intersection-observer": "^8.32.5",
+    "react-markdown": "^8.0.2",
     "sass": "^1.50.0",
     "swiper": "^8.0.7",
     "swr": "^1.1.0"

@@ -43,26 +43,6 @@ ul {
 
 // Titles ///////////////////////////
 
-.title-hero {
-  font-size: var(--text-size-5);
-  font-weight: var(--text-weight-black);
-  line-height: 1.1;
-
-  @include media(">=tablet") {
-    font-size: var(--text-size-7);
-  }
-}
-
-.title-hero-small {
-  font-size: var(--text-size-5);
-  font-weight: var(--text-weight-black);
-  line-height: 1.1;
-
-  @include media(">=tablet") {
-    font-size: var(--text-size-6);
-  }
-}
-
 .title-display-big {
   font-size: var(--text-size-3);
   font-weight: var(--text-weight-bold);
@@ -130,13 +110,4 @@ ul {
 .text-body {
   font-size: var(--text-size-2);
   line-height: 1.5;
-}
-
-.text-body-big {
-  font-size: var(--text-size-2);
-  line-height: 1.5;
-
-  @include media(">=notebook") {
-    font-size: var(--text-size-3);
-  }
 }

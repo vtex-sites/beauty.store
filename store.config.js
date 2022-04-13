@@ -26,6 +26,7 @@ module.exports = {
       home: '/',
       pdp: '/serum-anti-idade-la-roche-posay-salicyli-c10-1/p',
       collection: '/beleza/',
+      institutional: '/institucional/a-beauty/',
     },
   },
 

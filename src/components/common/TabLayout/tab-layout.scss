@@ -21,7 +21,7 @@
 
   &__tab {
     padding: 3px 16px;
-    color: var(--color-neutral-5);
+    color: var(--color-neutral-8);
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -33,7 +33,7 @@
 
     &--active {
       color: #fff;
-      background-color: #eba47a;
+      background-color: var(--color-secondary-3);
       border-radius: 38px;
     }
   }

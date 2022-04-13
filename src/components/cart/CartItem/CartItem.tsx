@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, CardImage } from '@faststore/ui'
+import { Card, CardContent, CardImage } from '@faststore/ui'
 import React from 'react'
 import Button from 'src/components/ui/Button'
 import Icon from 'src/components/ui/Icon'
@@ -38,6 +38,13 @@ function CartItem({ item }: Props) {
           <p className="text-body" data-cart-item-title>
             {item.itemOffered.isVariantOf.name}
           </p>
+          <Button
+            variant="tertiary"
+            icon={<Icon name="Trash" width={18} height={18} />}
+            iconPosition="left"
+            className="button-remove"
+            {...btnProps}
+          />
           <span data-cart-item-prices>
             <Price
               value={item.listPrice}
@@ -58,24 +65,13 @@ function CartItem({ item }: Props) {
               SRText="Price:"
             />
           </span>
+          <QuantitySelector
+            min={1}
+            initial={item.quantity}
+            onChange={(quantity) => updateItemQuantity(item.id, quantity)}
+          />
         </div>
       </CardContent>
-
-      <CardActions>
-        <Button
-          variant="tertiary"
-          icon={<Icon name="XCircle" width={18} height={18} />}
-          iconPosition="left"
-          {...btnProps}
-        >
-          Remove
-        </Button>
-        <QuantitySelector
-          min={1}
-          initial={item.quantity}
-          onChange={(quantity) => updateItemQuantity(item.id, quantity)}
-        />
-      </CardActions>
     </Card>
   )
 }

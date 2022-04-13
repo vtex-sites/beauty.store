@@ -1,5 +1,5 @@
-export { default } from './Hero'
-export type { HeroProps } from './Hero'
+export { default } from './UIHero'
+export type { UIHeroProps } from './UIHero'
 
 export { default as HeroImage } from './HeroImage'
 export type { HeroImageProps } from './HeroImage'
