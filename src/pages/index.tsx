@@ -6,6 +6,7 @@ import RenderCMS from 'src/components/RenderCMS'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
+import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -58,6 +59,10 @@ function Page(props: Props) {
           description: site?.siteMetadata?.description ?? '',
         }}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/components.css" />
+        <link rel="stylesheet" href="/css/home.css" />
+      </Helmet>
       <JsonLd
         json={{
           '@context': 'https://schema.org',
