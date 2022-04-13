@@ -62,6 +62,7 @@
 
 .product-details__image {
   position: relative;
+  max-width: 680px;
   margin: 0 auto;
 
   [data-gatsby-image-wrapper] {

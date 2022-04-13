@@ -35,6 +35,7 @@ const ImageGallery = ({ images }: Props) => {
               alt={image.alternateName}
               width={680}
               height={680}
+              data={false}
             />
           </SwiperSlide>
         ))}
