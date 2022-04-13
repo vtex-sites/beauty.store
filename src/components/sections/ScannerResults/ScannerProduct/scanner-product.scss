@@ -51,12 +51,13 @@
   }
 
   &__title {
+    max-width: 230px;
+    margin-bottom: var(--space-0);
     font-size: var(--text-size-3);
     font-weight: var(--text-weight-bold);
     line-height: 29px;
 
     @include media("<tablet") {
-      margin-bottom: var(--space-0);
       font-size: var(--text-size-2);
       line-height: 19px;
     }

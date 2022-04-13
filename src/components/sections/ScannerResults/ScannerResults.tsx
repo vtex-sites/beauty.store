@@ -11,7 +11,7 @@ const ScannerResults = () => {
   const { isWidescreen } = useWidescreen()
   const { selectedOptions } = useScanner()
 
-  const products = useProductsQuery({
+  const { data, loading } = useProductsQuery({
     first: 4,
 
     selectedFacets: [
@@ -37,9 +37,11 @@ const ScannerResults = () => {
               <h2 className="scanner-results__title">Seus produtos</h2>
 
               <div className="scanner-results__grid">
-                {products ? (
-                  products.edges.length > 0 &&
-                  products.edges.map(({ node }, index) => {
+                {loading ? (
+                  <p>Carregando...</p>
+                ) : data ? (
+                  data.edges.length > 0 &&
+                  data.edges.map(({ node }, index) => {
                     const {
                       isVariantOf: { name, complementName },
                       sku,

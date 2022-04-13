@@ -36,7 +36,7 @@ export const useProducts = (
     state: { sort, term, selectedFacets },
   } = useSearch()
 
-  const productList = useProductsQuery(
+  const { data } = useProductsQuery(
     {
       first: itemsPerPage,
       after: (itemsPerPage * page).toString(),
@@ -50,5 +50,5 @@ export const useProducts = (
     }
   )
 
-  return productList?.edges
+  return data?.edges
 }

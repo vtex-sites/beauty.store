@@ -16,9 +16,9 @@ function ProductShelf({
   withDivisor = false,
   ...variables
 }: ProductShelfProps) {
-  const products = useProductsQuery(variables)
+  const { data } = useProductsQuery(variables)
 
-  if (products?.edges.length === 0) {
+  if (data?.edges.length === 0) {
     return null
   }
 
@@ -30,9 +30,9 @@ function ProductShelf({
     >
       <h2 className="title-section / grid-content">{title}</h2>
       <div className="page__section-content">
-        <ProductShelfSkeleton loading={products === undefined}>
+        <ProductShelfSkeleton loading={data === undefined}>
           <ul data-product-shelf className="grid-content">
-            {products?.edges.map((product, idx) => (
+            {data?.edges.map((product, idx) => (
               <li key={`${product.node.id}`}>
                 <ProductCard product={product.node} index={idx + 1} />
               </li>
