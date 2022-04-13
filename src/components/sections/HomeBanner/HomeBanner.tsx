@@ -5,6 +5,7 @@ import Section from 'src/components/common/Section'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 // import { Image } from 'src/components/ui/Image'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
+import Link from 'src/components/ui/Link'
 
 interface HomeBannerItems {
   banner: HomeBannerProps
@@ -50,9 +51,14 @@ const HomeBanner = ({ banner }: HomeBannerItems) => {
                       {banner.subtitle}
                     </p>
                   )}
-                  <a href={banner.link} className="home-banner-main-link">
+                  <Link
+                    as="a"
+                    title="Link para o scanner"
+                    href={banner.link}
+                    className="home-banner-main-link"
+                  >
                     <span>Veja agora</span>
-                  </a>
+                  </Link>
                 </div>
                 {banner.quote && (
                   <div className="home-banner-quote">
@@ -63,14 +69,19 @@ const HomeBanner = ({ banner }: HomeBannerItems) => {
                   </div>
                 )}
                 {banner.seeMoreLink && banner.seeMoreTitle && (
-                  <a href={banner.seeMoreLink} className="home-banner-see-more">
+                  <Link
+                    as="a"
+                    title="Link para o veja mais"
+                    href={banner.seeMoreLink}
+                    className="home-banner-see-more"
+                  >
                     <span className="home-banner-see-more-suptext">
                       confira
                     </span>
                     <p className="home-banner-see-more-text">
                       {banner.seeMoreTitle}
                     </p>
-                  </a>
+                  </Link>
                 )}
               </Container>
             </div>
