@@ -1,0 +1,84 @@
+@import "./ScannerProduct/scanner-product.scss";
+
+.scanner-results {
+  padding: var(--space-6) 0;
+
+  @include media("<tablet") {
+    padding: var(--space-4) 0;
+  }
+
+  &__wrapper {
+    @include media(">=notebook") {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--space-4);
+    font-size: var(--text-size-3);
+    font-weight: var(--text-weight-bold);
+    line-height: 26px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+
+    @include media("<notebook") {
+      text-align: center;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: var(--space-5);
+    margin-bottom: var(--space-7);
+
+    @include media("<notebook") {
+      justify-content: center;
+    }
+
+    @include media("<tablet") {
+      gap: var(--space-3);
+    }
+
+    @include media("<phonelg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: var(--space-8);
+    font-size: var(--text-size-1);
+    color: var(--color-neutral-0);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background-color: var(--color-neutral-7);
+    border: 0;
+    border-radius: var(--border-radius-pill);
+
+    @include media("<notebook") {
+      margin: 0 auto;
+    }
+
+    &:hover {
+      @include media(">=notebook") {
+        background-color: var(--color-neutral-6);
+      }
+    }
+
+    &:active {
+      @include media("<notebook") {
+        background-color: var(--color-neutral-6);
+      }
+
+      @include media(">=notebook") {
+        background-color: var(--color-neutral-7);
+      }
+    }
+  }
+}

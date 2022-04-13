@@ -1,0 +1,75 @@
+.scanner-product {
+  @include media("<notebook") {
+    max-width: max-content;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-6);
+    margin-bottom: var(--space-3);
+    background-color: var(--color-neutral-0);
+    border-radius: var(--border-radius-box);
+    box-shadow: 0 3.2398px 24.2982px rgb(0 0 0 / 10%);
+
+    @include media("<tablet") {
+      padding: var(--space-4);
+    }
+  }
+
+  &__image {
+    max-width: 170px;
+
+    @include media("<tablet") {
+      max-width: 100px;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: var(--space-6);
+    height: var(--space-6);
+    cursor: pointer;
+    background-color: var(--color-neutral-2);
+    border: 0;
+    border-radius: var(--border-radius-circle);
+
+    @include media("<tablet") {
+      width: var(--space-5);
+      height: var(--space-5);
+    }
+
+    &--checked {
+      font-size: var(--text-size-3);
+      font-weight: var(--text-weight-bold);
+      color: var(--color-neutral-0);
+      background-color: var(--color-secondary-3);
+    }
+  }
+
+  &__title {
+    max-width: 230px;
+    margin-bottom: var(--space-0);
+    font-size: var(--text-size-3);
+    font-weight: var(--text-weight-bold);
+    line-height: 29px;
+
+    @include media("<tablet") {
+      font-size: var(--text-size-2);
+      line-height: 19px;
+    }
+  }
+
+  &__complement {
+    font-size: var(--text-size-2);
+    color: var(--color-neutral-6);
+    letter-spacing: 0.01em;
+
+    @include media("<tablet") {
+      font-size: var(--text-size-1);
+    }
+  }
+}

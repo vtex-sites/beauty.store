@@ -2,16 +2,18 @@ import type { ReactNode } from 'react'
 import React, { useCallback, createContext, useState, useContext } from 'react'
 
 interface ScannerContextValue {
-  specifications: Specification[]
-  addSpecification: (specification: Specification) => void
+  selectedOptions: SelectedOption[]
+  addSelectedOption: (selectedOption: SelectedOption) => void
+  selectedProductsIds: string[]
+  toggleSelectedProductId: (selectedProductId: string) => void
 }
 
 interface ScannerProviderProps {
   children: ReactNode
 }
 
-interface Specification {
-  name: string
+interface SelectedOption {
+  key: string
   value: string
 }
 
@@ -22,19 +24,44 @@ const ScannerContext = createContext<ScannerContextValue>(
 export const ScannerProvider = (props: ScannerProviderProps) => {
   const { children } = props
 
-  const [specifications, setSpecifications] = useState<Specification[]>([])
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([])
+  const [selectedProductsIds, setSelectedProductsIds] = useState<string[]>([])
 
-  const addSpecification = useCallback(
-    (specification: Specification) =>
-      setSpecifications((oldSpecifications) => [
-        ...oldSpecifications,
-        specification,
+  const addSelectedOption = useCallback(
+    (selectedOption: SelectedOption) =>
+      setSelectedOptions((oldSelectedOptions) => [
+        ...oldSelectedOptions,
+        selectedOption,
       ]),
     []
   )
 
+  const toggleSelectedProductId = useCallback(
+    (selectedProductId: string) =>
+      setSelectedProductsIds((oldSelectedProductsIds) => {
+        const existentProductId =
+          oldSelectedProductsIds.includes(selectedProductId)
+
+        if (existentProductId) {
+          return oldSelectedProductsIds.filter(
+            (oldSelectedProductId) => oldSelectedProductId !== selectedProductId
+          )
+        }
+
+        return [...oldSelectedProductsIds, selectedProductId]
+      }),
+    []
+  )
+
   return (
-    <ScannerContext.Provider value={{ specifications, addSpecification }}>
+    <ScannerContext.Provider
+      value={{
+        selectedOptions,
+        addSelectedOption,
+        selectedProductsIds,
+        toggleSelectedProductId,
+      }}
+    >
       {children}
     </ScannerContext.Provider>
   )

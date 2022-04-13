@@ -7,7 +7,7 @@ import type { PageProps } from 'gatsby'
 import type { ScannerPageQuery } from '@generated/graphql'
 import ScannerPresenter from 'src/components/sections/ScannerPresenter'
 import ScannerStep from 'src/components/sections/ScannerStep'
-// import ScannerResults from 'src/components/sections/ScannerResults'
+import ScannerResults from 'src/components/sections/ScannerResults'
 import { StepperProvider } from 'src/contexts/StepperContext'
 import { ScannerProvider } from 'src/contexts/ScannerContext'
 import Stepper from 'src/components/common/Stepper'
@@ -92,7 +92,8 @@ function Page(props: Props) {
       <StepperProvider>
         <ScannerProvider>
           <Stepper>
-            {/* <ScannerResults /> */}
+            <ScannerResults />
+
             <ScannerPresenter
               title="Vamos descobrir seu perfil de beleza?"
               message="Agora, realizaremos algumas perguntas sobre a sua pele para entendermos as características individuais da sua pele."
