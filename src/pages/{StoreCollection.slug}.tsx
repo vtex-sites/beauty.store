@@ -14,6 +14,7 @@ import type {
 import type { PageProps } from 'gatsby'
 import type { SearchState } from '@faststore/sdk'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
+import SkinCareInfocard from 'src/components/sections/SkinCareInfocard'
 
 type Props = PageProps<
   CollectionPageQueryQuery,
@@ -98,6 +99,8 @@ function Page(props: Props) {
       */}
 
       <NavbarSpacer />
+
+      <SkinCareInfocard />
 
       <Breadcrumb
         breadcrumbList={collection?.breadcrumbList.itemListElement}

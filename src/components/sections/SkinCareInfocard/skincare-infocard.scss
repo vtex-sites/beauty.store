@@ -2,8 +2,7 @@
 
 .infocard-skin-wrapper {
   padding: 0 var(--space-2);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
 
   @include media("<=phonelg") {
     padding: 0;
