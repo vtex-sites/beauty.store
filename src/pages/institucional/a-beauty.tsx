@@ -29,6 +29,9 @@ function Page(props: Props) {
         titleTemplate={site?.siteMetadata?.titleTemplate ?? ''}
         language={locale}
         canonical={siteUrl}
+        linkTags={[
+          { rel: 'preconnect', href: 'https://assets.vtex.app' },
+        ]}
         openGraph={{
           type: 'website',
           url: siteUrl,
