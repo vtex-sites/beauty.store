@@ -106,12 +106,7 @@ function Page(props: Props) {
       <ProductDetails product={product} />
       <ProductDescription product={product} />
 
-      <ProductShelf
-        first={ITEMS_PER_SECTION}
-        term={product.brand.name}
-        title="You might also like"
-        withDivisor
-      />
+      <ProductShelf first={ITEMS_PER_SECTION} term={product.brand.name} />
     </>
   )
 }

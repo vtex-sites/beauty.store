@@ -1,0 +1,42 @@
+@import "src/styles/scaffold";
+
+.banner-and-shelf {
+  display: flex;
+  margin-bottom: 72px;
+
+  @include media("<=tablet") {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__banner-wrapper {
+    margin-top: auto;
+    margin-right: 56px;
+    margin-bottom: auto;
+
+    @include media("<=tablet") {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__banner {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+
+    @include media("<=tablet") {
+      display: flex;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+      max-width: var(--container-width);
+      overflow-x: scroll;
+    }
+  }
+}
