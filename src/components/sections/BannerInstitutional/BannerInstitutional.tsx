@@ -33,7 +33,7 @@ function BannerInstitutional({
   imageAltMobile,
 }: BannerInstitutionalProps) {
   return (
-    <Section className="grid-section banner-institutional">
+    <Section className="banner-institutional">
       <Banner>
         <BannerImage>
           <div className="hidden-tablet">
