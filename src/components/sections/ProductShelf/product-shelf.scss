@@ -1,19 +1,42 @@
 @import "src/styles/scaffold";
 
-[data-product-shelf] {
-  display: flex;
-  align-items: stretch;
-  overflow-x: scroll;
+.page__section-shelf {
+  width: 100%;
+  margin: var(--space-5) 0;
+}
 
-  li {
-    width: 100%;
-    &:first-child { margin-left: calc(-1 * var(--space-1)); }
+.product-shelf {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  margin: 72px 0;
+
+  &__title {
+    margin-bottom: var(--space-3);
+    font-family: var(--heading-font);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-neutral-7);
+    text-align: center;
+    letter-spacing: 0.01em;
   }
 
-  @include media(">=tablet") {
-    padding-top: var(--space-0);
-    padding-bottom: var(--space-3);
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 24px;
+    width: 100%;
+    max-width: var(--container-width);
+    padding: var(--space-3) 0;
+    margin: 0 auto;
     overflow-x: auto;
-    column-gap: var(--space-2);
+    list-style-type: none;
+
+    @include media(">notebook") {
+      padding: var(--space-3);
+    }
   }
 }

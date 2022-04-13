@@ -10,6 +10,8 @@ import HomeBanner from 'src/components/sections/HomeBanner'
 import Incentives from 'src/components/sections/Incentives'
 import Mosaic from 'src/components/sections/Mosaic'
 import { Helmet } from 'react-helmet'
+import ShelfsWithTabs from 'src/components/sections/ShelfsWithTabs'
+import BannerAndShelf from 'src/components/sections/BannerAndShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -66,8 +68,17 @@ function Page(props: Props) {
         }}
       />
       <Helmet>
-        <link rel="stylesheet" href="/css/components.css" />
         <link rel="stylesheet" href="/css/home.css" />
+        <link
+          rel="preload"
+          as="image"
+          href="https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg"
+        />
       </Helmet>
       <JsonLd
         json={{
@@ -83,36 +94,20 @@ function Page(props: Props) {
       />
 
       <HomeBanner
-        banners={[
-          {
-            imageBanner:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg',
-            imageBannerMobile:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg',
-            title: 'Cuide da sua pele com produtos feitos para você!',
-            subtitle:
-              'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
-            link: '/scanner',
-            quote:
-              'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
-            seeMoreTitle: 'Serum treatment',
-            seeMoreLink: '/serum-treatment',
-          },
-          {
-            imageBanner:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg',
-            imageBannerMobile:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg',
-            title: 'Cuide da sua pele com produtos feitos para você!',
-            subtitle:
-              'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
-            link: '/scanner',
-            quote:
-              'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
-            seeMoreTitle: 'Serum treatment',
-            seeMoreLink: '/serum-treatment',
-          },
-        ]}
+        banner={{
+          imageBanner:
+            'https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg',
+          imageBannerMobile:
+            'https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg',
+          title: 'Cuide da sua pele com produtos feitos para você!',
+          subtitle:
+            'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
+          link: '/scanner',
+          quote:
+            'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
+          seeMoreTitle: 'Serum treatment',
+          seeMoreLink: '/serum-treatment',
+        }}
       />
       <Incentives
         incentives={[
@@ -133,6 +128,7 @@ function Page(props: Props) {
           },
         ]}
       />
+      <ShelfsWithTabs />
       <Mosaic
         topic="Scanner Facial"
         title="Descubra a sua rotina skincare ideal com o scanner facial beauty"
@@ -152,6 +148,7 @@ function Page(props: Props) {
           'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-05.jpg?v',
         ]}
       />
+      <BannerAndShelf />
       {/* CMS Sections */}
 
       {/* <RenderCMS sections={cmsHome?.sections ?? fallbackContent} /> */}
@@ -166,12 +163,6 @@ export const query = graphql`
         title
         description
         titleTemplate
-      }
-    }
-    cmsHome {
-      sections {
-        data
-        name
       }
     }
   }

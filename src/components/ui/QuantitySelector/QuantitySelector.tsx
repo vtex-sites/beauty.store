@@ -1,5 +1,6 @@
 import { QuantitySelector as UIQuantitySelector } from '@faststore/ui'
 import React, { memo, useEffect, useState } from 'react'
+import Text from 'src/components/common/Text'
 import Icon from 'src/components/ui/Icon'
 
 interface QuantitySelectorProps {
@@ -57,25 +58,30 @@ export function QuantitySelector({
   }, [initial])
 
   return (
-    <UIQuantitySelector
-      data-store-quantity-selector={disabled ? 'disabled' : 'true'}
-      quantity={quantity}
-      leftButtonProps={{
-        onClick: decrease,
-        disabled: isLeftDisabled || disabled,
-        icon: <Icon name="Minus" width={16} height={16} weight="bold" />,
-      }}
-      rightButtonProps={{
-        onClick: increase,
-        disabled: isRightDisabled || disabled,
-        icon: <Icon name="Plus" width={16} height={16} weight="bold" />,
-      }}
-      inputProps={{
-        onChange: validateInput,
-        readOnly: false,
-        disabled,
-      }}
-    />
+    <div className="quantity-selector">
+      <Text tag="p" className="quantity-selector__label">
+        Quantidade
+      </Text>
+      <UIQuantitySelector
+        data-store-quantity-selector={disabled ? 'disabled' : 'true'}
+        quantity={quantity}
+        leftButtonProps={{
+          onClick: decrease,
+          disabled: isLeftDisabled || disabled,
+          icon: <Icon name="Minus" width={16} height={16} weight="bold" />,
+        }}
+        rightButtonProps={{
+          onClick: increase,
+          disabled: isRightDisabled || disabled,
+          icon: <Icon name="Plus" width={16} height={16} weight="bold" />,
+        }}
+        inputProps={{
+          onChange: validateInput,
+          readOnly: false,
+          disabled,
+        }}
+      />
+    </div>
   )
 }
 

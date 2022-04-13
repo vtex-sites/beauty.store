@@ -49,7 +49,6 @@ function Page(props: Props) {
         }}
       />
       <Helmet>
-        <link rel="stylesheet" href="/css/components.css" />
         <link rel="stylesheet" href="/css/scanner.css" />
       </Helmet>
       <JsonLd

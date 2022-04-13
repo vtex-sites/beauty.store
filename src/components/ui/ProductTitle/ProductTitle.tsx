@@ -13,10 +13,10 @@ interface ProductTitleProp {
   /**
    * A text to be used below the title and the label, such as the product's reference number.
    */
-  refNumber?: string
+  complementName: string | null
 }
 
-function ProductTitle({ title, label, refNumber }: ProductTitleProp) {
+function ProductTitle({ title, label, complementName }: ProductTitleProp) {
   return (
     <div className="product-title">
       <div className="product-title__header">
@@ -24,9 +24,9 @@ function ProductTitle({ title, label, refNumber }: ProductTitleProp) {
         {!!label && label}
       </div>
 
-      {refNumber && (
-        <div className="product-title__addendum / text-body-small">
-          Ref.: {refNumber}
+      {complementName && (
+        <div className="product-title__complement / text-body-small">
+          {complementName}
         </div>
       )}
     </div>

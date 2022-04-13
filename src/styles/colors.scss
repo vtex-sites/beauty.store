@@ -1,8 +1,8 @@
 // Semantical Color Tokens ////////////////
 
 :root {
-  --color-emphasis: #8db6fa;
-  --color-emphasis-transparent-80: #8db6fa80;
+  --color-emphasis: rgb(235 164 122 / 100%);
+  --color-emphasis-transparent-80: rgb(235 164 122 / 80%);
   --color-visited: #6058ba;
 
   --color-black-transparent-5: rgb(0 0 0 / 5%);
@@ -19,7 +19,7 @@
   --color-link-visited: var(--color-visited);
   --color-link-inverse: var(--color-neutral-0);
   --color-text-disabled: var(--color-neutral-6);
-  --color-text-display: var(--color-secondary-4);
+  --color-text-display: var(--color-secondary-3);
   --color-text-subtle: var(--color-neutral-6);
   --color-text-success: var(--color-success-dark);
 
@@ -28,7 +28,7 @@
   --bg-primary-hover: var(--color-neutral-6);
   --bg-primary-pressed: var(--color-neutral-6);
 
-  --bg-secondary-default: var(--color-secondary-4);
+  --bg-secondary-default: var(--color-secondary-3);
   --bg-secondary-hover: var(--color-neutral-6);
   --bg-secondary-pressed: var(--color-neutral-6);
 
@@ -39,7 +39,7 @@
   --bg-lighten-pressed: var(--color-white-transparent-20);
 
   --bg-disabled: var(--color-neutral-2);
-  --bg-focus-ring: var(--color-emphasis);
+  --bg-focus-ring: var(--color-emphasis-transparent-80);
   --bg-selected-outline: var(--color-emphasis-transparent-80);
   --bg-skeleton-loading: var(--bg-disabled);
 

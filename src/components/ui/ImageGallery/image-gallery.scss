@@ -7,6 +7,12 @@
 .swiper-image-gallery {
   max-height: 680px;
 
+  &.swiper-vertical {
+    img {
+      max-width: 680px;
+    }
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     left: 50%;
@@ -44,7 +50,7 @@
     transform: translateY(-50%);
 
     &-fill {
-      background-color: #eba47a;
+      background-color: var(--color-secondary-3);
       border-radius: 20px;
     }
   }
@@ -64,10 +70,11 @@
     .swiper-slide {
       cursor: pointer;
       background-color: #fff;
+      border: 2px solid transparent;
       border-radius: 100px;
 
       &-thumb-active {
-        border: 2px solid #eba47a;
+        border: 2px solid var(--color-secondary-3);
       }
 
       img {

@@ -1,30 +1,29 @@
 import { Link as LinkGatsby } from 'gatsby'
 import React, { useRef, useState } from 'react'
 import CartToggle from 'src/components/cart/CartToggle'
-import SearchInput from 'src/components/common/SearchInput'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
 import Logo from 'src/components/ui/Logo'
 import SignInLink from 'src/components/ui/SignInLink'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
-import type { SearchInputRef } from '@faststore/ui'
 import type { MainMenuList } from 'src/components/common/MainMenu'
 import MainMenu from 'src/components/common/MainMenu'
 
 import Container from '../Container'
 import Section from '../Section'
+import ExpandingSearchInput from '../ExpandingSearchInput'
 
 type Callback = () => unknown
 
 const listRow: MainMenuList[] = [
   {
     label: 'A Beauty',
-    href: '/beleza',
+    href: '/institucional/a-beauty',
   },
   {
     label: 'Produtos',
-    href: '/Produtos',
+    href: '/beleza',
     childrenTitle: 'Beleza',
     children: [
       {
@@ -91,7 +90,7 @@ const listColumn: MainMenuList[] = [
     children: [
       {
         label: 'beleza',
-        href: '#',
+        href: '/beleza',
       },
       {
         label: 'Cabelos',
@@ -105,11 +104,11 @@ const listColumn: MainMenuList[] = [
   },
   {
     label: 'Scanner Facial',
-    href: '#',
+    href: '/scanner',
   },
   {
     label: 'A Beauty',
-    href: '',
+    href: '/institucional/a-beauty',
     childrenTitle: 'Categorias',
     children: [
       {
@@ -183,62 +182,43 @@ const listColumn: MainMenuList[] = [
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false)
   const [searchExpanded, setSearchExpanded] = useState(false)
-  const searchMobileRef = useRef<SearchInputRef>(null)
   const dismissTransition = useRef<Callback | undefined>()
   const handleCloseSlideOver = () => setShowMenu(false)
 
-  const handlerExpandSearch = () => {
-    setSearchExpanded(true)
-    searchMobileRef.current?.inputRef?.focus()
-  }
-
   return (
-    <header className="navbar / grid-content-full">
+    <header
+      className="navbar / grid-content-full"
+      data-store-section-expanded={searchExpanded}
+    >
       <Section>
         <Container>
           <div className="navbar__header / grid-content">
             <section className="navbar__row">
-              {!searchExpanded && (
-                <>
-                  <MainMenu list={listRow} className="main-menu-large" />
-                  <IconButton
-                    classes="navbar__menu"
-                    aria-label="Open Menu"
-                    icon={<Icon name="List" width={32} height={32} />}
-                    onClick={() => setShowMenu(true)}
-                  />
-                  <LinkGatsby
-                    to="/"
-                    aria-label="Go to Faststore home"
-                    title="Go to Faststore home"
-                    className="navbar__logo"
-                  >
-                    <Logo />
-                  </LinkGatsby>
-                </>
-              )}
+              <MainMenu list={listRow} className="main-menu-large" />
+              <IconButton
+                classes="navbar__menu"
+                aria-label="Open Menu"
+                icon={<Icon name="List" width={32} height={32} />}
+                onClick={() => setShowMenu(true)}
+              />
+              <LinkGatsby
+                to="/"
+                aria-label="Go to Faststore home"
+                title="Go to Faststore home"
+                className="navbar__logo"
+              >
+                <Logo />
+              </LinkGatsby>
               <div
                 className="navbar__buttons"
                 data-store-search-expanded={searchExpanded}
               >
-                <SearchInput />
-                {searchExpanded && (
-                  <IconButton
-                    classes="navbar__collapse"
-                    aria-label="Collapse search bar"
-                    icon={<Icon name="CaretLeft" width={32} height={32} />}
-                    onClick={() => setSearchExpanded(false)}
-                  />
-                )}
-                <SearchInput
-                  placeholder=""
-                  ref={searchMobileRef}
-                  testId="store-input-mobile"
-                  buttonTestId="store-input-mobile-button"
-                  onSearchClick={handlerExpandSearch}
+                <ExpandingSearchInput
+                  isExpanded={searchExpanded}
+                  onExpand={setSearchExpanded}
                 />
-                <SignInLink />
                 <CartToggle />
+                <SignInLink />
               </div>
             </section>
           </div>
@@ -282,6 +262,25 @@ function Navbar() {
             />
             <div className="navlinks__signin">
               <SignInLink />
+            </div>
+          </div>
+          <div className="navbar__modal-footer">
+            <div className="navbar__bottom-options">
+              <LinkGatsby
+                to="/login"
+                aria-label="Faça login"
+                title="Faça login"
+                className="navbar__bottom-options__login"
+                onClick={() => dismissTransition.current?.()}
+              >
+                <div className="navbar__bottom-options__login__icon">
+                  <Icon name="LoginIcon" width={22} height={25} />
+                </div>
+                <div className="navbar__bottom-options__login__text">
+                  <span> Entre </span>
+                  <span className="underline"> Registre-se </span>
+                </div>
+              </LinkGatsby>
             </div>
           </div>
         </div>

@@ -4302,6 +4302,7 @@ export type ProductDetailsFragment_ProductFragment = {
     productGroupID: string
     name: string
     complementName: string | null
+    additionalProperty: Array<{ name: string; value: string }>
     installment: { count: number | null; value: number | null } | null
     variants: Array<{
       id: string | null
@@ -4396,6 +4397,21 @@ export type HomePageQueryQuery = {
   cmsHome: { sections: Array<{ data: any; name: string }> } | null
 }
 
+export type InstitutionalPageQueryQueryVariables = Exact<{
+  [key: string]: never
+}>
+
+export type InstitutionalPageQueryQuery = {
+  site: {
+    siteMetadata: {
+      title: string | null
+      description: string | null
+      titleTemplate: string | null
+    } | null
+  } | null
+  cmsInstitutional: { sections: Array<{ name: string; data: any }> } | null
+}
+
 export type SearchPageQueryQueryVariables = Exact<{ [key: string]: never }>
 
 export type SearchPageQueryQuery = {
@@ -4485,6 +4501,7 @@ export type ProductPageQueryQuery = {
       productGroupID: string
       name: string
       complementName: string | null
+      additionalProperty: Array<{ name: string; value: string }>
       installment: { count: number | null; value: number | null } | null
       variants: Array<{
         id: string | null
@@ -4575,6 +4592,7 @@ export type BrowserProductQueryQuery = {
       productGroupID: string
       name: string
       complementName: string | null
+      additionalProperty: Array<{ name: string; value: string }>
       installment: { count: number | null; value: number | null } | null
       variants: Array<{
         id: string | null

@@ -4,12 +4,32 @@
   li {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 6px;
     line-height: 1.5;
 
-    &[data-order-summary-discount] { color: var(--color-text-success); }
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 174.1%;
+      color: var(--color-neutral-6);
+      letter-spacing: 0.01em;
+    }
+
+    [data-order-summary-price] {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 174.1%;
+      color: var(--color-neutral-7);
+      letter-spacing: 0.01em;
+    }
 
     &:last-of-type {
-      margin-bottom: var(--space-2);
+      padding-bottom: 19px;
+    }
+
+    &[data-order-summary-total] {
+      padding-top: 12px;
+      border-top: 1px solid #e3e3e3;
     }
   }
 }

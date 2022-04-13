@@ -13,7 +13,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
   if (typeof window !== `undefined`) {
     const stylesheet = document.createElement('link')
 
-    stylesheet.href = '/css/minicart.css'
+    stylesheet.href = '/css/async-styles.css'
     stylesheet.rel = 'stylesheet'
     stylesheet.type = 'text/css'
     document.getElementsByTagName('head')[0].appendChild(stylesheet)

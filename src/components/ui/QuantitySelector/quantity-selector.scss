@@ -11,7 +11,7 @@
         [data-store-icon] {
           @include focus-ring;
 
-          background-color: var(--bg-secondary-light);
+          background-color: #f6f5f8;
         }
       }
     }
@@ -24,7 +24,7 @@
     [data-store-icon] {
       @include focus-ring;
 
-      background-color: var(--bg-secondary-light);
+      background-color: #f6f5f8;
     }
   }
 }
@@ -34,23 +34,24 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 8.125rem;
-  height: var(--space-7);
+  width: 84px;
+  height: 31px;
   background-color: var(--bg-neutral-lightest);
   border-radius: var(--border-radius-default);
-  box-shadow: 0 0 0 var(--border-width-0) var(--color-border-input);
+  box-shadow: 0 0 0 var(--border-width-0) var(--color-neutral-3);
   transition: box-shadow .2s ease;
 
   [data-store-icon] {
     margin: 0;
-    color: var(--color-border-input-selected);
     line-height: 0;
+    color: var(--color-primary-3);
   }
 
   [data-quantity-selector-input] {
     width: 100%;
     height: 100%;
     padding: 0;
+    color: var(--color-neutral-7);
     text-align: center;
     background-color: transparent;
     border-width: 0;
@@ -78,16 +79,16 @@
       transition: background-color .2s ease;
     }
 
-    &:hover:not(:disabled) [data-store-icon] { background-color: var(--bg-secondary-light); }
+    &:hover:not(:disabled) [data-store-icon] { background-color: #f6f5f8; }
 
     &:disabled {
       cursor: not-allowed;
-      [data-store-icon] { color: var(--color-border-input-disabled); }
+      [data-store-icon] { color: var(--color-primary-3); }
     }
   }
 
   &:hover:not([data-store-quantity-selector="disabled"]) {
-    box-shadow: 0 0 0 var(--border-width-1) var(--color-border-input-selected);
+    box-shadow: 0 0 0 var(--border-width-1) var(--color-neutral-3);
   }
 }
 
@@ -96,4 +97,23 @@
   box-shadow: 0 0 0 var(--border-width-0) var(--bg-disabled);
 
   [data-quantity-selector-button]:hover [data-store-icon] { background-color: transparent; }
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-3);
+
+  &__label {
+    margin-right: var(--space-2);
+    font-size: 14px;
+    color: var(--color-neutral-7);
+    text-transform: uppercase;
+  }
+
+  [data-store-icon-button] {
+    &:focus {
+      background: none;
+    }
+  }
 }

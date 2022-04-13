@@ -16,6 +16,7 @@ import type {
 } from '@generated/graphql'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import ProductDescription from 'src/components/sections/ProductDescription'
+import NavbarSpacer from 'src/components/common/NavbarSpacer'
 import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<
@@ -72,7 +73,6 @@ function Page(props: Props) {
         ]}
       />
       <Helmet>
-        <link rel="stylesheet" href="/css/components.css" />
         <link rel="stylesheet" href="/css/product.css" />
       </Helmet>
       <BreadcrumbJsonLd
@@ -103,15 +103,14 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-
+      <NavbarSpacer className="product-page" />
       <ProductDetails product={product} />
       <ProductDescription product={product} />
 
       <ProductShelf
+        title="Mais Vendidos"
         first={ITEMS_PER_SECTION}
-        term={product.brand.name}
-        title="You might also like"
-        withDivisor
+        sort="score_desc"
       />
     </>
   )

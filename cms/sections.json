@@ -1,29 +1,5 @@
 [
   {
-    "name": "BannerText",
-    "schema": {
-      "title": "Banner Text",
-      "description": "Add a quick promotion with a text/action pair",
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "caption": {
-          "type": "string"
-        },
-        "actionPath": {
-          "type": "string",
-          "title": "Action link"
-        },
-        "actionLabel": {
-          "type": "string",
-          "title": "Action label"
-        }
-      }
-    }
-  },
-  {
     "name": "Hero",
     "schema": {
       "title": "Hero",
@@ -31,29 +7,98 @@
       "type": "object",
       "properties": {
         "title": {
+          "title": "Title Hero",
           "type": "string"
         },
         "subtitle": {
+          "title": "Subtitle Hero",
           "type": "string"
         },
+        "paragraph": {
+          "title": "Paragraph Hero",
+          "type": "string"
+        },
+        "isInverted": {
+          "title": "Inverted layout",
+          "type": "boolean",
+          "default": false
+        },
         "linkText": {
-          "type": "string",
-          "title": "Link text"
+          "title": "Link text",
+          "type": "string"
         },
         "link": {
-          "type": "string",
-          "title": "Link path"
+          "title": "Link path",
+          "type": "string"
         },
         "imageSrc": {
-          "type": "string",
           "title": "Image",
+          "type": "string",
           "widget": {
             "ui:widget": "image-uploader"
           }
         },
         "imageAlt": {
+          "title": "Alt text",
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "BannerInstitutional",
+    "schema": {
+      "title": "Banner Institutional",
+      "description": "Adicione um Banner a sua página instuticional",
+      "type": "object",
+      "properties": {
+        "widthDesktop": {
+          "title": "Largura da imagem do Desktop",
+          "type": "number"
+        },
+        "heightDesktop": {
+          "title": "Altura da imagem do Desktop",
+          "type": "number"
+        },
+        "imageSrcDesktop": {
+          "title": "Imagem do Desktop",
           "type": "string",
-          "title": "Alt text"
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "imageAltDesktop": {
+          "title": "Texto alternativo para a imagem do Desktop",
+          "type": "string"
+        },
+
+        "bannerTitle": {
+          "title": "bannerTitle",
+          "type": "string"
+        },
+        "bannerDescription": {
+          "title": "bannerDescription",
+          "type": "string"
+        },
+
+        "widthMobile": {
+          "title": "Largura da imagem do Mobile",
+          "type": "number"
+        },
+        "heightMobile": {
+          "title": "Altura da imagem do Mobile",
+          "type": "number"
+        },
+        "imageSrcMobile": {
+          "title": "Imagem do Mobile",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "imageAltMobile": {
+          "title": "Texto alternativo para a imagem do Mobile",
+          "type": "string"
         }
       }
     }
@@ -124,7 +169,6 @@
 
   {
     "name": "Incentives",
-
     "schema": {
       "title": "Barra de Vantagens",
       "description": "Adicione os itens da barra de vantagens",
@@ -158,6 +202,50 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  {
+    "name": "IncentivesHeader",
+    "schema": {
+      "title": "Incentives Header",
+      "description": "Add Incentives to your shopper",
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "Text",
+    "schema": {
+      "title": "Text",
+      "description": "Insira o texto a ser exibido",
+      "type": "object",
+      "properties": {
+        "text": {
+          "title": "Insira o texto",
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "BannerAndShelf",
+    "schema": {
+      "title": "Prateleira e Banner",
+      "description": "Adicione um banner ao lado de uma prateleira",
+      "type": "object",
+      "properties": {
+        "bannerSrc": {
+          "title": "Banner",
+          "type": "string",
+          "widget": {
+            "ui:widget": "image-uploader"
+          }
+        },
+        "bannerAlt": {
+          "title": "Alt do Banner",
+          "type": "string"
         }
       }
     }
