@@ -42,7 +42,6 @@ const Hero = ({
           <HeroImage>
             <Image
               loading="lazy"
-              data={false}
               src={imageSrc}
               alt={imageAlt}
               width={743}
