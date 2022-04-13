@@ -14,7 +14,7 @@ const Stepper = (props: StepperProps) => {
   const childrenArray = useMemo(() => Children.toArray(children), [children])
   const currentChild = useMemo(() => childrenArray[step], [childrenArray, step])
 
-  return <div>{currentChild}</div>
+  return <>{currentChild}</>
 }
 
 export default Stepper

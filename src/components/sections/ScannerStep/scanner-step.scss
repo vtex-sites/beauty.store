@@ -1,1 +1,108 @@
 @import "src/styles/scaffold";
+
+.scanner-step {
+  // margin-top: 120px;
+}
+
+.grid-step {
+  display: grid;
+  grid-template-areas: "banner title" "banner options";
+  grid-template-rows: auto 1fr auto;
+  row-gap: var(--space-1);
+  column-gap: var(--space-5);
+
+  .StepImage {
+    grid-area: banner;
+  }
+
+  .StepTrack {
+    grid-area: title;
+
+    .StepTrackTitle {
+      font-family: var(--heading-font);
+      font-size: var(--text-size-4);
+      font-weight: var(--text-weight-bold);
+      line-height: var(--text-size-5);
+      color: var(--color-neutral-7);
+    }
+
+    .StepTrackMessage {
+      margin-bottom: var(--space-1);
+      font-family: var(--body-font);
+      font-size: var(--text-size-2);
+      font-weight: var(--text-weight-regular);
+      line-height: var(--text-size-4);
+      color: var(--color-neutral-6);
+    }
+  }
+
+  .StepOptions {
+    display: grid;
+    grid-area: options;
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--space-3);
+    column-gap: var(--space-5);
+  }
+
+  .cta-button {
+    grid-column: 2 / 2;
+    max-width: calc(50% - var(--space-3));
+  }
+}
+
+.ScannerStepOption {
+  padding: var(--space-3);
+  border-radius: var(--border-radius-regular);
+
+  // margin: var(--space-3);
+  box-shadow: var(--box-shadow-large);
+
+  .ScannerStepOptionRadio {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 33px;
+    height: 33px;
+    margin-left: auto;
+    cursor: pointer;
+    background: var(--color-neutral-0);
+    border: var(--border-width-0) solid var(--color-neutral-6);
+    border-radius: var(--border-radius-circle);
+  }
+
+  .ScannerStepOptionRadioSelected {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 17px;
+    height: 17px;
+    background: var(--color-secondary-3);
+    border-radius: var(--border-radius-circle);
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.ScannerStepOptionImage {
+  display: block;
+  margin: auto;
+  margin-bottom: var(--space-3);
+}
+
+.ScannerStepOptionTitle {
+  font-family: var(--heading-font);
+  font-size: var(--text-size-4);
+  font-weight: var(--text-weight-bold);
+  line-height: var(--text-size-5);
+  color: var(--color-neutral-7);
+  text-align: center;
+}
+
+.ScannerStepOptionDescription {
+  font-family: var(--body-font);
+  font-size: var(--text-size-2);
+  font-weight: var(--text-weight-regular);
+  line-height: var(--text-size-4);
+  color: var(--color-neutral-6);
+  text-align: center;
+}
