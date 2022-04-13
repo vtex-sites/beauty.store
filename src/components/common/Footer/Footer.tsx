@@ -23,7 +23,13 @@ function Footer() {
             <section className="footer__logo">
               <UIIcon
                 component={
-                  <img src="/Beauty.svg" alt="Beauty logo" loading="lazy" />
+                  <img
+                    width={150}
+                    height={46}
+                    src="/Beauty.svg"
+                    alt="Beauty logo"
+                    loading="lazy"
+                  />
                 }
               />
               <p className="store-description">
