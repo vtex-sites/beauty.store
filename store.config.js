@@ -23,9 +23,6 @@ module.exports = {
   lighthouse: {
     server: process.env.BASE_SITE_URL || 'http://localhost:9000',
     pages: {
-      home: '/',
-      pdp: '/gel-rejuvenescedor-facial-mantecorp-ivy-c-aox-4/p',
-      collection: '/beleza/',
       institutional: '/institucional/a-beauty/',
     },
   },

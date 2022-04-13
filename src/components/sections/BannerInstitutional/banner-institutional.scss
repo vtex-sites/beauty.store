@@ -3,6 +3,26 @@
 .banner-institutional {
   position: relative;
   margin-bottom: var(--space-7);
+  height: 500px;
+
+  @media only screen and (min-width: 1800px) {
+    height: 700px;
+  }
+
+  @media only screen and (max-width: 560px) {
+    height: 375px;
+  }
+
+  [data-store-banner],
+  [data-banner-image],
+  [data-store-skeleton-element],
+  [data-skeleton-element-content] {
+    height: 100% !important;
+  }
+
+  [data-store-image]{
+    object-fit: cover;
+  }
 
   @include media("<tablet") {
     margin-bottom: var(--space-5);
