@@ -5,6 +5,7 @@
   display: inline-flex;
   width: 100%;
   height: var(--tap-min-size);
+  cursor: pointer;
 
   @include media(">=notebook") { height: var(--space-6); }
 
