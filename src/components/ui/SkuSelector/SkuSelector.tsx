@@ -2,6 +2,7 @@ import { Label, RadioGroup, RadioOption } from '@faststore/ui'
 import React, { useState } from 'react'
 import { Image } from 'src/components/ui/Image'
 import type { ChangeEventHandler } from 'react'
+import Text from 'src/components/common/Text'
 
 interface DefaultSkuProps {
   /**
@@ -83,52 +84,61 @@ function SkuSelector({
 
   return (
     <div data-store-sku-selector data-testid={testId} data-variant={variant}>
-      {label && (
-        <Label data-sku-selector-label>
-          {label}: <strong>{selectedSku}</strong>
-        </Label>
-      )}
-      <RadioGroup
-        selectedValue={selectedSku}
-        name={`sku-selector-${variant}`}
-        onChange={(e) => {
-          onChange?.(e)
-          setSelectedSku(e.currentTarget.value)
-        }}
-      >
-        {options.map((option, index) => {
-          return (
-            <RadioOption
-              key={String(index)}
-              label={option.label}
-              value={option.label}
-              disabled={option.disabled}
-              checked={option.label === selectedSku}
-            >
-              {variant === 'label' && <span>{option.label}</span>}
-              {variant === 'color' && 'value' in option && (
-                <span>
-                  <div
-                    data-sku-selector-color
-                    style={{
-                      backgroundColor: option.value,
-                    }}
-                  />
-                </span>
-              )}
-              {variant === 'image' && 'src' in option && (
-                <Image
-                  src={option.src}
-                  alt={option.alt}
-                  width={20}
-                  height={20}
-                  loading="lazy"
-                />
-              )}
-            </RadioOption>
-          )
-        })}
-      </RadioGroup>
+      <Text tag="p" className="sku__name">
+        Selecione o tamanho
+      </Text>
+
+      <div className="sku__options">
+        <RadioGroup
+          selectedValue={selectedSku}
+          name={`sku-selector-${variant}`}
+          onChange={(e) => {
+            onChange?.(e)
+            setSelectedSku(e.currentTarget.value)
+          }}
+        >
+          {options.map((option, index) => {
+            return (
+              <div
+                key={String(index)}
+                className={`${
+                  option.label === selectedSku ? 'sku__selected' : ''
+                }`}
+                data-store-radio-option
+              >
+                <RadioOption
+                  label={option.label}
+                  value={option.label}
+                  disabled={option.disabled}
+                  checked={option.label === selectedSku}
+                >
+                  {variant === 'label' && <span>{option.label}</span>}
+                  {variant === 'color' && 'value' in option && (
+                    <span>
+                      <div
+                        data-sku-selector-color
+                        style={{
+                          backgroundColor: option.value,
+                        }}
+                      />
+                    </span>
+                  )}
+                  {variant === 'image' && 'src' in option && (
+                    <Image
+                      src={option.src}
+                      alt={option.alt}
+                      width={20}
+                      height={20}
+                      loading="lazy"
+                    />
+                  )}
+                </RadioOption>
+                <span className="sku__label">{option.label}</span>
+              </div>
+            )
+          })}
+        </RadioGroup>
+      </div>
     </div>
   )
 }

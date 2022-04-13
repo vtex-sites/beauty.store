@@ -97,3 +97,16 @@
 
   [data-quantity-selector-button]:hover [data-store-icon] { background-color: transparent; }
 }
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-3);
+
+  &__label {
+    margin-right: var(--space-2);
+    text-transform: uppercase;
+    color: var(--color-neutral-9);
+    font-size: 14px;
+  }
+}

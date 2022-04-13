@@ -1,5 +1,5 @@
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import React, { useEffect, useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
@@ -15,6 +15,7 @@ import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import ImageGallery from 'src/components/ui/ImageGallery'
 import Container from 'src/components/common/Container'
+import SkuSelector from 'src/components/ui/SkuSelector'
 
 import Section from '../../common/Section'
 
@@ -44,7 +45,12 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId, complementName },
+      isVariantOf: {
+        name,
+        productGroupID: productId,
+        complementName,
+        variants,
+      },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -53,6 +59,23 @@ function ProductDetails({ product: staleProduct }: Props) {
       breadcrumbList: breadcrumbs,
     },
   } = data
+
+  const skuOptions =
+    variants?.length > 0
+      ? variants?.map((variant) => {
+          if (!variant) return null
+
+          return {
+            alt: variant.name,
+            src: variant.images[0]?.value.replace(
+              'vteximg.com.br',
+              'vtexassets.com'
+            ),
+            label: variant.name,
+            link: variant.link,
+          }
+        })
+      : []
 
   const buyDisabled = availability !== 'https://schema.org/InStock'
 
@@ -148,6 +171,20 @@ function ProductDetails({ product: staleProduct }: Props) {
                   />
                 </div>
               </section>
+
+              <SkuSelector
+                variant="image"
+                options={skuOptions}
+                onChange={(e) => {
+                  const option = skuOptions.find(
+                    (opt) => opt.label === e.currentTarget.value
+                  )
+
+                  navigate(option.link)
+                }}
+                defaultSku={variantName}
+              />
+
               <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
 
               {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
@@ -158,7 +195,7 @@ function ProductDetails({ product: staleProduct }: Props) {
                 <AddToCartLoadingSkeleton />
               ) : (
                 <BuyButton disabled={buyDisabled} {...buyProps}>
-                  Add to Cart
+                  Comprar
                 </BuyButton>
               )}
             </section>
