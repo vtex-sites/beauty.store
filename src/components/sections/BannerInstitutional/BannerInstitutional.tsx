@@ -35,27 +35,26 @@ function BannerInstitutional({
   imageAltMobile,
 }: BannerInstitutionalProps) {
   const { isWidescreen } = useWidescreen('(max-width: 768px)')
-  const bannerProps = isWidescreen ? {
-    width: widthMobile,
-    height: heightMobile,
-    src: imageSrcMobile,
-    alt: imageAltMobile
-  } : {
-    width: widthDesktop,
-    height: heightDesktop,
-    src: imageSrcDesktop,
-    alt: imageAltDesktop
-  }
+  const bannerProps = isWidescreen
+    ? {
+        width: widthMobile,
+        height: heightMobile,
+        src: imageSrcMobile,
+        alt: imageAltMobile,
+      }
+    : {
+        width: widthDesktop,
+        height: heightDesktop,
+        src: imageSrcDesktop,
+        alt: imageAltDesktop,
+      }
 
   return (
     <Section className="banner-institutional">
       <SkeletonElement type="image" loading={isWidescreen === null} shimmer>
         <Banner>
           <BannerImage>
-              <Image
-                  loading="eager"
-                  {...bannerProps}
-              />
+            <Image loading="eager" {...bannerProps} />
           </BannerImage>
         </Banner>
 
