@@ -10,9 +10,9 @@ interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
 }
 
 function ProductShelf({ title, ...variables }: ProductShelfProps) {
-  const products = useProductsQuery(variables)
+  const { data } = useProductsQuery(variables)
 
-  if (products?.edges.length === 0) {
+  if (data?.edges.length === 0) {
     return null
   }
 
@@ -21,9 +21,9 @@ function ProductShelf({ title, ...variables }: ProductShelfProps) {
       {title && <h3 className="product-shelf__title">{title}</h3>}
 
       <Container>
-        <ProductShelfSkeleton loading={products === undefined}>
+        <ProductShelfSkeleton loading={data === undefined}>
           <ul className="product-shelf__wrapper">
-            {products?.edges.map((product, idx) => (
+            {data?.edges.map((product, idx) => (
               <li key={`${product.node.id}`}>
                 <ProductCard product={product.node} index={idx + 1} />
               </li>

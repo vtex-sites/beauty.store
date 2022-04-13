@@ -4240,14 +4240,6 @@ export type VariantFilterListInput = {
   elemMatch: InputMaybe<VariantFilterInput>
 }
 
-export type StoreCollectionQueryVariables = Exact<{ [key: string]: never }>
-
-export type StoreCollectionQuery = {
-  allStoreCollection: {
-    edges: Array<{ node: { slug: string; seo: { title: string } } }>
-  }
-}
-
 export type UpdateSessionMutationMutationVariables = Exact<{
   session: IStoreSession
 }>
@@ -4263,7 +4255,11 @@ export type ProductSummary_ProductFragment = {
   gtin: string
   id: string
   brand: { name: string; brandName: string }
-  isVariantOf: { productGroupID: string; name: string }
+  isVariantOf: {
+    productGroupID: string
+    name: string
+    complementName: string | null
+  }
   image: Array<{ url: string; alternateName: string }>
   offers: {
     lowPrice: number
@@ -4360,7 +4356,11 @@ export type ProductGalleryQueryQuery = {
           gtin: string
           id: string
           brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
+          isVariantOf: {
+            productGroupID: string
+            name: string
+            complementName: string | null
+          }
           image: Array<{ url: string; alternateName: string }>
           offers: {
             lowPrice: number
@@ -4647,7 +4647,11 @@ export type ProductsQueryQuery = {
           gtin: string
           id: string
           brand: { name: string; brandName: string }
-          isVariantOf: { productGroupID: string; name: string }
+          isVariantOf: {
+            productGroupID: string
+            name: string
+            complementName: string | null
+          }
           image: Array<{ url: string; alternateName: string }>
           offers: {
             lowPrice: number

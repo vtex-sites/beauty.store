@@ -5,15 +5,15 @@ import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductCard from '../ProductCard'
 
 function ProductItems({ ...variables }: Partial<ProductsQueryQueryVariables>) {
-  const products = useProductsQuery(variables)
+  const { data } = useProductsQuery(variables)
 
-  if (products?.edges.length === 0) {
+  if (data?.edges.length === 0) {
     return null
   }
 
   return (
     <>
-      {products?.edges.map((product, idx) => (
+      {data?.edges.map((product, idx) => (
         <li key={`${product.node.id}`}>
           <ProductCard product={product.node} index={idx + 1} />
         </li>
