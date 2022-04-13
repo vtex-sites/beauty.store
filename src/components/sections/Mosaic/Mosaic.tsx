@@ -1,7 +1,6 @@
 import React from 'react'
 import Section from 'src/components/common/Section'
 import Link from 'src/components/ui/Link'
-import { Image } from 'src/components/ui/Image'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 
@@ -40,13 +39,12 @@ const Mosaic = (props: MosaicProps) => {
                   desktopImages.map((desktopImage, index) => {
                     return (
                       <div key={index} className="mosaic__image-wrapper">
-                        <Image
+                        <img
                           className="mosaic__image"
                           src={desktopImage}
-                          alt={`${index}ª imagem do mosaico`}
+                          alt={`${index + 1}ª imagem do mosaico`}
                           width={index === 3 ? 483 : 300}
                           height={314}
-                          preload
                         />
                       </div>
                     )
@@ -61,13 +59,12 @@ const Mosaic = (props: MosaicProps) => {
                         key={index}
                         className={`mosaic__image-wrapper mosaic__image-wrapper--${index}`}
                       >
-                        <Image
+                        <img
                           className="mosaic__image"
                           src={mobileImage}
-                          alt={`${index}ª imagem do mosaico`}
+                          alt={`${index + 1}ª imagem do mosaico`}
                           width={184}
                           height={184}
-                          preload
                         />
                       </div>
                     )
