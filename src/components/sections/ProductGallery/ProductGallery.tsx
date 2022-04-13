@@ -44,16 +44,15 @@ function ProductGallery({ title, searchTerm }: Props) {
     <Section className="product-listing / grid-content-full">
       <Container>
         <h1 className="product-listing__title">{title}</h1>
+        <h2 className="product-listing__subtitle">Produtos</h2>
         <div className="product-listing__filters">
           <Filter facets={facets} />
         </div>
       </Container>
       {searchTerm && (
-        <header className="product-listing__search-term / grid-content">
-          <h1>
-            Exibindo resultados de: <span>{searchTerm}</span>
-          </h1>
-        </header>
+        <p>
+          Exibindo resultados de: <span>{searchTerm}</span>
+        </p>
       )}
       <Container>
         <div className="product-listing__content-grid">

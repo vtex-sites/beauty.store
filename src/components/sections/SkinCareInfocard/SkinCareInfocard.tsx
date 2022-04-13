@@ -35,7 +35,7 @@ function SkinCareInfocard() {
             />
           </div>
           <div className="infocard-skin__block">
-            <h2 className="block__title">Descubra sua rotina skincare</h2>
+            <p className="block__title">Descubra sua rotina skincare</p>
             <span className="block__subtitle">
               através do nosso scanner facial, direcionamos produtos ideais para
               a sua pele.
