@@ -49,7 +49,7 @@ function BannerInstitutional({
 
   return (
     <Section className="banner-institutional">
-      <SkeletonElement type="full" loading={isWidescreen === null} shimmer>
+      <SkeletonElement type="image" loading={isWidescreen === null} shimmer>
         <Banner>
           <BannerImage>
               <Image
