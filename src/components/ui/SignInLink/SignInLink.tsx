@@ -8,9 +8,8 @@ const SignInLink: React.FC = () => {
   return (
     <Link
       as="a"
-      href="https://www.facebook.com/"
-      title="Facebook"
-      target={person?.id ? '/account' : '/login'}
+      href={person?.id ? '/account' : '/login'}
+      title="Account"
       rel="noopener noreferrer"
       className="signin-link"
     >
