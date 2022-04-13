@@ -2,16 +2,19 @@ import type { ReactNode } from 'react'
 import React, { useCallback, createContext, useState, useContext } from 'react'
 
 interface ScannerContextValue {
-  specifications: Specification[]
-  addSpecification: (specification: Specification) => void
+  selectedOptions: SelectedOption[]
+  addSelectedOption: (selectedOption: SelectedOption) => void
+  selectedProducts: any[]
+  toggleSelectedProduct: (selectedProduct: any) => void
+  clearSelectedProducts: () => void
 }
 
 interface ScannerProviderProps {
   children: ReactNode
 }
 
-interface Specification {
-  name: string
+interface SelectedOption {
+  key: string
   value: string
 }
 
@@ -22,19 +25,49 @@ const ScannerContext = createContext<ScannerContextValue>(
 export const ScannerProvider = (props: ScannerProviderProps) => {
   const { children } = props
 
-  const [specifications, setSpecifications] = useState<Specification[]>([])
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([])
+  const [selectedProducts, setSelectedProducts] = useState<any[]>([])
 
-  const addSpecification = useCallback(
-    (specification: Specification) =>
-      setSpecifications((oldSpecifications) => [
-        ...oldSpecifications,
-        specification,
+  const addSelectedOption = useCallback(
+    (selectedOption: SelectedOption) =>
+      setSelectedOptions((oldSelectedOptions) => [
+        ...oldSelectedOptions,
+        selectedOption,
       ]),
     []
   )
 
+  const toggleSelectedProduct = useCallback(
+    (selectedProduct: any) =>
+      setSelectedProducts((oldSelectedProducts) => {
+        const existentProduct = oldSelectedProducts.find(
+          (oldSelectedProduct) => oldSelectedProduct.sku === selectedProduct.sku
+        )
+
+        if (existentProduct) {
+          return oldSelectedProducts.filter(
+            (oldSelectedProduct) =>
+              oldSelectedProduct.sku !== selectedProduct.sku
+          )
+        }
+
+        return [...oldSelectedProducts, selectedProduct]
+      }),
+    []
+  )
+
+  const clearSelectedProducts = useCallback(() => setSelectedProducts([]), [])
+
   return (
-    <ScannerContext.Provider value={{ specifications, addSpecification }}>
+    <ScannerContext.Provider
+      value={{
+        selectedOptions,
+        addSelectedOption,
+        selectedProducts,
+        toggleSelectedProduct,
+        clearSelectedProducts,
+      }}
+    >
       {children}
     </ScannerContext.Provider>
   )

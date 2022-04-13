@@ -74,13 +74,17 @@ export const useProductsQuery = (
 ) => {
   const localizedVariables = useLocalizedVariables(variables)
 
-  const { data } = useQuery<ProductsQueryQuery, ProductsQueryQueryVariables>(
-    query,
-    localizedVariables,
-    options
-  )
+  const { data, error } = useQuery<
+    ProductsQueryQuery,
+    ProductsQueryQueryVariables
+  >(query, localizedVariables, options)
 
-  return data?.search.products
+  const loading = !data && !error
+
+  return {
+    data: data?.search.products,
+    loading,
+  }
 }
 
 export const useProductsQueryPrefetch = (
