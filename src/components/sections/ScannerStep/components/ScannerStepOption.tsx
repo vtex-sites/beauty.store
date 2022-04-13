@@ -5,6 +5,7 @@ interface Props {
   title: string
   description?: string
   imageSrc: string
+  value: string
   isSelected: boolean
   setSelectedOption: React.Dispatch<React.SetStateAction<string>>
 }
@@ -13,6 +14,7 @@ function ScannerStepOption({
   imageSrc,
   title,
   description,
+  value,
   isSelected,
   setSelectedOption,
 }: Props) {
@@ -21,7 +23,7 @@ function ScannerStepOption({
       <div className="ScannerStepOption">
         <Button
           onClick={() => {
-            setSelectedOption(title)
+            setSelectedOption(value)
           }}
           className="ScannerStepOptionRadio"
         >

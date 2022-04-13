@@ -11,6 +11,7 @@ interface StepOptionsProps {
   title: string
   description?: string
   imageSrc: string
+  value: string
 }
 interface Props {
   title: string
@@ -74,7 +75,8 @@ function ScannerStep({
                     key={indice}
                     title={item.title}
                     description={item.description}
-                    isSelected={selectedOption === item.title}
+                    value={item.value}
+                    isSelected={selectedOption === item.value}
                     setSelectedOption={SetSelectedOption}
                     imageSrc={item.imageSrc}
                   />
