@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
+import Link from 'src/components/ui/Link'
 
 import SpecificationTable from './SpecificationTable'
 
@@ -43,7 +44,11 @@ function ProductDescription({ product }: Props) {
       <ul className="product-description-tab">
         {tabs.map((tab) => (
           <li key={tab.id} className="product-description-tab__item">
-            <a
+            <Link
+              as="a"
+              title="Link da descrição do produto"
+              target="_self"
+              rel="noopener noreferrer"
               href={`#${tab.id}`}
               className={`product-description-tab__link ${
                 tab.id === selectedTab
@@ -54,7 +59,7 @@ function ProductDescription({ product }: Props) {
               onClick={handleChangeTab}
             >
               {tab.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
