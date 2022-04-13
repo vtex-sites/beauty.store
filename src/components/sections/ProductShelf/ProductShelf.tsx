@@ -5,7 +5,11 @@ import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductCard from 'src/components/product/ProductCard'
 import Container from 'src/components/common/Container'
 
-function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
+interface ProductShelfProps extends Partial<ProductsQueryQueryVariables> {
+  title?: string
+}
+
+function ProductShelf({ title, ...variables }: ProductShelfProps) {
   const { data } = useProductsQuery(variables)
 
   if (data?.edges.length === 0) {
@@ -14,6 +18,8 @@ function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
 
   return (
     <section className="page__section-shelf">
+      {title && <h3 className="product-shelf__title">{title}</h3>}
+
       <Container>
         <ProductShelfSkeleton loading={data === undefined}>
           <ul className="product-shelf__wrapper">

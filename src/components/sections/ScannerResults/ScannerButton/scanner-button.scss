@@ -1,0 +1,36 @@
+.scanner-results {
+  &__button {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: var(--space-8);
+    font-size: var(--text-size-1);
+    color: var(--color-neutral-0);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background-color: var(--color-neutral-7);
+    border: 0;
+    border-radius: var(--border-radius-pill);
+
+    @include media("<notebook") {
+      margin: 0 auto;
+    }
+
+    &:hover {
+      @include media(">=notebook") {
+        background-color: var(--color-neutral-6);
+      }
+    }
+
+    &:active {
+      @include media("<notebook") {
+        background-color: var(--color-neutral-6);
+      }
+
+      @include media(">=notebook") {
+        background-color: var(--color-neutral-7);
+      }
+    }
+  }
+}

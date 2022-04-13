@@ -13,8 +13,8 @@ function BuyButton({ children, ...props }: Props) {
       data-store-buy-button
       {...props}
     >
-      <Icon name="ShoppingCart" width={18} height={18} weight="bold" />
       {children}
+      <Icon name="ShoppingCart" width={22} height={22} weight="bold" />
     </UIButton>
   )
 }
