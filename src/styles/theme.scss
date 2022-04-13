@@ -9,11 +9,6 @@
 @import "colors";
 @import "typography";
 @import "grid";
-@import "swiper/scss";
-@import "swiper/scss/pagination";
-@import "swiper/scss/navigation";
-@import "swiper/scss/free-mode";
-@import "swiper/scss/thumbs";
 
 // Tokens ///////////////////////////
 
@@ -123,6 +118,7 @@
   // Box-Shadows ////////////////////
   --box-shadow: 0 4px 30px 0 #0000001a;
   --box-shadow-dark: 0 0 10px rgb(0 0 0 / 20%);
+  --box-shadow-large: 0 4px 30px rgb(0 0 0 / 10%);
 
   // Border /////////////////////////
 

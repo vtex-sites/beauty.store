@@ -1,7 +1,6 @@
 import React from 'react'
 import CtaButton from 'src/components/ui/CtaButton'
 import { useStepper } from 'src/contexts/StepperContext'
-// import { Image } from 'src/components/ui/Image'
 
 interface Props {
   title: string
