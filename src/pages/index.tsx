@@ -69,6 +69,16 @@ function Page(props: Props) {
       />
       <Helmet>
         <link rel="stylesheet" href="/css/home.css" />
+        <link
+          rel="preload"
+          as="image"
+          href="https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg"
+        />
       </Helmet>
       <JsonLd
         json={{
