@@ -1,8 +1,56 @@
 @import "src/styles/scaffold";
 
+.scanner {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .scanner-cta {
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  width: 100%;
   max-width: 424px;
-  padding: var(--space-7);
+  padding: var(--space-7) var(--space-7) var(--space-6) var(--space-7);
   background: linear-gradient(180deg, #f9f3f3 0%, #f9d4c1 100%);
   border-radius: var(--border-radius-regular);
+  transform: translateY(-50%);
+
+  @include media("<=tablet") {
+    top: auto;
+    right: 50%;
+    bottom: 0;
+    padding: var(--space-7) var(--space-4) var(--space-6) var(--space-4);
+    transform: translateX(50%);
+  }
+
+  &__title {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-size-4);
+    font-weight: var(--text-weight-bold);
+    font-feature-settings: "tnum" on, "lnum" on;
+    line-height: 1.1;
+    color: var(--color-neutral-8);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  &__msg {
+    padding: 0 var(--space-3);
+    margin-bottom: var(--space-5);
+    font-size: var(--text-size-2);
+    line-height: 24px;
+    color: var(--color-neutral-7);
+    text-align: center;
+    letter-spacing: 0.256px;
+
+    @include media("<=tablet") {
+      padding: 0;
+    }
+  }
 }

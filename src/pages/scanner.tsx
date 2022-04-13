@@ -9,6 +9,7 @@ import ScannerPresenter from 'src/components/sections/ScannerPresenter'
 import { StepperProvider } from 'src/contexts/StepperContext'
 import { ScannerProvider } from 'src/contexts/ScannerContext'
 import Stepper from 'src/components/common/Stepper'
+import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 
 export type Props = PageProps<ScannerPageQuery>
 
@@ -19,6 +20,12 @@ function Page(props: Props) {
   } = props
 
   const { locale } = useSession()
+  const { isWidescreen } = useWidescreen('(min-width: 724px)')
+  let imgSrc = '/scanner-presentation.png'
+
+  if (!isWidescreen) {
+    imgSrc = '/scanner-presentation-mobile.png'
+  }
 
   const title = site?.siteMetadata?.title ?? ''
   const siteUrl = `https://${host}${pathname}`
@@ -58,14 +65,14 @@ function Page(props: Props) {
             <ScannerPresenter
               title="Vamos descobrir seu perfil de beleza?"
               message="Agora, realizaremos algumas perguntas sobre a sua pele para entendermos as características individuais da sua pele."
-              img="/scanner-presentation.png"
+              img={imgSrc}
               buttonText="Começar"
             />
 
             <ScannerPresenter
               title="Seu perfil de pele está pronto"
               message="Através do nosso teste conseguimos definir a melhor rotina para o seu perfil de beleza. Aproveite os descontos e dicas."
-              img="/scanner-presentation.png"
+              img={imgSrc}
               buttonText="Acessar"
             />
           </Stepper>
