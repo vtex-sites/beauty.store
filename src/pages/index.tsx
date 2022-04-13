@@ -54,6 +54,9 @@ function Page(props: Props) {
         titleTemplate={site?.siteMetadata?.titleTemplate ?? ''}
         language={locale}
         canonical={siteUrl}
+        linkTags={[
+          { rel: 'preconnect', href: 'https://beauty.vteximg.com.br/' },
+        ]}
         openGraph={{
           type: 'website',
           url: siteUrl,
@@ -78,9 +81,9 @@ function Page(props: Props) {
         banners={[
           {
             imageBanner:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-01.png',
+              'https://beauty.vteximg.com.br/arquivos/home-banner-01.jpg',
             imageBannerMobile:
-              'https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.png',
+              'https://beauty.vteximg.com.br/arquivos/home-banner-mobile-01.jpg',
             title: 'Cuide da sua pele com produtos feitos para você!',
             subtitle:
               'Através do nosso scanner, você consegue identificar o seu perfil de beleza',
@@ -138,11 +141,10 @@ function Page(props: Props) {
           'https://beauty.vteximg.com.br/arquivos/mosaico-banner-05.jpg',
         ]}
         mobileImages={[
-          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-01.jpg',
-          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-02.jpg',
-          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-03.jpg',
-          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-04.jpg',
-          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-05.jpg',
+          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-01.jpg',
+          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-02.jpg',
+          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-03.jpg?v',
+          'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-05.jpg?v',
         ]}
       />
       {/* CMS Sections */}
