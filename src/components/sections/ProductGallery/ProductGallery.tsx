@@ -5,7 +5,6 @@ import Filter from 'src/components/search/Filter'
 import Container from 'src/components/common/Container'
 import ProductGridSkeleton from 'src/components/skeletons/ProductGridSkeleton'
 import { LinkButton } from 'src/components/ui/Button'
-import Icon from 'src/components/ui/Icon'
 import { mark } from 'src/sdk/tests/mark'
 import Section from 'src/components/common/Section'
 import SkinCareInfocard from 'src/components/sections/SkinCareInfocard'
@@ -69,6 +68,7 @@ function ProductGallery({ title, searchTerm }: Props) {
                   linkTags={[{ rel: 'prev', href: prev.link }]}
                 />
                 <LinkButton
+                  data-testid="previous-page"
                   onClick={(e) => {
                     e.currentTarget.blur()
                     e.preventDefault()
@@ -76,18 +76,8 @@ function ProductGallery({ title, searchTerm }: Props) {
                   }}
                   to={prev.link}
                   rel="prev"
-                  variant="secondary"
-                  iconPosition="left"
-                  icon={
-                    <Icon
-                      name="ArrowLeft"
-                      width={16}
-                      height={16}
-                      weight="bold"
-                    />
-                  }
                 >
-                  Previous Page
+                  Página anterior
                 </LinkButton>
               </div>
             )}
@@ -125,9 +115,8 @@ function ProductGallery({ title, searchTerm }: Props) {
                   }}
                   to={next.link}
                   rel="next"
-                  variant="secondary"
                 >
-                  Load more products
+                  Ver mais
                 </LinkButton>
               </div>
             )}

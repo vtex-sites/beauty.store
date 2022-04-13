@@ -4,6 +4,7 @@
   width: 100%;
   content-visibility: auto;
   contain-intrinsic-size: rem(2px) rem(1024px);
+  max-width: 100%;
 
   .title-section {
     margin-bottom: var(--space-3);

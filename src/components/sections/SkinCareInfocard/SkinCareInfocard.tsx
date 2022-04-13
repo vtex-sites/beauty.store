@@ -18,16 +18,18 @@ function SkinCareInfocard() {
         <div className="infocard-skin">
           <div className="infocard-skin__images">
             <Image
+              preload
               data={false}
               alt="mãos segurando um frasco com conta gotas"
-              src="https://beauty.vtexassets.com/arquivos/skin-care-01.png"
+              src="https://beauty.vtexassets.com/arquivos/skin-care.jpg"
               width={261}
               height={261}
             />
             <Image
+              preload
               data={false}
               alt="mulher aplicando um produto de beleza no rosto"
-              src="https://beauty.vtexassets.com/arquivos/skin-care-02.png"
+              src="https://beauty.vtexassets.com/arquivos/skin-care-02.jpg"
               width={261}
               height={261}
             />

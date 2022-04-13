@@ -43,10 +43,11 @@
 
     img {
       position: absolute;
+      border-radius: 50%;
 
       @include media("<=1024px") {
         max-width: 188px;
-        max-height: 196px;
+        max-height: 188px;
       }
 
       &:first-child {
