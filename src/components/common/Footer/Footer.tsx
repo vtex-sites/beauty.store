@@ -20,13 +20,17 @@ function Footer() {
       <Section>
         <Container>
           <div className="footer__top-section">
-            <section className="footer__logo">
+            <section className="footer__store-details">
               <UIIcon
                 component={
-                  <img src="/Beauty.svg" alt="Beauty logo" loading="lazy" />
+                  <UIIcon
+                    component={
+                      <Icon width={125} height={38} name="BeautyLogo" />
+                    }
+                  />
                 }
               />
-              <p className="store-description">
+              <p className="footer__store-description">
                 Cuidando de você através de uma rotina de cuidados
                 personalizados
               </p>

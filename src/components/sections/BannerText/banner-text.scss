@@ -4,7 +4,7 @@
   padding-top: var(--space-6);
   padding-bottom: var(--space-6);
   text-align: center;
-  background-color: var(--color-secondary-4);
+  background-color: var(--color-secondary-3);
 
   [data-banner-content] {
     display: flex;
@@ -24,8 +24,8 @@
     margin-top: var(--space-5);
 
     @include media(">=notebook") {
-      margin-top: var(--space-7);
       padding: var(--space-2) var(--space-4);
+      margin-top: var(--space-7);
     }
   }
 
