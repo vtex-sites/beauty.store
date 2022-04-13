@@ -6,7 +6,46 @@
 
   &__img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+
+    &-wrapper {
+      height: 100%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 768px;
+
+    @media only screen and (min-width: 2000px) {
+      height: 1200px;
+    }
+
+    @media only screen and (min-width: 1800px) {
+      height: 1000px;
+    }
+
+    @media only screen and (max-width: 960px) {
+      height: 646px;
+    }
+
+    > div {
+      height: 100%;
+    }
+
+    [data-store-skeleton-element] {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+
+      [data-skeleton-element-content] {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 
@@ -21,11 +60,12 @@
   border-radius: var(--border-radius-regular);
   transform: translateY(-50%);
 
-  @include media("<=tablet") {
+  @media (max-width: 724px) {
     top: auto;
     right: 50%;
     bottom: 0;
-    padding: var(--space-7) var(--space-4) var(--space-6) var(--space-4);
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+    border-radius: var(--border-radius-regular) var(--border-radius-regular) 0 0;
     transform: translateX(50%);
   }
 
@@ -39,6 +79,11 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: -0.01em;
+
+    @media (max-width: 724px) {
+      margin-bottom: var(--space-2);
+      font-size: var(--text-size-3);
+    }
   }
 
   &__msg {
@@ -50,8 +95,10 @@
     text-align: center;
     letter-spacing: 0.256px;
 
-    @include media("<=tablet") {
+    @media (max-width: 724px) {
       padding: 0;
+      margin-bottom: var(--space-4);
+      font-size: var(--text-size-1);
     }
   }
 }

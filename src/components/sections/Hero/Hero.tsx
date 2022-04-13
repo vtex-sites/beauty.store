@@ -55,7 +55,7 @@ const Hero = ({
                   {title}
                 </h2>
 
-                <h4 className="subtitle-hero">{subtitle}</h4>
+                <h3 className="subtitle-hero">{subtitle}</h3>
                 <RichText className="text-body-big" text={paragraph} />
                 {!!link && (
                   <HeroLink>
