@@ -7,6 +7,7 @@ import Text from 'src/components/sections/Text'
 // import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { InstitutionalPageQueryQuery } from '@generated/graphql'
+import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<InstitutionalPageQueryQuery>
 
@@ -49,6 +50,9 @@ function Page(props: Props) {
           },
         }}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/a-beauty.css" />
+      </Helmet>
 
       {cmsInstitutional && <RenderCMS sections={cmsInstitutional?.sections} />}
     </>
