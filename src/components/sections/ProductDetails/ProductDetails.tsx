@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
 import { graphql, navigate } from 'gatsby'
 import React, { useEffect, useState } from 'react'
@@ -17,9 +18,9 @@ import ImageGallery from 'src/components/ui/ImageGallery'
 import Container from 'src/components/common/Container'
 import SkuSelector from 'src/components/ui/SkuSelector'
 import ScannerLink from 'src/components/common/ScannerLink'
+import SocialNetwork from 'src/components/common/SocialNetwork'
 
 import Section from '../../common/Section'
-import SocialNetwork from 'src/components/common/SocialNetwork'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -29,7 +30,7 @@ function ProductDetails({ product: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
 
-  const socialNetworks = [
+  const socialNetworks: any = [
     {
       active: true,
       width: 14,
@@ -95,16 +96,17 @@ function ProductDetails({ product: staleProduct }: Props) {
   } = data
 
   const skuOptions =
-    variants?.length > 0
-      ? variants?.map((variant) => {
-          if (!variant) return null
-
+    variants !== undefined && variants !== null
+      ? variants.map((variant: any) => {
           return {
             alt: variant.name,
-            src: variant?.images[0]?.value?.replace(
-              'vteximg.com.br',
-              'vtexassets.com'
-            ),
+            src:
+              variant.images !== null
+                ? variant.images[0]?.value?.replace(
+                    'vteximg.com.br',
+                    'vtexassets.com'
+                  )
+                : '',
             label: variant.name,
             link: variant.link,
           }
@@ -210,8 +212,8 @@ function ProductDetails({ product: staleProduct }: Props) {
                 variant="image"
                 options={skuOptions}
                 onChange={(e) => {
-                  const option = skuOptions.find(
-                    (opt) => opt.label === e.currentTarget.value
+                  const option = (skuOptions as any).find(
+                    (opt: any) => opt.label === e.currentTarget.value
                   )
 
                   navigate(option.link)

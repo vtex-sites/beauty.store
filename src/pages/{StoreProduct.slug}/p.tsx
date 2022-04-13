@@ -104,7 +104,7 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-      <NavbarSpacer />
+      <NavbarSpacer className="product-page" />
       <ProductDetails product={product} />
       <ProductDescription product={product} />
 

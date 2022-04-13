@@ -18,14 +18,24 @@ interface ScannerLinkProps {
   networks?: [NetworkData]
 }
 
-function SocialNetwork({ networks = [] }: PropsWithChildren<ScannerLinkProps>) {
+function SocialNetwork({
+  networks = [
+    {
+      active: false,
+      width: 14,
+      height: 14,
+      link: '',
+      label: '',
+    },
+  ],
+}: PropsWithChildren<ScannerLinkProps>) {
   return (
     <section className="social-network">
       <Text tag="p" className="social-network__label">
         Compartilhe
       </Text>
       <div className="social-network__links">
-        {networks.map((network) => {
+        {networks?.map((network) => {
           return (
             <a href={network.link} key={network.label}>
               <Button

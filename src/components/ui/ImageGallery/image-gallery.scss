@@ -70,10 +70,11 @@
     .swiper-slide {
       cursor: pointer;
       background-color: #fff;
+      border: 2px solid transparent;
       border-radius: 100px;
 
       &-thumb-active {
-        border: 2px solid #eba47a;
+        border-color: #eba47a;
       }
 
       img {

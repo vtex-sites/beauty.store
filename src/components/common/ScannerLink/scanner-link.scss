@@ -1,25 +1,29 @@
 .scanner-link {
-  align-items: center;
-  border-bottom: 1px solid var(--color-neutral-3);
-  border-top: 1px solid var(--color-neutral-3);
   display: flex;
-  height: 63px;
+  align-items: center;
   justify-content: space-between;
-  margin: var(--space-5) 0;
   max-width: 308px;
+  height: 63px;
+  margin: var(--space-5) 0;
+  border-top: 1px solid var(--color-neutral-3);
+  border-bottom: 1px solid var(--color-neutral-3);
+
+  @include media("<=notebook") {
+    max-width: unset;
+  }
 
   p {
-    color: var(--color-secondary-3);
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: -0.02em;
     line-height: 19px;
+    color: var(--color-secondary-3);
+    letter-spacing: -0.02em;
   }
 
   span {
-    color: var(--color-neutral-6);
     font-size: 13px;
     font-weight: 400;
+    color: var(--color-neutral-6);
     letter-spacing: 0.01em;
   }
 
@@ -27,7 +31,7 @@
     --tap-min-size: 38px;
 
     max-width: 38px;
-    background-color: var(--color-tertiary-3);
     cursor: pointer;
+    background-color: var(--color-tertiary-3);
   }
 }

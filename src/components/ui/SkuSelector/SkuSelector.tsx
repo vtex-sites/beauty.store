@@ -1,4 +1,5 @@
-import { Label, RadioGroup, RadioOption } from '@faststore/ui'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { RadioGroup, RadioOption } from '@faststore/ui'
 import React, { useState } from 'react'
 import { Image } from 'src/components/ui/Image'
 import type { ChangeEventHandler } from 'react'
@@ -19,7 +20,7 @@ interface DefaultSkuProps {
   disabled?: boolean
 }
 
-interface ImageSkuProps {
+type ImageSkuProps = {
   /**
    * Alternative text description of the image.
    */
@@ -36,7 +37,8 @@ interface ImageSkuProps {
    * Specifies that this option should be disabled.
    */
   disabled?: boolean
-}
+  link?: string
+} | null
 
 type ImageVariant = 'image'
 
@@ -57,7 +59,7 @@ export interface SkuSelectorProps {
   /**
    * SKU options that should be rendered.
    */
-  options: Array<Sku<Variant>>
+  options?: Array<Sku<Variant>>
   /**
    * Default SKU option.
    */
@@ -73,9 +75,8 @@ export interface SkuSelectorProps {
 }
 
 function SkuSelector({
-  label,
   variant,
-  options,
+  options = [],
   onChange,
   defaultSku,
   testId = 'store-sku-selector',
@@ -97,7 +98,7 @@ function SkuSelector({
             setSelectedSku(e.currentTarget.value)
           }}
         >
-          {options.map((option, index) => {
+          {options.map((option: any, index) => {
             return (
               <div
                 key={String(index)}
