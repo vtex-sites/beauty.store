@@ -16174,7 +16174,7 @@ swap-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
-swiper@^8.1.0:
+swiper@^8.0.7:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.1.0.tgz#5f295e97c0e6051d2c48179f668ccfffc10a73f8"
   integrity sha512-Py2vuk7Nb3xlZMB2e201DQkjslTb6Uaju6wvr4BB7VjWrouSZegA0QjbxDVheJOsbKMUV092iDL3kymPBbuVzw==

@@ -2,7 +2,6 @@
 
 .banner-and-shelf {
   display: flex;
-  margin-top: 72px;
   margin-bottom: 72px;
 
   @include media("<=tablet") {

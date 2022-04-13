@@ -19,13 +19,13 @@
     grid-column-gap: 24px;
     width: 100%;
     max-width: var(--container-width);
-    padding: 0;
+    padding: var(--space-3) 0;
     margin: 0 auto;
-    overflow-x: scroll;
+    overflow-x: auto;
     list-style-type: none;
 
     @include media(">notebook") {
-      padding: 0 var(--space-3);
+      padding: var(--space-3);
     }
   }
 }

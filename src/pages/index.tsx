@@ -10,6 +10,8 @@ import HomeBanner from 'src/components/sections/HomeBanner'
 import Incentives from 'src/components/sections/Incentives'
 import Mosaic from 'src/components/sections/Mosaic'
 import { Helmet } from 'react-helmet'
+import ShelfsWithTabs from 'src/components/sections/ShelfsWithTabs'
+import BannerAndShelf from 'src/components/sections/BannerAndShelf'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -133,6 +135,7 @@ function Page(props: Props) {
           },
         ]}
       />
+      <ShelfsWithTabs />
       <Mosaic
         topic="Scanner Facial"
         title="Descubra a sua rotina skincare ideal com o scanner facial beauty"
@@ -152,6 +155,7 @@ function Page(props: Props) {
           'https://beauty.vteximg.com.br/arquivos/mosaico-banner-mobile-05.jpg?v',
         ]}
       />
+      <BannerAndShelf />
       {/* CMS Sections */}
 
       {/* <RenderCMS sections={cmsHome?.sections ?? fallbackContent} /> */}
