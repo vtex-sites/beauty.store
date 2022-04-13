@@ -1,0 +1,19 @@
+@import "src/styles/scaffold";
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-3);
+  background: var(--color-neutral-8);
+  border-radius: 80px;
+
+  &__content {
+    font-family: var(--font-family-body);
+    font-size: 18px;
+    line-height: 23px;
+    color: var(--color-neutral-0);
+    text-align: center;
+  }
+}

@@ -42,16 +42,10 @@ function ProductDetails({ product: staleProduct }: Props) {
       id,
       sku,
       gtin,
-      description,
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: {
-        name,
-        productGroupID: productId,
-        complementName,
-        variants,
-      },
+      isVariantOf: { name, complementName, variants },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],

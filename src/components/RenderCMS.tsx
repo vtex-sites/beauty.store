@@ -2,6 +2,7 @@ import React from 'react'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
 import Incentives from 'src/components/sections/Incentives'
+import Mosaic from 'src/components/sections/Mosaic'
 import type { ComponentType } from 'react'
 
 /**
@@ -12,6 +13,7 @@ const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
   BannerText,
   Incentives,
+  Mosaic,
 }
 
 interface Props {
@@ -25,10 +27,6 @@ function RenderCMS({ sections }: Props) {
         const Component = COMPONENTS[name]
 
         if (!Component) {
-          console.error(
-            `Could not find component for block ${name}. Add a new component for this block or remove it from the CMS`
-          )
-
           return null
         }
 

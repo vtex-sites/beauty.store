@@ -6,7 +6,6 @@ import RenderCMS from 'src/components/RenderCMS'
 import { mark } from 'src/sdk/tests/mark'
 import type { PageProps } from 'gatsby'
 import type { HomePageQueryQuery } from '@generated/graphql'
-import Mosaic from 'src/components/sections/Mosaic'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -71,7 +70,6 @@ function Page(props: Props) {
           },
         }}
       />
-      <Mosaic />
       {/* CMS Sections */}
       <RenderCMS sections={cmsHome?.sections ?? fallbackContent} />
     </>

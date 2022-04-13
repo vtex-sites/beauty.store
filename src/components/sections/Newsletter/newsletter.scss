@@ -1,0 +1,36 @@
+[data-store-newsletter] {
+  [data-newsletter-header] {
+    margin: var(--space-1) 0;
+    font-size: var(--text-size-2);
+    font-weight: var(--text-weight-bold);
+    color: var(--color-text);
+  }
+
+  [data-newsletter-controls] {
+    position: relative;
+
+    [data-store-input] {
+      width: 100%;
+      padding: var(--space-3) 0;
+      font-size: var(--text-size-2);
+      color: var(--color-text);
+      background: transparent;
+      border: 0;
+      border-bottom: var(--border-width-0) solid var(--color-neutral-6);
+
+      &::placeholder {
+        font-size: var(--text-size-2);
+        color: var(--color-text);
+      }
+    }
+
+    [data-store-button] {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      cursor: pointer;
+      background-color: transparent;
+      border: 0;
+    }
+  }
+}

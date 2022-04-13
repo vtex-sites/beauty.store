@@ -9,9 +9,12 @@
 @import "src/components/common/PostalCode/postal-code-input.scss";
 @import "src/components/common/SearchInput/search-input.scss";
 @import "src/components/common/Navbar/navbar.scss";
+@import "src/components/common/NavbarSpacer/navbarSpacer.scss";
+@import "src/components/common/MainMenu/mainMenu.scss";
 @import "src/components/common/Section/section.scss";
 @import "src/components/common/Container/container.scss";
 @import "src/components/common/ScannerLink/scanner-link.scss";
+@import "src/components/common/SocialNetwork/social-network.scss";
 
 // Product
 @import "src/components/product/ProductCard/product-card.scss";
@@ -20,6 +23,7 @@
 // Search
 @import "src/components/search/Filter/filter.scss";
 @import "src/components/search/Filter/FilterButton/filter-button.scss";
+@import "src/components/sections/SkinCareInfocard/skincare-infocard.scss";
 @import "src/components/search/History/search-history.scss";
 @import "src/components/search/SuggestionProductCard/suggestion-product-card.scss";
 @import "src/components/search/Suggestions/suggestions.scss";
@@ -29,11 +33,14 @@
 @import "src/components/sections/BannerText/banner-text.scss";
 @import "src/components/sections/Breadcrumb/breadcrumb.scss";
 @import "src/components/sections/Incentives/incentives.scss";
+@import "src/components/sections/Newsletter/newsletter.scss";
 @import "src/components/sections/ProductDetails/product-details.scss";
 @import "src/components/sections/ProductGallery/product-gallery.scss";
 @import "src/components/sections/ProductShelf/product-shelf.scss";
+@import "src/components/sections/ProductDescription/product-description.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
 @import "src/components/sections/Mosaic/mosaic.scss";
+@import "src/components/sections/ScannerPresenter/scanner-presenter.scss";
 
 // Skeletons
 @import "src/components/skeletons/FilterSkeleton/filter-skeleton.scss";
@@ -53,6 +60,7 @@
 @import "src/components/ui/EmptyState/empty-state.scss";
 @import "src/components/ui/Hero/hero.scss";
 @import "src/components/ui/IconButton/icon-button.scss";
+@import "src/components/ui/InfocardIcon/infocard-icon.scss";
 @import "src/components/ui/Image/image.scss";
 @import "src/components/ui/Link/link.scss";
 @import "src/components/ui/Price/price.scss";
@@ -64,3 +72,4 @@
 @import "src/components/ui/SROnly/sr-only.scss";
 @import "src/components/ui/Tiles/tiles.scss";
 @import "src/components/ui/ImageGallery/image-gallery.scss";
+@import "src/components/ui/CtaButton/cta-button.scss";
