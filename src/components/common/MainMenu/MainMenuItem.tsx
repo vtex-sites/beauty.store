@@ -116,6 +116,7 @@ function MainMenuItem({ data, level, type, onGoBack }: Props) {
           as="a"
           href={data.href}
           title={data.label}
+          role="menuitem"
         >
           {data.label}
         </Link>
