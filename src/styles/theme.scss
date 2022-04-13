@@ -170,6 +170,17 @@
 
   // Container
   --container-width: 1380px;
+
+  // Project
+
+  [data-store-quantity-selector] {
+    --color-border-input: var(--color-neutral-3);
+  }
+
+  [data-quantity-selector-input] {
+    font-size: 14px;
+    color: var(--color-neutral-9);
+  }
 }
 
 // Avoids double scroll issue on the page when overlay is open

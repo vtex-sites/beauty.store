@@ -51,6 +51,7 @@
     width: 100%;
     height: 100%;
     padding: 0;
+    color: var(--color-neutral-7);
     text-align: center;
     background-color: transparent;
     border-width: 0;
@@ -96,4 +97,23 @@
   box-shadow: 0 0 0 var(--border-width-0) var(--bg-disabled);
 
   [data-quantity-selector-button]:hover [data-store-icon] { background-color: transparent; }
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-3);
+
+  &__label {
+    margin-right: var(--space-2);
+    font-size: 14px;
+    color: var(--color-neutral-7);
+    text-transform: uppercase;
+  }
+
+  [data-store-icon-button] {
+    &:focus {
+      background: none;
+    }
+  }
 }

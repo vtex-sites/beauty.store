@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { sendAnalyticsEvent, useSession } from '@faststore/sdk'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import React, { useEffect, useState } from 'react'
 import { DiscountBadge } from 'src/components/ui/Badge'
 import Breadcrumb from 'src/components/ui/Breadcrumb'
@@ -14,6 +15,10 @@ import type { ProductDetailsFragment_ProductFragment } from '@generated/graphql'
 import type { CurrencyCode, ViewItemEvent } from '@faststore/sdk'
 import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import ImageGallery from 'src/components/ui/ImageGallery'
+import Container from 'src/components/common/Container'
+import SkuSelector from 'src/components/ui/SkuSelector'
+import ScannerLink from 'src/components/common/ScannerLink'
+import SocialNetwork from 'src/components/common/SocialNetwork'
 
 import Section from '../../common/Section'
 
@@ -24,6 +29,44 @@ interface Props {
 function ProductDetails({ product: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
+
+  const socialNetworks: any = [
+    {
+      active: true,
+      width: 14,
+      height: 18,
+      link: '/',
+      label: 'Pinterest',
+    },
+    {
+      active: true,
+      width: 16,
+      height: 16,
+      link: '/',
+      label: 'Instagram',
+    },
+    {
+      active: true,
+      width: 18,
+      height: 18,
+      link: '/',
+      label: 'Whatsapp',
+    },
+    {
+      active: true,
+      width: 14,
+      height: 18,
+      link: '/',
+      label: 'Pinterest',
+    },
+    {
+      active: true,
+      width: 16,
+      height: 12,
+      link: '/',
+      label: 'Email',
+    },
+  ]
 
   // Stale while revalidate the product for fetching the new price etc
   const { data, isValidating } = useProduct(staleProduct.id, {
@@ -42,7 +85,7 @@ function ProductDetails({ product: staleProduct }: Props) {
       name: variantName,
       brand,
       isVariantOf,
-      isVariantOf: { name, productGroupID: productId },
+      isVariantOf: { name, complementName, variants },
       image: productImages,
       offers: {
         offers: [{ availability, price, listPrice, seller }],
@@ -51,6 +94,24 @@ function ProductDetails({ product: staleProduct }: Props) {
       breadcrumbList: breadcrumbs,
     },
   } = data
+
+  const skuOptions =
+    variants !== undefined && variants !== null
+      ? variants.map((variant: any) => {
+          return {
+            alt: variant.name,
+            src:
+              variant.images !== null
+                ? variant.images[0]?.value?.replace(
+                    'vteximg.com.br',
+                    'vtexassets.com'
+                  )
+                : '',
+            label: variant.name,
+            link: variant.link,
+          }
+        })
+      : []
 
   const buyDisabled = availability !== 'https://schema.org/InStock'
 
@@ -104,63 +165,83 @@ function ProductDetails({ product: staleProduct }: Props) {
   ])
 
   return (
-    <Section className="product-details / grid-content grid-section">
-      <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
+    <Section className="product-details">
+      <Container>
+        <Breadcrumb breadcrumbList={breadcrumbs.itemListElement} />
 
-      <section className="product-details__body">
-        <header className="product-details__title">
-          <ProductTitle
-            title={<h1 className="title-product">{name}</h1>}
-            label={<DiscountBadge listPrice={listPrice} spotPrice={lowPrice} />}
-            refNumber={productId}
-          />
-        </header>
-
-        <section className="product-details__image">
-          <ImageGallery images={productImages} />
-        </section>
-
-        <section className="product-details__settings">
-          <section className="product-details__values">
-            <div className="product-details__prices">
-              <Price
-                value={listPrice}
-                formatter={useFormattedPrice}
-                testId="list-price"
-                data-value={listPrice}
-                variant="listing"
-                classes="text-body-small"
-                SRText="Original price:"
-              />
-              <Price
-                value={lowPrice}
-                formatter={useFormattedPrice}
-                testId="price"
-                data-value={lowPrice}
-                variant="spot"
-                classes="title-display"
-                SRText="Sale Price:"
-              />
-            </div>
-            {/* <div className="prices">
-              <p className="price__old text-body-small">{formattedListPrice}</p>
-              <p className="price__new">{isValidating ? '' : formattedPrice}</p>
-            </div> */}
-            <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+        <section className="product-details__contents">
+          <section className="product-details__image">
+            <ImageGallery images={productImages} />
           </section>
-          {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
+          <section className="product-details__body">
+            <header className="product-details__title">
+              <ProductTitle
+                title={<h1 className="title-product">{name}</h1>}
+                label={
+                  <DiscountBadge listPrice={listPrice} spotPrice={lowPrice} />
+                }
+                complementName={complementName}
+              />
+            </header>
+
+            <section className="product-details__settings">
+              <section className="product-details__values">
+                <div className="product-details__prices">
+                  <Price
+                    value={listPrice}
+                    formatter={useFormattedPrice}
+                    testId="list-price"
+                    data-value={listPrice}
+                    variant="listing"
+                    classes="text-body-small"
+                    SRText="Original price:"
+                  />
+                  <Price
+                    value={lowPrice}
+                    formatter={useFormattedPrice}
+                    testId="price"
+                    data-value={lowPrice}
+                    variant="spot"
+                    classes="title-display"
+                    SRText="Sale Price:"
+                  />
+                </div>
+              </section>
+
+              <SkuSelector
+                variant="image"
+                options={skuOptions}
+                onChange={(e) => {
+                  const option = (skuOptions as any).find(
+                    (opt: any) => opt.label === e.currentTarget.value
+                  )
+
+                  navigate(option.link)
+                }}
+                defaultSku={variantName}
+              />
+
+              <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+
+              <ScannerLink promotion={10} />
+
+              {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
               non-composited animation violation due to the button transitioning its
               background color when changing from its initial disabled to active state.
               See full explanation on commit https://git.io/JyXV5. */}
-          {isValidating ? (
-            <AddToCartLoadingSkeleton />
-          ) : (
-            <BuyButton disabled={buyDisabled} {...buyProps}>
-              Add to Cart
-            </BuyButton>
-          )}
+              {isValidating ? (
+                <AddToCartLoadingSkeleton />
+              ) : (
+                <BuyButton disabled={buyDisabled} {...buyProps}>
+                  Comprar
+                </BuyButton>
+              )}
+
+              <SocialNetwork networks={socialNetworks} />
+            </section>
+          </section>
         </section>
-      </section>
+      </Container>
     </Section>
   )
 }
@@ -235,6 +316,11 @@ export const fragment = graphql`
       productGroupID
       name
       complementName
+
+      additionalProperty {
+        name
+        value
+      }
 
       installment {
         count
