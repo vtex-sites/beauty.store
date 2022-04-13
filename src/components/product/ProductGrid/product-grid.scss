@@ -1,18 +1,28 @@
 @import "src/styles/scaffold";
 
 .product-grid {
-  --gap: 2px;
+  --gap: 15px;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--gap);
+
+  @include media("<notebook") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media("<=tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media("<=phonelg") {
+    grid-template-columns: 1fr;
+  }
 
   @include media(">=notebook") {
     --gap: var(--grid-gap-0);
 
     $pagination-start-index: 2;
-
-    grid-template-columns: repeat(4, 1fr);
 
     &:nth-of-type(n + #{$pagination-start-index}) {
       margin-top: var(--gap);

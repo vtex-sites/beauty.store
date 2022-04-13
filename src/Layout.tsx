@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from 'react'
-import Alert from 'src/components/common/Alert'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import Toast from 'src/components/common/Toast'
@@ -11,12 +10,17 @@ const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart } = useUI()
 
+  if (typeof window !== `undefined`) {
+    const stylesheet = document.createElement('link')
+
+    stylesheet.href = '/css/minicart.css'
+    stylesheet.rel = 'stylesheet'
+    stylesheet.type = 'text/css'
+    document.getElementsByTagName('head')[0].appendChild(stylesheet)
+  }
+
   return (
     <div id="layout">
-      <Alert>
-        Get 10% off today:&nbsp;<span>NEW10</span>
-      </Alert>
-
       <Navbar />
 
       <main>{children}</main>

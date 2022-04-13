@@ -3,10 +3,10 @@ import type { PropsWithChildren } from 'react'
 
 import Shimmer from '../Shimmer'
 
-type ElementVariant = 'text' | 'button' | 'image' | 'badge'
+type ElementVariant = 'text' | 'button' | 'image' | 'badge' | 'full'
 
 interface Props {
-  loading?: boolean
+  loading?: boolean | null
   shimmer?: boolean
   type: ElementVariant
 }

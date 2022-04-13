@@ -1,57 +1,184 @@
-import { List as UIList } from '@faststore/ui'
-import { graphql, Link as LinkGatsby, useStaticQuery } from 'gatsby'
+import { Link as LinkGatsby } from 'gatsby'
 import React, { useRef, useState } from 'react'
 import CartToggle from 'src/components/cart/CartToggle'
 import SearchInput from 'src/components/common/SearchInput'
 import Icon from 'src/components/ui/Icon'
 import IconButton from 'src/components/ui/IconButton'
-import Link from 'src/components/ui/Link'
 import Logo from 'src/components/ui/Logo'
 import SignInLink from 'src/components/ui/SignInLink'
 import SlideOver from 'src/components/ui/SlideOver'
 import { mark } from 'src/sdk/tests/mark'
-import type { AnchorHTMLAttributes } from 'react'
 import type { SearchInputRef } from '@faststore/ui'
-import type { StoreCollectionQuery } from '@generated/graphql'
+import type { MainMenuList } from 'src/components/common/MainMenu'
+import MainMenu from 'src/components/common/MainMenu'
+
+import Container from '../Container'
+import Section from '../Section'
 
 type Callback = () => unknown
 
-interface NavLinksProps {
-  onClickLink?: AnchorHTMLAttributes<HTMLAnchorElement>['onClick']
-}
+const listRow: MainMenuList[] = [
+  {
+    label: 'A Beauty',
+    href: '/beleza',
+  },
+  {
+    label: 'Produtos',
+    href: '/Produtos',
+    childrenTitle: 'Beleza',
+    children: [
+      {
+        label: 'Categorias',
+        href: '#',
+        children: [
+          {
+            label: 'Firmeza da Pele',
+            href: '#',
+          },
+          {
+            label: 'Hidratação da Pele',
+            href: '#',
+          },
+          {
+            label: 'Rugas e Linhas de expressão',
+            href: '#',
+          },
+          {
+            label: 'Flacidez e Celulite',
+            href: '#',
+          },
+          {
+            label: 'Cabelos e Unhas',
+            href: '#',
+          },
+        ],
+      },
+      {
+        label: 'Ativos',
+        href: '#',
+        children: [
+          {
+            label: 'Ácido Hialurônico',
+            href: '#',
+          },
+          {
+            label: 'Colágeno',
+            href: '#',
+          },
+          {
+            label: 'Biotina',
+            href: '#',
+          },
+          {
+            label: 'Peptan',
+            href: '#',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Scanner Facial',
+    href: '/scanner',
+  },
+]
 
-function NavLinks({ onClickLink }: NavLinksProps) {
-  const {
-    allStoreCollection: { edges: links },
-  } = useStaticQuery<StoreCollectionQuery>(graphql`
-    query StoreCollection {
-      allStoreCollection(filter: { type: { eq: Department } }) {
-        edges {
-          node {
-            slug
-            seo {
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return (
-    <nav className="navlinks__list">
-      <UIList>
-        {links.map(({ node: link }) => (
-          <li key={link.seo.title}>
-            <Link variant="display" to={`/${link.slug}`} onClick={onClickLink}>
-              {link.seo.title}
-            </Link>
-          </li>
-        ))}
-      </UIList>
-    </nav>
-  )
-}
+const listColumn: MainMenuList[] = [
+  {
+    label: 'Todas as Categorias',
+    href: '#',
+    childrenTitle: 'Categorias',
+    children: [
+      {
+        label: 'beleza',
+        href: '#',
+      },
+      {
+        label: 'Cabelos',
+        href: '#',
+      },
+      {
+        label: 'Pele',
+        href: '#',
+      },
+    ],
+  },
+  {
+    label: 'Scanner Facial',
+    href: '#',
+  },
+  {
+    label: 'A Beauty',
+    href: '',
+    childrenTitle: 'Categorias',
+    children: [
+      {
+        label: 'Por Necessidade',
+        href: '#',
+        children: [
+          {
+            label: 'Firmeza da Pele',
+            href: '#',
+          },
+          {
+            label: 'Hidratação da Pele',
+            href: '#',
+          },
+          {
+            label: 'Rugas e Linhas de expressão',
+            href: '#',
+          },
+          {
+            label: 'Flacidez e Celulite',
+            href: '#',
+          },
+          {
+            label: 'Cabelos e Unhas',
+            href: '#',
+          },
+        ],
+      },
+      {
+        label: 'Ativos',
+        href: '',
+        children: [
+          {
+            label: 'Ácido Hialurônico',
+            href: '',
+          },
+          {
+            label: 'Colágeno',
+            href: '',
+          },
+          {
+            label: 'Biotina',
+            href: '',
+          },
+          {
+            label: 'Peptan',
+            href: '',
+          },
+          {
+            label: 'Verisol',
+            href: '',
+          },
+          {
+            label: 'Vitamina C',
+            href: '',
+          },
+          {
+            label: 'MSM - metilsulfonilmetano',
+            href: '',
+          },
+          {
+            label: 'Antioxidantes',
+            href: '',
+          },
+        ],
+      },
+    ],
+  },
+]
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false)
@@ -67,52 +194,56 @@ function Navbar() {
 
   return (
     <header className="navbar / grid-content-full">
-      <div className="navbar__header / grid-content">
-        <section className="navbar__row">
-          {!searchExpanded && (
-            <>
-              <IconButton
-                classes="navbar__menu"
-                aria-label="Open Menu"
-                icon={<Icon name="List" width={32} height={32} />}
-                onClick={() => setShowMenu(true)}
-              />
-              <LinkGatsby
-                to="/"
-                aria-label="Go to Faststore home"
-                title="Go to Faststore home"
-                className="navbar__logo"
+      <Section>
+        <Container>
+          <div className="navbar__header / grid-content">
+            <section className="navbar__row">
+              {!searchExpanded && (
+                <>
+                  <MainMenu list={listRow} className="main-menu-large" />
+                  <IconButton
+                    classes="navbar__menu"
+                    aria-label="Open Menu"
+                    icon={<Icon name="List" width={32} height={32} />}
+                    onClick={() => setShowMenu(true)}
+                  />
+                  <LinkGatsby
+                    to="/"
+                    aria-label="Go to Faststore home"
+                    title="Go to Faststore home"
+                    className="navbar__logo"
+                  >
+                    <Logo />
+                  </LinkGatsby>
+                </>
+              )}
+              <div
+                className="navbar__buttons"
+                data-store-search-expanded={searchExpanded}
               >
-                <Logo />
-              </LinkGatsby>
-            </>
-          )}
-          <SearchInput />
-          <div
-            className="navbar__buttons"
-            data-store-search-expanded={searchExpanded}
-          >
-            {searchExpanded && (
-              <IconButton
-                classes="navbar__collapse"
-                aria-label="Collapse search bar"
-                icon={<Icon name="CaretLeft" width={32} height={32} />}
-                onClick={() => setSearchExpanded(false)}
-              />
-            )}
-            <SearchInput
-              placeholder=""
-              ref={searchMobileRef}
-              testId="store-input-mobile"
-              buttonTestId="store-input-mobile-button"
-              onSearchClick={handlerExpandSearch}
-            />
-            <SignInLink />
-            <CartToggle />
+                <SearchInput />
+                {searchExpanded && (
+                  <IconButton
+                    classes="navbar__collapse"
+                    aria-label="Collapse search bar"
+                    icon={<Icon name="CaretLeft" width={32} height={32} />}
+                    onClick={() => setSearchExpanded(false)}
+                  />
+                )}
+                <SearchInput
+                  placeholder=""
+                  ref={searchMobileRef}
+                  testId="store-input-mobile"
+                  buttonTestId="store-input-mobile-button"
+                  onSearchClick={handlerExpandSearch}
+                />
+                <SignInLink />
+                <CartToggle />
+              </div>
+            </section>
           </div>
-        </section>
-        <NavLinks />
-      </div>
+        </Container>
+      </Section>
 
       <SlideOver
         isOpen={showMenu}
@@ -144,7 +275,11 @@ function Navbar() {
             />
           </header>
           <div className="navlinks">
-            <NavLinks onClickLink={handleCloseSlideOver} />
+            <MainMenu
+              list={listColumn}
+              className="main-menu-mobile"
+              type="column"
+            />
             <div className="navlinks__signin">
               <SignInLink />
             </div>

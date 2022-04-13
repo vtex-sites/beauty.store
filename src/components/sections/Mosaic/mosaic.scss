@@ -1,4 +1,9 @@
 .mosaic {
+  &__container {
+    max-width: 1200px;
+    margin: 80px auto;
+  }
+
   &__grid {
     @include media(">=notebook") {
       display: grid;
@@ -6,14 +11,13 @@
       row-gap: var(--space-5);
       column-gap: var(--space-8);
       justify-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
   }
 
   &__images {
     @include media("<notebook") {
       position: relative;
+      z-index: -1;
       max-width: calc(var(--breakpoint-phonemid) * 1.5);
       height: 276px;
       margin: -46px auto 0;
@@ -39,7 +43,7 @@
       height: 142px;
     }
 
-    &--1 {
+    &--0 {
       @include media("<notebook") {
         left: 0;
         transform: translateX(-0%);
@@ -50,7 +54,7 @@
       }
     }
 
-    &--2 {
+    &--1 {
       @include media("<notebook") {
         left: 0;
         transform: translate(60%, 50%);
@@ -61,7 +65,7 @@
       }
     }
 
-    &--3 {
+    &--2 {
       @include media("<notebook") {
         right: 0;
         transform: translate(-60%, 50%);
@@ -72,7 +76,7 @@
       }
     }
 
-    &--4 {
+    &--3 {
       @include media("<notebook") {
         right: 0;
         transform: translateX(0%);
@@ -156,8 +160,9 @@
     }
 
     &:hover {
+      text-decoration: none;
+
       @include media(">=notebook") {
-        text-decoration: none;
         background-color: var(--color-secondary-2);
       }
     }
