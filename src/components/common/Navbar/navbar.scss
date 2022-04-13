@@ -116,11 +116,19 @@
   overflow: hidden;
 }
 
+.navbar__logo-content {
+  display: block;
+  width: min-content;
+  margin: 0 auto;
+}
+
 .navbar__logo {
   width: auto;
+  width: min-content;
   height: 2.375rem;
   min-height: 2.375rem;
   padding: 0;
+  margin: 0 auto;
 
   img {
     width: 100%;
@@ -146,6 +154,10 @@
 
   .navbar__button {
     margin-right: calc(-1 * var(--space-1));
+  }
+
+  .navbar__logo {
+    margin: 0;
   }
 }
 
