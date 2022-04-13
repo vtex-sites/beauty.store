@@ -1,7 +1,7 @@
 @import "src/styles/scaffold";
 
 .product-details {
-  background-color: #e5e5e5;
+  background-color: #E5E5E5;
 
   &__contents {
     display: flex;
@@ -9,6 +9,17 @@
     @include media("<=notebook") {
       flex-direction: column;
     }
+  }
+
+  .container,
+  .swiper-image-gallery-thumbs {
+    @include media("<=notebook") {
+      padding: 0;
+    }
+  }
+
+  @include media("<=notebook") {
+    background-color: #F2F2F2;
   }
 }
 
@@ -24,6 +35,11 @@
 
   @include media(">=notebook") {
     max-width: 501px;
+    padding: 27px 30px 28px;
+  }
+
+  @include media("<=notebook") {
+    padding: 27px 30px 28px;
   }
 }
 
@@ -72,6 +88,10 @@
     border-radius: 40px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+
+    @include media("<=notebook") {
+      align-self: center;
+    }
   }
 
   .price[data-store-price] {
@@ -82,6 +102,11 @@
       margin: 0;
       font-weight: var(--text-weight-black);
     }
+  }
+
+  @include media("<=notebook") {
+    display: flex;
+    flex-direction: column;
   }
 }
 
