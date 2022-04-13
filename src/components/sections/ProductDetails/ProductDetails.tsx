@@ -16,6 +16,7 @@ import type { AnalyticsItem } from 'src/sdk/analytics/types'
 import ImageGallery from 'src/components/ui/ImageGallery'
 import Container from 'src/components/common/Container'
 import SkuSelector from 'src/components/ui/SkuSelector'
+import ScannerLink from 'src/components/common/ScannerLink'
 
 import Section from '../../common/Section'
 
@@ -67,7 +68,7 @@ function ProductDetails({ product: staleProduct }: Props) {
 
           return {
             alt: variant.name,
-            src: variant.images[0]?.value.replace(
+            src: variant?.images[0]?.value?.replace(
               'vteximg.com.br',
               'vtexassets.com'
             ),
@@ -186,6 +187,8 @@ function ProductDetails({ product: staleProduct }: Props) {
               />
 
               <QuantitySelector min={1} max={10} onChange={setAddQuantity} />
+
+              <ScannerLink promotion={10} />
 
               {/* NOTE: A loading skeleton had to be used to avoid a Lighthouse's
               non-composited animation violation due to the button transitioning its

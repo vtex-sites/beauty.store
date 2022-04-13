@@ -14,7 +14,7 @@
   .container,
   .swiper-image-gallery-thumbs {
     @include media("<=notebook") {
-      padding: 0;
+      display: none;
     }
   }
 
@@ -35,7 +35,6 @@
 
   @include media(">=notebook") {
     max-width: 501px;
-    padding: 27px 30px 28px;
   }
 
   @include media("<=notebook") {
@@ -80,7 +79,6 @@
   }
 
   [data-store-buy-button] {
-    margin-top: var(--space-5);
     width: 100%;
     max-width: 340px;
     height: 80px;
