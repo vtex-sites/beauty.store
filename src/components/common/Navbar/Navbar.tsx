@@ -90,7 +90,7 @@ const listColumn: MainMenuList[] = [
     children: [
       {
         label: 'beleza',
-        href: '#',
+        href: '/beleza',
       },
       {
         label: 'Cabelos',
@@ -104,11 +104,11 @@ const listColumn: MainMenuList[] = [
   },
   {
     label: 'Scanner Facial',
-    href: '#',
+    href: '/scanner',
   },
   {
     label: 'A Beauty',
-    href: '',
+    href: '/institucional/a-beauty',
     childrenTitle: 'Categorias',
     children: [
       {
