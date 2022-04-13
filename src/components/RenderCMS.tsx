@@ -1,6 +1,7 @@
 import React from 'react'
 import BannerText from 'src/components/sections/BannerText'
 import Hero from 'src/components/sections/Hero'
+import BannerAndShelf from 'src/components/sections/BannerAndShelf'
 import Incentives from 'src/components/sections/Incentives'
 import HomeBanner from 'src/components/sections/HomeBanner'
 import Mosaic from 'src/components/sections/Mosaic'
@@ -14,6 +15,7 @@ const COMPONENTS: Record<string, ComponentType<any>> = {
   Hero,
   HomeBanner,
   BannerText,
+  BannerAndShelf,
   Incentives,
   Mosaic,
 }

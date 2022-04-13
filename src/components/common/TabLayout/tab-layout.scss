@@ -1,0 +1,40 @@
+@import "src/styles/scaffold";
+
+.tab-layout {
+  &__header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    @include media("<=450px") {
+      justify-content: flex-start;
+      padding-left: 16px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+    }
+  }
+
+  &__tab {
+    padding: 3px 16px;
+    color: var(--color-neutral-5);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    @include media("<=450px") {
+      min-width: max-content;
+      margin: 0;
+    }
+
+    &--active {
+      color: #fff;
+      background-color: #eba47a;
+      border-radius: 38px;
+    }
+  }
+}

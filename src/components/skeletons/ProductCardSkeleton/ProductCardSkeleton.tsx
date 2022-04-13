@@ -27,9 +27,12 @@ function ProductCardSkeleton({
       </div>
       <div data-product-card-skeleton-content>
         <SkeletonElement type="text" />
-        <SkeletonElement type="text" />
-        <SkeletonElement type="badge" />
+
         {showActions && <SkeletonElement type="button" />}
+      </div>
+      <div data-product-card-skeleton-bottom>
+        <SkeletonElement type="prices" />
+        <SkeletonElement type="badge" />
       </div>
       <Shimmer />
     </div>

@@ -11,6 +11,7 @@ import { ScannerProvider } from 'src/contexts/ScannerContext'
 import Stepper from 'src/components/common/Stepper'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 import SkeletonElement from 'src/components/skeletons/SkeletonElement'
+import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<ScannerPageQuery>
 
@@ -47,6 +48,9 @@ function Page(props: Props) {
           description: site?.siteMetadata?.description ?? '',
         }}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/scanner.css" />
+      </Helmet>
       <JsonLd
         json={{
           '@context': 'https://schema.org',

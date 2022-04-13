@@ -1,7 +1,7 @@
 @import "src/styles/scaffold";
 
 .product-grid {
-  --gap: 15px;
+  --gap: 24px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);

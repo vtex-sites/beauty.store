@@ -18,10 +18,10 @@ const siteUrl = isProduction ? URL : DEPLOY_PRIME_URL
 
 module.exports = {
   siteMetadata: {
-    title: 'BaseStore',
-    description: 'Fast Demo Store',
-    titleTemplate: '%s | FastStore',
-    author: 'Store Framework',
+    title: 'Beauty Store',
+    description: 'Fast Beauty Store',
+    titleTemplate: '%s | Beauty',
+    author: 'M3 Ecommerce',
     siteUrl,
   },
   flags: {
@@ -33,6 +33,7 @@ module.exports = {
     PRESERVE_FILE_DOWNLOAD_CACHE: false,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: '@vtex/gatsby-source-cms',
       options: { tenant: config.api.storeId, workspace: 'master' },
@@ -42,10 +43,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Fast Demo Store',
-        short_name: 'BaseStore',
+        name: 'Beauty Store',
+        short_name: 'Beauty',
         start_url: '/',
-        icon: 'src/images/icon.png',
+        icon: 'src/images/favicon.png',
         background_color: '#E31C58',
         theme_color: '#ffffff',
         display: 'standalone',

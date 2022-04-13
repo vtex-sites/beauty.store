@@ -10,6 +10,15 @@ const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
 function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart } = useUI()
 
+  if (typeof window !== `undefined`) {
+    const stylesheet = document.createElement('link')
+
+    stylesheet.href = '/css/async-styles.css'
+    stylesheet.rel = 'stylesheet'
+    stylesheet.type = 'text/css'
+    document.getElementsByTagName('head')[0].appendChild(stylesheet)
+  }
+
   return (
     <div id="layout">
       <Navbar />
