@@ -1,7 +1,6 @@
 import './src/styles/fonts.css'
 import './src/styles/theme.scss'
 import './src/styles/layout.scss'
-import './src/styles/global/components.scss'
 
 import { CartProvider, SessionProvider, UIProvider } from '@faststore/sdk'
 import React from 'react'

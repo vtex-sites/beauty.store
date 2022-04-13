@@ -15,6 +15,7 @@ import type { PageProps } from 'gatsby'
 import type { SearchState } from '@faststore/sdk'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
 import SkinCareInfocard from 'src/components/sections/SkinCareInfocard'
+import { Helmet } from 'react-helmet'
 
 type Props = PageProps<
   CollectionPageQueryQuery,
@@ -82,6 +83,10 @@ function Page(props: Props) {
           description: site?.siteMetadata?.description ?? '',
         }}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/category.css" />
+        <link rel="stylesheet" href="/css/components.css" />
+      </Helmet>
       <BreadcrumbJsonLd
         itemListElements={collection?.breadcrumbList.itemListElement ?? []}
       />

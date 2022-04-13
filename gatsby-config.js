@@ -33,6 +33,7 @@ module.exports = {
     PRESERVE_FILE_DOWNLOAD_CACHE: false,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: '@vtex/gatsby-source-cms',
       options: { tenant: config.api.storeId, workspace: 'master' },
