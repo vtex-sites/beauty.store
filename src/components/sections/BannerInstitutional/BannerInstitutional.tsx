@@ -2,8 +2,10 @@ import { Banner, BannerImage } from '@faststore/ui'
 import React from 'react'
 import { Image } from 'src/components/ui/Image'
 import type { HTMLAttributes } from 'react'
+import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 import Section from 'src/components/common/Section'
 import RichText from 'src/components/common/RichText'
+import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 
 export interface BannerInstitutionalProps
   extends HTMLAttributes<HTMLDivElement> {
@@ -32,35 +34,35 @@ function BannerInstitutional({
   imageSrcMobile,
   imageAltMobile,
 }: BannerInstitutionalProps) {
-  return (
-    <Section className="grid-section banner-institutional">
-      <Banner>
-        <BannerImage>
-          <div className="hidden-tablet">
-            <Image
-              loading="lazy"
-              width={widthDesktop}
-              height={heightDesktop}
-              src={imageSrcDesktop}
-              alt={imageAltDesktop}
-            />
-          </div>
-          <div className="display-tablet">
-            <Image
-              loading="lazy"
-              width={widthMobile}
-              height={heightMobile}
-              src={imageSrcMobile}
-              alt={imageAltMobile}
-            />
-          </div>
-        </BannerImage>
-      </Banner>
+  const { isWidescreen } = useWidescreen('(max-width: 768px)')
+  const bannerProps = isWidescreen
+    ? {
+        width: widthMobile,
+        height: heightMobile,
+        src: imageSrcMobile,
+        alt: imageAltMobile,
+      }
+    : {
+        width: widthDesktop,
+        height: heightDesktop,
+        src: imageSrcDesktop,
+        alt: imageAltDesktop,
+      }
 
-      <div className="BannerTextWrapper">
-        <RichText className="BannerTitle" text={bannerTitle} />
-        <RichText className="BannerDescription" text={bannerDescription} />
-      </div>
+  return (
+    <Section className="banner-institutional">
+      <SkeletonElement type="image" loading={isWidescreen === null} shimmer>
+        <Banner>
+          <BannerImage>
+            <Image preload={true} loading="eager" {...bannerProps} />
+          </BannerImage>
+        </Banner>
+
+        <div className="BannerTextWrapper">
+          <RichText className="BannerTitle" text={bannerTitle} />
+          <RichText className="BannerDescription" text={bannerDescription} />
+        </div>
+      </SkeletonElement>
     </Section>
   )
 }

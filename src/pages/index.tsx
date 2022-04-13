@@ -106,7 +106,7 @@ function Page(props: Props) {
           quote:
             'Quando comecei a usar os produtos indicados pela beauty minha pele e cabelo mudaram totalmente! Recomendo para as minhas amigas sempre!',
           seeMoreTitle: 'Serum treatment',
-          seeMoreLink: '/serum-treatment',
+          seeMoreLink: '/',
         }}
       />
       <Incentives
