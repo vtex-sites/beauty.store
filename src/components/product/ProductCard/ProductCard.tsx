@@ -120,6 +120,7 @@ export const fragment = graphql`
     isVariantOf {
       productGroupID
       name
+      complementName
     }
 
     image {

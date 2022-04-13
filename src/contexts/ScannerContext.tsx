@@ -4,8 +4,8 @@ import React, { useCallback, createContext, useState, useContext } from 'react'
 interface ScannerContextValue {
   selectedOptions: SelectedOption[]
   addSelectedOption: (selectedOption: SelectedOption) => void
-  selectedProductsIds: number[]
-  toggleSelectedProductId: (selectedProductId: number) => void
+  selectedProductsIds: string[]
+  toggleSelectedProductId: (selectedProductId: string) => void
 }
 
 interface ScannerProviderProps {
@@ -13,7 +13,7 @@ interface ScannerProviderProps {
 }
 
 interface SelectedOption {
-  name: string
+  key: string
   value: string
 }
 
@@ -25,7 +25,7 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
   const { children } = props
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([])
-  const [selectedProductsIds, setSelectedProductsIds] = useState<number[]>([])
+  const [selectedProductsIds, setSelectedProductsIds] = useState<string[]>([])
 
   const addSelectedOption = useCallback(
     (selectedOption: SelectedOption) =>
@@ -37,7 +37,7 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
   )
 
   const toggleSelectedProductId = useCallback(
-    (selectedProductId: number) =>
+    (selectedProductId: string) =>
       setSelectedProductsIds((oldSelectedProductsIds) => {
         const existentProductId =
           oldSelectedProductsIds.includes(selectedProductId)

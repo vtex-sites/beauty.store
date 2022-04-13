@@ -19,6 +19,8 @@
   }
 
   &__image {
+    max-width: 170px;
+
     @include media("<tablet") {
       max-width: 100px;
     }
