@@ -200,7 +200,7 @@ Components live on the `src/components` folder. Each component may have, at most
 First, let's create a folder and the files.
 
 ```sh
-mkdir src/components/ui/Button
+mkdir src/components/Button
 touch src/components/ui/Button/Button.tsx
 touch src/components/ui/Button/index.tsx
 ```

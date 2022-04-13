@@ -1,0 +1,15 @@
+@import "src/styles/scaffold";
+
+.text-content {
+  margin-bottom: var(--space-4);
+  font-family: var(--body-font);
+  font-size: var(--text-size-2);
+  font-weight: var(--text-weight-regular);
+  line-height: var(--text-size-4);
+  color: var(--color-neutral-8);
+
+  @include media(">=tablet") {
+    padding: 0 5%;
+    margin-bottom: var(--space-6);
+  }
+}

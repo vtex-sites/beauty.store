@@ -11,10 +11,19 @@
   }
 
   &__title {
-    margin-bottom: var(--space-2);
     font-family: var(--heading-font);
     font-size: var(--text-size-6);
     font-weight: var(--text-weight-bold);
+    font-feature-settings: "tnum" on, "lnum" on;
+    line-height: var(--text-size-7);
+    color: var(--color-neutral-7);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  &__subtitle {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-size-3);
     font-feature-settings: "tnum" on, "lnum" on;
     line-height: var(--text-size-7);
     color: var(--color-neutral-7);

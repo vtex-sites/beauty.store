@@ -1,0 +1,104 @@
+@import 'src/styles/scaffold';
+
+[data-store-hero] {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-4);
+  font-family: var(--heading-font);
+
+  @include media('>=tablet') {
+    min-height: 18.75rem;
+  }
+
+  &.hero-article {
+    flex-direction: row;
+
+    [data-hero-image] {
+      width: 100%;
+      height: 100%;
+
+      @include media('>=tablet') {
+        border-radius: 0 30px 30px 0;
+      }
+    }
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+  }
+
+  &.hero-article-inverted {
+    flex-direction: row-reverse;
+
+    [data-hero-image] {
+      width: 100%;
+      height: 100%;
+
+      @include media('>=tablet') {
+        border-radius: 30px 0 0 30px;
+      }
+    }
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+  }
+
+  [data-hero-content] {
+    width: 100%;
+    max-width: 47%;
+    padding: var(--space-5) 0 var(--space-6);
+    color: var(--color-neutral-7);
+    background: var(--color-neutral-0);
+
+    @include media('>=tablet') {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include media('<tablet') {
+      max-width: 100%;
+      margin-top: -40px;
+      border-top-left-radius: var(--border-radius-box);
+      border-top-right-radius: var(--border-radius-box);
+    }
+
+    .hero-content-info {
+      .title-hero {
+        font-size: var(--text-size-5);
+        font-weight: var(--text-weight-bold);
+      }
+
+      .subtitle-hero {
+        margin-top: var(--space-2);
+        font-size: var(--text-size-4);
+        font-weight: var(--text-weight-bold);
+        color: var(--color-neutral-6);
+
+        @include media('>=tablet') {
+          margin-top: var(--space-3);
+        }
+      }
+
+      .text-body-big {
+        margin-top: var(--space-2);
+        font-family: var(--body-font);
+        font-size: var(--text-size-3);
+        font-weight: var(--text-weight-regular);
+        color: var(--color-neutral-6);
+
+        @include media('>=tablet') {
+          margin-top: var(--space-3);
+        }
+      }
+    }
+  }
+
+  [data-hero-link] a {
+    @include media('>=tablet') {
+      padding: var(--space-2) var(--space-4);
+      margin-top: var(--space-8);
+    }
+  }
+}
