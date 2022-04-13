@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo'
 import React, { useMemo } from 'react'
 import Breadcrumb from 'src/components/sections/Breadcrumb'
-import BannerImg from 'src/components/sections/BannerImg'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { applySearchState } from 'src/sdk/search/state'
@@ -15,6 +14,7 @@ import type {
 import type { PageProps } from 'gatsby'
 import type { SearchState } from '@faststore/sdk'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
+import SkinCareInfocard from 'src/components/sections/SkinCareInfocard'
 
 type Props = PageProps<
   CollectionPageQueryQuery,
@@ -100,13 +100,7 @@ function Page(props: Props) {
 
       <NavbarSpacer />
 
-      <BannerImg
-        className="category-banner"
-        width={1440}
-        height={403}
-        src="https://beauty.vtexassets.com/arquivos/category-banner.jpg"
-        alt="Mulher aplicando produto de beleza"
-      />
+      <SkinCareInfocard />
 
       <Breadcrumb
         breadcrumbList={collection?.breadcrumbList.itemListElement}
