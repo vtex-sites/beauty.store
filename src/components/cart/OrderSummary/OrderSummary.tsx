@@ -22,18 +22,21 @@ function OrderSummary({
   return (
     <List className="order-summary" data-order-summary>
       <li>
-        <span>Subtotal ({numberOfItems} products)</span>
-        <span>{useFormattedPrice(subTotal)}</span>
+        <span>
+          Subtotal ({numberOfItems} {numberOfItems > 1 ? 'produtos' : 'produto'}
+          )
+        </span>
+        <span data-order-summary-price>{useFormattedPrice(subTotal)}</span>
       </li>
       {discount > 0 && (
         <li data-order-summary-discount>
-          <span>Discount</span>
-          <span>-{formattedDiscount}</span>
+          <span>Desconto</span>
+          <span data-order-summary-price>-{formattedDiscount}</span>
         </li>
       )}
-      <li className="title-subsection">
+      <li className="title-subsection" data-order-summary-total>
         <span>Total</span>
-        <span>{useFormattedPrice(total)}</span>
+        <span data-order-summary-price>{useFormattedPrice(total)}</span>
       </li>
       {checkoutButton}
     </List>

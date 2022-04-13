@@ -21,6 +21,7 @@
     display: grid;
     grid-template-columns: var(--free-space) var(--button-space);
     grid-column: 2 / span 4; // Parent grid positioning
+    align-items: center;
 
     --button-size: 130px;
     --button-size-third: calc(var(--button-size) / 3);
@@ -68,6 +69,6 @@
 
   [data-store-quantity-selector] {
     grid-row: 2;
-    grid-column: 2 / span 3;
+    grid-column: 3 / span 2;
   }
 }

@@ -63,17 +63,8 @@ function CartSidebar() {
               total={total}
               numberOfItems={totalItems}
               checkoutButton={
-                <Button
-                  variant="primary"
-                  icon={
-                    !isValidating && (
-                      <Icon name="ArrowRight" width={18} height={18} />
-                    )
-                  }
-                  iconPosition="right"
-                  {...btnProps}
-                >
-                  {isValidating ? 'Loading...' : 'Checkout'}
+                <Button variant="primary" {...btnProps}>
+                  {isValidating ? 'Carregando...' : 'finalizar compra'}
                 </Button>
               }
             />
