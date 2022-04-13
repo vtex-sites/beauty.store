@@ -28,6 +28,7 @@
 @import "src/components/search/Suggestions/suggestions.scss";
 
 // Sections
+@import "src/components/sections/HomeBanner/home-banner.scss";
 @import "src/components/sections/BannerImg/banner-img.scss";
 @import "src/components/sections/BannerText/banner-text.scss";
 @import "src/components/sections/Breadcrumb/breadcrumb.scss";
@@ -39,6 +40,7 @@
 @import "src/components/sections/ProductDescription/product-description.scss";
 @import "src/components/sections/ScrollToTopButton/scroll-to-top-button.scss";
 @import "src/components/sections/Mosaic/mosaic.scss";
+@import "src/components/sections/ScannerPresenter/scanner-presenter.scss";
 
 // Skeletons
 @import "src/components/skeletons/FilterSkeleton/filter-skeleton.scss";
@@ -71,3 +73,4 @@
 @import "src/components/ui/SROnly/sr-only.scss";
 @import "src/components/ui/Tiles/tiles.scss";
 @import "src/components/ui/ImageGallery/image-gallery.scss";
+@import "src/components/ui/CtaButton/cta-button.scss";

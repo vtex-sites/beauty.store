@@ -78,7 +78,7 @@ const listRow: MainMenuList[] = [
   },
   {
     label: 'Scanner Facial',
-    href: '#',
+    href: '/scanner',
   },
 ]
 

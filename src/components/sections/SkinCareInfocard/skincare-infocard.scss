@@ -1,9 +1,8 @@
 @import "src/styles/scaffold";
 
 .infocard-skin-wrapper {
-  padding: 0 var(--space-2);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-8);
+  padding: 0;
+  margin-bottom: var(--space-3);
 
   @include media("<=phonelg") {
     padding: 0;
