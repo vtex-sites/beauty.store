@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useCart as useSDKCart } from '@faststore/sdk'
 import Container from 'src/components/common/Container'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
+import { useCart } from 'src/sdk/cart/useCart'
 import { useScanner } from 'src/contexts/ScannerContext'
 
 import ScannerProduct from './ScannerProduct'
@@ -10,6 +12,8 @@ import ScannerProduct from './ScannerProduct'
 const ScannerResults = () => {
   const { isWidescreen } = useWidescreen()
   const { selectedOptions } = useScanner()
+  const { ...cart } = useSDKCart()
+  const { setCart } = useCart()
 
   const { data, loading } = useProductsQuery({
     first: 4,
@@ -23,6 +27,35 @@ const ScannerResults = () => {
       },
     ],
   })
+
+  const handleAddToCartButtonClick = useCallback(() => {
+    if (data) {
+      const products = data.edges.map(({ node }) => {
+        return {
+          id: node.id,
+
+          itemOffered: {
+            brand: node.brand,
+            gtin: node.gtin,
+            image: node.image,
+            isVariantOf: node.isVariantOf,
+            name: node.name,
+            sku: node.sku,
+          },
+
+          quantity: 1,
+          seller: { identifier: '1' },
+          listPrice: node.offers.offers[0].listPrice,
+          price: node.offers.offers[0].price,
+        }
+      }, {})
+
+      setCart({
+        ...cart,
+        items: products,
+      })
+    }
+  }, [data, setCart, cart])
 
   return (
     <>
@@ -62,7 +95,11 @@ const ScannerResults = () => {
                 )}
               </div>
 
-              <button className="scanner-results__button" type="button">
+              <button
+                className="scanner-results__button"
+                type="button"
+                onClick={handleAddToCartButtonClick}
+              >
                 Adicionar ao carrinho
               </button>
             </div>
