@@ -1,10 +1,9 @@
 import React from 'react'
-import { Pagination, Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import ProductShelfSkeleton from 'src/components/skeletons/ProductShelfSkeleton'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
 import type { ProductsQueryQueryVariables } from '@generated/graphql'
 import ProductCard from 'src/components/product/ProductCard'
+import Container from 'src/components/common/Container'
 
 function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
   const products = useProductsQuery(variables)
@@ -15,42 +14,17 @@ function ProductShelf({ ...variables }: Partial<ProductsQueryQueryVariables>) {
 
   return (
     <section className="page__section-shelf">
-      <div className="product-shelf__wrapper">
+      <Container>
         <ProductShelfSkeleton loading={products === undefined}>
-          <Swiper
-            loop
-            navigation
-            modules={[Navigation, Pagination]}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 24,
-              },
-            }}
-          >
+          <ul className="product-shelf__wrapper">
             {products?.edges.map((product, idx) => (
-              <SwiperSlide key={`${product.node.id}`}>
+              <li key={`${product.node.id}`}>
                 <ProductCard product={product.node} index={idx + 1} />
-              </SwiperSlide>
+              </li>
             ))}
-          </Swiper>
+          </ul>
         </ProductShelfSkeleton>
-      </div>
+      </Container>
     </section>
   )
 }

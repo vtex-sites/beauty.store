@@ -77,6 +77,7 @@ function ProductCard({
     >
       <UICardImage>
         <Image
+          loading="lazy"
           src={productImages[0].url}
           alt={productImages[0].alternateName}
           width={360}

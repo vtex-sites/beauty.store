@@ -9,20 +9,20 @@ function ShelfsWithTabs() {
   const tabs: ITab[] = [
     {
       title: 'Séruns',
-      content: ProductShelf({ first: 8, sort: 'name_asc' }),
+      content: ProductShelf({ first: 4, sort: 'name_asc' }),
     },
 
     {
       title: 'Gel de Limpeza',
-      content: ProductShelf({ first: 8, sort: 'name_desc' }),
+      content: ProductShelf({ first: 4, sort: 'name_desc' }),
     },
     {
       title: 'Hidratantes',
-      content: ProductShelf({ first: 8, sort: 'price_asc' }),
+      content: ProductShelf({ first: 4, sort: 'price_asc' }),
     },
     {
       title: 'Ácidos',
-      content: ProductShelf({ first: 8, sort: 'price_desc' }),
+      content: ProductShelf({ first: 4, sort: 'price_desc' }),
     },
   ]
 
