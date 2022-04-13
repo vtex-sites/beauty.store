@@ -2,6 +2,7 @@
 
 .page__section-shelf {
   width: 100%;
+  margin: var(--space-5) 0;
 }
 
 .product-shelf {
@@ -12,6 +13,16 @@
   max-width: var(--container-width);
   margin: 0 auto;
   margin: 72px 0;
+
+  &__title {
+    margin-bottom: var(--space-3);
+    font-family: var(--heading-font);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-neutral-7);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
 
   &__wrapper {
     display: grid;

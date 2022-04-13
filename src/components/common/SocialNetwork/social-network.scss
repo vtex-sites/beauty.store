@@ -1,0 +1,40 @@
+.social-network {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-4);
+
+  &__label {
+    margin-right: var(--space-2);
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-neutral-9);
+    letter-spacing: -0.02em;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    a {
+      display: block;
+      width: max-content;
+      margin-right: var(--space-2);
+    }
+
+    button[data-store-button] {
+      min-height: unset;
+      min-height: 32px;
+      padding: 7px 9px;
+      cursor: pointer;
+      background: unset;
+      border: 1px solid var(--color-light-neutral-0);
+      opacity: 0.5;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -23,32 +23,55 @@
 
 [data-store-sku-selector] {
   display: flex;
-  flex-wrap: wrap;
-  font-size: var(--text-size-1);
-  column-gap: var(--space-1);
+  flex-flow: column wrap;
   row-gap: var(--space-1);
+  column-gap: var(--space-1);
+  margin-top: var(--space-3);
+  font-size: var(--text-size-1);
 
   [data-sku-selector-label] {
     width: 100%;
     margin-bottom: var(--space-0);
   }
 
+  .sku {
+    &__options {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__name {
+      margin-bottom: var(--space-0);
+      color: var(--color-neutral-7);
+    }
+  }
+
+  .sku__selected[data-store-radio-option] {
+    label {
+      border-color: #454652;
+    }
+  }
+
+  div[data-store-radio-option] {
+    display: flex;
+    flex-direction: column;
+    margin-right: 12px;
+
+    label {
+      border: 1px solid #e5e5e5;
+      border-radius: 100%;
+    }
+  }
+
   [data-store-radio-option] {
     position: relative;
+    display: block;
     width: var(--space-7);
-    height: var(--space-7);
 
     span {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      border: var(--border-width-0) solid var(--color-neutral-7);
-      border-radius: var(--border-radius-default);
-      box-shadow: 0;
-      transition: box-shadow .2s ease, background-color .2s ease;
+      margin-top: var(--space-0);
+      color: var(--color-neutral-7);
+      text-align: center;
     }
 
     input {
@@ -83,10 +106,10 @@
             position: absolute;
             width: var(--border-width-0);
             height: 160%;
+            content: "";
             background-color: var(--color-border-input-disabled);
             transform: rotate(45deg);
             transform-origin: center;
-            content: "";
           }
         }
       }
@@ -103,8 +126,8 @@
       width: var(--space-6);
       height: var(--space-6);
       border-radius: var(--border-radius-small);
-      transform-origin: center center;
       transition: transform .2s ease;
+      transform-origin: center center;
     }
 
     input {

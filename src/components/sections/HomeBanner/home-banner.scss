@@ -102,6 +102,10 @@
       border-radius: var(--border-radius-pill);
       transition: all .2s ease-in-out;
 
+      &[data-store-link] {
+        text-decoration: none;
+      }
+
       @media only screen and (max-width: 960px) {
         max-width: 165px;
         padding: 12px;
@@ -163,6 +167,10 @@
     padding: 30px 40px;
     text-decoration: none;
     cursor: pointer;
+
+    &[data-store-link] {
+      text-decoration: none;
+    }
 
     @media only screen and (max-width: 960px) {
       display: none;
