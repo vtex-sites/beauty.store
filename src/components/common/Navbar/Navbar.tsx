@@ -19,11 +19,11 @@ type Callback = () => unknown
 const listRow: MainMenuList[] = [
   {
     label: 'A Beauty',
-    href: '/beleza',
+    href: '/institucional/a-beauty',
   },
   {
     label: 'Produtos',
-    href: '/Produtos',
+    href: '/beleza',
     childrenTitle: 'Beleza',
     children: [
       {
