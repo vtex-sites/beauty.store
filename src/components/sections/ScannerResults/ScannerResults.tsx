@@ -1,10 +1,13 @@
 import React from 'react'
 import Container from 'src/components/common/Container'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
+import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 
 import ScannerProduct from './ScannerProduct'
 
 const ScannerResults = () => {
+  const { isWidescreen } = useWidescreen()
+
   return (
     <>
       <NavbarSpacer />
@@ -12,7 +15,7 @@ const ScannerResults = () => {
       <div className="scanner-results">
         <Container>
           <div className="scanner-results__wrapper">
-            <img src="/scanner-results-image.jpg" alt="" />
+            {isWidescreen && <img src="/scanner-results-image.jpg" alt="" />}
 
             <div className="scanner-results__content">
               <h2 className="scanner-results__title">Seus produtos</h2>

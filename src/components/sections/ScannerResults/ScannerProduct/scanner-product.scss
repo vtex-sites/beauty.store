@@ -1,4 +1,8 @@
 .scanner-product {
+  @include media("<notebook") {
+    max-width: max-content;
+  }
+
   &__image-wrapper {
     position: relative;
     display: flex;
@@ -8,6 +12,16 @@
     background-color: var(--color-neutral-0);
     border-radius: var(--border-radius-box);
     box-shadow: 0 3.2398px 24.2982px rgb(0 0 0 / 10%);
+
+    @include media("<tablet") {
+      padding: var(--space-4);
+    }
+  }
+
+  &__image {
+    @include media("<tablet") {
+      max-width: 100px;
+    }
   }
 
   &__check {
@@ -21,6 +35,11 @@
     border: 0;
     border-radius: var(--border-radius-circle);
 
+    @include media("<tablet") {
+      width: var(--space-5);
+      height: var(--space-5);
+    }
+
     &--checked {
       font-size: var(--text-size-3);
       font-weight: var(--text-weight-bold);
@@ -33,11 +52,21 @@
     font-size: var(--text-size-3);
     font-weight: var(--text-weight-bold);
     line-height: 29px;
+
+    @include media("<tablet") {
+      margin-bottom: var(--space-0);
+      font-size: var(--text-size-2);
+      line-height: 19px;
+    }
   }
 
   &__complement {
     font-size: var(--text-size-2);
     color: var(--color-neutral-6);
     letter-spacing: 0.01em;
+
+    @include media("<tablet") {
+      font-size: var(--text-size-1);
+    }
   }
 }

@@ -26,7 +26,11 @@ const ScannerProduct = (props: ScannerProductProps) => {
   return (
     <div className="scanner-product">
       <div className="scanner-product__image-wrapper">
-        <img src="/produto-teste.jpg" alt="" />
+        <img
+          className="scanner-product__image"
+          src="/produto-teste.jpg"
+          alt=""
+        />
         <button
           className={`scanner-product__check ${
             position !== -1 ? 'scanner-product__check--checked' : ''

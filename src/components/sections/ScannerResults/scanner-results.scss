@@ -3,9 +3,16 @@
 .scanner-results {
   padding: var(--space-6) 0;
 
+  @include media("<tablet") {
+    padding: var(--space-4) 0;
+  }
+
   &__wrapper {
-    display: flex;
-    justify-content: space-evenly;
+    @include media(">=notebook") {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-evenly;
+    }
   }
 
   &__title {
@@ -15,6 +22,10 @@
     line-height: 26px;
     text-transform: uppercase;
     letter-spacing: -0.01em;
+
+    @include media("<notebook") {
+      text-align: center;
+    }
   }
 
   &__grid {
@@ -22,9 +33,22 @@
     grid-template-columns: repeat(2, max-content);
     gap: var(--space-5);
     margin-bottom: var(--space-7);
+
+    @include media("<notebook") {
+      justify-content: center;
+    }
+
+    @include media("<tablet") {
+      gap: var(--space-3);
+    }
+
+    @include media("<phonelg") {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__button {
+    display: block;
     width: 100%;
     max-width: 320px;
     height: var(--space-8);
@@ -36,6 +60,10 @@
     background-color: var(--color-neutral-7);
     border: 0;
     border-radius: var(--border-radius-pill);
+
+    @include media("<notebook") {
+      margin: 0 auto;
+    }
 
     &:hover {
       @include media(">=notebook") {
