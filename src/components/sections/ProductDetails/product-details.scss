@@ -69,6 +69,7 @@
   position: relative;
   max-width: 680px;
   margin: 0 auto;
+  overflow: hidden;
 
   [data-gatsby-image-wrapper] {
     @include media(">=tablet") {
