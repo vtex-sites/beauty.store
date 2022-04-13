@@ -20,7 +20,10 @@
       box-shadow: 0 0 0 var(--border-width-0) var(--color-border-input-selected);
     }
 
-    @include input-focus-ring;
+    &:focus-visible {
+      user-select: none;
+      outline: none;
+    }
   }
 
   [data-store-icon] { display: block; }
