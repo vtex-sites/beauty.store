@@ -3,7 +3,7 @@ import { Button } from '@faststore/ui'
 
 interface Props {
   title: string
-  description: string
+  description?: string
   imageSrc: string
   isSelected: boolean
   setSelectedOption: React.Dispatch<React.SetStateAction<string>>
@@ -26,7 +26,6 @@ function ScannerStepOption({
           className="ScannerStepOptionRadio"
         >
           {isSelected && <span className="ScannerStepOptionRadioSelected" />}
-          <span className="ScannerStepOptionRadioSelected" />
         </Button>
         <img
           className="ScannerStepOptionImage"
@@ -37,7 +36,9 @@ function ScannerStepOption({
         />
 
         <div className="ScannerStepOptionTitle">{title}</div>
-        <p className="ScannerStepOptionDescription">{description}</p>
+        {description && (
+          <p className="ScannerStepOptionDescription">{description}</p>
+        )}
       </div>
     </>
   )
