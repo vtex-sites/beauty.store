@@ -9,6 +9,7 @@ import type { HomePageQueryQuery } from '@generated/graphql'
 import HomeBanner from 'src/components/sections/HomeBanner'
 import Incentives from 'src/components/sections/Incentives'
 import Mosaic from 'src/components/sections/Mosaic'
+import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<HomePageQueryQuery>
 
@@ -64,6 +65,10 @@ function Page(props: Props) {
           description: site?.siteMetadata?.description ?? '',
         }}
       />
+      <Helmet>
+        <link rel="stylesheet" href="/css/components.css" />
+        <link rel="stylesheet" href="/css/home.css" />
+      </Helmet>
       <JsonLd
         json={{
           '@context': 'https://schema.org',
