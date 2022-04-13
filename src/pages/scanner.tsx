@@ -11,6 +11,7 @@ import { StepperProvider } from 'src/contexts/StepperContext'
 import { ScannerProvider } from 'src/contexts/ScannerContext'
 import Stepper from 'src/components/common/Stepper'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
+import SkeletonElement from 'src/components/skeletons/SkeletonElement'
 import { Helmet } from 'react-helmet'
 
 export type Props = PageProps<ScannerPageQuery>
@@ -63,28 +64,31 @@ function Page(props: Props) {
           },
         }}
       />
+      <div className="scanner__container">
+        <SkeletonElement type="image" loading={isWidescreen === null} shimmer>
+          <StepperProvider>
+            <ScannerProvider>
+              <Stepper>
+                <ScannerResults />
 
-      <StepperProvider>
-        <ScannerProvider>
-          <Stepper>
-            <ScannerResults />
+                <ScannerPresenter
+                  title="Vamos descobrir seu perfil de beleza?"
+                  message="Agora, realizaremos algumas perguntas sobre a sua pele para entendermos as características individuais da sua pele."
+                  img={imgSrc}
+                  buttonText="Começar"
+                />
 
-            <ScannerPresenter
-              title="Vamos descobrir seu perfil de beleza?"
-              message="Agora, realizaremos algumas perguntas sobre a sua pele para entendermos as características individuais da sua pele."
-              img={imgSrc}
-              buttonText="Começar"
-            />
-
-            <ScannerPresenter
-              title="Seu perfil de pele está pronto"
-              message="Através do nosso teste conseguimos definir a melhor rotina para o seu perfil de beleza. Aproveite os descontos e dicas."
-              img={imgSrc}
-              buttonText="Acessar"
-            />
-          </Stepper>
-        </ScannerProvider>
-      </StepperProvider>
+                <ScannerPresenter
+                  title="Seu perfil de pele está pronto"
+                  message="Através do nosso teste conseguimos definir a melhor rotina para o seu perfil de beleza. Aproveite os descontos e dicas."
+                  img={imgSrc}
+                  buttonText="Acessar"
+                />
+              </Stepper>
+            </ScannerProvider>
+          </StepperProvider>
+        </SkeletonElement>
+      </div>
     </>
   )
 }
