@@ -59,7 +59,11 @@ export function QuantitySelector({
 
   return (
     <div className="quantity-selector">
-      <Text tag="p" className="quantity-selector__label">
+      <Text
+        tag="p"
+        className="quantity-selector__label"
+        data-store-quantity-selector-label
+      >
         Quantidade
       </Text>
       <UIQuantitySelector
