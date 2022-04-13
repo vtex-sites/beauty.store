@@ -6,29 +6,41 @@ import Button from 'src/components/ui/Button'
 
 import Text from '../Text'
 
-interface ScannerLinkProps {
-  networks: {
-    Linkedin?: boolean
-    Facebook?: boolean
-    Whatsapp?: boolean
-    Pinterest: boolean
-    Email?: boolean
-  }
+type NetworkData = {
+  active: boolean
+  width: number
+  height: number
+  link: string
+  label: string
 }
 
-function SocialNetwork({ networks }: PropsWithChildren<ScannerLinkProps>) {
+interface ScannerLinkProps {
+  networks?: [NetworkData]
+}
+
+function SocialNetwork({ networks = [] }: PropsWithChildren<ScannerLinkProps>) {
   return (
     <section className="social-network">
       <Text tag="p" className="social-network__label">
         Compartilhe
       </Text>
       <div className="social-network__links">
-        <a href="/">
-          <Button
-            iconPosition="left"
-            icon={<Icon name="ShareFacebook" width={32} height={31} />}
-          />
-        </a>
+        {networks.map((network) => {
+          return (
+            <a href={network.link} key={network.label}>
+              <Button
+                iconPosition="left"
+                icon={
+                  <Icon
+                    name={`${network.label}Share`}
+                    width={network.width}
+                    height={network.height}
+                  />
+                }
+              />
+            </a>
+          )
+        })}
       </div>
     </section>
   )

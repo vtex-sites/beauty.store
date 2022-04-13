@@ -5,7 +5,7 @@
   max-width: 1082px;
   padding: 0 var(--space-3);
   margin: 0 auto;
-  margin-top: var(--space-3);
+  margin-top: var(--space-5);
 
   &__title {
     margin-bottom: var(--space-3);
@@ -35,7 +35,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-6);
-  overflow-x: scroll;
+  overflow: hidden;
+
+  @include media("<=notebook") {
+    overflow-x: scroll;
+  }
 
   &__link {
     padding: var(--space-0) var(--space-3);

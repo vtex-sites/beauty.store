@@ -16,6 +16,7 @@ import type {
 } from '@generated/graphql'
 import { ITEMS_PER_SECTION } from 'src/constants'
 import ProductDescription from 'src/components/sections/ProductDescription'
+import NavbarSpacer from 'src/components/common/NavbarSpacer'
 
 export type Props = PageProps<
   ProductPageQueryQuery,
@@ -98,7 +99,7 @@ function Page(props: Props) {
         If needed, wrap your component in a <Section /> component
         (not the HTML tag) before rendering it here.
       */}
-
+      <NavbarSpacer />
       <ProductDetails product={product} />
       <ProductDescription product={product} />
 

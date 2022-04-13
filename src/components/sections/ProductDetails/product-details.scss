@@ -18,6 +18,12 @@
     }
   }
 
+  .container {
+    @include media(">=notebook") {
+      padding-bottom: var(--space-8);
+    }
+  }
+
   @include media("<=notebook") {
     background-color: #F2F2F2;
   }

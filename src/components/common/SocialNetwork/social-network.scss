@@ -1,33 +1,40 @@
-.scanner-link {
-  align-items: center;
-  border-bottom: 1px solid var(--color-neutral-3);
-  border-top: 1px solid var(--color-neutral-3);
+.social-network {
+  margin-top: var(--space-4);
   display: flex;
-  height: 63px;
-  justify-content: space-between;
-  margin: var(--space-5) 0;
-  max-width: 308px;
+  align-items: center;
 
-  p {
-    color: var(--color-secondary-3);
-    font-size: 16px;
-    font-weight: 700;
+  &__label {
+    color: var(--color-neutral-9);
+    font-size: 14px;
+    line-height: 16px;
     letter-spacing: -0.02em;
-    line-height: 19px;
+    margin-right: var(--space-2);
   }
 
-  span {
-    color: var(--color-neutral-6);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-  [data-store-button] {
-    --tap-min-size: 38px;
+    a {
+      display: block;
+      width: max-content;
+      margin-right: var(--space-2);
+    }
 
-    max-width: 38px;
-    background-color: var(--color-tertiary-3);
-    cursor: pointer;
+    button[data-store-button] {
+      background: unset;
+      border: 1px solid var(--color-light-neutral-0);
+      cursor: pointer;
+      min-height: unset;
+      opacity: 0.5;
+      padding: 7px 9px;
+      transition: opacity 0.2s;
+      min-height: 32px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }

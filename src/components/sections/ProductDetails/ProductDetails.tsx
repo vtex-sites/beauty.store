@@ -19,6 +19,7 @@ import SkuSelector from 'src/components/ui/SkuSelector'
 import ScannerLink from 'src/components/common/ScannerLink'
 
 import Section from '../../common/Section'
+import SocialNetwork from 'src/components/common/SocialNetwork'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
@@ -27,6 +28,44 @@ interface Props {
 function ProductDetails({ product: staleProduct }: Props) {
   const { currency } = useSession()
   const [addQuantity, setAddQuantity] = useState(1)
+
+  const socialNetworks = [
+    {
+      active: true,
+      width: 14,
+      height: 18,
+      link: '/',
+      label: 'Pinterest',
+    },
+    {
+      active: true,
+      width: 16,
+      height: 16,
+      link: '/',
+      label: 'Instagram',
+    },
+    {
+      active: true,
+      width: 18,
+      height: 18,
+      link: '/',
+      label: 'Whatsapp',
+    },
+    {
+      active: true,
+      width: 14,
+      height: 18,
+      link: '/',
+      label: 'Pinterest',
+    },
+    {
+      active: true,
+      width: 16,
+      height: 12,
+      link: '/',
+      label: 'Email',
+    },
+  ]
 
   // Stale while revalidate the product for fetching the new price etc
   const { data, isValidating } = useProduct(staleProduct.id, {
@@ -195,6 +234,8 @@ function ProductDetails({ product: staleProduct }: Props) {
                   Comprar
                 </BuyButton>
               )}
+
+              <SocialNetwork networks={socialNetworks} />
             </section>
           </section>
         </section>
