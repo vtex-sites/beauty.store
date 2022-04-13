@@ -39,6 +39,7 @@ function SocialNetwork({
           return (
             <a href={network.link} key={network.label}>
               <Button
+                aria-label={`Compartilhe para o ${network.label}`}
                 iconPosition="left"
                 icon={
                   <Icon

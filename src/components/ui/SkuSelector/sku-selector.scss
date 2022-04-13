@@ -23,12 +23,11 @@
 
 [data-store-sku-selector] {
   display: flex;
-  flex-wrap: wrap;
-  font-size: var(--text-size-1);
-  column-gap: var(--space-1);
+  flex-flow: column wrap;
   row-gap: var(--space-1);
+  column-gap: var(--space-1);
   margin-top: var(--space-3);
-  flex-direction: column;
+  font-size: var(--text-size-1);
 
   [data-sku-selector-label] {
     width: 100%;
@@ -43,7 +42,7 @@
 
     &__name {
       margin-bottom: var(--space-0);
-      color: var(--color-neutral-9);
+      color: var(--color-neutral-7);
     }
   }
 
@@ -59,20 +58,20 @@
     margin-right: 12px;
 
     label {
+      border: 1px solid #e5e5e5;
       border-radius: 100%;
-      border: 1px solid #E5E5E5;
     }
   }
 
   [data-store-radio-option] {
     position: relative;
-    width: var(--space-7);
     display: block;
+    width: var(--space-7);
 
     span {
-      text-align: center;
-      color: var(--color-neutral-9);
       margin-top: var(--space-0);
+      color: var(--color-neutral-7);
+      text-align: center;
     }
 
     input {
@@ -107,10 +106,10 @@
             position: absolute;
             width: var(--border-width-0);
             height: 160%;
+            content: "";
             background-color: var(--color-border-input-disabled);
             transform: rotate(45deg);
             transform-origin: center;
-            content: "";
           }
         }
       }
@@ -127,8 +126,8 @@
       width: var(--space-6);
       height: var(--space-6);
       border-radius: var(--border-radius-small);
-      transform-origin: center center;
       transition: transform .2s ease;
+      transform-origin: center center;
     }
 
     input {

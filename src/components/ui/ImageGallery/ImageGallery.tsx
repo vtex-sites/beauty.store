@@ -58,8 +58,8 @@ const ImageGallery = ({ images }: Props) => {
                 loading="eager"
                 src={image.url}
                 alt={image.alternateName}
-                width={71}
-                height={71}
+                width={72}
+                height={72}
               />
             </SwiperSlide>
           ))}

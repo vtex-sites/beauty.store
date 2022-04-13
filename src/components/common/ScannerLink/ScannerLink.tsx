@@ -22,6 +22,7 @@ function ScannerLink({ promotion }: PropsWithChildren<ScannerLinkProps>) {
       </div>
       <Link to="/scanner">
         <Button
+          aria-label="Faça seu scanner facial"
           iconPosition="left"
           icon={<Icon name="ArrowRightWhite" width={18} height={18} />}
         />

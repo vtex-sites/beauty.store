@@ -128,8 +128,8 @@ function SkuSelector({
                     <Image
                       src={option.src}
                       alt={option.alt}
-                      width={20}
-                      height={20}
+                      width={49}
+                      height={49}
                       loading="lazy"
                     />
                   )}

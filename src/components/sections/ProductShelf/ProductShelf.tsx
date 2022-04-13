@@ -18,7 +18,7 @@ function ProductShelf({ title, ...variables }: ProductShelfProps) {
 
   return (
     <section className="page__section-shelf">
-      {title && <h4 className="product-shelf__title">{title}</h4>}
+      {title && <h3 className="product-shelf__title">{title}</h3>}
 
       <Container>
         <ProductShelfSkeleton loading={products === undefined}>
