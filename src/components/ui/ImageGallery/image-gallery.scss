@@ -44,7 +44,7 @@
     transform: translateY(-50%);
 
     &-fill {
-      background-color: #eba47a;
+      background-color: var(--color-secondary-3);
       border-radius: 20px;
     }
   }
@@ -67,7 +67,7 @@
       border-radius: 100px;
 
       &-thumb-active {
-        border: 2px solid #eba47a;
+        border: 2px solid var(--color-secondary-3);
       }
 
       img {
