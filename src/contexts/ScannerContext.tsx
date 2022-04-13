@@ -6,6 +6,7 @@ interface ScannerContextValue {
   addSelectedOption: (selectedOption: SelectedOption) => void
   selectedProducts: any[]
   toggleSelectedProduct: (selectedProduct: any) => void
+  clearSelectedProducts: () => void
 }
 
 interface ScannerProviderProps {
@@ -55,6 +56,8 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
     []
   )
 
+  const clearSelectedProducts = useCallback(() => setSelectedProducts([]), [])
+
   return (
     <ScannerContext.Provider
       value={{
@@ -62,6 +65,7 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
         addSelectedOption,
         selectedProducts,
         toggleSelectedProduct,
+        clearSelectedProducts,
       }}
     >
       {children}

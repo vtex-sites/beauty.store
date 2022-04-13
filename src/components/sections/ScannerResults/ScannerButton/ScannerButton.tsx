@@ -2,14 +2,16 @@ import React, { useCallback } from 'react'
 import { useCart as useSDKCart } from '@faststore/sdk'
 import { useCart } from 'src/sdk/cart/useCart'
 import { useScanner } from 'src/contexts/ScannerContext'
+import { useUI } from 'src/sdk/ui'
 
 const ScannerButton = () => {
   const { ...cart } = useSDKCart()
   const { setCart } = useCart()
-  const { selectedProducts } = useScanner()
+  const { selectedProducts, clearSelectedProducts } = useScanner()
+  const { openMinicart } = useUI()
 
   const handleAddToCartButtonClick = useCallback(() => {
-    if (selectedProducts) {
+    if (selectedProducts.length > 0) {
       const products = selectedProducts.map((node) => {
         return {
           id: node.id,
@@ -34,8 +36,11 @@ const ScannerButton = () => {
         ...cart,
         items: products,
       })
+
+      openMinicart()
+      clearSelectedProducts()
     }
-  }, [selectedProducts, cart, setCart])
+  }, [selectedProducts, cart, setCart, openMinicart, clearSelectedProducts])
 
   return (
     <button
