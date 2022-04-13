@@ -4,8 +4,8 @@ import React, { useCallback, createContext, useState, useContext } from 'react'
 interface ScannerContextValue {
   selectedOptions: SelectedOption[]
   addSelectedOption: (selectedOption: SelectedOption) => void
-  selectedProductsIds: string[]
-  toggleSelectedProductId: (selectedProductId: string) => void
+  selectedProducts: any[]
+  toggleSelectedProduct: (selectedProduct: any) => void
 }
 
 interface ScannerProviderProps {
@@ -25,7 +25,7 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
   const { children } = props
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOption[]>([])
-  const [selectedProductsIds, setSelectedProductsIds] = useState<string[]>([])
+  const [selectedProducts, setSelectedProducts] = useState<any[]>([])
 
   const addSelectedOption = useCallback(
     (selectedOption: SelectedOption) =>
@@ -36,19 +36,21 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
     []
   )
 
-  const toggleSelectedProductId = useCallback(
-    (selectedProductId: string) =>
-      setSelectedProductsIds((oldSelectedProductsIds) => {
-        const existentProductId =
-          oldSelectedProductsIds.includes(selectedProductId)
+  const toggleSelectedProduct = useCallback(
+    (selectedProduct: any) =>
+      setSelectedProducts((oldSelectedProducts) => {
+        const existentProduct = oldSelectedProducts.find(
+          (oldSelectedProduct) => oldSelectedProduct.sku === selectedProduct.sku
+        )
 
-        if (existentProductId) {
-          return oldSelectedProductsIds.filter(
-            (oldSelectedProductId) => oldSelectedProductId !== selectedProductId
+        if (existentProduct) {
+          return oldSelectedProducts.filter(
+            (oldSelectedProduct) =>
+              oldSelectedProduct.sku !== selectedProduct.sku
           )
         }
 
-        return [...oldSelectedProductsIds, selectedProductId]
+        return [...oldSelectedProducts, selectedProduct]
       }),
     []
   )
@@ -58,8 +60,8 @@ export const ScannerProvider = (props: ScannerProviderProps) => {
       value={{
         selectedOptions,
         addSelectedOption,
-        selectedProductsIds,
-        toggleSelectedProductId,
+        selectedProducts,
+        toggleSelectedProduct,
       }}
     >
       {children}

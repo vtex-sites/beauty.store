@@ -3,35 +3,41 @@ import { useScanner } from 'src/contexts/ScannerContext'
 import { Image } from 'src/components/ui/Image'
 
 interface ScannerProductProps {
-  product: {
-    name: string
-    complementName: string | null
-    sku: string
+  // product: {
+  //   name: string
+  //   complementName: string | null
+  //   sku: string
 
-    image: {
-      url: string
-      alternateName: string
-    }
-  }
+  //   image: {
+  //     url: string
+  //     alternateName: string
+  //   }
+  // }
+
+  product: any
 }
 
 const ScannerProduct = (props: ScannerProductProps) => {
   const { product } = props
-  const { name, complementName, sku, image } = product
+  const {
+    isVariantOf: { name, complementName },
+    sku,
+    image,
+  } = product
 
-  const { toggleSelectedProductId, selectedProductsIds } = useScanner()
+  const { toggleSelectedProduct, selectedProducts } = useScanner()
 
   const position = useMemo(
     () =>
-      selectedProductsIds.findIndex(
-        (selectedProductId) => selectedProductId === sku
+      selectedProducts.findIndex(
+        (selectedProduct) => selectedProduct.sku === sku
       ),
-    [selectedProductsIds, sku]
+    [selectedProducts, sku]
   )
 
   const handleCheckButtonClick = useCallback(
-    () => toggleSelectedProductId(sku),
-    [toggleSelectedProductId, sku]
+    () => toggleSelectedProduct(product),
+    [toggleSelectedProduct, product]
   )
 
   return (
@@ -39,8 +45,8 @@ const ScannerProduct = (props: ScannerProductProps) => {
       <div className="scanner-product__image-wrapper">
         <Image
           className="scanner-product__image"
-          src={image.url}
-          alt={image.alternateName}
+          src={image[0].url}
+          alt={image[0].alternateName}
           width={170}
           height={170}
         />

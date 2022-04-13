@@ -1,19 +1,16 @@
-import React, { useCallback } from 'react'
-import { useCart as useSDKCart } from '@faststore/sdk'
+import React from 'react'
 import Container from 'src/components/common/Container'
 import NavbarSpacer from 'src/components/common/NavbarSpacer'
 import { useWidescreen } from 'src/sdk/ui/useWidescreen'
 import { useProductsQuery } from 'src/sdk/product/useProductsQuery'
-import { useCart } from 'src/sdk/cart/useCart'
 import { useScanner } from 'src/contexts/ScannerContext'
 
 import ScannerProduct from './ScannerProduct'
+import ScannerButton from './ScannerButton'
 
 const ScannerResults = () => {
   const { isWidescreen } = useWidescreen()
   const { selectedOptions } = useScanner()
-  const { ...cart } = useSDKCart()
-  const { setCart } = useCart()
 
   const { data, loading } = useProductsQuery({
     first: 4,
@@ -27,35 +24,6 @@ const ScannerResults = () => {
       },
     ],
   })
-
-  const handleAddToCartButtonClick = useCallback(() => {
-    if (data) {
-      const products = data.edges.map(({ node }) => {
-        return {
-          id: node.id,
-
-          itemOffered: {
-            brand: node.brand,
-            gtin: node.gtin,
-            image: node.image,
-            isVariantOf: node.isVariantOf,
-            name: node.name,
-            sku: node.sku,
-          },
-
-          quantity: 1,
-          seller: { identifier: '1' },
-          listPrice: node.offers.offers[0].listPrice,
-          price: node.offers.offers[0].price,
-        }
-      }, {})
-
-      setCart({
-        ...cart,
-        items: products,
-      })
-    }
-  }, [data, setCart, cart])
 
   return (
     <>
@@ -75,18 +43,7 @@ const ScannerResults = () => {
                 ) : data ? (
                   data.edges.length > 0 &&
                   data.edges.map(({ node }, index) => {
-                    const {
-                      isVariantOf: { name, complementName },
-                      sku,
-                      image,
-                    } = node
-
-                    return (
-                      <ScannerProduct
-                        key={index}
-                        product={{ name, complementName, sku, image: image[0] }}
-                      />
-                    )
+                    return <ScannerProduct key={index} product={node} />
                   })
                 ) : (
                   <p className="scanner-results__error">
@@ -95,13 +52,7 @@ const ScannerResults = () => {
                 )}
               </div>
 
-              <button
-                className="scanner-results__button"
-                type="button"
-                onClick={handleAddToCartButtonClick}
-              >
-                Adicionar ao carrinho
-              </button>
+              <ScannerButton />
             </div>
           </div>
         </Container>
