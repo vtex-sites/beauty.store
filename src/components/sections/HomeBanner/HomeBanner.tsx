@@ -26,7 +26,7 @@ const HomeBanner = ({ banner }: HomeBannerItems) => {
   return (
     <>
       <Section className="home-banner">
-        <SkeletonElement type="image" loading={isWidescreen == null} shimmer>
+        <SkeletonElement type="full" loading={isWidescreen === null} shimmer>
           <div className="home-banner-container">
             <Banner>
               <BannerImage>
