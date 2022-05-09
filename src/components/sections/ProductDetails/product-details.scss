@@ -71,6 +71,10 @@
   margin: 0 auto;
   overflow: hidden;
 
+  @include media("<=notebook") {
+    max-width: 244px;
+  }
+
   [data-gatsby-image-wrapper] {
     @include media(">=tablet") {
       border-radius: var(--border-radius-default);
@@ -86,7 +90,10 @@
 
 .product-details__content {
   margin-top: var(--space-3);
-  .product-details__description .title-subsection { margin-bottom: var(--space-3); }
+
+  .product-details__description .title-subsection {
+    margin-bottom: var(--space-3);
+  }
 }
 
 .product-details__title {
