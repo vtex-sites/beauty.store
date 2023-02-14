@@ -1421,10 +1421,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faststore/api@^1.12.29":
-  version "1.12.29"
-  resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.12.29.tgz#c49d6e0876f9263aff66fa317b073023324bdd1f"
-  integrity sha512-rhz+R957MpHPfMYOmBgwC57R62qfnh7lkEUbTWmZFkrcqW1p/fasOW+j0bpfwJRNXjLTfBjiHePfuCtbFKMMvA==
+"@faststore/api@^1.12.35":
+  version "1.12.35"
+  resolved "https://registry.yarnpkg.com/@faststore/api/-/api-1.12.35.tgz#790c83677bce183c1fcc62ac9d2e3541dd580990"
+  integrity sha512-wWUIQOZK19t3niyOsGM415vStMxf3gLsqgsZ9PW6PIP3Z9upjcN25sZLarVCR0oQKTPjb/+mJSItf8PTUcITYg==
   dependencies:
     "@graphql-tools/schema" "^8.2.0"
     "@rollup/plugin-graphql" "^1.0.0"
@@ -15519,6 +15519,8 @@ ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
   integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 ssri@^8.0.1:
   version "8.0.1"

@@ -423,6 +423,14 @@ export type QueryShippingArgs = {
   postalCode: Scalars['String']
 }
 
+/** Search result. */
+export type SearchMetadata = {
+  /** Indicates if the search term was misspelled. */
+  isTermMisspelled: Scalars['Boolean']
+  /** Logical operator used to run the search. */
+  logicalOperator: Scalars['String']
+}
+
 /** Shipping Simulation information. */
 export type ShippingData = {
   /** Address information. */
@@ -857,6 +865,8 @@ export type StoreReviewRating = {
 export type StoreSearchResult = {
   /** Array of search result facets. */
   facets: Array<StoreFacet>
+  /** Search result metadata. Additional data can be used to send analytics events. */
+  metadata: Maybe<SearchMetadata>
   /** Search result products. */
   products: StoreProductConnection
   /** Search result suggestions. */
@@ -1011,6 +1021,11 @@ export type ProductDetailsFragment_ProductFragment = {
   }>
 }
 
+export type SearchEvent_MetadataFragment = {
+  isTermMisspelled: boolean
+  logicalOperator: string
+}
+
 export type ProductGalleryQueryQueryVariables = Exact<{
   first: Scalars['Int']
   after: Scalars['String']
@@ -1042,6 +1057,7 @@ export type ProductGalleryQueryQuery = {
           max: { selected: number; absolute: number }
         }
     >
+    metadata: { isTermMisspelled: boolean; logicalOperator: string } | null
   }
 }
 
@@ -1300,6 +1316,8 @@ export type SearchSuggestionsQueryQuery = {
         }
       }>
     }
+    products: { pageInfo: { totalCount: number } }
+    metadata: { isTermMisspelled: boolean; logicalOperator: string } | null
   }
 }
 
