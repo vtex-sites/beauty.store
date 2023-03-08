@@ -52,10 +52,18 @@
     letter-spacing: 0.256px;
     white-space: nowrap;
 
+    &:visited {
+      color: var(--color-neutral-4);
+    }
+
     &--active {
       color: var(--color-neutral-0);
       background-color: var(--color-secondary-4);
       border-radius: var(--border-radius-regular);
+
+      &:visited {
+        color: var(--color-neutral-0);
+      }
     }
   }
 }

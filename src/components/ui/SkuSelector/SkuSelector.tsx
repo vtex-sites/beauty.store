@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RadioGroup, RadioOption } from '@faststore/ui'
 import React, { useState } from 'react'
-import { Image } from 'src/components/ui/Image'
 import type { ChangeEventHandler } from 'react'
 import Text from 'src/components/common/Text'
 
@@ -125,8 +124,8 @@ function SkuSelector({
                     </span>
                   )}
                   {variant === 'image' && 'src' in option && (
-                    <Image
-                      src={option.src}
+                    <img
+                      src={option.src.replace('http:', 'https:')}
                       alt={option.alt}
                       width={49}
                       height={49}
