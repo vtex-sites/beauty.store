@@ -134,7 +134,7 @@ A quick look at the top-level files and directories you'll see in a NextJS proje
 
 14. **`babel.config.js`**: [Babel configurations](https://babeljs.io/docs/en/configuration#babelrcjson) for you app. This is where you can change the targeted browsers.
 
-15. **`cypress`**: End to End(e2e) tests using Cypress. Most of the scenarios are covered here. Add your custom flows to avoid regressions
+15. **`cypress`**: End to End(e2e) tests using Cypress. Most of the scenarios are covered here. Add your custom flows to avoid regressions.
 
 16. **`cypress.json`**: [Cypress configuration file](https://docs.cypress.io/guides/references/configuration)
 
