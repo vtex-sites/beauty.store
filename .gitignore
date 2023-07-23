@@ -52,7 +52,6 @@ jspm_packages/
 .env*
 
 # nextjs files
-.next
 .cache
 
 # Mac files

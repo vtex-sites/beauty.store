@@ -1,0 +1,94 @@
+{
+  "version": 3,
+  "pages404": true,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "locale": false,
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [
+    {
+      "page": "/[slug]/p",
+      "regex": "^/([^/]+?)/p(?:/)?$",
+      "routeKeys": { "slug": "slug" },
+      "namedRegex": "^/(?<slug>[^/]+?)/p(?:/)?$"
+    },
+    {
+      "page": "/[...slug]",
+      "regex": "^/(.+?)(?:/)?$",
+      "routeKeys": { "slug": "slug" },
+      "namedRegex": "^/(?<slug>.+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/404",
+      "regex": "^/404(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/404(?:/)?$"
+    },
+    {
+      "page": "/500",
+      "regex": "^/500(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/500(?:/)?$"
+    },
+    {
+      "page": "/account",
+      "regex": "^/account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account(?:/)?$"
+    },
+    {
+      "page": "/checkout",
+      "regex": "^/checkout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/checkout(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/s",
+      "regex": "^/s(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/s(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/",
+      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/index.json$"
+    },
+    {
+      "page": "/[slug]/p",
+      "routeKeys": { "slug": "slug" },
+      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/([^/]+?)/p\\.json$",
+      "namedDataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(?<slug>[^/]+?)/p\\.json$"
+    },
+    {
+      "page": "/[...slug]",
+      "routeKeys": { "slug": "slug" },
+      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(.+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(?<slug>.+?)\\.json$"
+    }
+  ],
+  "i18n": { "locales": ["en-US"], "defaultLocale": "en-US" },
+  "rewrites": []
+}

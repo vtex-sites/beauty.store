@@ -1,0 +1,160 @@
+{
+  "pageProps": {
+    "id": "ad2fd81d-a53c-4281-8d01-a4fc2f274db3",
+    "name": "Home",
+    "type": "home",
+    "status": "published",
+    "versionId": "1b18fbcf-ce08-4ead-9011-364921e725c3",
+    "versionStatus": "published",
+    "sections": [
+      {
+        "id": "1666117510381",
+        "name": "Hero",
+        "data": {
+          "link": { "text": "See Offers", "url": "/technology" },
+          "image": {
+            "src": "https://storeframework.vtexassets.com/assets/vtex.file-manager-graphql/images/1e46eee3-5cd9-4911-8a81-501fe9c744fe___57d4662d50c07e760e6e74d8da282508.jpg",
+            "alt": "technology banner"
+          },
+          "title": "20% off on first purchase",
+          "subtitle": "At FastStore you can shop the best tech of 2023. Enjoy and get 10% off on your first purchase!",
+          "linkText": "See ",
+          "imageAlt": "office",
+          "imageSrc": "https://storeframework.vtexassets.com/assets/vtex.file-manager-graphql/images/17555ae3-3405-4be6-a19a-e76997a333ea___1fa52ed2b11886ffe215bab9588c345d.jpg",
+          "colorVariant": "main",
+          "variant": "primary"
+        }
+      },
+      {
+        "id": "1684175260112",
+        "name": "Incentives",
+        "data": {
+          "incentives": [
+            {
+              "title": "Buy online",
+              "firstLineText": "Get Free Shipping",
+              "icon": "Truck",
+              "alt": "Truck"
+            },
+            {
+              "title": "Free return",
+              "firstLineText": "30 days to return",
+              "icon": "Calendar",
+              "alt": "Calendar"
+            },
+            {
+              "title": "Gift cards",
+              "firstLineText": "$20/$30/$40",
+              "icon": "Gift",
+              "alt": "Gift"
+            },
+            {
+              "title": "Physical Stores",
+              "firstLineText": "+40 Stores in Brazil",
+              "icon": "Storefront",
+              "alt": "Store Front"
+            },
+            {
+              "title": "Buy online",
+              "firstLineText": "Get Free Shipping",
+              "icon": "ShieldCheck",
+              "alt": "Shield Check"
+            }
+          ]
+        }
+      },
+      {
+        "id": "1666117582907",
+        "name": "ProductShelf",
+        "data": {
+          "first": 5,
+          "after": "0",
+          "sort": "score_desc",
+          "selectedFacets": [{ "key": "productClusterIds", "value": "140" }],
+          "productCardConfiguration": {
+            "showDiscountBadge": true,
+            "bordered": true,
+            "showBuyButton": true,
+            "buyButtonTitle": "Buy"
+          },
+          "title": "Most Wanted"
+        }
+      },
+      {
+        "id": "1666117593431",
+        "name": "ProductTiles",
+        "data": {
+          "first": 3,
+          "after": "0",
+          "sort": "score_desc",
+          "selectedFacets": [{ "key": "productClusterIds", "value": "142" }],
+          "title": "Just Arrived!"
+        }
+      },
+      {
+        "id": "1666117962631",
+        "name": "BannerText",
+        "data": {
+          "link": { "text": "Check it out now!", "url": "/office" },
+          "actionLabel": "Check it out now!",
+          "actionPath": "/office",
+          "caption": "Enjoy and get 10% off on your first purchase!!",
+          "title": "The sun has set out Summer Sale! Save up to 50% off. Don't miss out!",
+          "colorVariant": "light",
+          "variant": "primary"
+        }
+      },
+      {
+        "id": "1666117906636",
+        "name": "ProductShelf",
+        "data": {
+          "first": 5,
+          "after": "0",
+          "sort": "score_desc",
+          "selectedFacets": [{ "key": "productClusterIds", "value": "142" }],
+          "productCardConfiguration": {
+            "showDiscountBadge": true,
+            "bordered": true,
+            "showBuyButton": true,
+            "buyButtonTitle": "Buy"
+          },
+          "title": "Deals & Promotions"
+        }
+      },
+      {
+        "id": "1666294301813",
+        "name": "Newsletter",
+        "data": {
+          "icon": { "alt": "Envelop", "icon": "Envelop" },
+          "title": "Get News and Special Offers!",
+          "description": "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here.",
+          "emailInputLabel": "Your Email",
+          "displayNameInput": true,
+          "nameInputLabel": "Your Name",
+          "subscribeButtonLabel": "Subscribe",
+          "subscribeButtonLoadingLabel": "Loading...",
+          "card": false,
+          "toastSubscribe": {
+            "title": "Hooray!",
+            "message": "Thank for your subscription.",
+            "icon": "CircleWavyCheck"
+          },
+          "toastSubscribeError": {
+            "title": "Oops.",
+            "message": "Something went wrong. Please Try again.",
+            "icon": "CircleWavyWarning"
+          },
+          "privacyPolicy": "{\"blocks\":[{\"key\":\"clnfu\",\"text\":\"By subscribing to our newsletter you agree to to our Privacy Policy\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[{\"offset\":53,\"length\":14,\"key\":0}],\"data\":{}}],\"entityMap\":{\"0\":{\"type\":\"LINK\",\"mutability\":\"MUTABLE\",\"data\":{\"url\":\"/\"}}}}"
+        }
+      }
+    ],
+    "settings": {
+      "seo": {
+        "slug": "/",
+        "title": "FastStore",
+        "description": "A beautifuly designed store"
+      }
+    }
+  },
+  "__N_SSG": true
+}

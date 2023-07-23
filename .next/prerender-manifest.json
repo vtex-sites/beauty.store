@@ -1,0 +1,30 @@
+{
+  "version": 3,
+  "routes": {
+    "/en-US": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/RbPLRB-bxWyOpA1z-lgI0/index.json"
+    }
+  },
+  "dynamicRoutes": {
+    "/[...slug]": {
+      "routeRegex": "^/(.+?)(?:/)?$",
+      "dataRoute": "/_next/data/RbPLRB-bxWyOpA1z-lgI0/[...slug].json",
+      "fallback": null,
+      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(.+?)\\.json$"
+    },
+    "/[slug]/p": {
+      "routeRegex": "^/([^/]+?)/p(?:/)?$",
+      "dataRoute": "/_next/data/RbPLRB-bxWyOpA1z-lgI0/[slug]/p.json",
+      "fallback": null,
+      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/([^/]+?)/p\\.json$"
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "21026a2a293f8ea7e3ed1afba61b969b",
+    "previewModeSigningKey": "12e4f3b0e5b262a2f7e223bff332e8ec85c47d51d874e265f63c37324783764d",
+    "previewModeEncryptionKey": "9f4fe5aa371b1badfb714fbab911faec0e48dfceafc04c851720bb9b12f1137c"
+  }
+}

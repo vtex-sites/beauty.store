@@ -1,0 +1,18 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/api/graphql": "pages/api/graphql.js",
+  "/api/health/live": "pages/api/health/live.js",
+  "/api/health/ready": "pages/api/health/ready.js",
+  "/api/preview": "pages/api/preview.js",
+  "/[...slug]": "pages/[...slug].js",
+  "/": "pages/index.js",
+  "/[slug]/p": "pages/[slug]/p.js",
+  "/en-US/account": "pages/en-US/account.html",
+  "/en-US/login": "pages/en-US/login.html",
+  "/en-US/500": "pages/en-US/500.html",
+  "/en-US/404": "pages/en-US/404.html",
+  "/en-US/s": "pages/en-US/s.html",
+  "/en-US/checkout": "pages/en-US/checkout.html"
+}
