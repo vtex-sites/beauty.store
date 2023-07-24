@@ -1,0 +1,25 @@
+{
+  "pageProps": {
+    "collection": {
+      "seo": {
+        "title": "Computer and Software",
+        "description": "Get in touch with tomorrows world today"
+      },
+      "breadcrumbList": {
+        "itemListElement": [
+          {
+            "item": "/computer---software",
+            "name": "Computer & Software",
+            "position": 1
+          }
+        ]
+      },
+      "meta": {
+        "selectedFacets": [
+          { "key": "category-1", "value": "computer---software" }
+        ]
+      }
+    }
+  },
+  "__N_SSG": true
+}

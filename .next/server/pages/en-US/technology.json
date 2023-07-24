@@ -1,0 +1,16 @@
+{
+  "pageProps": {
+    "collection": {
+      "seo": { "title": "Technology", "description": "Technology" },
+      "breadcrumbList": {
+        "itemListElement": [
+          { "item": "/technology", "name": "Technology", "position": 1 }
+        ]
+      },
+      "meta": {
+        "selectedFacets": [{ "key": "category-1", "value": "technology" }]
+      }
+    }
+  },
+  "__N_SSG": true
+}

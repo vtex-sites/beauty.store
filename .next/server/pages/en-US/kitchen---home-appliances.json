@@ -1,0 +1,25 @@
+{
+  "pageProps": {
+    "collection": {
+      "seo": {
+        "title": "Home Appliances",
+        "description": "Stay home with style"
+      },
+      "breadcrumbList": {
+        "itemListElement": [
+          {
+            "item": "/kitchen---home-appliances",
+            "name": "Kitchen & Home Appliances",
+            "position": 1
+          }
+        ]
+      },
+      "meta": {
+        "selectedFacets": [
+          { "key": "category-1", "value": "kitchen---home-appliances" }
+        ]
+      }
+    }
+  },
+  "__N_SSG": true
+}

@@ -1,0 +1,17 @@
+{
+  "pageProps": {
+    "collection": {
+      "seo": {
+        "title": "Office",
+        "description": "For the office and home office"
+      },
+      "breadcrumbList": {
+        "itemListElement": [
+          { "item": "/office", "name": "Office", "position": 1 }
+        ]
+      },
+      "meta": { "selectedFacets": [{ "key": "category-1", "value": "office" }] }
+    }
+  },
+  "__N_SSG": true
+}

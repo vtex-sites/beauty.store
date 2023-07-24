@@ -3,8 +3,8 @@ self.__BUILD_MANIFEST = {
   devFiles: [],
   ampDevFiles: [],
   lowPriorityFiles: [
-    'static/RbPLRB-bxWyOpA1z-lgI0/_buildManifest.js',
-    'static/RbPLRB-bxWyOpA1z-lgI0/_ssgManifest.js',
+    'static/jCZnoPbiigrxqbKpXdQGJ/_buildManifest.js',
+    'static/jCZnoPbiigrxqbKpXdQGJ/_ssgManifest.js',
   ],
   rootMainFiles: [],
   pages: {

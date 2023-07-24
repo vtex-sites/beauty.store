@@ -74,19 +74,19 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/index.json$"
+      "dataRouteRegex": "^/_next/data/jCZnoPbiigrxqbKpXdQGJ/index.json$"
     },
     {
       "page": "/[slug]/p",
       "routeKeys": { "slug": "slug" },
-      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/([^/]+?)/p\\.json$",
-      "namedDataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(?<slug>[^/]+?)/p\\.json$"
+      "dataRouteRegex": "^/_next/data/jCZnoPbiigrxqbKpXdQGJ/([^/]+?)/p\\.json$",
+      "namedDataRouteRegex": "^/_next/data/jCZnoPbiigrxqbKpXdQGJ/(?<slug>[^/]+?)/p\\.json$"
     },
     {
       "page": "/[...slug]",
       "routeKeys": { "slug": "slug" },
-      "dataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(.+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/RbPLRB\\-bxWyOpA1z\\-lgI0/(?<slug>.+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/jCZnoPbiigrxqbKpXdQGJ/(.+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/jCZnoPbiigrxqbKpXdQGJ/(?<slug>.+?)\\.json$"
     }
   ],
   "i18n": { "locales": ["en-US"], "defaultLocale": "en-US" },
