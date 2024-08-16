@@ -4,13 +4,19 @@
   position: relative;
   width: 100%;
 
-  &__img {
-    width: 100%;
+  [data-store-banner] {
     height: 100%;
-    object-fit: cover;
+    padding: 0;
 
-    &-wrapper {
+    [data-banner-image] {
       height: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 
@@ -35,16 +41,43 @@
     > div {
       height: 100%;
     }
+  }
 
-    [data-store-skeleton-element] {
+  [data-store-skeleton-element] {
+    width: 100%;
+    height: 597px;
+
+    @media only screen and (min-width: 1400px) {
+      height: 840px;
+    }
+
+    @media only screen and (min-width: 1600px) {
+      height: 930px;
+    }
+
+    @media only screen and (min-width: 1800px) {
+      height: 1050px;
+    }
+
+    @media only screen and (min-width: 2000px) {
+      height: 1200px;
+    }
+
+    @media only screen and (min-width: 2400px) {
+      height: 1450px;
+    }
+
+    @media only screen and (max-width: 960px) {
+      height: 1300px;
+    }
+
+    @media only screen and (max-width: 380px) {
+      height: 745px;
+    }
+
+    [data-skeleton-element-content] {
       width: 100%;
       height: 100%;
-      padding: 8px;
-
-      [data-skeleton-element-content] {
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 }

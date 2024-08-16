@@ -1,15 +1,10 @@
-// @import "swiper/scss";
-// @import "swiper/scss/pagination";
-// @import "swiper/scss/navigation";
-// @import "swiper/scss/free-mode";
-// @import "swiper/scss/thumbs";
-
 .swiper-image-gallery {
   max-height: 680px;
 
   &.swiper-vertical {
     img {
-      max-width: 680px;
+      max-width: 100%;
+      object-fit: cover;
     }
   }
 

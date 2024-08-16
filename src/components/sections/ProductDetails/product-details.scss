@@ -49,6 +49,11 @@
   background: #ffffff;
   border-radius: 30px;
 
+  [data-store-quantity-selector] {
+    width: 7.18rem;
+    height: var(--space-6);
+  }
+
   @include media(">=notebook") {
     max-width: 501px;
   }
@@ -64,6 +69,11 @@
   position: relative;
   max-width: 680px;
   margin: 0 auto;
+  overflow: hidden;
+
+  @include media("<=notebook") {
+    max-width: 244px;
+  }
 
   [data-gatsby-image-wrapper] {
     @include media(">=tablet") {
@@ -80,7 +90,10 @@
 
 .product-details__content {
   margin-top: var(--space-3);
-  .product-details__description .title-subsection { margin-bottom: var(--space-3); }
+
+  .product-details__description .title-subsection {
+    margin-bottom: var(--space-3);
+  }
 }
 
 .product-details__title {
